@@ -1,0 +1,57 @@
+Company:
+- Contract agreement between Cleo and Aaron for company @Ikonnos
+- Determine company structure, DBA, LLC, Corp @Ikonnos
+- Plan milestones for app release @Ikonnos
+App Technical Spec:
+- Decide which frameworks to utilize @Ikonnos
+- Decide data storage method @Ikonnos
+Create Graphical Elements:
+- Top "Menu" button @Ikonnos
+- Top "New" button @Ikonnos
+- Top "Log" button @Ikonnos
+- Top "Back" button @Ikonnos
+- Splash Screen @Ikonnos
+- App icon @Ikonnos
+- PR Wall screen elements @Ikonnos
+- "PR Wall" button @Ikonnos
+- "My Body" button @Ikonnos
+- "WODs" button @Ikonnos
+- "Workouts" button @Ikonnos
+- "Moves" button @Ikonnos
+- Down arrow @Ikonnos
+- Unchanged line @Ikonnos
+- Up arrow @Ikonnos
+- "Share" button for My Body @Ikonnos
+- "Settings" Icon @Ikonnos
+- "Write new" Icon @Ikonnos
+- "Graph" icon @Ikonnos
+- Name element @Ikonnos
+- Date element @Ikonnos
+- "Other Documents" icon @Ikonnos
+Code Navigation Elements:
+- Design spec nav functionality from slider bar @Ikonnos
+- Design spec nav functionality for "Home" page @Ikonnos
+- Design spec nav functionality for "PR Wall" page @Ikonnos
+- Design spec nav functionality for "WODs" page @Ikonnos
+- Design spec nav functionality for "Workouts" page @Ikonnos
+- Design spec nav functionality for "Moves" page @Ikonnos
+- Create nav function for "Home" page from slider bar @Ikonnos
+- Create nav function for "PR Wall" page from slider bar @Ikonnos
+- Create nav function for "Wods" page from slider bar @Ikonnos
+- Create nav function for "Workouts" page from slider bar @Ikonnos
+- Create nav function for "Moves" page from slider bar @Ikonnos
+PR Wall Functionality:
+- Design spec functionality to display PR wall data @Ikonnos
+- Create functionality to display PR wall data @Ikonnos
+My Body Functionality:
+- Design spec functionality to display My Body data @Ikonnos
+- Create functionality to display My Body data @Ikonnos
+WODs Functionality:
+- Design spec functionality to display WODs data @Ikonnos
+- Create functionality to display WODs data @Ikonnos
+Workouts Functionality:
+- Design spec functionality to display Workouts data @Ikonnos
+- Create functionality to display Workouts data @Ikonnos
+Moves Functionality:
+- Design spec functionality to display Moves data @Ikonnos
+- Create spec functionality to display Moves data @Ikonnos
