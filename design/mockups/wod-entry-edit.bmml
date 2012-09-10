@@ -1,0 +1,79 @@
+<mockup version="1.0" skin="sketch" measuredW="1065" measuredH="587" mockupW="282" mockupH="510">
+  <controls>
+    <control controlID="129" controlTypeID="com.balsamiq.mockups::iPhone" x="783" y="77" w="282" h="510" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>topOnly</bgPattern>
+      </controlProperties>
+    </control>
+    <control controlID="130" controlTypeID="com.balsamiq.mockups::Label" x="891" y="188" w="-1" h="-1" measuredW="63" measuredH="21" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <text>Log%20WOD</text>
+      </controlProperties>
+    </control>
+    <control controlID="131" controlTypeID="com.balsamiq.mockups::PointyButton" x="990" y="185" w="42" h="-1" measuredW="50" measuredH="27" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Done</text>
+      </controlProperties>
+    </control>
+    <control controlID="132" controlTypeID="com.balsamiq.mockups::PointyButton" x="814" y="185" w="50" h="-1" measuredW="61" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Cancel</text>
+      </controlProperties>
+    </control>
+    <control controlID="133" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="815" y="219" w="213" h="-1" measuredW="215" measuredH="173" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <text>%5Cr%0A%5Cr%5Cr%5Cr%5Cr%5Cr%5Cr%5Cr%5Cr</text>
+      </controlProperties>
+    </control>
+    <control controlID="134" controlTypeID="com.balsamiq.mockups::Label" x="820" y="254" w="204" h="129" measuredW="549" measuredH="21" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>10066329</color>
+        <text>10-9-8-7-6-5-4-3-2-1%20reps%20of%20the%20triplet%3A%20Chest-to-bar%20pull-up%20Box%20jump%2C%2030%20inch%20box%20GHD%20sit-up</text>
+      </controlProperties>
+    </control>
+    <control controlID="135" controlTypeID="com.balsamiq.mockups::Label" x="820" y="227" w="110" h="23" measuredW="94" measuredH="21" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>10066329</color>
+        <text>Sunday%20120415</text>
+      </controlProperties>
+    </control>
+    <control controlID="136" controlTypeID="__group__" x="990" y="226" w="24" h="24" measuredW="24" measuredH="24" zOrder="7" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Icon" x="0" y="0" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="0" locked="false" isInGroup="136">
+          <controlProperties>
+            <color>16750848</color>
+            <icon>StarIcon%7Csmall</icon>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Icon" x="4" y="4" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="1" locked="false" isInGroup="136">
+          <controlProperties>
+            <color>16777215</color>
+            <icon>StarIcon%7Cxsmall</icon>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="138" controlTypeID="__group__" x="819" y="409" w="208" h="42" measuredW="208" measuredH="42" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties/>
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="208" h="42" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="138">
+          <controlProperties>
+            <borderStyle>roundedSolid</borderStyle>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="46" y="10" w="117" h="22" measuredW="59" measuredH="21" zOrder="1" locked="false" isInGroup="138">
+          <controlProperties>
+            <align>center</align>
+            <color>10066329</color>
+            <text>04/15/12</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>

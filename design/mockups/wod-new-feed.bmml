@@ -1,0 +1,224 @@
+<mockup version="1.0" skin="sketch" measuredW="1759" measuredH="686" mockupW="1530" mockupH="661">
+  <controls>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::StickyNote" x="1517" y="25" w="242" h="190" measuredW="109" measuredH="123" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>RSS%20Feed%20Required%20Elements%0A-%20Title%0A-%20Link%0A-%20Description%0A%20%0A1-%20Use%20Title%20as%20label%0A2-%20Keep%20the%20last%201%20week%20of%20WOD</text>
+      </controlProperties>
+    </control>
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::iPhone" x="229" y="101" w="282" h="510" measuredW="282" measuredH="510" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>topOnly</bgPattern>
+      </controlProperties>
+    </control>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::Label" x="320" y="212" w="-1" h="-1" measuredW="101" measuredH="21" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <text>New%20WOD%20Feed</text>
+      </controlProperties>
+    </control>
+    <control controlID="46" controlTypeID="com.balsamiq.mockups::PointyButton" x="436" y="209" w="42" h="-1" measuredW="50" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Done</text>
+      </controlProperties>
+    </control>
+    <control controlID="51" controlTypeID="com.balsamiq.mockups::PointyButton" x="260" y="209" w="50" h="-1" measuredW="61" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Cancel</text>
+      </controlProperties>
+    </control>
+    <control controlID="54" controlTypeID="__group__" x="260" y="398" w="77" h="41" measuredW="77" measuredH="41" zOrder="5" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="77" h="41" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="54">
+          <controlProperties>
+            <borderStyle>roundedSolid</borderStyle>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Icon" x="18" y="5" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="1" locked="false" isInGroup="54">
+          <controlProperties>
+            <icon>ContactIcon%7Cmedium</icon>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Icon" x="46" y="5" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="2" locked="false" isInGroup="54">
+          <controlProperties>
+            <icon>PlusIcon%7Cxsmall</icon>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="56" controlTypeID="com.balsamiq.mockups::Label" x="271" y="340" w="-1" h="-1" measuredW="189" measuredH="21" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>10066329</color>
+        <text>http%3A//my.gym.workout.feed.com</text>
+      </controlProperties>
+    </control>
+    <control controlID="58" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="260" y="331" w="218" h="-1" measuredW="215" measuredH="39" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="60" controlTypeID="com.balsamiq.mockups::Paragraph" x="270" y="310" w="43" h="21" measuredW="200" measuredH="140" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>14</size>
+        <text>Link</text>
+      </controlProperties>
+    </control>
+    <control controlID="61" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="260" y="265" w="218" h="-1" measuredW="215" measuredH="39" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="62" controlTypeID="com.balsamiq.mockups::Paragraph" x="270" y="244" w="43" h="21" measuredW="200" measuredH="140" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>14</size>
+        <text>Name</text>
+      </controlProperties>
+    </control>
+    <control controlID="63" controlTypeID="com.balsamiq.mockups::Label" x="271" y="274" w="-1" h="-1" measuredW="52" measuredH="21" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>10066329</color>
+        <text>My%20Gym</text>
+      </controlProperties>
+    </control>
+    <control controlID="67" controlTypeID="com.balsamiq.mockups::Paragraph" x="266" y="376" w="43" h="21" measuredW="200" measuredH="140" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>14</size>
+        <text>Icon</text>
+      </controlProperties>
+    </control>
+    <control controlID="95" controlTypeID="com.balsamiq.mockups::Arrow" x="493" y="279" w="97" h="97" measuredW="150" measuredH="100" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16750848</color>
+        <direction>top</direction>
+        <leftArrow>true</leftArrow>
+        <rightArrow>false</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="96" controlTypeID="com.balsamiq.mockups::Paragraph" x="551" y="379" w="132" h="49" measuredW="200" measuredH="140" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>20%20chars%20%20max%20length</text>
+      </controlProperties>
+    </control>
+    <control controlID="114" controlTypeID="com.balsamiq.mockups::Arrow" x="1243" y="534" w="97" h="97" measuredW="150" measuredH="100" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16750848</color>
+        <direction>top</direction>
+        <leftArrow>true</leftArrow>
+        <rightArrow>false</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="115" controlTypeID="com.balsamiq.mockups::Paragraph" x="1276" y="637" w="132" h="49" measuredW="200" measuredH="140" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Displayed%20only%20on%20Edit</text>
+      </controlProperties>
+    </control>
+    <control controlID="125" controlTypeID="com.balsamiq.mockups::Alert" x="1517" y="256" w="-1" h="-1" measuredW="200" measuredH="127" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>WOD%20Feed%20Issue%0ACannot%20access%20WOD%20feed.%20Please%20try%20again%20later.%0ADismiss</text>
+      </controlProperties>
+    </control>
+    <control controlID="141" controlTypeID="com.balsamiq.mockups::iPhone" x="946" y="124" w="282" h="510" measuredW="282" measuredH="510" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>topOnly</bgPattern>
+      </controlProperties>
+    </control>
+    <control controlID="142" controlTypeID="com.balsamiq.mockups::Label" x="1039" y="235" w="-1" h="-1" measuredW="97" measuredH="21" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <text>Edit%20WOD%20Feed</text>
+      </controlProperties>
+    </control>
+    <control controlID="143" controlTypeID="com.balsamiq.mockups::PointyButton" x="1153" y="232" w="42" h="-1" measuredW="50" measuredH="27" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Done</text>
+      </controlProperties>
+    </control>
+    <control controlID="144" controlTypeID="com.balsamiq.mockups::PointyButton" x="977" y="232" w="50" h="-1" measuredW="61" measuredH="27" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Cancel</text>
+      </controlProperties>
+    </control>
+    <control controlID="145" controlTypeID="__group__" x="977" y="421" w="77" h="41" measuredW="77" measuredH="41" zOrder="22" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="77" h="41" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="145">
+          <controlProperties>
+            <borderStyle>none</borderStyle>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::Image" x="7" y="12" w="63" h="16" measuredW="365" measuredH="138" zOrder="1" locked="false" isInGroup="145">
+          <controlProperties>
+            <src>./assets/crossfit-logo.png</src>
+            <text/>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="146" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="977" y="354" w="218" h="-1" measuredW="215" measuredH="39" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="147" controlTypeID="com.balsamiq.mockups::Paragraph" x="987" y="333" w="43" h="21" measuredW="200" measuredH="140" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>14</size>
+        <text>Link</text>
+      </controlProperties>
+    </control>
+    <control controlID="148" controlTypeID="com.balsamiq.mockups::Label" x="988" y="363" w="-1" h="-1" measuredW="172" measuredH="21" zOrder="25" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>10066329</color>
+        <text>http%3A//www.crossfit.com/feed</text>
+      </controlProperties>
+    </control>
+    <control controlID="149" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="977" y="288" w="218" h="-1" measuredW="215" measuredH="39" zOrder="26" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="150" controlTypeID="com.balsamiq.mockups::Paragraph" x="987" y="267" w="43" h="21" measuredW="200" measuredH="140" zOrder="27" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>14</size>
+        <text>Name</text>
+      </controlProperties>
+    </control>
+    <control controlID="151" controlTypeID="com.balsamiq.mockups::Label" x="988" y="297" w="-1" h="-1" measuredW="81" measuredH="21" zOrder="28" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>10066329</color>
+        <text>CrossFit.com</text>
+      </controlProperties>
+    </control>
+    <control controlID="152" controlTypeID="com.balsamiq.mockups::Paragraph" x="983" y="399" w="43" h="21" measuredW="200" measuredH="140" zOrder="29" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>14</size>
+        <text>Icon</text>
+      </controlProperties>
+    </control>
+    <control controlID="153" controlTypeID="com.balsamiq.mockups::Canvas" x="975" y="509" w="224" h="38" measuredW="100" measuredH="70" zOrder="30" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.75</backgroundAlpha>
+        <borderStyle>roundedSolid</borderStyle>
+        <color>13576743</color>
+      </controlProperties>
+    </control>
+    <control controlID="154" controlTypeID="com.balsamiq.mockups::Label" x="1054" y="515" w="-1" h="-1" measuredW="65" measuredH="28" zOrder="31" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>0</color>
+        <size>20</size>
+        <text>Delete</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

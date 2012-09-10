@@ -1,0 +1,297 @@
+<mockup version="1.0" skin="sketch" measuredW="1476" measuredH="1060" mockupW="1211" mockupH="1036">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhone" x="583" y="231" w="282" h="510" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>topOnly</bgPattern>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="693" y="341" w="-1" h="-1" measuredW="63" measuredH="21" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <text>Log%20WOD</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::PointyButton" x="616" y="338" w="-1" h="-1" measuredW="50" measuredH="27" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>left</direction>
+        <text>Back</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Label" x="673" y="616" w="-1" h="-1" measuredW="102" measuredH="41" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>0</color>
+        <size>32</size>
+        <text>.%20.%20*.*%20.%20.%20.</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Canvas" x="611" y="400" w="223" h="235" measuredW="100" measuredH="70" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>roundedSolid</borderStyle>
+        <color>16777215</color>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="616" y="437" w="213" h="-1" measuredW="215" measuredH="184" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <text>Favorite%20WOD%201%5Cr%2C%3E%0AFavorite%20WOD%202%5Cr%2C%3E%0AFavorite%20WOD%203%5Cr%2C%3E%0AFavorite%20WOD%204%5Cr%2C%3E%0AFavorite%20WOD%205%5Cr%2C%3E%0AFavorite%20WOD%206%5Cr%2C%3E</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::SearchBox" x="612" y="372" w="220" h="-1" measuredW="104" measuredH="25" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>search%20WODs</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Icon" x="809" y="376" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>10066329</color>
+        <icon>CircledXIcon%7Cxsmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::iPhone" x="265" y="237" w="282" h="510" measuredW="282" measuredH="510" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>topOnly</bgPattern>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::Label" x="375" y="347" w="-1" h="-1" measuredW="63" measuredH="21" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <text>Log%20WOD</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::PointyButton" x="298" y="344" w="-1" h="-1" measuredW="50" measuredH="27" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>left</direction>
+        <text>Back</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Label" x="355" y="622" w="-1" h="-1" measuredW="102" measuredH="41" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>left</align>
+        <color>0</color>
+        <size>32</size>
+        <text>.%20.%20*.*%20.%20.%20.</text>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::Canvas" x="293" y="384" w="223" h="257" measuredW="100" measuredH="70" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>roundedSolid</borderStyle>
+        <color>16777215</color>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="298" y="419" w="213" h="-1" measuredW="215" measuredH="213" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <text>Favorite%20WOD%201%5Cr%2C%3E%0AFavorite%20WOD%202%5Cr%2C%3E%0AFavorite%20WOD%203%5Cr%2C%3E%0AFavorite%20WOD%204%5Cr%2C%3E%0AFavorite%20WOD%205%5Cr%2C%3E%0AFavorite%20WOD%206%5Cr%2C%3E%0AFavorite%20WOD%207%5Cr%2C%3E</text>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::Label" x="386" y="397" w="-1" h="-1" measuredW="74" measuredH="24" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>true</bold>
+        <color>0</color>
+        <size>16</size>
+        <text>Favorites</text>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::Icon" x="352" y="393" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16750848</color>
+        <icon>StarIcon%7Cmedium</icon>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::Label" x="706" y="412" w="-1" h="-1" measuredW="74" measuredH="24" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>true</bold>
+        <color>0</color>
+        <size>16</size>
+        <text>Favorites</text>
+      </controlProperties>
+    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::Icon" x="672" y="408" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16750848</color>
+        <icon>StarIcon%7Cmedium</icon>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::PointyButton" x="472" y="344" w="42" h="-1" measuredW="42" measuredH="27" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Edit</text>
+      </controlProperties>
+    </control>
+    <control controlID="19" controlTypeID="com.balsamiq.mockups::PointyButton" x="790" y="339" w="42" h="-1" measuredW="42" measuredH="27" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Edit</text>
+      </controlProperties>
+    </control>
+    <control controlID="20" controlTypeID="com.balsamiq.mockups::iPhone" x="880" y="231" w="282" h="510" measuredW="282" measuredH="510" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>topOnly</bgPattern>
+      </controlProperties>
+    </control>
+    <control controlID="21" controlTypeID="com.balsamiq.mockups::Label" x="990" y="341" w="-1" h="-1" measuredW="63" measuredH="21" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <text>Log%20WOD</text>
+      </controlProperties>
+    </control>
+    <control controlID="22" controlTypeID="com.balsamiq.mockups::PointyButton" x="913" y="338" w="-1" h="-1" measuredW="52" measuredH="27" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Clear</text>
+      </controlProperties>
+    </control>
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::Canvas" x="908" y="378" w="223" h="257" measuredW="100" measuredH="70" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>roundedSolid</borderStyle>
+        <color>16777215</color>
+      </controlProperties>
+    </control>
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::Label" x="1001" y="391" w="-1" h="-1" measuredW="74" measuredH="24" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>true</bold>
+        <color>0</color>
+        <size>16</size>
+        <text>Favorites</text>
+      </controlProperties>
+    </control>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::Icon" x="967" y="387" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="25" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16750848</color>
+        <icon>StarIcon%7Cmedium</icon>
+      </controlProperties>
+    </control>
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::PointyButton" x="1087" y="338" w="42" h="-1" measuredW="50" measuredH="27" zOrder="26" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Done</text>
+      </controlProperties>
+    </control>
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="913" y="419" w="213" h="-1" measuredW="215" measuredH="213" zOrder="27" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <text>+%20Add%20WOD%5Cr%2C%3E%0A-%20Favorite%20WOD%201%5Cr%2C%0A-%20Favorite%20WOD%202%5Cr%2C%0A-%20Favorite%20WOD%203%5Cr%2C%0A-%20Favorite%20WOD%204%5Cr%2C%0A-%20Favorite%20WOD%205%5Cr%2C%0A-%20Favorite%20WOD%206%5Cr%2C</text>
+      </controlProperties>
+    </control>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::iPhone" x="1194" y="550" w="282" h="510" measuredW="282" measuredH="510" zOrder="28" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>topOnly</bgPattern>
+      </controlProperties>
+    </control>
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::Label" x="1304" y="660" w="-1" h="-1" measuredW="63" measuredH="21" zOrder="29" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <text>Log%20WOD</text>
+      </controlProperties>
+    </control>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::PointyButton" x="1227" y="659" w="-1" h="-1" measuredW="52" measuredH="27" zOrder="30" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Clear</text>
+      </controlProperties>
+    </control>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::Canvas" x="1222" y="697" w="223" h="257" measuredW="100" measuredH="70" zOrder="31" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>roundedSolid</borderStyle>
+        <color>16777215</color>
+      </controlProperties>
+    </control>
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::Label" x="1315" y="710" w="-1" h="-1" measuredW="74" measuredH="24" zOrder="32" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>true</bold>
+        <color>0</color>
+        <size>16</size>
+        <text>Favorites</text>
+      </controlProperties>
+    </control>
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::Icon" x="1281" y="706" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="33" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16750848</color>
+        <icon>StarIcon%7Cmedium</icon>
+      </controlProperties>
+    </control>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::PointyButton" x="1401" y="657" w="42" h="-1" measuredW="50" measuredH="27" zOrder="34" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Done</text>
+      </controlProperties>
+    </control>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="1227" y="738" w="213" h="-1" measuredW="215" measuredH="213" zOrder="35" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <text>+%20Add%20WOD%5Cr%2C%3E%0A-%20Favorite%20WOD%201%5Cr%2C%0A-%20Favorite%20WOD%202%5Cr%2C%0A-%20Favorite%20WOD%203%5Cr%2C%0A-%20Favorite%20WOD%204%5Cr%2C%0A-%20Favorite%20WOD%205%5Cr%2C%0A-%20Favorite%20WOD%206%5Cr%2C</text>
+      </controlProperties>
+    </control>
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::Alert" x="1233" y="742" w="-1" h="-1" measuredW="200" measuredH="127" zOrder="36" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Delete%20%22WOD%201%22%3F%0AThis%20will%20delete%20the%20WOD%20only%20from%20your%20Favorites%20list%0ACancel%2C%20Delete</text>
+      </controlProperties>
+    </control>
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::iPhone" x="1194" y="24" w="282" h="510" measuredW="282" measuredH="510" zOrder="37" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>topOnly</bgPattern>
+      </controlProperties>
+    </control>
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::Label" x="1303" y="135" w="-1" h="-1" measuredW="64" measuredH="21" zOrder="38" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <text>Add%20WOD</text>
+      </controlProperties>
+    </control>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::PointyButton" x="1400" y="132" w="42" h="-1" measuredW="50" measuredH="27" zOrder="39" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Done</text>
+      </controlProperties>
+    </control>
+    <control controlID="43" controlTypeID="com.balsamiq.mockups::Canvas" x="1223" y="167" w="223" h="257" measuredW="100" measuredH="70" zOrder="40" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>roundedSolid</borderStyle>
+        <color>16777215</color>
+      </controlProperties>
+    </control>
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="1228" y="202" w="213" h="-1" measuredW="215" measuredH="213" zOrder="41" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <text>_%20WOD%201%5Cr%0A_%20WOD%202%5Cr%0A_%20WOD%203%5Cr%0A_%20WOD%204%5Cr%0A_%20WOD%205%5Cr%0A_%20WOD%206%5Cr%0A_%20WOD%207%5Cr</text>
+      </controlProperties>
+    </control>
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::Label" x="1288" y="177" w="-1" h="-1" measuredW="74" measuredH="24" zOrder="42" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>true</bold>
+        <color>0</color>
+        <size>16</size>
+        <text>All%20WODs</text>
+      </controlProperties>
+    </control>
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::Icon" x="1232" y="359" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="43" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16750848</color>
+        <icon>StarIcon%7Cxsmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::Icon" x="1232" y="271" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="44" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16750848</color>
+        <icon>StarIcon%7Cxsmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="50" controlTypeID="com.balsamiq.mockups::Icon" x="1231" y="243" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="45" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16750848</color>
+        <icon>StarIcon%7Cxsmall</icon>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

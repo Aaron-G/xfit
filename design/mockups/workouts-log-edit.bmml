@@ -1,0 +1,100 @@
+<mockup version="1.0" skin="sketch" measuredW="1709" measuredH="533" mockupW="967" mockupH="510">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhone" x="742" y="23" w="282" h="510" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>topOnly</bgPattern>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="844" y="134" w="-1" h="-1" measuredW="79" measuredH="21" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <text>Workout%20Log</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::PointyButton" x="773" y="131" w="50" h="-1" measuredW="50" measuredH="27" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>left</direction>
+        <text>Back</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::PointyButton" x="949" y="131" w="42" h="-1" measuredW="50" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Done</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="__group__" x="1211" y="86" w="213" h="97" measuredW="213" measuredH="97" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>measurement-value-edit%26bm%3Bmeasurement-value-edit.bmml%26bm%3Bmeasurement-value-edit.bmml%26bm%3Bmeasurement-value-edit.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22469%2C63%2C682%2C160%22%20href%3D%22measurement-value-edit.bmml%22%20alt%3D%22measurement-value-edit%22%20id%3D%224%22/%3E</map>
+      </controlProperties>
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="0" y="0" w="213" h="-1" measuredW="215" measuredH="97" zOrder="0" locked="false" isInGroup="4">
+          <controlProperties>
+            <borderStyle>square</borderStyle>
+            <text>+%20Log%20time%2C%20%3E%0A+%20Log%20rounds%2C%20%3E%0A+%20Log%20practice%2C%20%3E</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="5" controlTypeID="__group__" x="775" y="167" w="213" h="155" measuredW="213" measuredH="155" zOrder="5" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="0" y="0" w="213" h="-1" measuredW="215" measuredH="155" zOrder="0" locked="false" isInGroup="5">
+          <controlProperties>
+            <borderStyle>square</borderStyle>
+            <text>+%20Log%20time%2C%3E%0A-%2012/10/12%20%20%20%20%20%20%20%20%20%20%20%20%208%3A52%5Cr%2C%0A-%2011/09/12%20%20%20%20%20%20%20%20%20%20%20%20%209%3A16%5Cr%2C%0A-%2010/01/12%20%20%20%20%20%20%20%20%20%20%20%20%209%3A16%5Cr%2C%0A-%2009/23/12%20%20%20%20%20%20%20%20%20%20%20%209%3A05%5Cr%2C</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Icon" x="183" y="41" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="1" locked="false" isInGroup="5">
+          <controlProperties>
+            <color>40463</color>
+            <icon>DownArrowIcon%7Cxsmall</icon>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Icon" x="183" y="99" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="2" locked="false" isInGroup="5">
+          <controlProperties>
+            <color>13576743</color>
+            <icon>UpArrowIcon%7Cxsmall</icon>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::Icon" x="183" y="128" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="3" locked="false" isInGroup="5">
+          <controlProperties>
+            <color>40463</color>
+            <icon>DownArrowIcon%7Cxsmall</icon>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::Icon" x="183" y="70" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="4" locked="false" isInGroup="5">
+          <controlProperties>
+            <color>2848996</color>
+            <icon>DashIcon%7Cxsmall</icon>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="6" controlTypeID="__group__" x="1496" y="80" w="213" h="155" measuredW="213" measuredH="155" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>measurement-value-edit%26bm%3Bmeasurement-value-edit.bmml%26bm%3Bmeasurement-value-edit.bmml%26bm%3Bmeasurement-value-edit.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22754%2C57%2C967%2C212%22%20href%3D%22measurement-value-edit.bmml%22%20alt%3D%22measurement-value-edit%22%20id%3D%226%22/%3E</map>
+      </controlProperties>
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="0" y="0" w="213" h="-1" measuredW="215" measuredH="155" zOrder="0" locked="false" isInGroup="6">
+          <controlProperties>
+            <borderStyle>square</borderStyle>
+            <text>+%20Log%20time%2C%20%3E%0A+%20Log%20weight%2C%20%3E%0A+%20Log%20reps%2C%20%3E%0A+%20Log%20distance%2C%20%3E%0A+%20Log%20practice%2C%20%3E</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::Label" x="1609" y="52" w="-1" h="-1" measuredW="84" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Move%20Options</text>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::Label" x="1323" y="65" w="-1" h="-1" measuredW="101" measuredH="21" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Workout%20Options</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

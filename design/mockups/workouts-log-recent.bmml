@@ -1,0 +1,240 @@
+<mockup version="1.0" skin="sketch" measuredW="1553" measuredH="740" mockupW="1217" mockupH="519">
+  <controls>
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::iPhone" x="658" y="230" w="282" h="510" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>topOnly</bgPattern>
+      </controlProperties>
+    </control>
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::Label" x="760" y="340" w="-1" h="-1" measuredW="79" measuredH="21" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <text>Log%20Workout</text>
+      </controlProperties>
+    </control>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::PointyButton" x="691" y="337" w="-1" h="-1" measuredW="50" measuredH="27" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>left</direction>
+        <text>Back</text>
+      </controlProperties>
+    </control>
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::Label" x="748" y="615" w="-1" h="-1" measuredW="102" measuredH="41" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>0</color>
+        <size>32</size>
+        <text>.%20*.*%20.%20.%20.%20.</text>
+      </controlProperties>
+    </control>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::Canvas" x="686" y="399" w="223" h="235" measuredW="100" measuredH="70" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>roundedSolid</borderStyle>
+        <color>16777215</color>
+      </controlProperties>
+    </control>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="691" y="436" w="213" h="-1" measuredW="215" measuredH="184" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <text>Recent%20Workout%201%5Cr%2C%3E%0ARecent%20Workout%202%5Cr%2C%3E%0ARecent%20Workout%203%5Cr%2C%3E%0ARecent%20Workout%204%5Cr%2C%20%3E%0ARecent%20Workout%205%5Cr%2C%3E%0ARecent%20Workout%206%5Cr%2C%3E</text>
+      </controlProperties>
+    </control>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::SearchBox" x="687" y="371" w="220" h="-1" measuredW="120" measuredH="25" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>search%20workouts</text>
+      </controlProperties>
+    </control>
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::Icon" x="884" y="375" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>10066329</color>
+        <icon>CircledXIcon%7Cxsmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::iPhone" x="336" y="221" w="282" h="510" measuredW="282" measuredH="510" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>topOnly</bgPattern>
+      </controlProperties>
+    </control>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::Label" x="438" y="331" w="-1" h="-1" measuredW="79" measuredH="21" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <text>Log%20Workout</text>
+      </controlProperties>
+    </control>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::PointyButton" x="369" y="328" w="-1" h="-1" measuredW="50" measuredH="27" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>left</direction>
+        <text>Back</text>
+      </controlProperties>
+    </control>
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::Label" x="426" y="606" w="-1" h="-1" measuredW="102" measuredH="41" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>0</color>
+        <size>32</size>
+        <text>.%20*.*%20.%20.%20.%20.</text>
+      </controlProperties>
+    </control>
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::Canvas" x="364" y="368" w="223" h="257" measuredW="100" measuredH="70" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>roundedSolid</borderStyle>
+        <color>16777215</color>
+      </controlProperties>
+    </control>
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="369" y="403" w="213" h="-1" measuredW="215" measuredH="213" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <text>Recent%20Workout%201%5Cr%2C%3E%0ARecent%20Workout%202%5Cr%2C%3E%0ARecent%20Workout%203%5Cr%2C%3E%0ARecent%20Workout%204%5Cr%2C%3E%0ARecent%20Workout%205%5Cr%2C%3E%0ARecent%20Workout%206%5Cr%2C%3E%0ARecent%20Workout%207%5Cr%2C%3E</text>
+      </controlProperties>
+    </control>
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::Label" x="457" y="379" w="-1" h="-1" measuredW="57" measuredH="24" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>true</bold>
+        <color>0</color>
+        <size>16</size>
+        <text>Recent</text>
+      </controlProperties>
+    </control>
+    <control controlID="43" controlTypeID="com.balsamiq.mockups::Icon" x="423" y="375" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>0</color>
+        <icon>ClockIcon%7Cmedium</icon>
+      </controlProperties>
+    </control>
+    <control controlID="46" controlTypeID="com.balsamiq.mockups::PointyButton" x="543" y="328" w="42" h="-1" measuredW="42" measuredH="27" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Edit</text>
+      </controlProperties>
+    </control>
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::PointyButton" x="865" y="338" w="42" h="-1" measuredW="42" measuredH="27" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Edit</text>
+      </controlProperties>
+    </control>
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::iPhone" x="955" y="230" w="282" h="510" measuredW="282" measuredH="510" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>topOnly</bgPattern>
+      </controlProperties>
+    </control>
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::Label" x="1057" y="340" w="-1" h="-1" measuredW="79" measuredH="21" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <text>Log%20Workout</text>
+      </controlProperties>
+    </control>
+    <control controlID="50" controlTypeID="com.balsamiq.mockups::PointyButton" x="988" y="337" w="-1" h="-1" measuredW="52" measuredH="27" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Clear</text>
+      </controlProperties>
+    </control>
+    <control controlID="52" controlTypeID="com.balsamiq.mockups::Canvas" x="983" y="377" w="223" h="257" measuredW="100" measuredH="70" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>roundedSolid</borderStyle>
+        <color>16777215</color>
+      </controlProperties>
+    </control>
+    <control controlID="55" controlTypeID="com.balsamiq.mockups::PointyButton" x="1162" y="337" w="42" h="-1" measuredW="50" measuredH="27" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Done</text>
+      </controlProperties>
+    </control>
+    <control controlID="56" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="988" y="418" w="213" h="-1" measuredW="215" measuredH="184" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <text>-%20Recent%20Workout%201%5Cr%2C%0A-%20Recent%20Workout%202%5Cr%2C%0A-%20Recent%20Workout%203%5Cr%2C%0A-%20Recent%20Workout%204%5Cr%2C%0A-%20Recent%20Workout%205%5Cr%2C%0A-%20Recent%20Workout%206%5Cr%2C</text>
+      </controlProperties>
+    </control>
+    <control controlID="57" controlTypeID="com.balsamiq.mockups::iPhone" x="1271" y="230" w="282" h="510" measuredW="282" measuredH="510" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>topOnly</bgPattern>
+      </controlProperties>
+    </control>
+    <control controlID="58" controlTypeID="com.balsamiq.mockups::Label" x="1373" y="340" w="-1" h="-1" measuredW="79" measuredH="21" zOrder="25" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <text>Log%20Workout</text>
+      </controlProperties>
+    </control>
+    <control controlID="59" controlTypeID="com.balsamiq.mockups::PointyButton" x="1304" y="337" w="-1" h="-1" measuredW="52" measuredH="27" zOrder="26" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Clear</text>
+      </controlProperties>
+    </control>
+    <control controlID="61" controlTypeID="com.balsamiq.mockups::Canvas" x="1299" y="377" w="223" h="257" measuredW="100" measuredH="70" zOrder="27" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>roundedSolid</borderStyle>
+        <color>16777215</color>
+      </controlProperties>
+    </control>
+    <control controlID="64" controlTypeID="com.balsamiq.mockups::PointyButton" x="1478" y="337" w="42" h="-1" measuredW="50" measuredH="27" zOrder="28" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Done</text>
+      </controlProperties>
+    </control>
+    <control controlID="65" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="1304" y="418" w="213" h="-1" measuredW="215" measuredH="184" zOrder="29" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <text>-%20Recent%20Workout%201%5Cr%2C%0A-%20Recent%20Workout%202%5Cr%2C%0A-%20Recent%20Workout%203%5Cr%2C%0A-%20Recent%20Workout%204%5Cr%2C%0A-%20Recent%20Workout%205%5Cr%2C%0A-%20Recent%20Workout%206%5Cr%2C</text>
+      </controlProperties>
+    </control>
+    <control controlID="66" controlTypeID="com.balsamiq.mockups::Alert" x="1312" y="422" w="-1" h="-1" measuredW="200" measuredH="127" zOrder="30" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Delete%20%22Workout%201%22%3F%0AThis%20will%20delete%20the%20workout%20only%20from%20your%20Recent%20list%0ACancel%2C%20Delete</text>
+      </controlProperties>
+    </control>
+    <control controlID="67" controlTypeID="com.balsamiq.mockups::Label" x="788" y="411" w="-1" h="-1" measuredW="57" measuredH="24" zOrder="31" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>true</bold>
+        <color>0</color>
+        <size>16</size>
+        <text>Recent</text>
+      </controlProperties>
+    </control>
+    <control controlID="68" controlTypeID="com.balsamiq.mockups::Icon" x="754" y="407" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="32" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>0</color>
+        <icon>ClockIcon%7Cmedium</icon>
+      </controlProperties>
+    </control>
+    <control controlID="69" controlTypeID="com.balsamiq.mockups::Label" x="1085" y="390" w="-1" h="-1" measuredW="57" measuredH="24" zOrder="33" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>true</bold>
+        <color>0</color>
+        <size>16</size>
+        <text>Recent</text>
+      </controlProperties>
+    </control>
+    <control controlID="70" controlTypeID="com.balsamiq.mockups::Icon" x="1051" y="386" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="34" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>0</color>
+        <icon>ClockIcon%7Cmedium</icon>
+      </controlProperties>
+    </control>
+    <control controlID="71" controlTypeID="com.balsamiq.mockups::Label" x="1401" y="390" w="-1" h="-1" measuredW="57" measuredH="24" zOrder="35" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>true</bold>
+        <color>0</color>
+        <size>16</size>
+        <text>Recent</text>
+      </controlProperties>
+    </control>
+    <control controlID="72" controlTypeID="com.balsamiq.mockups::Icon" x="1367" y="386" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="36" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>0</color>
+        <icon>ClockIcon%7Cmedium</icon>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

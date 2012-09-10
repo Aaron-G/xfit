@@ -1,0 +1,296 @@
+<mockup version="1.0" skin="sketch" measuredW="1864" measuredH="780" mockupW="1527" mockupH="519">
+  <controls>
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::iPhone" x="659" y="270" w="282" h="510" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>topOnly</bgPattern>
+      </controlProperties>
+    </control>
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::Label" x="769" y="381" w="-1" h="-1" measuredW="63" measuredH="21" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <text>Log%20Move</text>
+      </controlProperties>
+    </control>
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::PointyButton" x="692" y="377" w="-1" h="-1" measuredW="50" measuredH="27" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>left</direction>
+        <text>Back</text>
+      </controlProperties>
+    </control>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::Label" x="749" y="655" w="-1" h="-1" measuredW="102" measuredH="41" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>0</color>
+        <size>32</size>
+        <text>.%20*.*%20.%20.%20.%20.</text>
+      </controlProperties>
+    </control>
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::SearchBox" x="688" y="411" w="220" h="-1" measuredW="107" measuredH="25" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>search%20moves</text>
+      </controlProperties>
+    </control>
+    <control controlID="50" controlTypeID="com.balsamiq.mockups::Icon" x="885" y="415" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>10066329</color>
+        <icon>CircledXIcon%7Cxsmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="51" controlTypeID="com.balsamiq.mockups::iPhone" x="337" y="261" w="282" h="510" measuredW="282" measuredH="510" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>topOnly</bgPattern>
+      </controlProperties>
+    </control>
+    <control controlID="52" controlTypeID="com.balsamiq.mockups::Label" x="447" y="371" w="-1" h="-1" measuredW="63" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <text>Log%20Move</text>
+      </controlProperties>
+    </control>
+    <control controlID="53" controlTypeID="com.balsamiq.mockups::PointyButton" x="370" y="368" w="-1" h="-1" measuredW="50" measuredH="27" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>left</direction>
+        <text>Back</text>
+      </controlProperties>
+    </control>
+    <control controlID="54" controlTypeID="com.balsamiq.mockups::Label" x="427" y="646" w="-1" h="-1" measuredW="102" measuredH="41" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>0</color>
+        <size>32</size>
+        <text>.%20*.*%20.%20.%20.%20.</text>
+      </controlProperties>
+    </control>
+    <control controlID="65" controlTypeID="com.balsamiq.mockups::PointyButton" x="544" y="368" w="42" h="-1" measuredW="42" measuredH="27" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Edit</text>
+      </controlProperties>
+    </control>
+    <control controlID="66" controlTypeID="com.balsamiq.mockups::PointyButton" x="866" y="378" w="42" h="-1" measuredW="42" measuredH="27" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Edit</text>
+      </controlProperties>
+    </control>
+    <control controlID="76" controlTypeID="com.balsamiq.mockups::iPhone" x="956" y="270" w="282" h="510" measuredW="282" measuredH="510" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>topOnly</bgPattern>
+      </controlProperties>
+    </control>
+    <control controlID="77" controlTypeID="com.balsamiq.mockups::Label" x="1066" y="381" w="-1" h="-1" measuredW="63" measuredH="21" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <text>Log%20Move</text>
+      </controlProperties>
+    </control>
+    <control controlID="78" controlTypeID="com.balsamiq.mockups::PointyButton" x="989" y="377" w="-1" h="-1" measuredW="52" measuredH="27" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Clear</text>
+      </controlProperties>
+    </control>
+    <control controlID="84" controlTypeID="com.balsamiq.mockups::PointyButton" x="1163" y="377" w="42" h="-1" measuredW="50" measuredH="27" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Done</text>
+      </controlProperties>
+    </control>
+    <control controlID="86" controlTypeID="com.balsamiq.mockups::iPhone" x="1266" y="270" w="282" h="510" measuredW="282" measuredH="510" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>topOnly</bgPattern>
+      </controlProperties>
+    </control>
+    <control controlID="87" controlTypeID="com.balsamiq.mockups::Label" x="1374" y="381" w="-1" h="-1" measuredW="63" measuredH="21" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <text>Log%20Move</text>
+      </controlProperties>
+    </control>
+    <control controlID="88" controlTypeID="com.balsamiq.mockups::PointyButton" x="1299" y="379" w="-1" h="-1" measuredW="52" measuredH="27" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Clear</text>
+      </controlProperties>
+    </control>
+    <control controlID="93" controlTypeID="com.balsamiq.mockups::PointyButton" x="1473" y="377" w="42" h="-1" measuredW="50" measuredH="27" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Done</text>
+      </controlProperties>
+    </control>
+    <control controlID="95" controlTypeID="com.balsamiq.mockups::Alert" x="1307" y="482" w="-1" h="-1" measuredW="200" measuredH="127" zOrder="36" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Delete%20%22Move%201%22%3F%0AThis%20will%20delete%20the%20move%20only%20from%20your%20Recent%20list%0ACancel%2C%20Delete</text>
+      </controlProperties>
+    </control>
+    <control controlID="163" controlTypeID="com.balsamiq.mockups::Canvas" x="365" y="409" w="223" h="257" measuredW="100" measuredH="70" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>roundedSolid</borderStyle>
+        <color>16777215</color>
+      </controlProperties>
+    </control>
+    <control controlID="164" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="368" y="444" w="213" h="-1" measuredW="215" measuredH="213" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <text>Recent%20Move%201%5Cr%2C%3E%0ARecent%20Move%202%5Cr%2C%3E%0ARecent%20Move%203%5Cr%2C%3E%0ARecent%20Move%204%5Cr%2C%3E%0ARecent%20Move%205%5Cr%2C%3E%0ARecent%20Move%206%5Cr%2C%3E%0ARecent%20Move%207%5Cr%2C%3E</text>
+      </controlProperties>
+    </control>
+    <control controlID="165" controlTypeID="com.balsamiq.mockups::Label" x="456" y="420" w="-1" h="-1" measuredW="57" measuredH="24" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>true</bold>
+        <color>0</color>
+        <size>16</size>
+        <text>Recent</text>
+      </controlProperties>
+    </control>
+    <control controlID="166" controlTypeID="com.balsamiq.mockups::Icon" x="422" y="416" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>0</color>
+        <icon>ClockIcon%7Cmedium</icon>
+      </controlProperties>
+    </control>
+    <control controlID="167" controlTypeID="com.balsamiq.mockups::Canvas" x="688" y="438" w="223" h="236" measuredW="100" measuredH="70" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>roundedSolid</borderStyle>
+        <color>16777215</color>
+      </controlProperties>
+    </control>
+    <control controlID="168" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="693" y="473" w="213" h="-1" measuredW="215" measuredH="184" zOrder="25" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <text>Recent%20Move%201%5Cr%2C%3E%0ARecent%20Move%202%5Cr%2C%3E%0ARecent%20Move%203%5Cr%2C%3E%0ARecent%20Move%204%5Cr%2C%3E%0ARecent%20Move%205%5Cr%2C%3E%0ARecent%20Move%206%5Cr%2C%3E</text>
+      </controlProperties>
+    </control>
+    <control controlID="169" controlTypeID="com.balsamiq.mockups::Label" x="781" y="449" w="-1" h="-1" measuredW="57" measuredH="24" zOrder="26" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>true</bold>
+        <color>0</color>
+        <size>16</size>
+        <text>Recent</text>
+      </controlProperties>
+    </control>
+    <control controlID="170" controlTypeID="com.balsamiq.mockups::Icon" x="747" y="445" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="27" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>0</color>
+        <icon>ClockIcon%7Cmedium</icon>
+      </controlProperties>
+    </control>
+    <control controlID="171" controlTypeID="com.balsamiq.mockups::Canvas" x="985" y="418" w="223" h="257" measuredW="100" measuredH="70" zOrder="28" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>roundedSolid</borderStyle>
+        <color>16777215</color>
+      </controlProperties>
+    </control>
+    <control controlID="172" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="990" y="459" w="213" h="-1" measuredW="215" measuredH="184" zOrder="29" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <text>-%20Recent%20Move%201%5Cr%2C%0A-%20Recent%20Move%202%5Cr%2C%0A-%20Recent%20Move%203%5Cr%2C%0A-%20Recent%20Move%204%5Cr%2C%0A-%20Recent%20Move%205%5Cr%2C%0A-%20Recent%20Move%206%5Cr%2C</text>
+      </controlProperties>
+    </control>
+    <control controlID="173" controlTypeID="com.balsamiq.mockups::Label" x="1087" y="431" w="-1" h="-1" measuredW="57" measuredH="24" zOrder="30" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>true</bold>
+        <color>0</color>
+        <size>16</size>
+        <text>Recent</text>
+      </controlProperties>
+    </control>
+    <control controlID="174" controlTypeID="com.balsamiq.mockups::Icon" x="1053" y="427" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="31" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>0</color>
+        <icon>ClockIcon%7Cmedium</icon>
+      </controlProperties>
+    </control>
+    <control controlID="175" controlTypeID="com.balsamiq.mockups::Canvas" x="1294" y="417" w="223" h="257" measuredW="100" measuredH="70" zOrder="32" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>roundedSolid</borderStyle>
+        <color>16777215</color>
+      </controlProperties>
+    </control>
+    <control controlID="176" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="1299" y="458" w="213" h="-1" measuredW="215" measuredH="184" zOrder="33" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <text>-%20Recent%20Move%201%5Cr%2C%0A-%20Recent%20Move%202%5Cr%2C%0A-%20Recent%20Move%203%5Cr%2C%0A-%20Recent%20Move%204%5Cr%2C%0A-%20Recent%20Move%205%5Cr%2C%0A-%20Recent%20Move%206%5Cr%2C</text>
+      </controlProperties>
+    </control>
+    <control controlID="177" controlTypeID="com.balsamiq.mockups::Label" x="1396" y="430" w="-1" h="-1" measuredW="57" measuredH="24" zOrder="34" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>true</bold>
+        <color>0</color>
+        <size>16</size>
+        <text>Recent</text>
+      </controlProperties>
+    </control>
+    <control controlID="178" controlTypeID="com.balsamiq.mockups::Icon" x="1362" y="426" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="35" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>0</color>
+        <icon>ClockIcon%7Cmedium</icon>
+      </controlProperties>
+    </control>
+    <control controlID="179" controlTypeID="com.balsamiq.mockups::iPhone" x="1582" y="261" w="282" h="510" measuredW="282" measuredH="510" zOrder="37" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>topOnly</bgPattern>
+      </controlProperties>
+    </control>
+    <control controlID="180" controlTypeID="com.balsamiq.mockups::Label" x="1690" y="372" w="-1" h="-1" measuredW="63" measuredH="21" zOrder="38" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <text>Log%20Move</text>
+      </controlProperties>
+    </control>
+    <control controlID="181" controlTypeID="com.balsamiq.mockups::PointyButton" x="1615" y="370" w="-1" h="-1" measuredW="52" measuredH="27" zOrder="39" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Clear</text>
+      </controlProperties>
+    </control>
+    <control controlID="183" controlTypeID="com.balsamiq.mockups::PointyButton" x="1789" y="368" w="42" h="-1" measuredW="50" measuredH="27" zOrder="40" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>center</direction>
+        <text>Done</text>
+      </controlProperties>
+    </control>
+    <control controlID="184" controlTypeID="com.balsamiq.mockups::Canvas" x="1610" y="408" w="223" h="257" measuredW="100" measuredH="70" zOrder="41" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>roundedSolid</borderStyle>
+        <color>16777215</color>
+      </controlProperties>
+    </control>
+    <control controlID="185" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="1615" y="449" w="213" h="-1" measuredW="215" measuredH="184" zOrder="42" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <text>-%20Recent%20Move%201%5Cr%2C%0A-%20Recent%20Move%202%5Cr%2C%0A-%20Recent%20Move%203%5Cr%2C%0A-%20Recent%20Move%204%5Cr%2C%0A-%20Recent%20Move%205%5Cr%2C%0A-%20Recent%20Move%206%5Cr%2C</text>
+      </controlProperties>
+    </control>
+    <control controlID="186" controlTypeID="com.balsamiq.mockups::Label" x="1712" y="421" w="-1" h="-1" measuredW="57" measuredH="24" zOrder="43" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>true</bold>
+        <color>0</color>
+        <size>16</size>
+        <text>Recent</text>
+      </controlProperties>
+    </control>
+    <control controlID="187" controlTypeID="com.balsamiq.mockups::Icon" x="1678" y="417" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="44" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>0</color>
+        <icon>ClockIcon%7Cmedium</icon>
+      </controlProperties>
+    </control>
+    <control controlID="188" controlTypeID="com.balsamiq.mockups::Alert" x="1623" y="473" w="-1" h="-1" measuredW="200" measuredH="127" zOrder="45" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Clear%20Recent%3F%0AThis%20will%20delete%20all%20the%20moves%20only%20from%20your%20Recent%20list%0ACancel%2C%20Delete</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

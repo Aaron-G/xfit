@@ -1,0 +1,126 @@
+<mockup version="1.0" skin="sketch" measuredW="1451" measuredH="727" mockupW="666" mockupH="510">
+  <controls>
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::Arrow" x="1082" y="385" w="135" h="33" measuredW="150" measuredH="100" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16750848</color>
+        <direction>top</direction>
+        <leftArrow>true</leftArrow>
+        <rightArrow>false</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::Paragraph" x="1179" y="424" w="272" h="120" measuredW="200" measuredH="140" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Displays%20*App%20Moves*%20while%20the%20user%20has%20not%20created%20nor%20logged%20a%20move.%20Then%20it%20shows%20in%20this%20order%20of%20precendence%3A%0A-%20*Recents*%0A-%20*Favorities*%0A%20%0AIt%20can%20also%20simply%20show%20the%20last%20screen%20used.</text>
+      </controlProperties>
+    </control>
+    <control controlID="50" controlTypeID="com.balsamiq.mockups::iPhone" x="785" y="217" w="282" h="510" measuredW="282" measuredH="510" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>topOnly</bgPattern>
+      </controlProperties>
+    </control>
+    <control controlID="51" controlTypeID="com.balsamiq.mockups::Label" x="895" y="327" w="-1" h="-1" measuredW="63" measuredH="21" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <text>Log%20Move</text>
+      </controlProperties>
+    </control>
+    <control controlID="52" controlTypeID="com.balsamiq.mockups::PointyButton" x="818" y="324" w="-1" h="-1" measuredW="50" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>left</direction>
+        <href>home-main%26bm%3Bhome-main.bmml%26bm%3Bhome-main.bmml%26bm%3Bhome-main.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2233%2C107%2C83%2C134%22%20href%3D%22home-main.bmml%22%20alt%3D%22home-main%22%20id%3D%2252%22/%3E</map>
+        <text>Back</text>
+      </controlProperties>
+    </control>
+    <control controlID="53" controlTypeID="com.balsamiq.mockups::Label" x="884" y="602" w="-1" h="-1" measuredW="85" measuredH="41" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>0</color>
+        <size>32</size>
+        <text>.%20.%20.%20.%20*.*</text>
+      </controlProperties>
+    </control>
+    <control controlID="54" controlTypeID="com.balsamiq.mockups::Canvas" x="813" y="364" w="223" h="257" measuredW="100" measuredH="70" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>roundedSolid</borderStyle>
+        <color>16777215</color>
+      </controlProperties>
+    </control>
+    <control controlID="55" controlTypeID="com.balsamiq.mockups::iPhoneMenu" x="818" y="399" w="213" h="-1" measuredW="215" measuredH="213" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <hrefs>%2Cmoves-entry-edit%26bm%3Bmoves-entry-edit.bmml%26bm%3Bmoves-entry-edit.bmml%26bm%3Bmoves-entry-edit.bmml%2C%2C%2C%2C%2C</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2233%2C216%2C246%2C245%22%20href%3D%22moves-entry-edit.bmml%22%20alt%3D%22moves-entry-edit%22%20id%3D%2255_0%22/%3E%0A</map>
+        <text>%5Cr%0AMove%201%5Cr%2C%3E%0AMove%202%5Cr%2C%3E%0AMove%203%5Cr%2C%3E%0A%5Cr%0AMove%204%5Cr%2C%3E%0AMove%205%5Cr%2C%3E</text>
+      </controlProperties>
+    </control>
+    <control controlID="56" controlTypeID="__group__" x="816" y="520" w="216" h="29" measuredW="216" measuredH="29" zOrder="8" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="216" h="29" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="56">
+          <controlProperties>
+            <backgroundAlpha>1</backgroundAlpha>
+            <borderStyle>none</borderStyle>
+            <color>13421772</color>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Paragraph" x="9" y="5" w="184" h="21" measuredW="200" measuredH="140" zOrder="1" locked="false" isInGroup="56">
+          <controlProperties>
+            <text>*Lower%20Body*</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="57" controlTypeID="__group__" x="816" y="405" w="216" h="29" measuredW="216" measuredH="29" zOrder="9" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="216" h="29" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="57">
+          <controlProperties>
+            <backgroundAlpha>1</backgroundAlpha>
+            <borderStyle>none</borderStyle>
+            <color>13421772</color>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Paragraph" x="9" y="5" w="184" h="21" measuredW="200" measuredH="140" zOrder="1" locked="false" isInGroup="57">
+          <controlProperties>
+            <text>*Upper%20Body*</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="58" controlTypeID="com.balsamiq.mockups::Label" x="904" y="373" w="-1" h="-1" measuredW="52" measuredH="24" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>true</bold>
+        <color>0</color>
+        <size>16</size>
+        <text>Moves</text>
+      </controlProperties>
+    </control>
+    <control controlID="59" controlTypeID="__group__" x="873" y="370" w="30" h="26" measuredW="30" measuredH="26" zOrder="11" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Image" x="0" y="11" w="15" h="15" measuredW="104" measuredH="119" zOrder="0" locked="false" isInGroup="59">
+          <controlProperties>
+            <crop>157%2C18%2C714%2C909</crop>
+            <src>./assets/workout.png</src>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Image" x="15" y="11" w="15" h="15" measuredW="104" measuredH="119" zOrder="1" locked="false" isInGroup="59">
+          <controlProperties>
+            <crop>157%2C18%2C714%2C909</crop>
+            <src>./assets/workout.png</src>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Image" x="7" y="0" w="15" h="15" measuredW="104" measuredH="119" zOrder="2" locked="false" isInGroup="59">
+          <controlProperties>
+            <crop>157%2C18%2C714%2C909</crop>
+            <src>./assets/workout.png</src>
+            <text/>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>
