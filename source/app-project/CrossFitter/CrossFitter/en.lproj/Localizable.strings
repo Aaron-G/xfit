@@ -1,0 +1,124 @@
+//////////////////////////////
+//General
+"ok-label" = "OK";
+"cancel-label" = "Cancel";
+"new-label" = "New";
+"log-label" = "Log";
+"app-review-url" = "tms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=APP_ID&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software";
+
+//Share App
+"share-app" = "App";
+"share-app-email-subject" = "Sweet CrossFit App: CrossFitter";
+"share-app-email-text" = "Checkout this sweet CrossFit app: <br>\n<a href=\"http://download.itunes.com/crossfitter\">CrossFitter App</a><p>\n\nIt has a PR Wall, WODs, Workouts and Moves. Plus you can track your body progress on it.<p>\n\nIt is pretty simple to use too and it has charts for all these things.";
+
+//Share
+"share-title" = "Share %@";
+"share-facebook" = "Facebook";
+"share-email" = "Email";
+"share-text" = "Message";
+"cannot-share-title" = "Cannot Share";
+
+//Email
+"no-email-support-message" = "Your device cannot send emails. Try another sharing option.";
+"no-text-message-support-message" = "Your device cannot send text messages. Try another sharing option.";
+
+
+//////////////////////////////
+//Home Screen
+"home-screen-title" = "CrossFitter";
+"home-screen-image" = "home.png";
+
+"share-app" = "App";
+"share-app-email-subject" = "CrossFit App: CrossFitter";
+"share-app-email-text" = "Checkout this sweet CrossFit app: <br>\n<a href=\"http://download.itunes.com/crossfitter\">CrossFitter App</a><p>\n\nIt has a PR Wall, WODs, Workouts and Moves. Plus you can track your body progress on it.<p>\n\nIt is pretty simple to use too and it has charts for all these things.";
+"share-app-text-message-text" = "Check out this sweet CrossFit app: CrossFitter http://http://download.itunes.com/crossfitter";
+
+//////////////////////////////
+//PR Wall Screen
+"prwall-screen-title" = "PR Wall";
+"prwall-screen-image" = "prwall.png";
+
+"share-prwall" = "PR Wall";
+"share-prwall-email-subject" = "Checkout my PR Wall";
+"share-prwall-email-text" = "Checkout my PR Wall:\n\n<h5>By <a href=\"http://download.itunes.com/crossfitter\">CrossFitter App</a></h5>";
+"share-prwall-text-message-text" = "Checkout my PR Wall";
+
+//////////////////////////////
+//WOD Screen
+"wod-screen-title" = "WODs";
+"wod-screen-image" = "wod.png";
+
+//////////////////////////////
+//Workout Screen
+"workout-screen-title" = "Workouts";
+"workout-screen-image" = "workout.png";
+
+//////////////////////////////
+//Move Screen
+"move-screen-title" = "Moves";
+"move-screen-image" = "move.png";
+
+//////////////////////////////
+//My Body Screen
+"mybody-screen-title" = "My Body";
+"mybody-screen-image" = "mybody.png";
+"share-mybody" = "Body Metrics";
+
+"share-mybody-email-subject" = "Checkout my body metrics";
+"share-mybody-email-text" = "Checkout my body metrics:\n\n<h5>By <a href=\"http://download.itunes.com/crossfitter\">CrossFitter App</a></h5>";
+"share-mybody-text-message-text" = "Checkout my body metrics";
+
+//////////////////////////////
+//info Screen
+"info-screen-title" = "Info";
+"info-screen-image" = "info.png";
+
+"info-screen-request-feature-email-subject" = "Feature Request";
+"info-screen-request-feature-email-text" = "<b>- What feature would you like?</b><br><br><br><b>- How often would you use this feature (everyday, every week, every month…)?</b> <br><br><br><b>- This feature would be (good, great, awesome, sweet…):</b><br><br>";
+"info-screen-provide-feedback-email-subject" = "Feedback";
+"info-screen-provide-feedback-email-text" = "<b>What would you like us to know?</b><br><br><br>";
+"info-screen-report-issue-email-subject" = "Issue Report";
+"info-screen-report-issue-email-text" = "<b>- What issue you want to report?</b><br><br><br><b>- How to reproduce it?</b><br><br><br><b>- How often do you see it (rarely, sometimes, always...)?</b><br><br><br><b>- Do you have a screen shot? (<font size = '1'>Tip: you can take a screen shot by pressing the Sleep/Wake button (top) and Home button (front) at the same time)</font></b><br><br>";
+
+"info-section-title-info" = "Info";
+"info-section-title-share" = "Share";
+"info-section-title-review" = "Review";
+"info-section-title-support" = "Support";
+
+"info-cell-title-about" = "About";
+"info-cell-title-version-format" = "Version %@";
+"info-cell-title-rateapp" = "Rate App";
+"info-cell-title-facebook" = "Facebook";
+"info-cell-title-message" = "Message";
+"info-cell-title-email" = "Email";
+"info-cell-title-feature" = "Request Feature";
+"info-cell-title-feedback" = "Feedback";
+"info-cell-title-issue" = "Report Issue";
+
+//////////////////////////////
+//My Body Screen
+"mybody-section-title-body" = "Body";
+"mybody-section-title-upper" = "Upper";
+"mybody-section-title-torso" = "Torso";
+"mybody-section-title-lower" = "Lower";
+
+"mybody-user-profile-add-photo-label" = "Add Photo";
+"mybody-user-profile-summary-format" = "%@\n%@, %@\n%@";
+
+"height-metric-label" = "Height";
+"weight-metric-label" = "Weight";
+"body-mass-index-metric-label" = "Body Mass Index";
+"body-fat-metric-label" = "Body Fat";
+
+"chest-metric-label" = "Chest";
+"biceps-left-metric-label" = "Biceps - Left";
+"biceps-right-metric-label" = "Biceps - Right";
+
+"hip-metric-label" = "Hip";
+"waist-metric-label" = "Waist";
+
+"thigh-left-metric-label" = "Thigh - Left";
+"thigh-right-metric-label" = "Thigh - Right";
+"calf-left-metric-label" = "Calf - Left";
+"calf-right-metric-label" = "Calf - Right";
+

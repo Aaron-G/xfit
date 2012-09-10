@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11E53" minimumToolsVersion="Xcode 4.1" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="BaseEntity" isAbstract="YES" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Move" parentEntity="WorkoutPart" syncable="YES">
+        <relationship name="wod" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WOD" inverseName="moves" inverseEntity="WOD" syncable="YES"/>
+    </entity>
+    <entity name="WOD" parentEntity="WorkoutContainer" syncable="YES">
+        <relationship name="moves" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Move" inverseName="wod" inverseEntity="Move" syncable="YES"/>
+    </entity>
+    <entity name="Workout" parentEntity="WorkoutContainer" syncable="YES"/>
+    <entity name="WorkoutContainer" isAbstract="YES" parentEntity="BaseEntity" syncable="YES"/>
+    <entity name="WorkoutPart" isAbstract="YES" parentEntity="BaseEntity" syncable="YES"/>
+    <elements>
+        <element name="BaseEntity" positionX="160" positionY="-3846" width="128" height="75"/>
+        <element name="Move" positionX="387" positionY="-3561" width="128" height="60"/>
+        <element name="WOD" positionX="-92" positionY="-3564" width="128" height="60"/>
+        <element name="Workout" positionX="162" positionY="-3582" width="128" height="45"/>
+        <element name="WorkoutContainer" positionX="7" positionY="-3717" width="128" height="45"/>
+        <element name="WorkoutPart" positionX="322" positionY="-3699" width="128" height="45"/>
+    </elements>
+</model>
