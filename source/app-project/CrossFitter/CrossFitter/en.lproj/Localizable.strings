@@ -122,3 +122,9 @@
 "calf-left-metric-label" = "Calf - Left";
 "calf-right-metric-label" = "Calf - Right";
 
+//////////////////////////////
+//Unit Formatters
+"pound-suffix" = "lb";
+"inch-suffix" = "\"";
+"foot-format" = "%i'";
+"foot-and-inch-format" = "%i' %i\"";

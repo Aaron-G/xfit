@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AppViewController.h"
 #import "AppDelegate.h"
+#import "UserProfile.h"
 
 @interface App : NSObject
 
@@ -19,6 +20,7 @@
 @property (nonatomic, readonly) NSString* appInformation;
 @property (nonatomic, readonly) NSString* appSupportEmail;
 @property (nonatomic, readonly) NSString* appVersion;
+@property (readonly) UserProfile* userProfile;
 
 //Starts the app
 - (void)startApp;

@@ -14,29 +14,29 @@
   
   CGAffineTransform transform = CGAffineTransformIdentity;
   
-  if(measurable.valueTrend == kMeasurableValueTrendNone) {
+  if(measurable.dataProvider.valueTrend == kMeasurableValueTrendNone) {
     buttonWithImage.hidden = YES;
     [buttonWithImage setImage:nil forState:UIControlStateNormal];
   } else {
     
     buttonWithImage.hidden = NO;
-    [buttonWithImage setImage:[UIHelper imageForValueTrend:measurable.valueTrend] forState:UIControlStateNormal];
+    [buttonWithImage setImage:[UIHelper imageForValueTrend:measurable.dataProvider.valueTrend] forState:UIControlStateNormal];
     
     //Rotate the image appropriately to indicate proper
     //direction based on Metric "better trend properties"
-    if(measurable.valueTrend != kMeasurableValueTrendSame) {
+    if(measurable.dataProvider.valueTrend != kMeasurableValueTrendSame) {
       
       CGFloat imageRotationAngle;
-      if(measurable.valueTrend == kMeasurableValueTrendBetter) {
-        if(measurable.valueTrendBetterDirection == kMeasurableValueTrendDirectionDown) {
+      if(measurable.dataProvider.valueTrend == kMeasurableValueTrendBetter) {
+        if(measurable.metadataProvider.valueTrendBetterDirection == kMeasurableValueTrendDirectionDown) {
           imageRotationAngle = 0;
-        } else if (measurable.valueTrendBetterDirection == kMeasurableValueTrendDirectionUp) {
+        } else if (measurable.metadataProvider.valueTrendBetterDirection == kMeasurableValueTrendDirectionUp) {
           imageRotationAngle = 180;
         }
-      } else if(measurable.valueTrend == kMeasurableValueTrendWorse) {
-        if(measurable.valueTrendBetterDirection == kMeasurableValueTrendDirectionUp) {
+      } else if(measurable.dataProvider.valueTrend == kMeasurableValueTrendWorse) {
+        if(measurable.metadataProvider.valueTrendBetterDirection == kMeasurableValueTrendDirectionUp) {
           imageRotationAngle = 0;
-        } else if (measurable.valueTrendBetterDirection == kMeasurableValueTrendDirectionDown) {
+        } else if (measurable.metadataProvider.valueTrendBetterDirection == kMeasurableValueTrendDirectionDown) {
           imageRotationAngle = 180;
         }
       }

@@ -11,6 +11,7 @@
 
 @interface ModelFactory : NSObject
 
-+ (UserProfile*) createUserProfile;
++ (UserProfile*) createDefaultUserProfile;
++ (NSDictionary*) createDefaultBodyMetrics;
 
 @end

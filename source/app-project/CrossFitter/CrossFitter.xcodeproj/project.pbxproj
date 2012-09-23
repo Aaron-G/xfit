@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		7408404215D1810500A64D5B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7408404015D1810500A64D5B /* HomeViewController.m */; };
 		7408405115D1B31E00A64D5B /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = 7408405015D1B31E00A64D5B /* App.m */; };
+		740F437F160D696B00380CF5 /* InchFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 740F437E160D696B00380CF5 /* InchFormatter.m */; };
+		740F4382160D6E1100380CF5 /* PercentFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 740F4381160D6E1100380CF5 /* PercentFormatter.m */; };
+		740F4385160D718B00380CF5 /* FootInchFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 740F4384160D718B00380CF5 /* FootInchFormatter.m */; };
 		741BBC5315B7C2E300660BE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741BBC5215B7C2E300660BE6 /* UIKit.framework */; };
 		741BBC5515B7C2E300660BE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741BBC5415B7C2E300660BE6 /* Foundation.framework */; };
 		741BBC5715B7C2E300660BE6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741BBC5615B7C2E300660BE6 /* CoreGraphics.framework */; };
@@ -30,7 +33,12 @@
 		744EFB1715FBB82E000AECBA /* better-value-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 744EFB1315FBB82E000AECBA /* better-value-image.png */; };
 		744EFB1A15FBBA52000AECBA /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 744EFB1915FBBA52000AECBA /* UserProfile.m */; };
 		744EFB1D15FBBAA2000AECBA /* ModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 744EFB1C15FBBAA2000AECBA /* ModelFactory.m */; };
+		7454960516042B3200308609 /* WorkoutMetadataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7454960416042B3200308609 /* WorkoutMetadataProvider.m */; };
+		7454960916042B9800308609 /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7454960816042B9800308609 /* Workout.m */; };
+		7454960C16042C8600308609 /* MeasurableImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7454960B16042C8600308609 /* MeasurableImpl.m */; };
+		7454960F16044E1900308609 /* BodyMetricMetadataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7454960E16044E1900308609 /* BodyMetricMetadataProvider.m */; };
 		745E9C0615F58249006222BB /* AppViewGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 745E9C0515F58249006222BB /* AppViewGestureRecognizer.m */; };
+		745F5185160D64E20066F600 /* DefaultUnitValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 745F5184160D64E20066F600 /* DefaultUnitValueFormatter.m */; };
 		7460967A15FABF8500DE158B /* MyBodyMetricTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7460967815FABF8500DE158B /* MyBodyMetricTableViewCell.xib */; };
 		7460967E15FACE2700DE158B /* MyBodyUserInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7460967D15FACE2700DE158B /* MyBodyUserInfoTableViewCell.m */; };
 		7461191715BC8DF900BEEAE2 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7461191515BC8DF900BEEAE2 /* MenuCell.m */; };
@@ -38,9 +46,14 @@
 		747D62A715D4653C00360084 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 747D62A515D4653C00360084 /* home.png */; };
 		747D62A815D4653C00360084 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 747D62A615D4653C00360084 /* info.png */; };
 		747D62AA15D47ABA00360084 /* AppScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 747D62A915D47AB900360084 /* AppScreen.m */; };
+		74947D8D160F8485008BC4E7 /* BodyMetricHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 74947D8C160F8485008BC4E7 /* BodyMetricHelper.m */; };
 		749BA3BB15D5DA3700FB1094 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 749BA3BA15D5DA3700FB1094 /* MessageUI.framework */; };
+		74A3982D160D4A04003AD87B /* PoundFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A3982C160D4A04003AD87B /* PoundFormatter.m */; };
 		74B3165615DDD8B4003D5B09 /* MailAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B3165315DDD8B4003D5B09 /* MailAttachment.m */; };
 		74B3165715DDD8B4003D5B09 /* MailHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B3165515DDD8B4003D5B09 /* MailHelper.m */; };
+		74BBB655160421CE00149356 /* MeasurableDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BBB654160421CE00149356 /* MeasurableDataProvider.m */; };
+		74BBB6581604239100149356 /* MeasurableMetadataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BBB6571604239100149356 /* MeasurableMetadataProvider.m */; };
+		74BBB65B1604269300149356 /* ExerciseMetadataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BBB65A1604269300149356 /* ExerciseMetadataProvider.m */; };
 		74BD96DE15FBC9F2009F34A9 /* BodyMetric.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BD96DD15FBC9F2009F34A9 /* BodyMetric.m */; };
 		74BD96E515FC448D009F34A9 /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BD96E415FC448D009F34A9 /* Unit.m */; };
 		74BD96ED15FCF978009F34A9 /* UIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BD96EC15FCF978009F34A9 /* UIHelper.m */; };
@@ -92,6 +105,13 @@
 		7408404E15D1885B00A64D5B /* AppScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppScreen.h; path = UI/AppScreen.h; sourceTree = "<group>"; };
 		7408404F15D1B31E00A64D5B /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = App.h; path = App/App.h; sourceTree = "<group>"; };
 		7408405015D1B31E00A64D5B /* App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = App.m; path = App/App.m; sourceTree = "<group>"; };
+		740F437B160D68E100380CF5 /* UnitValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnitValueFormatter.h; path = UI/Helper/Formatter/Unit/UnitValueFormatter.h; sourceTree = "<group>"; };
+		740F437D160D696B00380CF5 /* InchFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InchFormatter.h; path = UI/Helper/Formatter/Unit/InchFormatter.h; sourceTree = "<group>"; };
+		740F437E160D696B00380CF5 /* InchFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InchFormatter.m; path = UI/Helper/Formatter/Unit/InchFormatter.m; sourceTree = "<group>"; };
+		740F4380160D6E1100380CF5 /* PercentFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PercentFormatter.h; path = UI/Helper/Formatter/Unit/PercentFormatter.h; sourceTree = "<group>"; };
+		740F4381160D6E1100380CF5 /* PercentFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PercentFormatter.m; path = UI/Helper/Formatter/Unit/PercentFormatter.m; sourceTree = "<group>"; };
+		740F4383160D718B00380CF5 /* FootInchFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FootInchFormatter.h; path = UI/Helper/Formatter/Unit/FootInchFormatter.h; sourceTree = "<group>"; };
+		740F4384160D718B00380CF5 /* FootInchFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FootInchFormatter.m; path = UI/Helper/Formatter/Unit/FootInchFormatter.m; sourceTree = "<group>"; };
 		741BBC4E15B7C2E300660BE6 /* CrossFitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrossFitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		741BBC5215B7C2E300660BE6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		741BBC5415B7C2E300660BE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -120,8 +140,18 @@
 		744EFB1915FBBA52000AECBA /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserProfile.m; path = Model/UserProfile.m; sourceTree = "<group>"; };
 		744EFB1B15FBBAA2000AECBA /* ModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelFactory.h; path = Model/ModelFactory.h; sourceTree = "<group>"; };
 		744EFB1C15FBBAA2000AECBA /* ModelFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ModelFactory.m; path = Model/ModelFactory.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		7454960316042B3200308609 /* WorkoutMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutMetadataProvider.h; path = Model/Metadata/WorkoutMetadataProvider.h; sourceTree = "<group>"; };
+		7454960416042B3200308609 /* WorkoutMetadataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutMetadataProvider.m; path = Model/Metadata/WorkoutMetadataProvider.m; sourceTree = "<group>"; };
+		7454960716042B9800308609 /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Workout.h; path = Model/Core/Workout.h; sourceTree = "<group>"; };
+		7454960816042B9800308609 /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Workout.m; path = Model/Core/Workout.m; sourceTree = "<group>"; };
+		7454960A16042C8600308609 /* MeasurableImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableImpl.h; path = Model/Core/MeasurableImpl.h; sourceTree = "<group>"; };
+		7454960B16042C8600308609 /* MeasurableImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableImpl.m; path = Model/Core/MeasurableImpl.m; sourceTree = "<group>"; };
+		7454960D16044E1800308609 /* BodyMetricMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BodyMetricMetadataProvider.h; path = Model/Metadata/BodyMetricMetadataProvider.h; sourceTree = "<group>"; };
+		7454960E16044E1900308609 /* BodyMetricMetadataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BodyMetricMetadataProvider.m; path = Model/Metadata/BodyMetricMetadataProvider.m; sourceTree = "<group>"; };
 		745E9C0415F58248006222BB /* AppViewGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppViewGestureRecognizer.h; path = UI/AppViewGestureRecognizer.h; sourceTree = "<group>"; };
 		745E9C0515F58249006222BB /* AppViewGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppViewGestureRecognizer.m; path = UI/AppViewGestureRecognizer.m; sourceTree = "<group>"; };
+		745F5183160D64E20066F600 /* DefaultUnitValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultUnitValueFormatter.h; path = UI/Helper/Formatter/Unit/DefaultUnitValueFormatter.h; sourceTree = "<group>"; };
+		745F5184160D64E20066F600 /* DefaultUnitValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultUnitValueFormatter.m; path = UI/Helper/Formatter/Unit/DefaultUnitValueFormatter.m; sourceTree = "<group>"; };
 		7460967815FABF8500DE158B /* MyBodyMetricTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyBodyMetricTableViewCell.xib; path = UI/MyBody/MyBodyMetricTableViewCell.xib; sourceTree = "<group>"; };
 		7460967C15FACE2700DE158B /* MyBodyUserInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyBodyUserInfoTableViewCell.h; path = UI/MyBody/MyBodyUserInfoTableViewCell.h; sourceTree = "<group>"; };
 		7460967D15FACE2700DE158B /* MyBodyUserInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBodyUserInfoTableViewCell.m; path = UI/MyBody/MyBodyUserInfoTableViewCell.m; sourceTree = "<group>"; };
@@ -132,16 +162,26 @@
 		747D62A515D4653C00360084 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home.png; path = CrossFitter/Resources/Images/home.png; sourceTree = SOURCE_ROOT; };
 		747D62A615D4653C00360084 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info.png; path = CrossFitter/Resources/Images/info.png; sourceTree = SOURCE_ROOT; };
 		747D62A915D47AB900360084 /* AppScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppScreen.m; path = UI/AppScreen.m; sourceTree = "<group>"; };
+		74947D8B160F8485008BC4E7 /* BodyMetricHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BodyMetricHelper.h; path = Model/Core/BodyMetricHelper.h; sourceTree = "<group>"; };
+		74947D8C160F8485008BC4E7 /* BodyMetricHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BodyMetricHelper.m; path = Model/Core/BodyMetricHelper.m; sourceTree = "<group>"; };
 		749BA3BA15D5DA3700FB1094 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		74A3982B160D4A04003AD87B /* PoundFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PoundFormatter.h; path = UI/Helper/Formatter/Unit/PoundFormatter.h; sourceTree = "<group>"; };
+		74A3982C160D4A04003AD87B /* PoundFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PoundFormatter.m; path = UI/Helper/Formatter/Unit/PoundFormatter.m; sourceTree = "<group>"; };
 		74B3165215DDD8B4003D5B09 /* MailAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MailAttachment.h; path = UI/Helper/Mail/MailAttachment.h; sourceTree = "<group>"; };
 		74B3165315DDD8B4003D5B09 /* MailAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MailAttachment.m; path = UI/Helper/Mail/MailAttachment.m; sourceTree = "<group>"; };
 		74B3165415DDD8B4003D5B09 /* MailHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MailHelper.h; path = UI/Helper/Mail/MailHelper.h; sourceTree = "<group>"; };
 		74B3165515DDD8B4003D5B09 /* MailHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MailHelper.m; path = UI/Helper/Mail/MailHelper.m; sourceTree = "<group>"; };
-		74BD96DC15FBC9F2009F34A9 /* BodyMetric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = BodyMetric.h; path = Model/BodyMetric.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		74BD96DD15FBC9F2009F34A9 /* BodyMetric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BodyMetric.m; path = Model/BodyMetric.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		74BD96E315FC448D009F34A9 /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Unit.h; path = Helper/Unit/Unit.h; sourceTree = "<group>"; };
-		74BD96E415FC448D009F34A9 /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Unit.m; path = Helper/Unit/Unit.m; sourceTree = "<group>"; };
-		74BD96EA15FCF6DA009F34A9 /* Measurable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = Measurable.h; path = Model/Measurable.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		74BBB653160421CE00149356 /* MeasurableDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableDataProvider.h; path = Model/Data/MeasurableDataProvider.h; sourceTree = "<group>"; };
+		74BBB654160421CE00149356 /* MeasurableDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableDataProvider.m; path = Model/Data/MeasurableDataProvider.m; sourceTree = "<group>"; };
+		74BBB6561604239100149356 /* MeasurableMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableMetadataProvider.h; path = Model/Metadata/MeasurableMetadataProvider.h; sourceTree = "<group>"; };
+		74BBB6571604239100149356 /* MeasurableMetadataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableMetadataProvider.m; path = Model/Metadata/MeasurableMetadataProvider.m; sourceTree = "<group>"; };
+		74BBB6591604269200149356 /* ExerciseMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExerciseMetadataProvider.h; path = Model/Metadata/ExerciseMetadataProvider.h; sourceTree = "<group>"; };
+		74BBB65A1604269300149356 /* ExerciseMetadataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExerciseMetadataProvider.m; path = Model/Metadata/ExerciseMetadataProvider.m; sourceTree = "<group>"; };
+		74BD96DC15FBC9F2009F34A9 /* BodyMetric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = BodyMetric.h; path = Model/Core/BodyMetric.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		74BD96DD15FBC9F2009F34A9 /* BodyMetric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BodyMetric.m; path = Model/Core/BodyMetric.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		74BD96E315FC448D009F34A9 /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Unit.h; path = Model/Unit.h; sourceTree = "<group>"; };
+		74BD96E415FC448D009F34A9 /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Unit.m; path = Model/Unit.m; sourceTree = "<group>"; };
+		74BD96EA15FCF6DA009F34A9 /* Measurable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = Measurable.h; path = Model/Core/Measurable.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		74BD96EB15FCF978009F34A9 /* UIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = UIHelper.h; path = UI/Helper/UIHelper.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		74BD96EC15FCF978009F34A9 /* UIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = UIHelper.m; path = UI/Helper/UIHelper.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		74C2758E15D87ACF00BB1F1A /* AppScreenSwitchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppScreenSwitchDelegate.h; path = UI/AppScreenSwitchDelegate.h; sourceTree = "<group>"; };
@@ -334,14 +374,16 @@
 		741BBC8715B7C63A00660BE6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				74A39824160D42D7003AD87B /* Core */,
+				74A39827160D42E9003AD87B /* Data */,
+				74A39826160D42E0003AD87B /* Metadata */,
 				741BBC8815B7C67E00660BE6 /* Model.xcdatamodeld */,
-				74BD96EA15FCF6DA009F34A9 /* Measurable.h */,
 				744EFB1815FBBA52000AECBA /* UserProfile.h */,
 				744EFB1915FBBA52000AECBA /* UserProfile.m */,
+				74BD96E315FC448D009F34A9 /* Unit.h */,
+				74BD96E415FC448D009F34A9 /* Unit.m */,
 				744EFB1B15FBBAA2000AECBA /* ModelFactory.h */,
 				744EFB1C15FBBAA2000AECBA /* ModelFactory.m */,
-				74BD96DC15FBC9F2009F34A9 /* BodyMetric.h */,
-				74BD96DD15FBC9F2009F34A9 /* BodyMetric.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -388,6 +430,64 @@
 			name = Menu;
 			sourceTree = "<group>";
 		};
+		74A39824160D42D7003AD87B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				74BD96EA15FCF6DA009F34A9 /* Measurable.h */,
+				7454960A16042C8600308609 /* MeasurableImpl.h */,
+				7454960B16042C8600308609 /* MeasurableImpl.m */,
+				7454960716042B9800308609 /* Workout.h */,
+				7454960816042B9800308609 /* Workout.m */,
+				74BD96DC15FBC9F2009F34A9 /* BodyMetric.h */,
+				74BD96DD15FBC9F2009F34A9 /* BodyMetric.m */,
+				74947D8B160F8485008BC4E7 /* BodyMetricHelper.h */,
+				74947D8C160F8485008BC4E7 /* BodyMetricHelper.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		74A39826160D42E0003AD87B /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				74BBB6561604239100149356 /* MeasurableMetadataProvider.h */,
+				74BBB6571604239100149356 /* MeasurableMetadataProvider.m */,
+				7454960D16044E1800308609 /* BodyMetricMetadataProvider.h */,
+				7454960E16044E1900308609 /* BodyMetricMetadataProvider.m */,
+				74BBB6591604269200149356 /* ExerciseMetadataProvider.h */,
+				74BBB65A1604269300149356 /* ExerciseMetadataProvider.m */,
+				7454960316042B3200308609 /* WorkoutMetadataProvider.h */,
+				7454960416042B3200308609 /* WorkoutMetadataProvider.m */,
+			);
+			name = Metadata;
+			sourceTree = "<group>";
+		};
+		74A39827160D42E9003AD87B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				74BBB653160421CE00149356 /* MeasurableDataProvider.h */,
+				74BBB654160421CE00149356 /* MeasurableDataProvider.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		74A3982E160D5D01003AD87B /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				740F437B160D68E100380CF5 /* UnitValueFormatter.h */,
+				745F5183160D64E20066F600 /* DefaultUnitValueFormatter.h */,
+				745F5184160D64E20066F600 /* DefaultUnitValueFormatter.m */,
+				74A3982B160D4A04003AD87B /* PoundFormatter.h */,
+				74A3982C160D4A04003AD87B /* PoundFormatter.m */,
+				740F437D160D696B00380CF5 /* InchFormatter.h */,
+				740F437E160D696B00380CF5 /* InchFormatter.m */,
+				740F4380160D6E1100380CF5 /* PercentFormatter.h */,
+				740F4381160D6E1100380CF5 /* PercentFormatter.m */,
+				740F4383160D718B00380CF5 /* FootInchFormatter.h */,
+				740F4384160D718B00380CF5 /* FootInchFormatter.m */,
+			);
+			name = Unit;
+			sourceTree = "<group>";
+		};
 		74BD96E015FC43CD009F34A9 /* Mail */ = {
 			isa = PBXGroup;
 			children = (
@@ -402,23 +502,22 @@
 		74BD96E115FC43E2009F34A9 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				74BD96E215FC43ED009F34A9 /* Unit */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
 		};
-		74BD96E215FC43ED009F34A9 /* Unit */ = {
+		74BD96E215FC43ED009F34A9 /* Formatter */ = {
 			isa = PBXGroup;
 			children = (
-				74BD96E315FC448D009F34A9 /* Unit.h */,
-				74BD96E415FC448D009F34A9 /* Unit.m */,
+				74A3982E160D5D01003AD87B /* Unit */,
 			);
-			name = Unit;
+			name = Formatter;
 			sourceTree = "<group>";
 		};
 		74C275A015DBE80400BB1F1A /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				74BD96E215FC43ED009F34A9 /* Formatter */,
 				74BD96E015FC43CD009F34A9 /* Mail */,
 				74BD96EB15FCF978009F34A9 /* UIHelper.h */,
 				74BD96EC15FCF978009F34A9 /* UIHelper.m */,
@@ -686,6 +785,19 @@
 				74BD96DE15FBC9F2009F34A9 /* BodyMetric.m in Sources */,
 				74BD96E515FC448D009F34A9 /* Unit.m in Sources */,
 				74BD96ED15FCF978009F34A9 /* UIHelper.m in Sources */,
+				74BBB655160421CE00149356 /* MeasurableDataProvider.m in Sources */,
+				74BBB6581604239100149356 /* MeasurableMetadataProvider.m in Sources */,
+				74BBB65B1604269300149356 /* ExerciseMetadataProvider.m in Sources */,
+				7454960516042B3200308609 /* WorkoutMetadataProvider.m in Sources */,
+				7454960916042B9800308609 /* Workout.m in Sources */,
+				7454960C16042C8600308609 /* MeasurableImpl.m in Sources */,
+				7454960F16044E1900308609 /* BodyMetricMetadataProvider.m in Sources */,
+				74A3982D160D4A04003AD87B /* PoundFormatter.m in Sources */,
+				745F5185160D64E20066F600 /* DefaultUnitValueFormatter.m in Sources */,
+				740F437F160D696B00380CF5 /* InchFormatter.m in Sources */,
+				740F4382160D6E1100380CF5 /* PercentFormatter.m in Sources */,
+				740F4385160D718B00380CF5 /* FootInchFormatter.m in Sources */,
+				74947D8D160F8485008BC4E7 /* BodyMetricHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

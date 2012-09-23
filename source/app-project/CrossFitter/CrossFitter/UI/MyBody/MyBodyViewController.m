@@ -24,8 +24,6 @@
 @property AppViewController* appViewController;
 @property AppScreenShareDelegate* appScreenShareDelegate;
 
-@property UserProfile* userProfile;
-
 @end
 
 @implementation MyBodyViewController
@@ -36,8 +34,7 @@
   if(self) {
     self.appScreenSwitchDelegate = [[MyBodyScreenSwitchDelegate alloc]initWithViewController:self];
     self.appScreenShareDelegate = [[MyBodyScreenShareDelegate alloc]initWithViewController:self];
-    self.appViewController = [[App sharedInstance] appViewController];
-    self.userProfile = [ModelFactory createUserProfile];
+    self.appViewController = [[App sharedInstance] appViewController];    
   }
   
   return self;
@@ -60,27 +57,25 @@
     
     cell.userProfileSummaryLabel.text = [NSString stringWithFormat:
                                          NSLocalizedString(@"mybody-user-profile-summary-format", @"%@\n%@, %@\n%@"),
-                                         self.userProfile.name,
-                                         self.userProfile.sex,
-                                         self.userProfile.age,
-                                         self.userProfile.box];
+                                         [App sharedInstance].userProfile.name,
+                                         [App sharedInstance].userProfile.sex,
+                                         [App sharedInstance].userProfile.age,
+                                         [App sharedInstance].userProfile.box];
     
     cell.userProfileImageButton.titleLabel.text = NSLocalizedString(@"mybody-user-profile-add-photo-label", @"Add Photo");
 
     return cell;
   }
 
-  BodyMetricIdentifier metricIdentifier = [self metricIdentifierIndexPath:indexPath];
+  NSString* metricIdentifier = [self metricIdentifierIndexPath:indexPath];
   if(metricIdentifier != kBodyMetricIdentifierInvalid) {
     
     MyBodyMetricTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyBodyMetricTableViewCell"];
     
-    BodyMetric* metric = [self.userProfile.metrics valueForKey: [BodyMetric nameForBodyMetricIdentifier:metricIdentifier]];
-    cell.metricNameLabel.text = metric.name;
+    BodyMetric* metric = [[App sharedInstance].userProfile.metrics valueForKey: metricIdentifier];
+    cell.metricNameLabel.text = metric.metadataProvider.name;
+    cell.metricValueLabel.text = [metric.valueFormatter formatValue:metric.dataProvider.value];
     
-    //CXB CONTINUE - IMPL CONVERTER HERE
-    cell.metricValueLabel.text = [NSString stringWithFormat:@"%f", metric.value];
-
     //Adjust the trend image to tailor to the metric specifics
     [UIHelper adjustImage:cell.metricTrendImageButton forMeasurable:metric];
     
@@ -108,7 +103,7 @@
   }
 }
 
-- (BodyMetricIdentifier) metricIdentifierIndexPath: (NSIndexPath *)indexPath {
+- (NSString*) metricIdentifierIndexPath: (NSIndexPath *)indexPath {
   
   if(indexPath.section == 1) {
     if(indexPath.item == 0) {

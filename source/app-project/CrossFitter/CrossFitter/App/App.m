@@ -8,6 +8,9 @@
 
 #import "App.h"
 #import "AppConstants.h"
+#import "ModelFactory.h"
+
+
 @interface AppViewController () {
   
 }
@@ -22,6 +25,7 @@ static App *sharedInstance = nil;
 @synthesize appDelegate = _appDelegate;
 @synthesize appViewController= _appViewController;
 @synthesize navigationViewController = _navigationViewController;
+@synthesize userProfile = _userProfile;
 
 - (void) setAppDelegate:(AppDelegate *)appDelegate {
   
@@ -41,6 +45,12 @@ static App *sharedInstance = nil;
   //For now hard code the start screen at the the home screen
   [[self appViewController] displayScreenForStartUp:kAppScreenIdentifierHome];
   
+  //CXB_TODO - uncomment this once stable
+  //If first time - initialize model
+  //if(appRunCount == 0) {
+    [self initDataModel];
+  //}
+  
   //Show and Hide the Application menu after a short moment - only the first
   //few times the user has run the app
   if(appRunCount <= kNumberOfRunsToShowHelp) {
@@ -49,7 +59,25 @@ static App *sharedInstance = nil;
     //Save application run count - only for the same of keeping track on this
     //So no need to keep track of it later
     self.applicationRunCount = ++appRunCount;
-  }
+  }  
+}
+
+//Initializes the application data model
+- (void) initDataModel {
+  
+  //User Profile
+  _userProfile = [ModelFactory createDefaultUserProfile];
+
+  //Body Metrics
+  NSDictionary* metrics = [ModelFactory createDefaultBodyMetrics];
+  _userProfile.metrics = metrics;
+
+  
+  //Moves
+  
+  //Workouts
+  
+  //WODs
   
 }
 
