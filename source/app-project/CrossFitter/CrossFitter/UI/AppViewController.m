@@ -103,21 +103,24 @@ typedef enum {
   
   //Hide the navigation toolbar which is displayed by default
   self.navigationController.toolbarHidden = YES;
-    
+  
   //Start the application
-  App* app = [App sharedInstance];
-  [app startApp];
+  [[App sharedInstance] startApp];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
   //NSLog(@"viewWillAppear");
   [super viewWillAppear:animated];
   
-  //CXB_REVIEW
-  //This may not be the case all the time
-  //Hide the menu
   dispatch_async(dispatch_get_main_queue(), ^{
+
+    //CXB_REVIEW
+    //This may not be the case all the time
+    //Hide the menu
     self.containerView.transform = CGAffineTransformMakeTranslation(0, -self.menuView.bounds.size.height);
+    
+    //Display the app menu if needed
+    [[App sharedInstance] displayAppMenuIfNeeded];
   });
 }
 

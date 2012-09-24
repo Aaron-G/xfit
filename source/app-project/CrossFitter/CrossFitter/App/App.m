@@ -11,10 +11,14 @@
 #import "ModelFactory.h"
 
 
-@interface AppViewController () {
+@interface App () {
   
 }
+
 @property NSInteger applicationRunCount;
+
+//Determines of the app menu has been displayed during this run of the app
+@property BOOL appMenuDisplayedAtStartup;
 
 @end
 
@@ -27,6 +31,14 @@ static App *sharedInstance = nil;
 @synthesize navigationViewController = _navigationViewController;
 @synthesize userProfile = _userProfile;
 
+- (id)init {
+  self = [super init];
+  if(self) {
+    self.appMenuDisplayedAtStartup = NO;
+  }
+  return self;
+}
+
 - (void) setAppDelegate:(AppDelegate *)appDelegate {
   
   if(!_appDelegate) {
@@ -37,13 +49,16 @@ static App *sharedInstance = nil;
   
 }
 
+//CXB TODO - if too slow may need to do on another thread as
+//this gets called from the main thread
 - (void)startApp {
   
   //Read application run count
-  NSInteger appRunCount = [self applicationRunCount];
+  //NSInteger appRunCount = [self applicationRunCount];
   
   //For now hard code the start screen at the the home screen
   [[self appViewController] displayScreenForStartUp:kAppScreenIdentifierHome];
+  
   
   //CXB_TODO - uncomment this once stable
   //If first time - initialize model
@@ -51,15 +66,34 @@ static App *sharedInstance = nil;
     [self initDataModel];
   //}
   
-  //Show and Hide the Application menu after a short moment - only the first
-  //few times the user has run the app
-  if(appRunCount <= kNumberOfRunsToShowHelp) {
-    [[self appViewController] showOrHideMenuWithDelay:1.5 withAutoHideDelay:2];
+}
+
+//Show and Hide the Application menu after a short moment - only the first
+//few times the user has run the app
+- (void) displayAppMenuIfNeeded {
+
+  //IMPL NOTE
+  //Ideally this should be part of the startApp, but due to timing during the application
+  //boot sequence, we have to call this separately from the AppViewController.viewWillAppear
+
+  if(!self.appMenuDisplayedAtStartup) {
     
-    //Save application run count - only for the same of keeping track on this
-    //So no need to keep track of it later
-    self.applicationRunCount = ++appRunCount;
-  }  
+    //Read application run count
+    NSInteger appRunCount = [self applicationRunCount];
+    
+    //appRunCount starts at zero
+    if(appRunCount < kNumberOfRunsToShowHelp) {
+      
+      [[self appViewController] showOrHideMenuWithDelay:1.5 withAutoHideDelay:2];
+      
+      //Update control flag
+      self.appMenuDisplayedAtStartup = YES;
+      
+      //Save application run count - only for the same of keeping track on this
+      //So no need to keep track of it later
+      self.applicationRunCount = ++appRunCount;
+    }
+  }
 }
 
 //Initializes the application data model
