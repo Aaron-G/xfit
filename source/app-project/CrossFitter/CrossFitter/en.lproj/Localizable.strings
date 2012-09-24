@@ -126,5 +126,5 @@
 //Unit Formatters
 "pound-suffix" = "lb";
 "inch-suffix" = "\"";
-"foot-format" = "%i'";
-"foot-and-inch-format" = "%i' %i\"";
+"foot-suffix" = "'";
+"foot-and-inch-format" = "%@ %@";
