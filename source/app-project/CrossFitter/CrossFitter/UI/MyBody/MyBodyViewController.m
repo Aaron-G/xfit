@@ -17,6 +17,7 @@
 #import "ModelFactory.h"
 #import "BodyMetric.h"
 #import "UIHelper.h"
+#import "AppViewControllerSegue.h"
 
 @interface MyBodyViewController () {
 }
@@ -148,39 +149,23 @@
 
 //Add proper behavior to cell selection
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  NSLog(@"Group: %d Row: %d", indexPath.section, indexPath.item);
   
-//  NSInteger selectedIndex = indexPath.item;
-//  
-//  //Share Section
-//  if(indexPath.section == 1) {
-//    
-//    if (selectedIndex == 0) {
-//      [self shareAppFacebook];
-//    } else if (selectedIndex == 1) {
-//      [self shareAppTextMessage];
-//    } else if (selectedIndex == 2) {
-//      [self shareAppEmail];
-//    }
-//  }
-//  //Review Section
-//  else if(indexPath.section == 2) {
-//    
-//    if (selectedIndex == 0) {
-//      [self rateApp];
-//    }
-//  }
-//  //Support Section
-//  else if(indexPath.section == 3) {
-//    
-//    if (selectedIndex == 0) {
-//      [self requestFeature];
-//    } else if (selectedIndex == 1) {
-//      [self provideFeedback];
-//    } else if (selectedIndex == 2) {
-//      [self reportIssue];
-//    }
-//  }
+  NSString* metricIdentifier = [self metricIdentifierIndexPath:indexPath];
+  
+  if(metricIdentifier != kBodyMetricIdentifierInvalid) {
+    
+    BodyMetric* metric = [[App sharedInstance].userProfile.metrics valueForKey: metricIdentifier];
+
+    MeasurableViewController* measurableViewController = [UIHelper measurableViewController];
+    measurableViewController.measurable = metric;
+    
+    AppViewControllerSegue* appViewControllerSegue =
+    [[AppViewControllerSegue alloc] initWithIdentifier:@"My Body to Body Metric"
+                                                source:self
+                                           destination:measurableViewController];
+    
+    [appViewControllerSegue perform];    
+  }
 }
 
 - (void)shareMyBodyAction {

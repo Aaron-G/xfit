@@ -128,3 +128,7 @@
 "inch-suffix" = "\"";
 "foot-suffix" = "'";
 "foot-and-inch-format" = "%@ %@";
+
+//////////////////////////////
+//Measurable Info Screen
+"measurable-info-screen-title-format" = "%@ Info";
