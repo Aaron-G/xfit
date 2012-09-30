@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7408404215D1810500A64D5B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7408404015D1810500A64D5B /* HomeViewController.m */; };
 		7408405115D1B31E00A64D5B /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = 7408405015D1B31E00A64D5B /* App.m */; };
+		740970371618032A00D2D9B8 /* MeasurableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 740970361618032900D2D9B8 /* MeasurableViewController.m */; };
 		740F437F160D696B00380CF5 /* InchFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 740F437E160D696B00380CF5 /* InchFormatter.m */; };
 		740F4382160D6E1100380CF5 /* PercentFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 740F4381160D6E1100380CF5 /* PercentFormatter.m */; };
 		740F4385160D718B00380CF5 /* FootInchFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 740F4384160D718B00380CF5 /* FootInchFormatter.m */; };
@@ -107,6 +108,8 @@
 		7408404E15D1885B00A64D5B /* AppScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppScreen.h; path = UI/AppScreen.h; sourceTree = "<group>"; };
 		7408404F15D1B31E00A64D5B /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = App.h; path = App/App.h; sourceTree = "<group>"; };
 		7408405015D1B31E00A64D5B /* App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = App.m; path = App/App.m; sourceTree = "<group>"; };
+		740970351618032800D2D9B8 /* MeasurableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableViewController.h; path = UI/MeasurableViewController.h; sourceTree = "<group>"; };
+		740970361618032900D2D9B8 /* MeasurableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableViewController.m; path = UI/MeasurableViewController.m; sourceTree = "<group>"; };
 		740F437B160D68E100380CF5 /* UnitValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnitValueFormatter.h; path = UI/Helper/Formatter/Unit/UnitValueFormatter.h; sourceTree = "<group>"; };
 		740F437D160D696B00380CF5 /* InchFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InchFormatter.h; path = UI/Helper/Formatter/Unit/InchFormatter.h; sourceTree = "<group>"; };
 		740F437E160D696B00380CF5 /* InchFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InchFormatter.m; path = UI/Helper/Formatter/Unit/InchFormatter.m; sourceTree = "<group>"; };
@@ -412,6 +415,8 @@
 				747BC84415D80F4500AC2150 /* AppViewControllerSegue.m */,
 				745E9C0415F58248006222BB /* AppViewGestureRecognizer.h */,
 				745E9C0515F58249006222BB /* AppViewGestureRecognizer.m */,
+				740970351618032800D2D9B8 /* MeasurableViewController.h */,
+				740970361618032900D2D9B8 /* MeasurableViewController.m */,
 				7482865615B8E36F00C37154 /* Menu */,
 				7408403E15D1805E00A64D5B /* Home */,
 				74EF1E7415D1DD1000F96131 /* PRWall */,
@@ -810,6 +815,7 @@
 				74947D8D160F8485008BC4E7 /* BodyMetricHelper.m in Sources */,
 				74220BAB1610B00500E58D1C /* FootFormatter.m in Sources */,
 				74220BAF1613427D00E58D1C /* MeasurableDataEntry.m in Sources */,
+				740970371618032A00D2D9B8 /* MeasurableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
