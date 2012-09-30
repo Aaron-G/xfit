@@ -31,8 +31,8 @@ static NSMutableDictionary* appScreenSwitchDelegates;
 ////////////////////////////////////////////////////////////////
 
 typedef enum {
-  kMenuDisclosureDirectionUp,
-  kMenuDisclosureDirectionDown
+  MenuDisclosureDirectionUp,
+  MenuDisclosureDirectionDown
 } MenuDisclosureDirection;
 
 ////////////////////////////////////////////////////////////////
@@ -99,7 +99,7 @@ typedef enum {
   [super viewDidLoad];
   
   //Adjust the menu disclosure button
-  [self rotateMenuDisclosureWithDirection: kMenuDisclosureDirectionDown];
+  [self rotateMenuDisclosureWithDirection: MenuDisclosureDirectionDown];
   
   //Hide the navigation toolbar which is displayed by default
   self.navigationController.toolbarHidden = YES;
@@ -176,31 +176,31 @@ typedef enum {
 }
 
 - (void) displayInfoScreen {
-  [self displayScreen:kAppScreenIdentifierInfo];
+  [self displayScreen:AppScreenIdentifierInfo];
 }
 
 - (void) displayPRWallScreen {
-  [self displayScreen:kAppScreenIdentifierPRWall];
+  [self displayScreen:AppScreenIdentifierPRWall];
 }
 
 - (void) displayMyBodyScreen {
-  [self displayScreen:kAppScreenIdentifierMyBody];
+  [self displayScreen:AppScreenIdentifierMyBody];
 }
 
 - (void) displayWorkoutScreen {
-  [self displayScreen:kAppScreenIdentifierWorkout];
+  [self displayScreen:AppScreenIdentifierWorkout];
 }
 
 - (void) displayWODScreen {
-  [self displayScreen:kAppScreenIdentifierWOD];
+  [self displayScreen:AppScreenIdentifierWOD];
 }
 
 - (void) displayMoveScreen {
-  [self displayScreen:kAppScreenIdentifierMove];
+  [self displayScreen:AppScreenIdentifierMove];
 }
 
 - (void) displayHomeScreen {
-  [self displayScreen:kAppScreenIdentifierHome];
+  [self displayScreen:AppScreenIdentifierHome];
 }
 
 -(IBAction) showOrHideMenuAction:(id)sender {
@@ -230,7 +230,7 @@ typedef enum {
 
     verticalTranslation = -self.menuView.bounds.size.height;
     animationOptions = UIViewAnimationOptionCurveEaseIn;
-    direction = kMenuDisclosureDirectionDown;
+    direction = MenuDisclosureDirectionDown;
     
     [self.contentView removeGestureRecognizer:self.gestureRecognizer];
     
@@ -238,7 +238,7 @@ typedef enum {
 
     verticalTranslation = 0;
     animationOptions = UIViewAnimationOptionCurveEaseOut;
-    direction = kMenuDisclosureDirectionUp;
+    direction = MenuDisclosureDirectionUp;
     
     [self.contentView addGestureRecognizer:self.gestureRecognizer];
   }
@@ -267,9 +267,9 @@ typedef enum {
   
   CGFloat menuDisclosureRotationAngle;
 
-  if(kMenuDisclosureDirectionUp == direction) {
+  if(MenuDisclosureDirectionUp == direction) {
     menuDisclosureRotationAngle = 270;
-  } else if(kMenuDisclosureDirectionDown == direction) {
+  } else if(MenuDisclosureDirectionDown == direction) {
     menuDisclosureRotationAngle = 90;
   }
 
@@ -310,19 +310,19 @@ typedef enum {
     
     NSString* viewControllerId = nil;
     
-    if(kAppScreenIdentifierHome == screen) {
+    if(AppScreenIdentifierHome == screen) {
       viewControllerId = @"HomeViewController";
-    } else if(kAppScreenIdentifierPRWall == screen) {
+    } else if(AppScreenIdentifierPRWall == screen) {
       viewControllerId = @"PRWallViewController";
-    } else if(kAppScreenIdentifierWOD == screen) {
+    } else if(AppScreenIdentifierWOD == screen) {
       viewControllerId = @"WODViewController";
-    } else if(kAppScreenIdentifierWorkout == screen) {
+    } else if(AppScreenIdentifierWorkout == screen) {
       viewControllerId = @"WorkoutViewController";
-    } else if(kAppScreenIdentifierMove == screen) {
+    } else if(AppScreenIdentifierMove == screen) {
       viewControllerId = @"MoveViewController";
-    } else if(kAppScreenIdentifierMyBody == screen) {
+    } else if(AppScreenIdentifierMyBody == screen) {
       viewControllerId = @"MyBodyViewController";
-    } else if(kAppScreenIdentifierInfo == screen) {
+    } else if(AppScreenIdentifierInfo == screen) {
       viewControllerId = @"InfoViewController";
     }
     

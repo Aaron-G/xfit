@@ -11,7 +11,7 @@
 @implementation WODScreenSwitchDelegate
 
 - (AppScreenIdentifier) appScreen {
-  return kAppScreenIdentifierWOD;
+  return AppScreenIdentifierWOD;
 }
 
 - (void) initNavigationItems

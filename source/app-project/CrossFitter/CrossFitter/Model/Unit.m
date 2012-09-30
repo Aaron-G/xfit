@@ -49,78 +49,78 @@ static Unit* percentUnit;
   Unit* unit = nil;
   
   //LENGTH
-  if(unitIdentifier == kUnitIdentifierKilometer) {
+  if(unitIdentifier == UnitIdentifierKilometer) {
     if(!kilometerUnit) {
-      kilometerUnit = [[Unit alloc] initWithUnitIdentifier:kUnitIdentifierKilometer withUnitType:kUnitTypeLength];
+      kilometerUnit = [[Unit alloc] initWithUnitIdentifier:UnitIdentifierKilometer withUnitType:UnitTypeLength];
     }
     unit = kilometerUnit;
-  } else if(unitIdentifier == kUnitIdentifierMeter) {
+  } else if(unitIdentifier == UnitIdentifierMeter) {
     if(!meterUnit) {
-      meterUnit = [[Unit alloc] initWithUnitIdentifier:kUnitIdentifierMeter withUnitType:kUnitTypeLength];
+      meterUnit = [[Unit alloc] initWithUnitIdentifier:UnitIdentifierMeter withUnitType:UnitTypeLength];
     }
     unit = meterUnit;
-  } else if(unitIdentifier == kUnitIdentifierMile) {
+  } else if(unitIdentifier == UnitIdentifierMile) {
     if(!mileUnit) {
-      mileUnit = [[Unit alloc] initWithUnitIdentifier:kUnitIdentifierMile withUnitType:kUnitTypeLength];
+      mileUnit = [[Unit alloc] initWithUnitIdentifier:UnitIdentifierMile withUnitType:UnitTypeLength];
     }
     unit = mileUnit;
-  } else if(unitIdentifier == kUnitIdentifierYard) {
+  } else if(unitIdentifier == UnitIdentifierYard) {
     if(!yardUnit) {
-      yardUnit = [[Unit alloc] initWithUnitIdentifier:kUnitIdentifierYard withUnitType:kUnitTypeLength];
+      yardUnit = [[Unit alloc] initWithUnitIdentifier:UnitIdentifierYard withUnitType:UnitTypeLength];
     }
     unit = yardUnit;
-  } else if(unitIdentifier == kUnitIdentifierFoot) {
+  } else if(unitIdentifier == UnitIdentifierFoot) {
     if(!footUnit) {
-      footUnit = [[Unit alloc] initWithUnitIdentifier:kUnitIdentifierFoot withUnitType:kUnitTypeLength];
+      footUnit = [[Unit alloc] initWithUnitIdentifier:UnitIdentifierFoot withUnitType:UnitTypeLength];
     }
     unit = footUnit;
-  } else if(unitIdentifier == kUnitIdentifierInch) {
+  } else if(unitIdentifier == UnitIdentifierInch) {
     if(!inchUnit) {
-      inchUnit = [[Unit alloc] initWithUnitIdentifier:kUnitIdentifierInch withUnitType:kUnitTypeLength];
+      inchUnit = [[Unit alloc] initWithUnitIdentifier:UnitIdentifierInch withUnitType:UnitTypeLength];
     }
     unit = inchUnit;
   }
   
   //MASS
-  else if(unitIdentifier == kUnitIdentifierKilogram) {
+  else if(unitIdentifier == UnitIdentifierKilogram) {
     if(!kilogramUnit) {
-      kilogramUnit = [[Unit alloc] initWithUnitIdentifier:kUnitIdentifierKilogram withUnitType:kUnitTypeMass];
+      kilogramUnit = [[Unit alloc] initWithUnitIdentifier:UnitIdentifierKilogram withUnitType:UnitTypeMass];
     }
     unit = kilogramUnit;
-  } else if(unitIdentifier == kUnitIdentifierPound) {
+  } else if(unitIdentifier == UnitIdentifierPound) {
     if(!poundUnit) {
-      poundUnit = [[Unit alloc] initWithUnitIdentifier:kUnitIdentifierPound withUnitType:kUnitTypeMass];
+      poundUnit = [[Unit alloc] initWithUnitIdentifier:UnitIdentifierPound withUnitType:UnitTypeMass];
     }
     unit = poundUnit;
-  } else if(unitIdentifier == kUnitIdentifierPood) {
+  } else if(unitIdentifier == UnitIdentifierPood) {
     if(!poodUnit) {
-      poodUnit = [[Unit alloc] initWithUnitIdentifier:kUnitIdentifierPood withUnitType:kUnitTypeMass];
+      poodUnit = [[Unit alloc] initWithUnitIdentifier:UnitIdentifierPood withUnitType:UnitTypeMass];
     }
     unit = poodUnit;
   }
 
   //TIME
-  else if(unitIdentifier == kUnitIdentifierMinute) {
+  else if(unitIdentifier == UnitIdentifierMinute) {
     if(!minuteUnit) {
-      minuteUnit = [[Unit alloc] initWithUnitIdentifier:kUnitIdentifierMinute withUnitType:kUnitTypeTime];
+      minuteUnit = [[Unit alloc] initWithUnitIdentifier:UnitIdentifierMinute withUnitType:UnitTypeTime];
     }
     unit = minuteUnit;
-  } else if(unitIdentifier == kUnitIdentifierSecond) {
+  } else if(unitIdentifier == UnitIdentifierSecond) {
     if(!secondUnit) {
-      secondUnit = [[Unit alloc] initWithUnitIdentifier:kUnitIdentifierSecond withUnitType:kUnitTypeTime];
+      secondUnit = [[Unit alloc] initWithUnitIdentifier:UnitIdentifierSecond withUnitType:UnitTypeTime];
     }
     unit = secondUnit;
   }
   
   //GENERAL
-  else if(unitIdentifier == kUnitIdentifierNone) {
+  else if(unitIdentifier == UnitIdentifierNone) {
     if(!noneUnit) {
-      noneUnit = [[Unit alloc] initWithUnitIdentifier:kUnitIdentifierNone withUnitType:kUnitTypeGeneral];
+      noneUnit = [[Unit alloc] initWithUnitIdentifier:UnitIdentifierNone withUnitType:UnitTypeGeneral];
     }
     unit = noneUnit;
-  } else if(unitIdentifier == kUnitIdentifierPercent) {
+  } else if(unitIdentifier == UnitIdentifierPercent) {
     if(!percentUnit) {
-      percentUnit = [[Unit alloc] initWithUnitIdentifier:kUnitIdentifierPercent withUnitType:kUnitTypeGeneral];
+      percentUnit = [[Unit alloc] initWithUnitIdentifier:UnitIdentifierPercent withUnitType:UnitTypeGeneral];
     }
     unit = percentUnit;
   }

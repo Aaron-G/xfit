@@ -12,34 +12,34 @@
 @class UnitValueFormatter;
 
 typedef enum {
-  kUnitTypeGeneral, //Body Mass Index, Body Fat...
-  kUnitTypeLength,
-  kUnitTypeMass,
-  kUnitTypeTime,
+  UnitTypeGeneral, //Body Mass Index, Body Fat...
+  UnitTypeLength,
+  UnitTypeMass,
+  UnitTypeTime,
 } UnitType;
 
 typedef enum {
   
   //General
-  kUnitIdentifierNone,
-  kUnitIdentifierPercent,
+  UnitIdentifierNone,
+  UnitIdentifierPercent,
 
   //Length
-  kUnitIdentifierKilometer,
-  kUnitIdentifierMeter,
-  kUnitIdentifierMile,
-  kUnitIdentifierYard,
-  kUnitIdentifierFoot,
-  kUnitIdentifierInch,
+  UnitIdentifierKilometer,
+  UnitIdentifierMeter,
+  UnitIdentifierMile,
+  UnitIdentifierYard,
+  UnitIdentifierFoot,
+  UnitIdentifierInch,
   
   //Mass
-  kUnitIdentifierKilogram,
-  kUnitIdentifierPound,
-  kUnitIdentifierPood,
+  UnitIdentifierKilogram,
+  UnitIdentifierPound,
+  UnitIdentifierPood,
   
   //Time
-  kUnitIdentifierSecond,
-  kUnitIdentifierMinute
+  UnitIdentifierSecond,
+  UnitIdentifierMinute
   
 } UnitIdentifier;
 

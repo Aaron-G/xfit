@@ -14,7 +14,7 @@
 
 - (AppScreenIdentifier) appScreen
 {
-  return kAppScreenIdentifierWorkout;
+  return AppScreenIdentifierWorkout;
 }
 
 - (void) initNavigationItems

@@ -18,39 +18,39 @@
 + (AppScreenIdentifier) appScreenForScreenIndex: (NSInteger) screenIndex {
 
   if(screenIndex == 0) {
-    return kAppScreenIdentifierHome;
+    return AppScreenIdentifierHome;
   } else if(screenIndex == 1) {
-    return kAppScreenIdentifierPRWall;
+    return AppScreenIdentifierPRWall;
   } else if(screenIndex == 2) {
-    return kAppScreenIdentifierWOD;
+    return AppScreenIdentifierWOD;
   } else if(screenIndex == 3) {
-    return kAppScreenIdentifierWorkout;
+    return AppScreenIdentifierWorkout;
   } else if(screenIndex == 4) {
-    return kAppScreenIdentifierMove;
+    return AppScreenIdentifierMove;
   } else if(screenIndex == 5) {
-    return kAppScreenIdentifierMyBody;
+    return AppScreenIdentifierMyBody;
   } else if(screenIndex == 6) {
-    return kAppScreenIdentifierInfo;
+    return AppScreenIdentifierInfo;
   }
   
-  return kAppScreenIdentifierHome;
+  return AppScreenIdentifierHome;
 }
 
 + (NSString*) screenNameForAppScreen: (AppScreenIdentifier) appScreen {
   
-  if(appScreen == kAppScreenIdentifierHome) {
+  if(appScreen == AppScreenIdentifierHome) {
     return @"Home";
-  } else if(appScreen == kAppScreenIdentifierPRWall) {
+  } else if(appScreen == AppScreenIdentifierPRWall) {
     return @"PRWall";
-  } else if(appScreen == kAppScreenIdentifierWOD) {
+  } else if(appScreen == AppScreenIdentifierWOD) {
     return @"WOD";
-  } else if(appScreen == kAppScreenIdentifierWorkout) {
+  } else if(appScreen == AppScreenIdentifierWorkout) {
     return @"Workout";
-  } else if(appScreen == kAppScreenIdentifierMove) {
+  } else if(appScreen == AppScreenIdentifierMove) {
     return @"Move";
-  } else if(appScreen == kAppScreenIdentifierMyBody) {
+  } else if(appScreen == AppScreenIdentifierMyBody) {
     return @"MyBody";
-  } else if(appScreen == kAppScreenIdentifierInfo) {
+  } else if(appScreen == AppScreenIdentifierInfo) {
     return @"Info";
   }
   

@@ -34,7 +34,7 @@
   
   if (self) {
     _measurableIdentifier = measurableIdentifier;
-    _valueTrend = kMeasurableValueTrendNone;
+    _valueTrend = MeasurableValueTrendNone;
   }
   return self;
 }
@@ -77,18 +77,18 @@
 - (void)updateValueTrend {
   
   if (_values.count < 2) {
-    _valueTrend = kMeasurableValueTrendNone;
+    _valueTrend = MeasurableValueTrendNone;
   } else {
     
     MeasurableDataEntry* valueLast = [_values objectAtIndex:0];
     MeasurableDataEntry* valueBeforeLast = [_values objectAtIndex:1];
     
     if([valueLast.value floatValue] > [valueBeforeLast.value floatValue]) {
-      _valueTrend = kMeasurableValueTrendUp;
+      _valueTrend = MeasurableValueTrendUp;
     } else if([valueLast.value floatValue] < [valueBeforeLast.value floatValue]) {
-      _valueTrend = kMeasurableValueTrendDown;
+      _valueTrend = MeasurableValueTrendDown;
     } else {
-      _valueTrend = kMeasurableValueTrendSame;
+      _valueTrend = MeasurableValueTrendSame;
     }
   }
 }

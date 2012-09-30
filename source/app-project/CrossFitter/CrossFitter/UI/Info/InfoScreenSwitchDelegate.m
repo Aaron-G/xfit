@@ -12,7 +12,7 @@
 
 - (AppScreenIdentifier) appScreen
 {
-  return kAppScreenIdentifierInfo;
+  return AppScreenIdentifierInfo;
 }
 
 - (void) initNavigationItems

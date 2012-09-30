@@ -15,21 +15,21 @@
 //MeasurableMetadataProvider.
 
 typedef enum {
-  kMeasurableValueTrendUp,
-  kMeasurableValueTrendSame,
-  kMeasurableValueTrendDown,
-  kMeasurableValueTrendNone
+  MeasurableValueTrendUp,
+  MeasurableValueTrendSame,
+  MeasurableValueTrendDown,
+  MeasurableValueTrendNone
 } MeasurableValueTrend;
 
 typedef enum {
-  kMeasurableValueTrendBetterDirectionUp,
-  kMeasurableValueTrendBetterDirectionDown
+  MeasurableValueTrendBetterDirectionUp,
+  MeasurableValueTrendBetterDirectionDown
 } MeasurableValueTrendBetterDirection;
 
 typedef enum {
-  kMeasurableSourceApp,
-  kMeasurableSourceUser,
-  kMeasurableSourceFeed
+  MeasurableSourceApp,
+  MeasurableSourceUser,
+  MeasurableSourceFeed
 } MeasurableSource;
 //////////////////////////////////////////////////////
 

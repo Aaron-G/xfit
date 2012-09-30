@@ -14,7 +14,7 @@
   
   CGAffineTransform transform = CGAffineTransformIdentity;
   
-  if(measurable.dataProvider.valueTrend == kMeasurableValueTrendNone) {
+  if(measurable.dataProvider.valueTrend == MeasurableValueTrendNone) {
     buttonWithImage.hidden = YES;
     [buttonWithImage setImage:nil forState:UIControlStateNormal];
   } else {
@@ -30,12 +30,12 @@
     
     //Rotate the image appropriately to indicate proper
     //direction based on Metric "better trend properties"
-    if(valueTrend != kMeasurableValueTrendSame) {
+    if(valueTrend != MeasurableValueTrendSame) {
       
       CGFloat imageRotationAngle;
-      if(valueTrend == kMeasurableValueTrendUp) {
+      if(valueTrend == MeasurableValueTrendUp) {
         imageRotationAngle = 180;
-      } else if(valueTrend == kMeasurableValueTrendDown) {
+      } else if(valueTrend == MeasurableValueTrendDown) {
         imageRotationAngle = 0;
       }
       
@@ -49,13 +49,13 @@
   
   NSString* imageName = nil;
   
-  if((valueTrend == kMeasurableValueTrendUp && valueTrendBetterDirection == kMeasurableValueTrendBetterDirectionUp) ||
-     (valueTrend == kMeasurableValueTrendDown && valueTrendBetterDirection == kMeasurableValueTrendBetterDirectionDown)) {
+  if((valueTrend == MeasurableValueTrendUp && valueTrendBetterDirection == MeasurableValueTrendBetterDirectionUp) ||
+     (valueTrend == MeasurableValueTrendDown && valueTrendBetterDirection == MeasurableValueTrendBetterDirectionDown)) {
     imageName = @"better-value-image";
-  } else if((valueTrend == kMeasurableValueTrendUp && valueTrendBetterDirection == kMeasurableValueTrendBetterDirectionDown) ||
-            (valueTrend == kMeasurableValueTrendDown && valueTrendBetterDirection == kMeasurableValueTrendBetterDirectionUp)) {
+  } else if((valueTrend == MeasurableValueTrendUp && valueTrendBetterDirection == MeasurableValueTrendBetterDirectionDown) ||
+            (valueTrend == MeasurableValueTrendDown && valueTrendBetterDirection == MeasurableValueTrendBetterDirectionUp)) {
     imageName = @"worse-value-image";
-  } else if(valueTrend == kMeasurableValueTrendSame) {
+  } else if(valueTrend == MeasurableValueTrendSame) {
     imageName = @"same-value-image";
   }
 

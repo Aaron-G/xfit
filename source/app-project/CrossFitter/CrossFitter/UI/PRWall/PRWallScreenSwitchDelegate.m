@@ -14,7 +14,7 @@
 
 - (AppScreenIdentifier) appScreen
 {
-  return kAppScreenIdentifierPRWall;
+  return AppScreenIdentifierPRWall;
 }
 
 - (void) initNavigationItems

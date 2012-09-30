@@ -68,25 +68,25 @@
   
   AppScreenIdentifier screenIdentifier = [AppScreen appScreenForScreenIndex:indexPath.item];
   
-  if(screenIdentifier == kAppScreenIdentifierHome) {
+  if(screenIdentifier == AppScreenIdentifierHome) {
     imageName = self.homeImageName;
     action = @selector(displayHome);
-  } else if(screenIdentifier == kAppScreenIdentifierPRWall) {
+  } else if(screenIdentifier == AppScreenIdentifierPRWall) {
     imageName = self.prwallImageName;
     action = @selector(displayPRWall);
-  } else if(screenIdentifier == kAppScreenIdentifierWOD) {
+  } else if(screenIdentifier == AppScreenIdentifierWOD) {
     imageName = self.wodImageName;
     action = @selector(displayWOD);
-  } else if(screenIdentifier == kAppScreenIdentifierWorkout) {
+  } else if(screenIdentifier == AppScreenIdentifierWorkout) {
     imageName = self.workoutImageName;
     action = @selector(displayWorkout);
-  } else if(screenIdentifier == kAppScreenIdentifierMove) {
+  } else if(screenIdentifier == AppScreenIdentifierMove) {
     imageName = self.moveImageName;
     action = @selector(displayMove);
-  } else if(screenIdentifier == kAppScreenIdentifierMyBody) {
+  } else if(screenIdentifier == AppScreenIdentifierMyBody) {
     imageName = self.mybodyImageName;
     action = @selector(displayMyBody);
-  } else if(screenIdentifier == kAppScreenIdentifierInfo) {
+  } else if(screenIdentifier == AppScreenIdentifierInfo) {
     imageName = self.infoImageName;
     action = @selector(displayInfo);
   }
@@ -111,31 +111,31 @@
 }
 
 - (void) displayPRWall {
-  [self displayAppScreen: kAppScreenIdentifierPRWall];
+  [self displayAppScreen: AppScreenIdentifierPRWall];
 }
 
 - (void) displayMyBody {
-  [self displayAppScreen: kAppScreenIdentifierMyBody];
+  [self displayAppScreen: AppScreenIdentifierMyBody];
 }
 
 - (void) displayWorkout {
-  [self displayAppScreen: kAppScreenIdentifierWorkout];
+  [self displayAppScreen: AppScreenIdentifierWorkout];
 }
 
 - (void) displayWOD {
-  [self displayAppScreen: kAppScreenIdentifierWOD];
+  [self displayAppScreen: AppScreenIdentifierWOD];
 }
 
 - (void) displayMove {
-  [self displayAppScreen: kAppScreenIdentifierMove];
+  [self displayAppScreen: AppScreenIdentifierMove];
 }
 
 - (void) displayInfo {
-  [self displayAppScreen: kAppScreenIdentifierInfo];
+  [self displayAppScreen: AppScreenIdentifierInfo];
 }
 
 - (void) displayHome {
-  [self displayAppScreen: kAppScreenIdentifierHome];
+  [self displayAppScreen: AppScreenIdentifierHome];
 }
 
 @end

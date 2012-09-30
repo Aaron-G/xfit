@@ -20,7 +20,7 @@
   if(!_valueTrendBetterDirection) {
     
   //Arbitrary default value
-    MeasurableValueTrendBetterDirection trendBetterDirection = kMeasurableValueTrendBetterDirectionUp;
+    MeasurableValueTrendBetterDirection trendBetterDirection = MeasurableValueTrendBetterDirectionUp;
   
   if([kBodyMetricIdentifierHeight isEqualToString: self.measurableIdentifier] ||
      [kBodyMetricIdentifierChest isEqualToString: self.measurableIdentifier] ||
@@ -31,7 +31,7 @@
      [kBodyMetricIdentifierCalfLeft isEqualToString: self.measurableIdentifier] ||
      [kBodyMetricIdentifierCalfRight isEqualToString: self.measurableIdentifier]) {
     
-    trendBetterDirection = kMeasurableValueTrendBetterDirectionUp;
+    trendBetterDirection = MeasurableValueTrendBetterDirectionUp;
     
   } else if([kBodyMetricIdentifierWeight isEqualToString: self.measurableIdentifier] ||
             [kBodyMetricIdentifierWaist isEqualToString: self.measurableIdentifier] ||
@@ -39,7 +39,7 @@
             [kBodyMetricIdentifierBodyMassIndex isEqualToString: self.measurableIdentifier] ||
             [kBodyMetricIdentifierBodyFat isEqualToString: self.measurableIdentifier] ){
     
-    trendBetterDirection = kMeasurableValueTrendBetterDirectionDown;
+    trendBetterDirection = MeasurableValueTrendBetterDirectionDown;
     
   }
   
@@ -69,16 +69,16 @@
        [kBodyMetricIdentifierCalfLeft isEqualToString: self.measurableIdentifier] ||
        [kBodyMetricIdentifierCalfRight isEqualToString: self.measurableIdentifier]) {
       
-      unit = [Unit unitForUnitIdentifier:kUnitIdentifierInch];
+      unit = [Unit unitForUnitIdentifier:UnitIdentifierInch];
     } else if([kBodyMetricIdentifierWeight isEqualToString: self.measurableIdentifier]) {
       
-      unit = [Unit unitForUnitIdentifier:kUnitIdentifierPound];
+      unit = [Unit unitForUnitIdentifier:UnitIdentifierPound];
     } else if([kBodyMetricIdentifierBodyMassIndex isEqualToString: self.measurableIdentifier]) {
       
-      unit = [Unit unitForUnitIdentifier:kUnitIdentifierNone];
+      unit = [Unit unitForUnitIdentifier:UnitIdentifierNone];
     } else if([kBodyMetricIdentifierBodyFat isEqualToString: self.measurableIdentifier]) {
       
-      unit = [Unit unitForUnitIdentifier:kUnitIdentifierPercent];
+      unit = [Unit unitForUnitIdentifier:UnitIdentifierPercent];
     }
     _unit = unit;
   }

@@ -10,13 +10,13 @@
 #import <UIKit/UIKit.h>
 
 typedef enum {
-  kAppScreenIdentifierInfo,
-  kAppScreenIdentifierHome,
-  kAppScreenIdentifierMove,
-  kAppScreenIdentifierMyBody,
-  kAppScreenIdentifierPRWall,
-  kAppScreenIdentifierWorkout,
-  kAppScreenIdentifierWOD
+  AppScreenIdentifierInfo,
+  AppScreenIdentifierHome,
+  AppScreenIdentifierMove,
+  AppScreenIdentifierMyBody,
+  AppScreenIdentifierPRWall,
+  AppScreenIdentifierWorkout,
+  AppScreenIdentifierWOD
 } AppScreenIdentifier;
 
 @interface AppScreen : NSObject

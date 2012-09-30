@@ -11,7 +11,7 @@
 @implementation MoveScreenSwitchDelegate
 
 - (AppScreenIdentifier) appScreen {
-  return kAppScreenIdentifierMove;
+  return AppScreenIdentifierMove;
 }
 
 - (void) initNavigationItems
