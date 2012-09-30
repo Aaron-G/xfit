@@ -223,7 +223,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7424316A156C936F00F12514 /* CrossFitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrossFitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7424316A156C936F00F12514 /* xFitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xFitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7424316E156C936F00F12514 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		74243170156C936F00F12514 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		74243172156C936F00F12514 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -472,7 +472,7 @@
 		7424316B156C936F00F12514 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7424316A156C936F00F12514 /* CrossFitter.app */,
+				7424316A156C936F00F12514 /* xFitter.app */,
 				7424318B156C937000F12514 /* xFitterTests.octest */,
 			);
 			name = Products;
@@ -746,7 +746,7 @@
 			);
 			name = xFitter;
 			productName = xFitter;
-			productReference = 7424316A156C936F00F12514 /* CrossFitter.app */;
+			productReference = 7424316A156C936F00F12514 /* xFitter.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7424318A156C937000F12514 /* xFitterTests */ = {
