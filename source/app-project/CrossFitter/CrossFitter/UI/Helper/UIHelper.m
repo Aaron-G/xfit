@@ -10,7 +10,7 @@
 
 @implementation UIHelper
 
-+ (CGAffineTransform) adjustImage: (UIButton*) buttonWithImage forMeasurable: (id <Measurable>) measurable {
++ (void) adjustImage: (UIButton*) buttonWithImage forMeasurable: (id <Measurable>) measurable {
   
   CGAffineTransform transform = CGAffineTransformIdentity;
   
@@ -20,45 +20,45 @@
   } else {
     
     buttonWithImage.hidden = NO;
-    [buttonWithImage setImage:[UIHelper imageForValueTrend:measurable.dataProvider.valueTrend] forState:UIControlStateNormal];
+    
+    MeasurableValueTrend valueTrend = measurable.dataProvider.valueTrend;
+    MeasurableValueTrendBetterDirection valueTrendBetterDirection = measurable.metadataProvider.valueTrendBetterDirection;
+    
+    [buttonWithImage setImage:[UIHelper imageForValueTrend:valueTrend
+                             withValueTrendBetterDirection:valueTrendBetterDirection]
+                     forState:UIControlStateNormal];
     
     //Rotate the image appropriately to indicate proper
     //direction based on Metric "better trend properties"
-    if(measurable.dataProvider.valueTrend != kMeasurableValueTrendSame) {
+    if(valueTrend != kMeasurableValueTrendSame) {
       
       CGFloat imageRotationAngle;
-      if(measurable.dataProvider.valueTrend == kMeasurableValueTrendBetter) {
-        if(measurable.metadataProvider.valueTrendBetterDirection == kMeasurableValueTrendDirectionDown) {
-          imageRotationAngle = 0;
-        } else if (measurable.metadataProvider.valueTrendBetterDirection == kMeasurableValueTrendDirectionUp) {
-          imageRotationAngle = 180;
-        }
-      } else if(measurable.dataProvider.valueTrend == kMeasurableValueTrendWorse) {
-        if(measurable.metadataProvider.valueTrendBetterDirection == kMeasurableValueTrendDirectionUp) {
-          imageRotationAngle = 0;
-        } else if (measurable.metadataProvider.valueTrendBetterDirection == kMeasurableValueTrendDirectionDown) {
-          imageRotationAngle = 180;
-        }
+      if(valueTrend == kMeasurableValueTrendUp) {
+        imageRotationAngle = 180;
+      } else if(valueTrend == kMeasurableValueTrendDown) {
+        imageRotationAngle = 0;
       }
       
       transform = CGAffineTransformMakeRotation(imageRotationAngle*M_PI/180.0);
     }
   }
-  return transform;
+  buttonWithImage.transform = transform;
 }
 
-+ (UIImage*) imageForValueTrend: (MeasurableValueTrend) valueTrend {
++ (UIImage*) imageForValueTrend: (MeasurableValueTrend) valueTrend withValueTrendBetterDirection: (MeasurableValueTrendBetterDirection) valueTrendBetterDirection {
   
   NSString* imageName = nil;
   
-  if(valueTrend == kMeasurableValueTrendBetter) {
+  if((valueTrend == kMeasurableValueTrendUp && valueTrendBetterDirection == kMeasurableValueTrendBetterDirectionUp) ||
+     (valueTrend == kMeasurableValueTrendDown && valueTrendBetterDirection == kMeasurableValueTrendBetterDirectionDown)) {
     imageName = @"better-value-image";
-  } else if(valueTrend == kMeasurableValueTrendWorse) {
+  } else if((valueTrend == kMeasurableValueTrendUp && valueTrendBetterDirection == kMeasurableValueTrendBetterDirectionDown) ||
+            (valueTrend == kMeasurableValueTrendDown && valueTrendBetterDirection == kMeasurableValueTrendBetterDirectionUp)) {
     imageName = @"worse-value-image";
   } else if(valueTrend == kMeasurableValueTrendSame) {
     imageName = @"same-value-image";
   }
-  
+
   if(imageName) {
     return [UIImage imageNamed:imageName];
   } else {

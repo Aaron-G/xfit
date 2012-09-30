@@ -11,6 +11,6 @@
 
 @interface UIHelper : NSObject
 
-+ (CGAffineTransform) adjustImage: (UIButton*) buttonWithImage forMeasurable: (id <Measurable>) measurable;
++ (void) adjustImage: (UIButton*) buttonWithImage forMeasurable: (id <Measurable>) measurable;
 
 @end
