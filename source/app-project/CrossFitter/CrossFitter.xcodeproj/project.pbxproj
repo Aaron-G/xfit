@@ -27,6 +27,7 @@
 		741BBC8A15B7C67E00660BE6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 741BBC8815B7C67E00660BE6 /* Model.xcdatamodeld */; };
 		741BBC8B15B7C67E00660BE6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 741BBC8815B7C67E00660BE6 /* Model.xcdatamodeld */; };
 		74220BAB1610B00500E58D1C /* FootFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 74220BAA1610B00500E58D1C /* FootFormatter.m */; };
+		74220BAF1613427D00E58D1C /* MeasurableDataEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 74220BAE1613427D00E58D1C /* MeasurableDataEntry.m */; };
 		744EFB0C15FB1C12000AECBA /* MyBodyUserInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 744EFB0B15FB1C12000AECBA /* MyBodyUserInfoTableViewCell.xib */; };
 		744EFB0F15FB9166000AECBA /* MyBodyMetricTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 744EFB0E15FB9166000AECBA /* MyBodyMetricTableViewCell.m */; };
 		744EFB1415FBB82E000AECBA /* worse-value-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 744EFB1015FBB82E000AECBA /* worse-value-image.png */; };
@@ -133,6 +134,8 @@
 		741BBC8915B7C67E00660BE6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		74220BA91610B00500E58D1C /* FootFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FootFormatter.h; path = UI/Helper/Formatter/Unit/FootFormatter.h; sourceTree = "<group>"; };
 		74220BAA1610B00500E58D1C /* FootFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FootFormatter.m; path = UI/Helper/Formatter/Unit/FootFormatter.m; sourceTree = "<group>"; };
+		74220BAD1613427D00E58D1C /* MeasurableDataEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableDataEntry.h; path = Model/Data/MeasurableDataEntry.h; sourceTree = "<group>"; };
+		74220BAE1613427D00E58D1C /* MeasurableDataEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableDataEntry.m; path = Model/Data/MeasurableDataEntry.m; sourceTree = "<group>"; };
 		744EFB0B15FB1C12000AECBA /* MyBodyUserInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyBodyUserInfoTableViewCell.xib; path = UI/MyBody/MyBodyUserInfoTableViewCell.xib; sourceTree = "<group>"; };
 		744EFB0D15FB9166000AECBA /* MyBodyMetricTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyBodyMetricTableViewCell.h; path = UI/MyBody/MyBodyMetricTableViewCell.h; sourceTree = "<group>"; };
 		744EFB0E15FB9166000AECBA /* MyBodyMetricTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBodyMetricTableViewCell.m; path = UI/MyBody/MyBodyMetricTableViewCell.m; sourceTree = "<group>"; };
@@ -469,6 +472,8 @@
 			children = (
 				74BBB653160421CE00149356 /* MeasurableDataProvider.h */,
 				74BBB654160421CE00149356 /* MeasurableDataProvider.m */,
+				74220BAD1613427D00E58D1C /* MeasurableDataEntry.h */,
+				74220BAE1613427D00E58D1C /* MeasurableDataEntry.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -804,6 +809,7 @@
 				740F4385160D718B00380CF5 /* FootInchFormatter.m in Sources */,
 				74947D8D160F8485008BC4E7 /* BodyMetricHelper.m in Sources */,
 				74220BAB1610B00500E58D1C /* FootFormatter.m in Sources */,
+				74220BAF1613427D00E58D1C /* MeasurableDataEntry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
