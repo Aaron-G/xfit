@@ -19,6 +19,7 @@
 #import "AppScreen.h"
 #import "AppScreenSwitchDelegate.h"
 #import "AppViewGestureRecognizer.h"
+#import "UIHelper.h"
 
 static NSMutableDictionary* appScreenSwitchDelegates;
 
@@ -326,8 +327,7 @@ typedef enum {
       viewControllerId = @"InfoViewController";
     }
     
-    AppViewController* appViewController = [[App sharedInstance] appViewController];
-    id viewController = [appViewController.storyboard instantiateViewControllerWithIdentifier:viewControllerId];
+    id viewController = [UIHelper viewControllerWithViewControllerIdentifier: viewControllerId];
     
     if([viewController respondsToSelector:@selector(appScreenSwitchDelegate)]) {
       appScreenSwitchDelegate = (AppScreenSwitchDelegate*)[viewController performSelector:@selector(appScreenSwitchDelegate)];

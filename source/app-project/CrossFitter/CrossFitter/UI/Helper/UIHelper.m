@@ -7,6 +7,7 @@
 //
 
 #import "UIHelper.h"
+#import "App.h"
 
 @implementation UIHelper
 
@@ -58,12 +59,23 @@
   } else if(valueTrend == MeasurableValueTrendSame) {
     imageName = @"same-value-image";
   }
-
+  
   if(imageName) {
     return [UIImage imageNamed:imageName];
   } else {
     return nil;
   }
 }
+
++ (MeasurableViewController*) measurableViewController {
+  return (MeasurableViewController*) [UIHelper viewControllerWithViewControllerIdentifier: @"MeasurableViewController"];
+}
+
++ (UIViewController*) viewControllerWithViewControllerIdentifier: (NSString*) identifier {
+  AppViewController* appViewController = [[App sharedInstance] appViewController];
+  return [appViewController.storyboard instantiateViewControllerWithIdentifier:identifier];
+}
+
+
 
 @end

@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Measurable.h"
+#import "MeasurableViewController.h"
 
 @interface UIHelper : NSObject
 
 + (void) adjustImage: (UIButton*) buttonWithImage forMeasurable: (id <Measurable>) measurable;
+
++ (MeasurableViewController*) measurableViewController;
++ (UIViewController*) viewControllerWithViewControllerIdentifier: (NSString*) identifier;
 
 @end
