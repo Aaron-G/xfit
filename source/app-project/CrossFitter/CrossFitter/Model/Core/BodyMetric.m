@@ -13,7 +13,6 @@
 @implementation BodyMetric
 
 NSString* kBodyMetricIdentifierHeight = @"kBodyMetricIdentifierHeight";
-
 NSString* kBodyMetricIdentifierWeight = @"kBodyMetricIdentifierWeight";
 NSString* kBodyMetricIdentifierChest = @"kBodyMetricIdentifierChest";
 NSString* kBodyMetricIdentifierBiceptsLeft = @"kBodyMetricIdentifierBiceptsLeft";
@@ -38,11 +37,11 @@ NSString* kBodyMetricIdentifierInvalid = @"kBodyMetricIdentifierInvalid";
   
 }
 - (MeasurableDataProvider*) createDataProviderWithIdentifier:(NSString*) identifier {
-  return [[MeasurableDataProvider alloc] initWithIdentifier: identifier];
+  return [[MeasurableDataProvider alloc] initWithMeasurableIdentifier: identifier];
 }
 
 - (MeasurableMetadataProvider*) createMetadataProviderWithIdentifier:(NSString*) identifier {
-  return [[BodyMetricMetadataProvider alloc] initWithIdentifier:identifier];
+  return [[BodyMetricMetadataProvider alloc] initWithMeasurableIdentifier:identifier];
 }
 
 @end
