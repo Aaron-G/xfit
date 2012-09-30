@@ -33,82 +33,97 @@
   
   //Height
   BodyMetric * metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierHeight];
-  metric.dataProvider.value = [NSNumber numberWithFloat:70];
-  metric.dataProvider.valueTrend = kMeasurableValueTrendNone;
-  [metrics setValue:metric forKey:metric.metadataProvider.identifier];
+  NSArray* values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:70], nil];
+  metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.measurableIdentifier withValues:values];
+  [metrics setValue:metric forKey:metric.metadataProvider.measurableIdentifier];
   
   //Weight
   metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierWeight];
-  metric.dataProvider.value = [NSNumber numberWithFloat:175];
-  metric.dataProvider.valueTrend = kMeasurableValueTrendBetter;
-  [metrics setValue:metric forKey:metric.metadataProvider.identifier];
+  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:175], [NSNumber numberWithFloat:170], nil];
+  metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.measurableIdentifier withValues:values];
+  [metrics setValue:metric forKey:metric.metadataProvider.measurableIdentifier];
   
   //Chest
   metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierChest];
-  metric.dataProvider.value = [NSNumber numberWithFloat:38.5];
-  metric.dataProvider.valueTrend = kMeasurableValueTrendWorse;
-  [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  
-  //Biceps Right
-  metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierBiceptsRight];
-  metric.dataProvider.value = [NSNumber numberWithFloat:12.8];
-  metric.dataProvider.valueTrend = kMeasurableValueTrendSame;
-  [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  
-  //Biceps Left
-  metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierBiceptsLeft];
-  metric.dataProvider.value = [NSNumber numberWithFloat:12.5];
-  metric.dataProvider.valueTrend = kMeasurableValueTrendSame;
-  [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  
-  //Waist
-  metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierWaist];
-  metric.dataProvider.value = [NSNumber numberWithFloat:35.6];
-  metric.dataProvider.valueTrend = kMeasurableValueTrendWorse;
-  [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  
-  //Hip
-  metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierHip];
-  metric.dataProvider.value = [NSNumber numberWithFloat:39.9];
-  metric.dataProvider.valueTrend = kMeasurableValueTrendWorse;
-  [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  
-  //Thigh Right
-  metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierThighRight];
-  metric.dataProvider.value = [NSNumber numberWithFloat:24.5];
-  metric.dataProvider.valueTrend = kMeasurableValueTrendBetter;
-  [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  
-  //Thigh Left
-  metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierThighLeft];
-  metric.dataProvider.value = [NSNumber numberWithFloat:24.1];
-  metric.dataProvider.valueTrend = kMeasurableValueTrendSame;
-  [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  
-  //Calf Right
-  metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierCalfRight];
-  metric.dataProvider.value = [NSNumber numberWithFloat:11.7];
-  metric.dataProvider.valueTrend = kMeasurableValueTrendWorse;
-  [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  
-  //Calf Left
-  metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierCalfLeft];
-  metric.dataProvider.value = [NSNumber numberWithFloat:11.3];
-  metric.dataProvider.valueTrend = kMeasurableValueTrendBetter;
-  [metrics setValue:metric forKey:metric.metadataProvider.identifier];
+  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:36.5], [NSNumber numberWithFloat:37], nil];
+  metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.measurableIdentifier withValues:values];
+  [metrics setValue:metric forKey:metric.metadataProvider.measurableIdentifier];
   
   //Body Mass Index
   metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierBodyMassIndex];
-  metric.dataProvider.value = [NSNumber numberWithFloat:22.5];
-  metric.dataProvider.valueTrend = kMeasurableValueTrendBetter;
-  [metrics setValue:metric forKey:metric.metadataProvider.identifier];
+  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:22.5], [NSNumber numberWithFloat:23.5], nil];
+  metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.measurableIdentifier withValues:values];
+  [metrics setValue:metric forKey:metric.metadataProvider.measurableIdentifier];
   
   //Body Fat
   metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierBodyFat];
-  metric.dataProvider.value = [NSNumber numberWithFloat:0.213];
-  metric.dataProvider.valueTrend = kMeasurableValueTrendBetter;
-  [metrics setValue:metric forKey:metric.metadataProvider.identifier];
+  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:0.23], [NSNumber numberWithFloat:0.25], nil];
+  metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.measurableIdentifier withValues:values];
+  [metrics setValue:metric forKey:metric.metadataProvider.measurableIdentifier];
+  
+  //Biceps Right
+  metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierBiceptsRight];
+  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:12.8], [NSNumber numberWithFloat:12.8], nil];
+  metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.measurableIdentifier withValues:values];
+  [metrics setValue:metric forKey:metric.metadataProvider.measurableIdentifier];
+  
+  //Biceps Left
+  metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierBiceptsLeft];
+  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:12.5], [NSNumber numberWithFloat:12.5], nil];
+  metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.measurableIdentifier withValues:values];
+  [metrics setValue:metric forKey:metric.metadataProvider.measurableIdentifier];
+  
+  //Waist
+  metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierWaist];
+  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:35.6], [NSNumber numberWithFloat:35.7], nil];
+  metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.measurableIdentifier withValues:values];
+  [metrics setValue:metric forKey:metric.metadataProvider.measurableIdentifier];
+  
+  //Hip
+  metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierHip];
+  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:39.9], [NSNumber numberWithFloat:37.7], nil];
+  metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.measurableIdentifier withValues:values];
+  [metrics setValue:metric forKey:metric.metadataProvider.measurableIdentifier];
+  
+  //Thigh Right
+  metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierThighRight];
+  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:24.5], [NSNumber numberWithFloat:23], nil];
+  metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.measurableIdentifier withValues:values];
+  [metrics setValue:metric forKey:metric.metadataProvider.measurableIdentifier];
+  
+  //Thigh Left
+  metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierThighLeft];
+  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:24.1], [NSNumber numberWithFloat:24.1], nil];
+  metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.measurableIdentifier withValues:values];
+  [metrics setValue:metric forKey:metric.metadataProvider.measurableIdentifier];
+  
+  //Calf Right
+  metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierCalfRight];
+  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:11.7], [NSNumber numberWithFloat:12.1], nil];
+  metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.measurableIdentifier withValues:values];
+  [metrics setValue:metric forKey:metric.metadataProvider.measurableIdentifier];
+  
+  //Calf Left
+  metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierCalfLeft];
+  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:11.3], [NSNumber numberWithFloat:11.1], nil];
+  metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.measurableIdentifier withValues:values];
+  [metrics setValue:metric forKey:metric.metadataProvider.measurableIdentifier];
   
   return metrics;
 }
+
+
++ (NSArray*) sampleMeasurableDataEntryForMeasurableId: (NSString*) measurableId withValues: (NSArray*) values {
+
+  NSMutableArray* dataEntries = [NSMutableArray arrayWithCapacity:values.count];
+  
+  for (NSNumber* value in values) {
+    MeasurableDataEntry* dataEntry = [[MeasurableDataEntry alloc] init];
+    dataEntry.value = value;
+    [dataEntries addObject:dataEntry];
+  }
+
+  return dataEntries;
+}
+
 @end
