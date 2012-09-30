@@ -37,7 +37,7 @@
   return [[MeasurableDataProvider alloc] init];
 }
 - (MeasurableMetadataProvider*) createMetadataProviderWithIdentifier:(NSString*) identifier {
-  return [[MeasurableMetadataProvider alloc] initWithIdentifier:identifier];
+  return [[MeasurableMetadataProvider alloc] initWithMeasurableIdentifier:identifier];
 }
 
 @end
