@@ -57,7 +57,7 @@
   
   //Body Fat
   metric = [[BodyMetric alloc]initWithIdentifier: kBodyMetricIdentifierBodyFat];
-  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:0.23], [NSNumber numberWithFloat:0.25], nil];
+  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:0.2335], [NSNumber numberWithFloat:0.254], nil];
   metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.measurableIdentifier withValues:values];
   [metrics setValue:metric forKey:metric.metadataProvider.measurableIdentifier];
   

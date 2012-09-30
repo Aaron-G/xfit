@@ -17,4 +17,7 @@
 //The style to represent the value
 @property NSNumberFormatterStyle numberStyle;
 
+//The number formatter used to, well, format the value
+@property NSNumberFormatter* numberFormatter;
+
 @end

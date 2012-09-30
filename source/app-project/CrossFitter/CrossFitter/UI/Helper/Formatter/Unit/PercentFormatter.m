@@ -10,13 +10,15 @@
 
 @implementation PercentFormatter
 
-//CXB TODO
-//The percentage is getting round, it needs to show the decimal part for precision
 -(id)init {
   self = [super init];
   
   if(self) {
     self.numberStyle = NSNumberFormatterPercentStyle;
+    
+    //Default to 2 decimal points for percentage
+    [self.numberFormatter setMinimumFractionDigits:2];
+
   }
   
   return self;

@@ -11,8 +11,6 @@
 @interface DefaultUnitValueFormatter () {
   
 }
-@property NSNumberFormatter* numberFormatter;
-
 @end
 
 @implementation DefaultUnitValueFormatter
