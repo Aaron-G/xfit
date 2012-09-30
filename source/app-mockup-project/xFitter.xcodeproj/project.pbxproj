@@ -732,9 +732,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		74243169156C936F00F12514 /* CrossFitter */ = {
+		74243169156C936F00F12514 /* xFitter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7424319D156C937000F12514 /* Build configuration list for PBXNativeTarget "CrossFitter" */;
+			buildConfigurationList = 7424319D156C937000F12514 /* Build configuration list for PBXNativeTarget "xFitter" */;
 			buildPhases = (
 				74243166156C936F00F12514 /* Sources */,
 				74243167156C936F00F12514 /* Frameworks */,
@@ -744,7 +744,7 @@
 			);
 			dependencies = (
 			);
-			name = CrossFitter;
+			name = xFitter;
 			productName = xFitter;
 			productReference = 7424316A156C936F00F12514 /* CrossFitter.app */;
 			productType = "com.apple.product-type.application";
@@ -790,7 +790,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				74243169156C936F00F12514 /* CrossFitter */,
+				74243169156C936F00F12514 /* xFitter */,
 				7424318A156C937000F12514 /* xFitterTests */,
 			);
 		};
@@ -1046,7 +1046,7 @@
 /* Begin PBXTargetDependency section */
 		74243191156C937000F12514 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 74243169156C936F00F12514 /* CrossFitter */;
+			target = 74243169156C936F00F12514 /* xFitter */;
 			targetProxy = 74243190156C937000F12514 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1192,7 +1192,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7424319D156C937000F12514 /* Build configuration list for PBXNativeTarget "CrossFitter" */ = {
+		7424319D156C937000F12514 /* Build configuration list for PBXNativeTarget "xFitter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7424319E156C937000F12514 /* Debug */,

@@ -15,7 +15,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "74243169156C936F00F12514"
                BuildableName = "CrossFitter.app"
-               BlueprintName = "CrossFitter"
+               BlueprintName = "xFitter"
                ReferencedContainer = "container:xFitter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,7 +43,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "74243169156C936F00F12514"
             BuildableName = "CrossFitter.app"
-            BlueprintName = "CrossFitter"
+            BlueprintName = "xFitter"
             ReferencedContainer = "container:xFitter.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,7 +62,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "74243169156C936F00F12514"
             BuildableName = "CrossFitter.app"
-            BlueprintName = "CrossFitter"
+            BlueprintName = "xFitter"
             ReferencedContainer = "container:xFitter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -80,7 +80,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "74243169156C936F00F12514"
             BuildableName = "CrossFitter.app"
-            BlueprintName = "CrossFitter"
+            BlueprintName = "xFitter"
             ReferencedContainer = "container:xFitter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
