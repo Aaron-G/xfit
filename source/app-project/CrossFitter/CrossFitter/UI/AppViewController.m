@@ -45,8 +45,6 @@ typedef enum {
 
 + (NSString*) appScreenKeyForAppScreen: (AppScreenIdentifier) screen;
 
-+ (id) appScreenSwitchDelegateForAppScreen: (AppScreenIdentifier) screen;
-
 ////////////////////////////////////////////////////////////////
 //Instance
 ////////////////////////////////////////////////////////////////
@@ -110,6 +108,10 @@ typedef enum {
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+  
+  AppScreenSwitchDelegate* screenSwitchDelegate = [AppViewController appScreenSwitchDelegateForAppScreen: self.displayedAppScreen];
+  [screenSwitchDelegate screenWillAppear];
+  
   //NSLog(@"viewWillAppear");
   [super viewWillAppear:animated];
   
@@ -134,6 +136,9 @@ typedef enum {
       [self showOrHideMenu];
     });
   }
+
+  AppScreenSwitchDelegate* screenSwitchDelegate = [AppViewController appScreenSwitchDelegateForAppScreen: self.displayedAppScreen];
+  [screenSwitchDelegate screenWillDisappear];
 
   //Super call
   [super viewWillDisappear:animated];
@@ -288,9 +293,9 @@ typedef enum {
   return appScreenSwitchDelegates;
 }
 
-+ (void) addAppScreenSwitchDelegate: (AppScreenSwitchDelegate*) appScreenSwitchDelegate forAppScreen: (AppScreenIdentifier) screen {
++ (void) addAppScreenSwitchDelegate: (AppScreenSwitchDelegate*) appScreenSwitchDelegate forAppScreen: (AppScreenIdentifier) screenIdentifier {
   
-  NSString * screenKey = [AppViewController appScreenKeyForAppScreen:screen];
+  NSString * screenKey = [AppViewController appScreenKeyForAppScreen:screenIdentifier];
   
   [[AppViewController appScreenSwitchDelegates] setObject:appScreenSwitchDelegate forKey:screenKey];
 }
@@ -299,9 +304,8 @@ typedef enum {
   return [AppScreen screenNameForAppScreen:screen];
 }
 
-+ (AppScreenSwitchDelegate*)appScreenSwitchDelegateForAppScreen: (AppScreenIdentifier) screen
-{
-  NSString * screenKey = [AppViewController appScreenKeyForAppScreen:screen];
++ (AppScreenSwitchDelegate*)appScreenSwitchDelegateForAppScreen: (AppScreenIdentifier) screenIdentifier {
+  NSString * screenKey = [AppViewController appScreenKeyForAppScreen:screenIdentifier];
   
   AppScreenSwitchDelegate* appScreenSwitchDelegate = [[AppViewController appScreenSwitchDelegates] objectForKey:screenKey];
   
@@ -311,23 +315,23 @@ typedef enum {
     
     NSString* viewControllerId = nil;
     
-    if(AppScreenIdentifierHome == screen) {
+    if(AppScreenIdentifierHome == screenIdentifier) {
       viewControllerId = @"HomeViewController";
-    } else if(AppScreenIdentifierPRWall == screen) {
+    } else if(AppScreenIdentifierPRWall == screenIdentifier) {
       viewControllerId = @"PRWallViewController";
-    } else if(AppScreenIdentifierWOD == screen) {
+    } else if(AppScreenIdentifierWOD == screenIdentifier) {
       viewControllerId = @"WODViewController";
-    } else if(AppScreenIdentifierWorkout == screen) {
+    } else if(AppScreenIdentifierWorkout == screenIdentifier) {
       viewControllerId = @"WorkoutViewController";
-    } else if(AppScreenIdentifierMove == screen) {
+    } else if(AppScreenIdentifierMove == screenIdentifier) {
       viewControllerId = @"MoveViewController";
-    } else if(AppScreenIdentifierMyBody == screen) {
+    } else if(AppScreenIdentifierMyBody == screenIdentifier) {
       viewControllerId = @"MyBodyViewController";
-    } else if(AppScreenIdentifierInfo == screen) {
+    } else if(AppScreenIdentifierInfo == screenIdentifier) {
       viewControllerId = @"InfoViewController";
     }
     
-    id viewController = [UIHelper viewControllerWithViewControllerIdentifier: viewControllerId];
+    id viewController = [UIHelper viewControllerWithViewStoryboardIdentifier: viewControllerId];
     
     if([viewController respondsToSelector:@selector(appScreenSwitchDelegate)]) {
       appScreenSwitchDelegate = (AppScreenSwitchDelegate*)[viewController performSelector:@selector(appScreenSwitchDelegate)];
