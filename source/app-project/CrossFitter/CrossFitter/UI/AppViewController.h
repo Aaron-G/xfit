@@ -41,6 +41,8 @@
 - (void) showOrHideMenuWithDelay: (CGFloat) delay withAutoHideDelay: (CGFloat) autoHideDelay;
 
 //Allows AppScreenSwitchDelegate to register themselves
-+ (void) addAppScreenSwitchDelegate: (AppScreenSwitchDelegate *) appScreenSwitchDelegate forAppScreen: (AppScreenIdentifier) screen;
++ (void) addAppScreenSwitchDelegate: (AppScreenSwitchDelegate *) appScreenSwitchDelegate forAppScreen: (AppScreenIdentifier) screenIdentifier;
+//Return the AppScreenSwitchDelegate for the given AppScreenIdentifier
++ (AppScreenSwitchDelegate*)appScreenSwitchDelegateForAppScreen: (AppScreenIdentifier) screenIdentifier;
 
 @end
