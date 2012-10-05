@@ -8,7 +8,7 @@
 
 #import "MailHelper.h"
 #import "MailAttachment.h"
-#import "App.h"
+#import "UIHelper.h"
 
 @implementation MailHelper
 
@@ -80,7 +80,7 @@ static MailHelper *sharedInstance = nil;
     }
     
     //Display email composer
-    [[[App sharedInstance] appViewController].navigationController.topViewController presentViewController:mailer animated:YES completion:nil];
+    [[UIHelper appViewController].navigationController.topViewController presentViewController:mailer animated:YES completion:nil];
     
   } else {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"cannot-share-title", @"Cannot Share")
@@ -108,7 +108,7 @@ static MailHelper *sharedInstance = nil;
   }
   
   // Remove the mail view
-  [[[App sharedInstance] appViewController].navigationController.topViewController dismissViewControllerAnimated:YES completion:nil];
+  [[UIHelper appViewController].navigationController.topViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 ////////////////////////////////////////////////
