@@ -8,7 +8,7 @@
 
 #import "AppViewControllerSegue.h"
 #import "AppViewController.h"
-#import "App.h"
+#import "UIHelper.h"
 
 @interface AppViewControllerSegue ()
 
@@ -18,9 +18,14 @@
 
 - (void)perform {
   
-  AppViewController * appViewController = [[App sharedInstance] appViewController];
-  [appViewController.navigationController pushViewController:self.destinationViewController animated:YES];
+  AppViewController * appViewController = [UIHelper appViewController];
   
+  //Display "Back" as back button
+  AppScreenSwitchDelegate* appScreenSwitchDelegate = [AppViewController appScreenSwitchDelegateForAppScreen:  [appViewController displayedAppScreen]];
+  appScreenSwitchDelegate.displayBackButtonAsBack = YES;
+  
+  //Navigate off now
+  [appViewController.navigationController pushViewController:self.destinationViewController animated:YES];  
 }
 
 @end
