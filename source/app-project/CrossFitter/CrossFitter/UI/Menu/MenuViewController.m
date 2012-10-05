@@ -10,6 +10,7 @@
 #import "AppScreen.h"
 #import "App.h"
 #import "AppViewController.h"
+#import "UIHelper.h"
 
 @interface MenuViewController () {
 }
@@ -106,7 +107,7 @@
 }
 
 - (void) displayAppScreen: (AppScreenIdentifier) appScreen {
-  AppViewController* appViewController = [[App sharedInstance] appViewController];
+  AppViewController* appViewController = [UIHelper appViewController];
   [appViewController displayScreen:appScreen];
 }
 

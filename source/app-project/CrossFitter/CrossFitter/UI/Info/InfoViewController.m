@@ -13,6 +13,7 @@
 #import "AppScreenShareDelegate.h"
 #import "InfoScreenShareDelegate.h"
 #import "MailHelper.h"
+#import "UIHelper.h"
 
 @interface InfoViewController () {
   
@@ -33,7 +34,7 @@
   if(self) {
     self.appScreenSwitchDelegate = [[InfoScreenSwitchDelegate alloc]initWithViewController:self];
     self.appScreenShareDelegate = [[InfoScreenShareDelegate alloc]initWithViewController:self];
-    self.appViewController = [[App sharedInstance] appViewController];      
+    self.appViewController = [UIHelper appViewController];
   }
   
   return self;

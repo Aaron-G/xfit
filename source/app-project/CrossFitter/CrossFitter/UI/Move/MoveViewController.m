@@ -9,7 +9,7 @@
 #import "MoveViewController.h"
 #import "AppViewController.h"
 #import "MoveScreenSwitchDelegate.h"
-#import "App.h"
+#import "UIHelper.h"
 
 @interface MoveViewController ()
 {
@@ -26,7 +26,7 @@
   
   if(self) {
     self.appScreenSwitchDelegate = [[MoveScreenSwitchDelegate alloc]initWithViewController:self];
-    self.appViewController = [[App sharedInstance] appViewController];
+    self.appViewController = [UIHelper appViewController];
   }
   
   return self;

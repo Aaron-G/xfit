@@ -7,7 +7,7 @@
 //
 
 #import "HomeViewController.h"
-#import "App.h"
+#import "UIHelper.h"
 #import "AppViewController.h"
 #import "HomeScreenSwitchDelegate.h"
 #import "AppScreenShareDelegate.h"
@@ -29,7 +29,7 @@
   if(self) {
     self.appScreenSwitchDelegate = [[HomeScreenSwitchDelegate alloc]initWithViewController:self];
     self.appScreenShareDelegate = [[HomeScreenShareDelegate alloc]initWithViewController:self];
-    self.appViewController = [[App sharedInstance] appViewController];
+    self.appViewController = [UIHelper appViewController];
   }
   
   return self;

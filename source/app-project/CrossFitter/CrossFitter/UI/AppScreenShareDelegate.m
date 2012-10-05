@@ -7,7 +7,7 @@
 //
 
 #import "AppScreenShareDelegate.h"
-#import "App.h"
+#import "UIHelper.h"
 #import "MailHelper.h"
 #import "MailAttachment.h"
 
@@ -21,7 +21,7 @@
     
     //Initialize
     _viewController = viewController;
-    _appViewController = [[App sharedInstance] appViewController];
+    _appViewController = [UIHelper appViewController];
 
   }
   

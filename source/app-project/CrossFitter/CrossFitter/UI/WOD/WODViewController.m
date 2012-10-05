@@ -9,7 +9,7 @@
 #import "WODViewController.h"
 #import "AppViewController.h"
 #import "WODScreenSwitchDelegate.h"
-#import "App.h"
+#import "UIHelper.h"
 
 @interface WODViewController ()
 {
@@ -26,7 +26,7 @@
   
   if(self) {
     self.appScreenSwitchDelegate = [[WODScreenSwitchDelegate alloc]initWithViewController:self];
-    self.appViewController = [[App sharedInstance] appViewController];
+    self.appViewController = [UIHelper appViewController];
   }
   
   return self;

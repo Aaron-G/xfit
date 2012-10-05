@@ -12,6 +12,7 @@
 #import "PRWallScreenSwitchDelegate.h"
 #import "AppScreenShareDelegate.h"
 #import "PRWallScreenShareDelegate.h"
+#import "UIHelper.h"
 
 @interface PRWallViewController ()
 {
@@ -29,7 +30,7 @@
   if(self) {
     self.appScreenSwitchDelegate = [[PRWallScreenSwitchDelegate alloc]initWithViewController:self];
     self.appScreenShareDelegate = [[PRWallScreenShareDelegate alloc]initWithViewController:self];
-    self.appViewController = [[App sharedInstance] appViewController];
+    self.appViewController = [UIHelper appViewController];
   }
   
   return self;

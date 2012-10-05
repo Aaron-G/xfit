@@ -9,7 +9,7 @@
 #import "WorkoutViewController.h"
 #import "AppViewController.h"
 #import "WorkoutScreenSwitchDelegate.h"
-#import "App.h"
+#import "UIHelper.h"
 
 @interface WorkoutViewController ()
 {
@@ -26,7 +26,7 @@
  
   if(self) {
     self.appScreenSwitchDelegate = [[WorkoutScreenSwitchDelegate alloc]initWithViewController:self];
-    self.appViewController = [[App sharedInstance] appViewController];
+    self.appViewController = [UIHelper appViewController];
   }
   
   return self;
