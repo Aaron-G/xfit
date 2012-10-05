@@ -9,12 +9,19 @@
 #import <Foundation/Foundation.h>
 #import "Measurable.h"
 #import "MeasurableViewController.h"
+#import "AppViewController.h"
 
 @interface UIHelper : NSObject
 
 + (void) adjustImage: (UIButton*) buttonWithImage forMeasurable: (id <Measurable>) measurable;
 
++ (AppViewController*) appViewController;
+
 + (MeasurableViewController*) measurableViewController;
-+ (UIViewController*) viewControllerWithViewControllerIdentifier: (NSString*) identifier;
+
+//Returns a new instance of the UIViewController that has the provided
+//identifier on the Storyboard.
++ (UIViewController*) viewControllerWithViewStoryboardIdentifier: (NSString*) identifier;
 
 @end
+ 

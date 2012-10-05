@@ -67,11 +67,15 @@
   }
 }
 
-+ (MeasurableViewController*) measurableViewController {
-  return (MeasurableViewController*) [UIHelper viewControllerWithViewControllerIdentifier: @"MeasurableViewController"];
++ (AppViewController*) appViewController {
+  return [[App sharedInstance] appViewController];
 }
 
-+ (UIViewController*) viewControllerWithViewControllerIdentifier: (NSString*) identifier {
++ (MeasurableViewController*) measurableViewController {
+  return [[App sharedInstance] measurableViewController];
+}
+
++ (UIViewController*) viewControllerWithViewStoryboardIdentifier: (NSString*) identifier {
   AppViewController* appViewController = [[App sharedInstance] appViewController];
   return [appViewController.storyboard instantiateViewControllerWithIdentifier:identifier];
 }
