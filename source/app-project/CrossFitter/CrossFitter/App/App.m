@@ -9,7 +9,7 @@
 #import "App.h"
 #import "AppConstants.h"
 #import "ModelFactory.h"
-
+#import "UIHelper.h"
 
 @interface App () {
   
@@ -27,9 +27,18 @@
 static App *sharedInstance = nil;
 
 @synthesize appDelegate = _appDelegate;
-@synthesize appViewController= _appViewController;
-@synthesize navigationViewController = _navigationViewController;
 @synthesize userProfile = _userProfile;
+
+////////////////////////////////////////////////////////////////
+//View Controllers that are "provided" by the App
+//
+//NOTE - If we start seeing more and more of these popping up,
+//we may want to put this in a Dictionary
+//
+@synthesize appViewController = _appViewController;
+@synthesize navigationViewController = _navigationViewController;
+@synthesize measurableViewController = _measurableViewController;
+////////////////////////////////////////////////////////////////
 
 - (id)init {
   self = [super init];
@@ -145,7 +154,14 @@ static App *sharedInstance = nil;
 
 - (NSString*) appSupportEmail {
   return @"crossfitter-support@ikonnos.com";
+}
+
+- (MeasurableViewController *)measurableViewController {
   
+  if(!_measurableViewController) {
+    _measurableViewController = (MeasurableViewController*) [UIHelper viewControllerWithViewStoryboardIdentifier: @"MeasurableViewController"];
+  }  
+  return _measurableViewController;
 }
 
 ////////////////////////////////////////////////

@@ -10,11 +10,14 @@
 #import "AppViewController.h"
 #import "AppDelegate.h"
 #import "UserProfile.h"
+#import "MeasurableViewController.h"
 
 @interface App : NSObject
 
 @property (nonatomic, readonly) AppViewController *appViewController;
 @property (nonatomic, readonly) UINavigationController *navigationViewController;
+@property (nonatomic, readonly) MeasurableViewController *measurableViewController;
+
 @property (nonatomic) AppDelegate *appDelegate;
 @property (nonatomic, readonly) NSString* systemInformation;
 @property (nonatomic, readonly) NSString* appInformation;
