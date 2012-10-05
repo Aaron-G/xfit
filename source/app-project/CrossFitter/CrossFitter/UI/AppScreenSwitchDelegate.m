@@ -7,7 +7,7 @@
 //
 
 #import "AppScreenSwitchDelegate.h"
-#import "App.h"
+#import "UIHelper.h"
 #import "AppConstants.h"
 
 @interface AppScreenSwitchDelegate () {
@@ -25,7 +25,7 @@
     
     //Initialize
     _viewController = viewController;
-    _appViewController = [[App sharedInstance] appViewController];
+    _appViewController = [UIHelper appViewController];
     
     [self initTitle];
     [self initToolbarItems];
@@ -33,6 +33,9 @@
     
     //Register screen switch delegate
     [AppViewController addAppScreenSwitchDelegate:self forAppScreen: [self appScreen]];
+    
+    //Default to NO
+    self.displayBackButtonAsBack = NO;
   }
   
   return self;
@@ -101,6 +104,23 @@
   
   //Show/hide the toolbar as needed
   [self.appViewController.navigationController setToolbarHidden:(!hasToolbarItems) animated:YES];
+}
+
+- (void)screenWillAppear {
+  
+  //Reset the title
+  self.appViewController.title = self.viewController.title;
+}
+
+- (void)screenWillDisappear {
+
+  //Change title to enable the back button to say "Back"
+  if(self.displayBackButtonAsBack) {
+    self.appViewController.title = nil;
+  }
+  
+  //Reset flag
+  self.displayBackButtonAsBack = NO;
 }
 
 @end

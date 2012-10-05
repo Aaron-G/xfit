@@ -16,6 +16,7 @@
 @property (readonly) UIViewController * viewController;
 @property (readonly) AppViewController * appViewController;
 @property (readonly) AppScreenIdentifier appScreen;
+@property BOOL displayBackButtonAsBack;
 
 //Initialization API
 - initWithViewController: (UIViewController*) viewController;
@@ -29,5 +30,8 @@
 - (void)updateNavigationBar;
 - (void)updateNavigationToolbar;
 - (void)updateMainView;
+- (void)screenWillAppear;
+- (void)screenWillDisappear;
+
 
 @end
