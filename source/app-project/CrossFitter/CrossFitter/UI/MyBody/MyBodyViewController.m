@@ -35,7 +35,7 @@
   if(self) {
     self.appScreenSwitchDelegate = [[MyBodyScreenSwitchDelegate alloc]initWithViewController:self];
     self.appScreenShareDelegate = [[MyBodyScreenShareDelegate alloc]initWithViewController:self];
-    self.appViewController = [[App sharedInstance] appViewController];    
+    self.appViewController = [UIHelper appViewController];
   }
   
   return self;
