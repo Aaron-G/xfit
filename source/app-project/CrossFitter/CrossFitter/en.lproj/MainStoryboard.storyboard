@@ -457,8 +457,16 @@
                 <viewController storyboardIdentifier="MeasurableViewController" id="LEZ-Nv-BEs" customClass="MeasurableViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F1c-jC-OS9">
                         <rect key="frame" x="0.0" y="20" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
+                            <containerView contentMode="scaleToFill" id="Thh-ZG-YMn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="I72-Dh-cAW" kind="embed" id="V2x-Pn-cLp"/>
+                                </connections>
+                            </containerView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="YnZ-f6-MWo">
                                 <rect key="frame" x="0.0" y="372" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -468,13 +476,13 @@
                                             <action selector="shareMeasurableAction:" destination="LEZ-Nv-BEs" id="lVz-Ju-Tgd"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="7cR-ls-dVz"/>
-                                    <barButtonItem title="Copy" id="u6n-92-rsZ">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="tvg-Ar-dAK"/>
+                                    <barButtonItem systemItem="bookmarks" id="u6n-92-rsZ">
                                         <connections>
                                             <action selector="copyMeasurableAction:" destination="LEZ-Nv-BEs" id="foM-Wt-uoM"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="SzR-TZ-fOA"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="7cR-ls-dVz"/>
                                     <barButtonItem systemItem="compose" id="uBL-Z6-14a">
                                         <connections>
                                             <action selector="editMeasurableAction:" destination="LEZ-Nv-BEs" id="rdE-Hs-x2c"/>
@@ -482,6 +490,10 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" id="ByB-Hi-7Uo">
+                                <rect key="frame" x="141" y="336" width="38" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -498,6 +510,7 @@
                         <outlet property="barButtonItemEdit" destination="uBL-Z6-14a" id="tD3-Gr-bDW"/>
                         <outlet property="barButtonItemLog" destination="3XP-7e-a8Q" id="95l-h0-1vX"/>
                         <outlet property="barButtonItemShare" destination="dg5-e4-OQX" id="p9M-pc-joH"/>
+                        <outlet property="pageControlInfoLog" destination="ByB-Hi-7Uo" id="gxu-4g-gsO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LpE-IZ-oel" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -785,6 +798,86 @@
             </objects>
             <point key="canvasLocation" x="-1795" y="3817"/>
         </scene>
+        <!--Measurable Detail Switch View Controller-->
+        <scene sceneID="Atb-Fp-Gbi">
+            <objects>
+                <collectionViewController storyboardIdentifier="MeasurableDetailSwitchViewController" autoresizesArchivedViewToFullSize="NO" id="I72-Dh-cAW" customClass="MeasurableDetailSwitchViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="MpW-5v-Jrx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="upn-aq-Xue">
+                            <size key="itemSize" width="320" height="372"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="MEASURABLE_CELL" id="MJK-Rd-eGA">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="I72-Dh-cAW" id="pcd-kN-srh"/>
+                            <outlet property="delegate" destination="I72-Dh-cAW" id="hqi-Sd-YvC"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dDi-dS-Pay" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2421" y="4339"/>
+        </scene>
+        <!--Measurable Log View Controller-->
+        <scene sceneID="eF1-ex-nwH">
+            <objects>
+                <viewController storyboardIdentifier="MeasurableLogViewController" id="Isk-aK-s7R" customClass="MeasurableLogViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wLH-ZX-oFG">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Log" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dh1-n1-cF0">
+                                <rect key="frame" x="146" y="219" width="29" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Qf-cR-tXq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2600" y="4841"/>
+        </scene>
+        <!--Measurable Info View Controller-->
+        <scene sceneID="b0h-RM-J5G">
+            <objects>
+                <viewController storyboardIdentifier="MeasurableInfoViewController" id="A0L-Vl-GcV" customClass="MeasurableInfoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XdL-va-cem">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fyq-ez-U77">
+                                <rect key="frame" x="146" y="219" width="29" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zZL-VS-p8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2046" y="4847"/>
+        </scene>
     </scenes>
     <resources>
         <image name="move.png" width="95" height="80"/>
@@ -831,6 +924,15 @@
                 <relationship kind="outlet" name="versionLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="MeasurableDetailSwitchViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableDetailSwitchViewController.h"/>
+        </class>
+        <class className="MeasurableInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableInfoViewController.h"/>
+        </class>
+        <class className="MeasurableLogViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableLogViewController.h"/>
+        </class>
         <class className="MeasurableViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableViewController.h"/>
             <relationships>
@@ -842,6 +944,7 @@
                 <relationship kind="outlet" name="barButtonItemEdit" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="barButtonItemLog" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="barButtonItemShare" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="pageControlInfoLog" candidateClass="UIPageControl"/>
             </relationships>
         </class>
         <class className="MenuCell" superclassName="UICollectionViewCell">
@@ -870,9 +973,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="WODViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WODViewController.h"/>

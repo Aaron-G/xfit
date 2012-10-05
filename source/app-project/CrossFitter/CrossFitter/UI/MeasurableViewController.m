@@ -7,6 +7,8 @@
 //
 
 #import "MeasurableViewController.h"
+#import "MeasurableDetailSwitchViewController.h"
+#import "UIHelper.h"
 
 @interface MeasurableViewController () {
   
@@ -17,15 +19,26 @@
 @implementation MeasurableViewController
 
 @synthesize measurable = _measurable;
+@synthesize measurableDetailSwitchViewController = _measurableDetailSwitchViewController;
 
+-(id)initWithCoder:(NSCoder *)aDecoder {
+  
+  self = [super initWithCoder:aDecoder];
+  if(self) {
+  }
+  return self;
+}
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-      // Custom initialization
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  
+  for (UIViewController * viewController in self.childViewControllers) {
+    if([viewController isKindOfClass: [MeasurableDetailSwitchViewController class]]) {
+      _measurableDetailSwitchViewController = (MeasurableDetailSwitchViewController*)viewController;
     }
-    return self;
+  }
+  _measurableDetailSwitchViewController.pageControlInfoLog = self.pageControlInfoLog;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -40,8 +53,11 @@
 
 - (void)setMeasurable:(id<Measurable>)measurable {
   _measurable = measurable;
+  
   self.title = [NSString stringWithFormat:NSLocalizedString(@"measurable-info-screen-title-format", @"%@ Info"), measurable.metadataProvider.name];
   self.barButtonItemLog.title = NSLocalizedString(@"log-label", @"Log");
+  
+  self.measurableDetailSwitchViewController.measurable = self.measurable;
 }
 
 - (IBAction)editMeasurableAction:(id)sender {

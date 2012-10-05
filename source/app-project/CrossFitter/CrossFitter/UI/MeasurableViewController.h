@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Measurable.h"
+#import "MeasurableDetailSwitchViewController.h"
 
 @interface MeasurableViewController : UIViewController
 
@@ -17,6 +18,10 @@
 @property IBOutlet UIBarButtonItem* barButtonItemEdit;
 @property IBOutlet UIBarButtonItem* barButtonItemCopy;
 @property IBOutlet UIBarButtonItem* barButtonItemLog;
+
+@property (readonly) MeasurableDetailSwitchViewController* measurableDetailSwitchViewController;
+
+@property IBOutlet UIPageControl* pageControlInfoLog;
 
 - (IBAction)editMeasurableAction:(id)sender;
 - (IBAction)copyMeasurableAction:(id)sender;
