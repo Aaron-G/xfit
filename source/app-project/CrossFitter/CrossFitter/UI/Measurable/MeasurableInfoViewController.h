@@ -12,5 +12,8 @@
 @interface MeasurableInfoViewController : UIViewController
 
 @property id<Measurable> measurable;
+@property IBOutlet UILabel* nameLabel;
+@property IBOutlet UITextView* metadataTextView;
+@property IBOutlet UITextView* descriptionTextView;
 
 @end
