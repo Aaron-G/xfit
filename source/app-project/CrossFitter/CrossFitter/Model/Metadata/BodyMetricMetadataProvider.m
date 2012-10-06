@@ -14,6 +14,18 @@
 @synthesize valueTrendBetterDirection = _valueTrendBetterDirection;
 @synthesize unit = _unit;
 @synthesize name = _name;
+@synthesize description = _description;
+@synthesize metadataShort = _metadataShort;
+@synthesize metadataFull = _metadataFull;
+
+- (id)initWithMeasurableIdentifier:(NSString*) measurableIdentifier {
+  self = [super initWithMeasurableIdentifier: measurableIdentifier];
+  
+  if (self) {
+    self.type = [MeasurableType measurableTypeWithMeasurableTypeIdentifier:MeasurableTypeIdentifierBodyMetric];
+  }
+  return self;
+}
 
 - (MeasurableValueTrendBetterDirection)valueTrendBetterDirection {
   
@@ -124,5 +136,123 @@
   
   return _name;
 }
+
+- (NSString *) description {
+  
+  if(!_description) {
+    
+    NSString* description = nil;
+    
+    if([kBodyMetricIdentifierHeight isEqualToString: self.measurableIdentifier]) {
+      description = NSLocalizedString(@"height-metric-description", @"");
+    } else if([kBodyMetricIdentifierWeight isEqualToString: self.measurableIdentifier]) {
+      description = NSLocalizedString(@"weight-metric-description", @"");
+    } else if([kBodyMetricIdentifierChest isEqualToString: self.measurableIdentifier]) {
+      description = NSLocalizedString(@"chest-metric-description", @"");
+    } else if([kBodyMetricIdentifierWaist isEqualToString: self.measurableIdentifier]) {
+      description = NSLocalizedString(@"waist-metric-description", @"");
+    } else if([kBodyMetricIdentifierHip isEqualToString: self.measurableIdentifier]) {
+      description = NSLocalizedString(@"hip-metric-description", @"");
+    } else if([kBodyMetricIdentifierBiceptsLeft isEqualToString: self.measurableIdentifier]) {
+      description = NSLocalizedString(@"biceps-left-metric-description", @"");
+    } else if([kBodyMetricIdentifierBiceptsRight isEqualToString: self.measurableIdentifier]) {
+      description = NSLocalizedString(@"biceps-right-metric-description", @"");
+    } else if([kBodyMetricIdentifierThighLeft isEqualToString: self.measurableIdentifier]) {
+      description = NSLocalizedString(@"thigh-left-metric-description", @"");
+    } else if([kBodyMetricIdentifierThighRight isEqualToString: self.measurableIdentifier]) {
+      description = NSLocalizedString(@"thigh-right-metric-description", @"");
+    } else if([kBodyMetricIdentifierCalfLeft isEqualToString: self.measurableIdentifier]) {
+      description = NSLocalizedString(@"calf-left-metric-description", @"");
+    } else if([kBodyMetricIdentifierCalfRight isEqualToString: self.measurableIdentifier]) {
+      description = NSLocalizedString(@"calf-right-metric-description", @"");
+    } else if([kBodyMetricIdentifierBodyMassIndex isEqualToString: self.measurableIdentifier]) {
+      description = NSLocalizedString(@"body-mass-index-metric-description", @"");
+    } else if([kBodyMetricIdentifierBodyFat isEqualToString: self.measurableIdentifier]) {
+      description = NSLocalizedString(@"body-fat-metric-description", @"");
+    }
+    _description = description;
+  }
+  
+  return _description;
+}
+
+- (NSString *) metadataShort {
+  
+  if(!_metadataShort) {
+    
+    NSString* metadataShort = nil;
+    
+    if([kBodyMetricIdentifierHeight isEqualToString: self.measurableIdentifier]) {
+      metadataShort = nil;
+    } else if([kBodyMetricIdentifierWeight isEqualToString: self.measurableIdentifier]) {
+      metadataShort = nil;
+    } else if([kBodyMetricIdentifierChest isEqualToString: self.measurableIdentifier]) {
+      metadataShort = nil;
+    } else if([kBodyMetricIdentifierWaist isEqualToString: self.measurableIdentifier]) {
+      metadataShort = nil;
+    } else if([kBodyMetricIdentifierHip isEqualToString: self.measurableIdentifier]) {
+      metadataShort = nil;
+    } else if([kBodyMetricIdentifierBiceptsLeft isEqualToString: self.measurableIdentifier]) {
+      metadataShort = @"Left";
+    } else if([kBodyMetricIdentifierBiceptsRight isEqualToString: self.measurableIdentifier]) {
+      metadataShort = @"Right";
+    } else if([kBodyMetricIdentifierThighLeft isEqualToString: self.measurableIdentifier]) {
+      metadataShort = @"Left";
+    } else if([kBodyMetricIdentifierThighRight isEqualToString: self.measurableIdentifier]) {
+      metadataShort = @"Right";
+    } else if([kBodyMetricIdentifierCalfLeft isEqualToString: self.measurableIdentifier]) {
+      metadataShort = @"Left";
+    } else if([kBodyMetricIdentifierCalfRight isEqualToString: self.measurableIdentifier]) {
+      metadataShort = @"Right";
+    } else if([kBodyMetricIdentifierBodyMassIndex isEqualToString: self.measurableIdentifier]) {
+      metadataShort = nil;
+    } else if([kBodyMetricIdentifierBodyFat isEqualToString: self.measurableIdentifier]) {
+      metadataShort = nil;
+    }
+    _metadataShort = metadataShort;
+  }
+  
+  return _metadataShort;
+}
+
+- (NSString *) metadataFull {
+  
+  if(!_metadataFull) {
+    
+    NSString* metadataFull = nil;
+    
+    if([kBodyMetricIdentifierHeight isEqualToString: self.measurableIdentifier]) {
+      metadataFull = nil;
+    } else if([kBodyMetricIdentifierWeight isEqualToString: self.measurableIdentifier]) {
+      metadataFull = nil;
+    } else if([kBodyMetricIdentifierChest isEqualToString: self.measurableIdentifier]) {
+      metadataFull = nil;
+    } else if([kBodyMetricIdentifierWaist isEqualToString: self.measurableIdentifier]) {
+      metadataFull = nil;
+    } else if([kBodyMetricIdentifierHip isEqualToString: self.measurableIdentifier]) {
+      metadataFull = nil;
+    } else if([kBodyMetricIdentifierBiceptsLeft isEqualToString: self.measurableIdentifier]) {
+      metadataFull = @"Left";
+    } else if([kBodyMetricIdentifierBiceptsRight isEqualToString: self.measurableIdentifier]) {
+      metadataFull = @"Right";
+    } else if([kBodyMetricIdentifierThighLeft isEqualToString: self.measurableIdentifier]) {
+      metadataFull = @"Left";
+    } else if([kBodyMetricIdentifierThighRight isEqualToString: self.measurableIdentifier]) {
+      metadataFull = @"Right";
+    } else if([kBodyMetricIdentifierCalfLeft isEqualToString: self.measurableIdentifier]) {
+      metadataFull = @"Left";
+    } else if([kBodyMetricIdentifierCalfRight isEqualToString: self.measurableIdentifier]) {
+      metadataFull = @"Right";
+    } else if([kBodyMetricIdentifierBodyMassIndex isEqualToString: self.measurableIdentifier]) {
+      metadataFull = nil;
+    } else if([kBodyMetricIdentifierBodyFat isEqualToString: self.measurableIdentifier]) {
+      metadataFull = nil;
+    }
+    _metadataFull = metadataFull;
+  }
+  
+  return _metadataFull;
+}
+
 
 @end
