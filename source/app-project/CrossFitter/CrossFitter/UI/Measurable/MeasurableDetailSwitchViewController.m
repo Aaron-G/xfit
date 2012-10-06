@@ -96,19 +96,6 @@
   if(indexPath.item < 2) {
     self.measurableDetailPageControl.currentPage = indexPath.item;
   }
-  
-  //Update the subtitle
-  NSString* subtitle = nil;
-  if (indexPath.item == 0) {
-    subtitle = NSLocalizedString(@"measurable-info-screen-subtitle", @"info");
-  } else if (indexPath.item == 1) {
-    subtitle = NSLocalizedString(@"measurable-log-screen-subtitle", @"log");
-  }
-  
-  if(subtitle) {
-    self.measurableTitleView.subTitleView.text =  subtitle;
-  }
-
   return cell;
 }
 
