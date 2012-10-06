@@ -111,16 +111,16 @@
 "body-fat-metric-label" = "Body Fat";
 
 "chest-metric-label" = "Chest";
-"biceps-left-metric-label" = "Biceps - Left";
-"biceps-right-metric-label" = "Biceps - Right";
+"biceps-left-metric-label" = "Left Biceps";
+"biceps-right-metric-label" = "Right Biceps";
 
 "hip-metric-label" = "Hip";
 "waist-metric-label" = "Waist";
 
-"thigh-left-metric-label" = "Thigh - Left";
-"thigh-right-metric-label" = "Thigh - Right";
-"calf-left-metric-label" = "Calf - Left";
-"calf-right-metric-label" = "Calf - Right";
+"thigh-left-metric-label" = "Left Thigh";
+"thigh-right-metric-label" = "Right Thigh";
+"calf-left-metric-label" = "Left Calf";
+"calf-right-metric-label" = "Right Calf";
 
 //////////////////////////////
 //Unit Formatters
@@ -131,4 +131,8 @@
 
 //////////////////////////////
 //Measurable Info Screen
-"measurable-info-screen-title-format" = "%@ Info";
+"measurable-info-screen-subtitle" = "info";
+
+//////////////////////////////
+//Measurable Log Screen
+"measurable-log-screen-subtitle" = "log";
