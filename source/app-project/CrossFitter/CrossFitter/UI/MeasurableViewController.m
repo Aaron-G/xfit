@@ -32,14 +32,14 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  
-  for (UIViewController * viewController in self.childViewControllers) {
-    if([viewController isKindOfClass: [MeasurableDetailSwitchViewController class]]) {
-      _measurableDetailSwitchViewController = (MeasurableDetailSwitchViewController*)viewController;
-    }
+
+  //The first time around it can happen that we are not completely initialized yet
+  if(!_measurableDetailSwitchViewController) {
+    self.measurableDetailSwitchViewController.measurable = self.measurable;
   }
-  _measurableDetailSwitchViewController.measurableDetailPageControl = self.measurableDetailPageControl;
-  _measurableDetailSwitchViewController.measurableTitleView = self.measurableTitleView;
+  
+  self.measurableDetailSwitchViewController.measurableDetailPageControl = self.measurableDetailPageControl;
+  self.measurableDetailSwitchViewController.measurableTitleView = self.measurableTitleView;
   
   //Update the title view
   self.navigationItem.titleView = self.measurableTitleView;
@@ -68,11 +68,22 @@
 - (void)setMeasurable:(id<Measurable>)measurable {
   _measurable = measurable;
   
-  self.measurableTitleView.titleView.text = measurable.metadataProvider.name;
+  self.measurableTitleView.titleLabel.text = measurable.metadataProvider.type.displayName;
 
   self.barButtonItemLog.title = NSLocalizedString(@"log-label", @"Log");
   
   self.measurableDetailSwitchViewController.measurable = self.measurable;
+}
+
+- (MeasurableDetailSwitchViewController *)measurableDetailSwitchViewController {
+  if(!_measurableDetailSwitchViewController) {
+    for (UIViewController * viewController in self.childViewControllers) {
+      if([viewController isKindOfClass: [MeasurableDetailSwitchViewController class]]) {
+        _measurableDetailSwitchViewController = (MeasurableDetailSwitchViewController*)viewController;
+      }
+    }
+  }
+  return _measurableDetailSwitchViewController;
 }
 
 - (IBAction)editMeasurableAction:(id)sender {
