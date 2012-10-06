@@ -24,6 +24,7 @@
 
 @property AppViewController* appViewController;
 @property AppScreenShareDelegate* appScreenShareDelegate;
+@property NSDateFormatter* dateFormat;
 
 @end
 
@@ -36,6 +37,8 @@
     self.appScreenSwitchDelegate = [[MyBodyScreenSwitchDelegate alloc]initWithViewController:self];
     self.appScreenShareDelegate = [[MyBodyScreenShareDelegate alloc]initWithViewController:self];
     self.appViewController = [UIHelper appViewController];
+    self.dateFormat = [[NSDateFormatter alloc] init];
+    self.dateFormat.dateFormat = NSLocalizedString(@"measurable-date-format", @"MM/dd/yy ");
   }
   
   return self;
@@ -76,6 +79,10 @@
     BodyMetric* metric = [[App sharedInstance].userProfile.metrics valueForKey: metricIdentifier];
     cell.metricNameLabel.text = metric.metadataProvider.name;
     cell.metricValueLabel.text = [metric.valueFormatter formatValue:metric.dataProvider.value];
+    cell.metricMetadataLabel.text = metric.metadataProvider.metadataShort;
+    
+    NSString *dateString = [self.dateFormat stringFromDate:metric.dataProvider.date];
+    cell.metricDateLabel.text = dateString;
     
     //Adjust the trend image to tailor to the metric specifics
     [UIHelper adjustImage:cell.metricTrendImageButton forMeasurable:metric];

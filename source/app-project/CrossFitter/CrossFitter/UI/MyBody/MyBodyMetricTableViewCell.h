@@ -12,6 +12,8 @@
 
 @property IBOutlet UILabel* metricNameLabel;
 @property IBOutlet UILabel* metricValueLabel;
+@property IBOutlet UILabel* metricMetadataLabel;
+@property IBOutlet UILabel* metricDateLabel;
 @property IBOutlet UIButton* metricTrendImageButton;
 
 @end
