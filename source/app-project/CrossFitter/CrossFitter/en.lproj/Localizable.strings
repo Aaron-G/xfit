@@ -106,21 +106,43 @@
 "mybody-user-profile-summary-format" = "%@\n%@, %@\n%@";
 
 "height-metric-label" = "Height";
+"height-metric-description" = "Your height without shoes to the top of your head not counting your hair.";
+
 "weight-metric-label" = "Weight";
+"weight-metric-description" = "Your weight with only undewear on.";
+
 "body-mass-index-metric-label" = "Body Mass Index";
+"body-mass-index-metric-description" = "Body mass index (BMI) is a measure of body fat based on height and weight. BMI is defined as the your weight divided by the square of your height.";
+
 "body-fat-metric-label" = "Body Fat";
+"body-fat-metric-description" = "The body fat percentage is your total fat weight divided by your total weight.";
 
 "chest-metric-label" = "Chest";
-"biceps-left-metric-label" = "Left Biceps";
-"biceps-right-metric-label" = "Right Biceps";
+"chest-metric-description" = "Measure under arms around the fullest part of the chest. Be sure to keep tape level across back.";
+
+"biceps-left-metric-label" = "Biceps";
+"biceps-left-metric-description" = "Measure the highest peak on the bicep muscle and the lowest peak on the tricep muscle.";
+
+"biceps-right-metric-label" = "Biceps";
+"biceps-right-metric-description" = "Measure the highest peak on the bicep muscle and the lowest peak on the tricep muscle. Measure the highest peak on the bicep muscle and the lowest peak on the tricep muscle. lowest peak on the tricep muscle.";
 
 "hip-metric-label" = "Hip";
-"waist-metric-label" = "Waist";
+"hip-metric-description" = "Wrap a tape measure around the fullest part of your hips and buttocks, usually located 7 to 9 inches below your natural waist.";
 
-"thigh-left-metric-label" = "Left Thigh";
-"thigh-right-metric-label" = "Right Thigh";
-"calf-left-metric-label" = "Left Calf";
-"calf-right-metric-label" = "Right Calf";
+"waist-metric-label" = "Waist";
+"waist-metric-description" = "Wrap the tape measure around your natural waist, keeping it parallel to the floor.";
+
+"thigh-left-metric-label" = "Thigh";
+"thigh-left-metric-description" = "Measure the circumference of the fullest part of your thigh. Wrap the tape measure around your thigh from front to back and then around to the front.";
+
+"thigh-right-metric-label" = "Thigh";
+"thigh-right-metric-description" = "Measure the circumference of the fullest part of your thigh. Wrap the tape measure around your thigh from front to back and then around to the front.";
+
+"calf-left-metric-label" = "Calf";
+"calf-left-metric-description" = "Measure the circumference of the fullest part of your calf. Wrap the tape measure around your calf from front to back and then around to the front.";
+
+"calf-right-metric-label" = "Calf";
+"calf-right-metric-description" = "Measure the circumference of the fullest part of your calf. Wrap the tape measure around your calf from front to back and then around to the front";
 
 //////////////////////////////
 //Unit Formatters
@@ -130,9 +152,6 @@
 "foot-and-inch-format" = "%@ %@";
 
 //////////////////////////////
-//Measurable Info Screen
-"measurable-info-screen-subtitle" = "info";
+//Measurable Formatters
+"measurable-date-format" = "MM/dd/yy ";
 
-//////////////////////////////
-//Measurable Log Screen
-"measurable-log-screen-subtitle" = "log";
