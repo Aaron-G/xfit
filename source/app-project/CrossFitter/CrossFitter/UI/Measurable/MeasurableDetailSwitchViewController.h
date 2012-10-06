@@ -10,6 +10,7 @@
 #import "Measurable.h"
 #import "MeasurableInfoViewController.h"
 #import "MeasurableLogViewController.h"
+#import "MeasurableTitleView.h"
 
 @interface MeasurableDetailSwitchViewController : UICollectionViewController
 
@@ -17,6 +18,7 @@
 @property MeasurableInfoViewController* infoViewController;
 @property MeasurableLogViewController* logViewController;
 
-@property UIPageControl* pageControlInfoLog;
+@property UIPageControl* measurableDetailPageControl;
+@property MeasurableTitleView* measurableTitleView;
 
 @end

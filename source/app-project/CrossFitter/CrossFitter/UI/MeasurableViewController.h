@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Measurable.h"
 #import "MeasurableDetailSwitchViewController.h"
+#import "MeasurableTitleView.h"
 
 @interface MeasurableViewController : UIViewController
 
@@ -21,7 +22,8 @@
 
 @property (readonly) MeasurableDetailSwitchViewController* measurableDetailSwitchViewController;
 
-@property IBOutlet UIPageControl* pageControlInfoLog;
+@property IBOutlet UIPageControl* measurableDetailPageControl;
+@property (readonly) MeasurableTitleView* measurableTitleView;
 
 - (IBAction)editMeasurableAction:(id)sender;
 - (IBAction)copyMeasurableAction:(id)sender;

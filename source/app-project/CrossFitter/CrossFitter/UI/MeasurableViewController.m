@@ -20,6 +20,7 @@
 
 @synthesize measurable = _measurable;
 @synthesize measurableDetailSwitchViewController = _measurableDetailSwitchViewController;
+@synthesize measurableTitleView = _measurableTitleView;
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
   
@@ -37,14 +38,27 @@
       _measurableDetailSwitchViewController = (MeasurableDetailSwitchViewController*)viewController;
     }
   }
-  _measurableDetailSwitchViewController.pageControlInfoLog = self.pageControlInfoLog;
-
+  _measurableDetailSwitchViewController.measurableDetailPageControl = self.measurableDetailPageControl;
+  _measurableDetailSwitchViewController.measurableTitleView = self.measurableTitleView;
+  
+  //Update the title view
+  self.navigationItem.titleView = self.measurableTitleView;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
   self.navigationItem.rightBarButtonItem = self.barButtonItemLog;
   
   [super viewWillAppear:animated];
+}
+
+- (MeasurableTitleView *)measurableTitleView {
+  if(!_measurableTitleView) {
+    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"MeasurableTitleView"
+                                                         owner:self
+                                                       options:nil];
+    _measurableTitleView = (MeasurableTitleView *)[nibContents objectAtIndex:0];
+  }
+  return _measurableTitleView;
 }
 
 - (id<Measurable>)measurable {
@@ -54,7 +68,8 @@
 - (void)setMeasurable:(id<Measurable>)measurable {
   _measurable = measurable;
   
-  self.title = [NSString stringWithFormat:NSLocalizedString(@"measurable-info-screen-title-format", @"%@ Info"), measurable.metadataProvider.name];
+  self.measurableTitleView.titleView.text = measurable.metadataProvider.name;
+
   self.barButtonItemLog.title = NSLocalizedString(@"log-label", @"Log");
   
   self.measurableDetailSwitchViewController.measurable = self.measurable;
