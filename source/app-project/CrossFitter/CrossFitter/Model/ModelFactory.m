@@ -120,6 +120,7 @@
   for (NSNumber* value in values) {
     MeasurableDataEntry* dataEntry = [[MeasurableDataEntry alloc] init];
     dataEntry.value = value;
+    dataEntry.date = [NSDate date];
     [dataEntries addObject:dataEntry];
   }
 
