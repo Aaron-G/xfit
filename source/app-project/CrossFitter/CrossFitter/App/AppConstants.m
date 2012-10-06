@@ -10,7 +10,7 @@
 
 @implementation AppConstants
 
-const CGFloat kScreenSwitchAnimationDuration = 0.3;
-const NSInteger kNumberOfRunsToShowHelp = 3;
+const CGFloat ScreenSwitchAnimationDuration = 0.3;
+const NSInteger NumberOfRunsToShowHelp = 3;
 
 @end

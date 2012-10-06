@@ -11,19 +11,19 @@
 
 @interface BodyMetric : MeasurableImpl
 
-extern NSString* kBodyMetricIdentifierHeight;
-extern NSString* kBodyMetricIdentifierWeight;
-extern NSString* kBodyMetricIdentifierChest;
-extern NSString* kBodyMetricIdentifierBiceptsLeft;
-extern NSString* kBodyMetricIdentifierBiceptsRight;
-extern NSString* kBodyMetricIdentifierWaist;
-extern NSString* kBodyMetricIdentifierHip;
-extern NSString* kBodyMetricIdentifierThighLeft;
-extern NSString* kBodyMetricIdentifierThighRight;
-extern NSString* kBodyMetricIdentifierCalfLeft;
-extern NSString* kBodyMetricIdentifierCalfRight;
-extern NSString* kBodyMetricIdentifierBodyMassIndex;
-extern NSString* kBodyMetricIdentifierBodyFat;
-extern NSString* kBodyMetricIdentifierInvalid;
+extern NSString* BodyMetricIdentifierHeight;
+extern NSString* BodyMetricIdentifierWeight;
+extern NSString* BodyMetricIdentifierChest;
+extern NSString* BodyMetricIdentifierBiceptsLeft;
+extern NSString* BodyMetricIdentifierBiceptsRight;
+extern NSString* BodyMetricIdentifierWaist;
+extern NSString* BodyMetricIdentifierHip;
+extern NSString* BodyMetricIdentifierThighLeft;
+extern NSString* BodyMetricIdentifierThighRight;
+extern NSString* BodyMetricIdentifierCalfLeft;
+extern NSString* BodyMetricIdentifierCalfRight;
+extern NSString* BodyMetricIdentifierBodyMassIndex;
+extern NSString* BodyMetricIdentifierBodyFat;
+extern NSString* BodyMetricIdentifierInvalid;
 
 @end

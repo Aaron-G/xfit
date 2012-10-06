@@ -91,7 +91,7 @@ static App *sharedInstance = nil;
     NSInteger appRunCount = [self applicationRunCount];
     
     //appRunCount starts at zero
-    if(appRunCount < kNumberOfRunsToShowHelp) {
+    if(appRunCount < NumberOfRunsToShowHelp) {
       
       [[self appViewController] showOrHideMenuWithDelay:1.5 withAutoHideDelay:2];
       

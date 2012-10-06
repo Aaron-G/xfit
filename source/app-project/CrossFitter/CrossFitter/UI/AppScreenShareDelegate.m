@@ -127,9 +127,9 @@
   
   
   NSMutableDictionary* emailInfo = [[NSMutableDictionary alloc] initWithCapacity:5];
-  [emailInfo setValue:self.emailSubject forKey:kMailerHelperEmailSubjectKey];
-  [emailInfo setValue:self.emailText forKey:kMailerHelperEmailTextKey];
-  [emailInfo setValue:@"yes" forKey:kMailerHelperEmailTextIsHtmlKey];
+  [emailInfo setValue:self.emailSubject forKey:MailerHelperEmailSubjectKey];
+  [emailInfo setValue:self.emailText forKey:MailerHelperEmailTextKey];
+  [emailInfo setValue:@"yes" forKey:MailerHelperEmailTextIsHtmlKey];
   
   MailAttachment* attachment = nil;
   
@@ -139,7 +139,7 @@
     attachment.mimeType = self.emailAttachmentMimeType;
     attachment.fileName = self.emailAttachmentFileName;
 
-    [emailInfo setValue:[NSArray arrayWithObject:attachment] forKey:kMailerHelperEmailAttachmentstKey];
+    [emailInfo setValue:[NSArray arrayWithObject:attachment] forKey:MailerHelperEmailAttachmentstKey];
   }
   
   [[MailHelper sharedInstance ] displayEmailComposerWithEmailInfo:emailInfo];

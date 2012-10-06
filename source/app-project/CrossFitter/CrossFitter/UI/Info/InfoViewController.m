@@ -118,10 +118,10 @@
   [finalEmailText appendString:@"</body></html>"];
   
   NSMutableDictionary* emailInfo = [[NSMutableDictionary alloc] initWithCapacity:5];
-  [emailInfo setValue:to forKey:kMailerHelperEmailToKey];
-  [emailInfo setValue:subject forKey:kMailerHelperEmailSubjectKey];
-  [emailInfo setValue:finalEmailText forKey:kMailerHelperEmailTextKey];
-  [emailInfo setValue:@"yes" forKey:kMailerHelperEmailTextIsHtmlKey];
+  [emailInfo setValue:to forKey:MailerHelperEmailToKey];
+  [emailInfo setValue:subject forKey:MailerHelperEmailSubjectKey];
+  [emailInfo setValue:finalEmailText forKey:MailerHelperEmailTextKey];
+  [emailInfo setValue:@"yes" forKey:MailerHelperEmailTextIsHtmlKey];
   
   [[MailHelper sharedInstance ] displayEmailComposerWithEmailInfo:emailInfo];
 }

@@ -253,7 +253,7 @@ typedef enum {
   self.menuVisible =   !self.menuVisible;
   
   
-  [UIView animateWithDuration: kScreenSwitchAnimationDuration
+  [UIView animateWithDuration: ScreenSwitchAnimationDuration
                         delay: delay
                       options: UIViewAnimationOptionAllowUserInteraction | animationOptions
                    animations:^{

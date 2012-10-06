@@ -12,14 +12,14 @@
 
 @implementation MailHelper
 
-NSString* kMailerHelperEmailSubjectKey = @"subject";
-NSString* kMailerHelperEmailTextKey = @"text";
-NSString* kMailerHelperEmailTextIsHtmlKey = @"is-text-html";
-NSString* kMailerHelperEmailAttachmentstKey = @"attachments";
-NSString* kMailerHelperEmailFromKey = @"from";
-NSString* kMailerHelperEmailToKey = @"to";
-NSString* kMailerHelperEmailCCKey = @"cc";
-NSString* kMailerHelperEmailBCCKey = @"bcc";
+NSString* MailerHelperEmailSubjectKey = @"subject";
+NSString* MailerHelperEmailTextKey = @"text";
+NSString* MailerHelperEmailTextIsHtmlKey = @"is-text-html";
+NSString* MailerHelperEmailAttachmentstKey = @"attachments";
+NSString* MailerHelperEmailFromKey = @"from";
+NSString* MailerHelperEmailToKey = @"to";
+NSString* MailerHelperEmailCCKey = @"cc";
+NSString* MailerHelperEmailBCCKey = @"bcc";
 
 static MailHelper *sharedInstance = nil;
 
@@ -36,21 +36,21 @@ static MailHelper *sharedInstance = nil;
     
     
     //Set email TO
-    id toObj = [emailInfo valueForKey:kMailerHelperEmailToKey];
+    id toObj = [emailInfo valueForKey:MailerHelperEmailToKey];
     
     if(toObj) {
       [mailer setToRecipients: [NSArray arrayWithObject:toObj]];
     }
     
     //Set email subject
-    id subjectObj = [emailInfo valueForKey:kMailerHelperEmailSubjectKey];
+    id subjectObj = [emailInfo valueForKey:MailerHelperEmailSubjectKey];
     
     if(subjectObj) {
       [mailer setSubject: (NSString*)subjectObj];
     }
     
     //Set email any attachments
-    id attachmentsObj = [emailInfo valueForKeyPath:kMailerHelperEmailAttachmentstKey];
+    id attachmentsObj = [emailInfo valueForKeyPath:MailerHelperEmailAttachmentstKey];
     if(attachmentsObj) {
       NSArray* attachments = (NSArray*) attachmentsObj;
       for (id attachementObj in attachments) {
@@ -63,10 +63,10 @@ static MailHelper *sharedInstance = nil;
     }
     
     //Set email text
-    id textObj = [emailInfo valueForKey:kMailerHelperEmailTextKey];
+    id textObj = [emailInfo valueForKey:MailerHelperEmailTextKey];
     if(textObj) {
       
-      id htmlObj = [emailInfo valueForKey:kMailerHelperEmailTextIsHtmlKey];
+      id htmlObj = [emailInfo valueForKey:MailerHelperEmailTextIsHtmlKey];
       
       BOOL isHtml = NO;
       

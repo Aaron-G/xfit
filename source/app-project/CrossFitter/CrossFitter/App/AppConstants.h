@@ -12,7 +12,7 @@
 @interface AppConstants : NSObject
 
 //Duration of animation when switching screens
-extern const CGFloat kScreenSwitchAnimationDuration;
-extern const NSInteger kNumberOfRunsToShowHelp;
+extern const CGFloat ScreenSwitchAnimationDuration;
+extern const NSInteger NumberOfRunsToShowHelp;
 
 @end

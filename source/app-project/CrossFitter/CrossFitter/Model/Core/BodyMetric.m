@@ -12,20 +12,20 @@
 
 @implementation BodyMetric
 
-NSString* kBodyMetricIdentifierHeight = @"kBodyMetricIdentifierHeight";
-NSString* kBodyMetricIdentifierWeight = @"kBodyMetricIdentifierWeight";
-NSString* kBodyMetricIdentifierChest = @"kBodyMetricIdentifierChest";
-NSString* kBodyMetricIdentifierBiceptsLeft = @"kBodyMetricIdentifierBiceptsLeft";
-NSString* kBodyMetricIdentifierBiceptsRight = @"kBodyMetricIdentifierBiceptsRight";
-NSString* kBodyMetricIdentifierWaist = @"kBodyMetricIdentifierWaist";
-NSString* kBodyMetricIdentifierHip = @"kBodyMetricIdentifierHip";
-NSString* kBodyMetricIdentifierThighLeft = @"kBodyMetricIdentifierThighLeft";
-NSString* kBodyMetricIdentifierThighRight = @"kBodyMetricIdentifierThighRight";
-NSString* kBodyMetricIdentifierCalfLeft = @"kBodyMetricIdentifierCalfLeft";
-NSString* kBodyMetricIdentifierCalfRight = @"kBodyMetricIdentifierCalfRight";
-NSString* kBodyMetricIdentifierBodyMassIndex = @"kBodyMetricIdentifierBodyMassIndex";
-NSString* kBodyMetricIdentifierBodyFat = @"kBodyMetricIdentifierBodyFat";
-NSString* kBodyMetricIdentifierInvalid = @"kBodyMetricIdentifierInvalid";
+NSString* BodyMetricIdentifierHeight = @"BodyMetricIdentifierHeight";
+NSString* BodyMetricIdentifierWeight = @"BodyMetricIdentifierWeight";
+NSString* BodyMetricIdentifierChest = @"BodyMetricIdentifierChest";
+NSString* BodyMetricIdentifierBiceptsLeft = @"BodyMetricIdentifierBiceptsLeft";
+NSString* BodyMetricIdentifierBiceptsRight = @"BodyMetricIdentifierBiceptsRight";
+NSString* BodyMetricIdentifierWaist = @"BodyMetricIdentifierWaist";
+NSString* BodyMetricIdentifierHip = @"BodyMetricIdentifierHip";
+NSString* BodyMetricIdentifierThighLeft = @"BodyMetricIdentifierThighLeft";
+NSString* BodyMetricIdentifierThighRight = @"BodyMetricIdentifierThighRight";
+NSString* BodyMetricIdentifierCalfLeft = @"BodyMetricIdentifierCalfLeft";
+NSString* BodyMetricIdentifierCalfRight = @"BodyMetricIdentifierCalfRight";
+NSString* BodyMetricIdentifierBodyMassIndex = @"BodyMetricIdentifierBodyMassIndex";
+NSString* BodyMetricIdentifierBodyFat = @"BodyMetricIdentifierBodyFat";
+NSString* BodyMetricIdentifierInvalid = @"BodyMetricIdentifierInvalid";
 
 - (id)initWithIdentifier:(NSString *)identifier {
   self = [super initWithIdentifier:identifier];

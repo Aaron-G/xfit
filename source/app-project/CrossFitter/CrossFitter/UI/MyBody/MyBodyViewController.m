@@ -72,7 +72,7 @@
   }
 
   NSString* metricIdentifier = [self metricIdentifierIndexPath:indexPath];
-  if(metricIdentifier != kBodyMetricIdentifierInvalid) {
+  if(metricIdentifier != BodyMetricIdentifierInvalid) {
     
     MyBodyMetricTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyBodyMetricTableViewCell"];
     
@@ -115,43 +115,43 @@
   
   if(indexPath.section == 1) {
     if(indexPath.item == 0) {
-      return kBodyMetricIdentifierHeight;
+      return BodyMetricIdentifierHeight;
     } else if(indexPath.item == 1) {
-      return kBodyMetricIdentifierWeight;
+      return BodyMetricIdentifierWeight;
     }
   } else if(indexPath.section == 2) {
     if(indexPath.item == 0) {
-      return kBodyMetricIdentifierBodyMassIndex;
+      return BodyMetricIdentifierBodyMassIndex;
     } else if(indexPath.item == 1) {
-      return kBodyMetricIdentifierBodyFat;
+      return BodyMetricIdentifierBodyFat;
     }
   } else if(indexPath.section == 3) {
     if(indexPath.item == 0) {
-      return kBodyMetricIdentifierChest;
+      return BodyMetricIdentifierChest;
     } else if(indexPath.item == 1) {
-      return kBodyMetricIdentifierBiceptsRight;
+      return BodyMetricIdentifierBiceptsRight;
     } else if(indexPath.item == 2) {
-      return kBodyMetricIdentifierBiceptsLeft;
+      return BodyMetricIdentifierBiceptsLeft;
     }
   } else if(indexPath.section == 4) {
     if(indexPath.item == 0) {
-      return kBodyMetricIdentifierWaist;
+      return BodyMetricIdentifierWaist;
     } else if(indexPath.item == 1) {
-      return kBodyMetricIdentifierHip;
+      return BodyMetricIdentifierHip;
     }
   } else if(indexPath.section == 5) {
     if(indexPath.item == 0) {
-      return kBodyMetricIdentifierThighRight;
+      return BodyMetricIdentifierThighRight;
     } else if(indexPath.item == 1) {
-      return kBodyMetricIdentifierThighLeft;
+      return BodyMetricIdentifierThighLeft;
     } else if(indexPath.item == 2) {
-      return kBodyMetricIdentifierCalfRight;
+      return BodyMetricIdentifierCalfRight;
     } else if(indexPath.item == 3) {
-      return kBodyMetricIdentifierCalfLeft;
+      return BodyMetricIdentifierCalfLeft;
     }
   }
 
-  return kBodyMetricIdentifierInvalid;
+  return BodyMetricIdentifierInvalid;
 }
 
 //Add proper behavior to cell selection
@@ -159,7 +159,7 @@
   
   NSString* metricIdentifier = [self metricIdentifierIndexPath:indexPath];
   
-  if(metricIdentifier != kBodyMetricIdentifierInvalid) {
+  if(metricIdentifier != BodyMetricIdentifierInvalid) {
     
     BodyMetric* metric = [[App sharedInstance].userProfile.metrics valueForKey: metricIdentifier];
 

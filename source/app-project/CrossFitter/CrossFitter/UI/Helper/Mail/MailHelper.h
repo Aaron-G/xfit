@@ -14,35 +14,35 @@
 /*
  A string with the email subject
  */
-extern NSString* kMailerHelperEmailSubjectKey;
+extern NSString* MailerHelperEmailSubjectKey;
 /*
  A string with the email text/content
  */
-extern NSString* kMailerHelperEmailTextKey;
+extern NSString* MailerHelperEmailTextKey;
 /*
  Possible values "yes" or "no". Defaults to "no"
  */
-extern NSString* kMailerHelperEmailTextIsHtmlKey;
+extern NSString* MailerHelperEmailTextIsHtmlKey;
 /*
  An NSArray with instances of MailAttachment
  */
-extern NSString* kMailerHelperEmailAttachmentstKey;
+extern NSString* MailerHelperEmailAttachmentstKey;
 /*
  A string with the FROM email address
  */
-extern NSString* kMailerHelperEmailFromKey;
+extern NSString* MailerHelperEmailFromKey;
 /*
  A string with the TO email address
  */
-extern NSString* kMailerHelperEmailToKey;
+extern NSString* MailerHelperEmailToKey;
 /*
  A string with the CC email address
  */
-extern NSString* kMailerHelperEmailCCKey;
+extern NSString* MailerHelperEmailCCKey;
 /*
  A string with the BCC email address
  */
-extern NSString* kMailerHelperEmailBCCKey;
+extern NSString* MailerHelperEmailBCCKey;
 
 
 - (void)displayEmailComposerWithEmailInfo: (NSDictionary*) emailInfo;

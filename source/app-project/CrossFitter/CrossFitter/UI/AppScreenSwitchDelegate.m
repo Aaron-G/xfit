@@ -59,7 +59,7 @@
   
   //Put a nice animation when doing the view transition...
   [UIView transitionWithView:self.appViewController.contentView
-                    duration:kScreenSwitchAnimationDuration
+                    duration:ScreenSwitchAnimationDuration
                      options:UIViewAnimationOptionTransitionCrossDissolve
                   animations:^ {
                     

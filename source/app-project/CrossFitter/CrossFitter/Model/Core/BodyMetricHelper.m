@@ -18,19 +18,19 @@
 
 + (id<UnitValueFormatter>) formatterForBodyMetric: (BodyMetric*) bodyMetric {
 
-  if(bodyMetric.metadataProvider.measurableIdentifier == kBodyMetricIdentifierHeight) {
+  if(bodyMetric.metadataProvider.measurableIdentifier == BodyMetricIdentifierHeight) {
     if(bodyMetric.metadataProvider.unit.identifier == UnitIdentifierInch) {
       return [[FootInchFormatter alloc] init];
     }
-  } else if(bodyMetric.metadataProvider.measurableIdentifier == kBodyMetricIdentifierWeight) {
+  } else if(bodyMetric.metadataProvider.measurableIdentifier == BodyMetricIdentifierWeight) {
     if(bodyMetric.metadataProvider.unit.identifier == UnitIdentifierPound) {
       return [[PoundFormatter alloc] init];
     }
-  } else if(bodyMetric.metadataProvider.measurableIdentifier == kBodyMetricIdentifierBodyFat) {
+  } else if(bodyMetric.metadataProvider.measurableIdentifier == BodyMetricIdentifierBodyFat) {
     if(bodyMetric.metadataProvider.unit.identifier == UnitIdentifierPercent) {
       return [[PercentFormatter alloc] init];
     }
-  } else if(bodyMetric.metadataProvider.measurableIdentifier == kBodyMetricIdentifierBodyMassIndex) {
+  } else if(bodyMetric.metadataProvider.measurableIdentifier == BodyMetricIdentifierBodyMassIndex) {
     if(bodyMetric.metadataProvider.unit.identifier == UnitIdentifierNone) {
       return [[DefaultUnitValueFormatter alloc] init];
     }
