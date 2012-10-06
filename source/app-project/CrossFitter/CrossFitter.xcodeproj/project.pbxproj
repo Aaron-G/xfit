@@ -34,6 +34,7 @@
 		743F8D7B1618AD81006871D0 /* MeasurableLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743F8D7A1618AD81006871D0 /* MeasurableLogViewController.m */; };
 		743F8D80161FCE26006871D0 /* MeasurableTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743F8D7F161FCE26006871D0 /* MeasurableTitleView.xib */; };
 		743F8D83161FD01C006871D0 /* MeasurableTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 743F8D82161FD01B006871D0 /* MeasurableTitleView.m */; };
+		743F8D86161FF40D006871D0 /* MeasurableType.m in Sources */ = {isa = PBXBuildFile; fileRef = 743F8D85161FF40D006871D0 /* MeasurableType.m */; };
 		744EFB0C15FB1C12000AECBA /* MyBodyUserInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 744EFB0B15FB1C12000AECBA /* MyBodyUserInfoTableViewCell.xib */; };
 		744EFB0F15FB9166000AECBA /* MyBodyMetricTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 744EFB0E15FB9166000AECBA /* MyBodyMetricTableViewCell.m */; };
 		744EFB1415FBB82E000AECBA /* worse-value-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 744EFB1015FBB82E000AECBA /* worse-value-image.png */; };
@@ -153,6 +154,8 @@
 		743F8D7F161FCE26006871D0 /* MeasurableTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeasurableTitleView.xib; path = UI/Measurable/MeasurableTitleView.xib; sourceTree = "<group>"; };
 		743F8D81161FD01B006871D0 /* MeasurableTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableTitleView.h; path = UI/Measurable/MeasurableTitleView.h; sourceTree = "<group>"; };
 		743F8D82161FD01B006871D0 /* MeasurableTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableTitleView.m; path = UI/Measurable/MeasurableTitleView.m; sourceTree = "<group>"; };
+		743F8D84161FF40D006871D0 /* MeasurableType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableType.h; path = Model/Core/MeasurableType.h; sourceTree = "<group>"; };
+		743F8D85161FF40D006871D0 /* MeasurableType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableType.m; path = Model/Core/MeasurableType.m; sourceTree = "<group>"; };
 		744EFB0B15FB1C12000AECBA /* MyBodyUserInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyBodyUserInfoTableViewCell.xib; path = UI/MyBody/MyBodyUserInfoTableViewCell.xib; sourceTree = "<group>"; };
 		744EFB0D15FB9166000AECBA /* MyBodyMetricTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyBodyMetricTableViewCell.h; path = UI/MyBody/MyBodyMetricTableViewCell.h; sourceTree = "<group>"; };
 		744EFB0E15FB9166000AECBA /* MyBodyMetricTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBodyMetricTableViewCell.m; path = UI/MyBody/MyBodyMetricTableViewCell.m; sourceTree = "<group>"; };
@@ -478,6 +481,8 @@
 				74BD96EA15FCF6DA009F34A9 /* Measurable.h */,
 				7454960A16042C8600308609 /* MeasurableImpl.h */,
 				7454960B16042C8600308609 /* MeasurableImpl.m */,
+				743F8D84161FF40D006871D0 /* MeasurableType.h */,
+				743F8D85161FF40D006871D0 /* MeasurableType.m */,
 				7454960716042B9800308609 /* Workout.h */,
 				7454960816042B9800308609 /* Workout.m */,
 				74BD96DC15FBC9F2009F34A9 /* BodyMetric.h */,
@@ -852,6 +857,7 @@
 				743F8D771618AD57006871D0 /* MeasurableInfoViewController.m in Sources */,
 				743F8D7B1618AD81006871D0 /* MeasurableLogViewController.m in Sources */,
 				743F8D83161FD01C006871D0 /* MeasurableTitleView.m in Sources */,
+				743F8D86161FF40D006871D0 /* MeasurableType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

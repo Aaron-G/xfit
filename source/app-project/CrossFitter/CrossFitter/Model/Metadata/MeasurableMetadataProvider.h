@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Measurable.h"
+#import "MeasurableType.h"
 
 @class Unit;
 
@@ -16,6 +17,10 @@
 @property NSString* measurableIdentifier;
 @property NSString* name;
 @property NSString* description;
+@property NSString* metadataShort;
+@property NSString* metadataFull;
+
+@property MeasurableType* type;
 
 @property Unit* unit;
 @property MeasurableValueTrendBetterDirection valueTrendBetterDirection;
