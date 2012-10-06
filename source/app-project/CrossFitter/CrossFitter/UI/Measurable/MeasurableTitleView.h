@@ -10,7 +10,5 @@
 
 @interface MeasurableTitleView : UIView
 
-@property IBOutlet UILabel* titleView;
-@property IBOutlet UILabel* subTitleView;
-
+@property IBOutlet UILabel* titleLabel;
 @end
