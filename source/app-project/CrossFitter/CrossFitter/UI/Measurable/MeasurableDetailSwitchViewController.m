@@ -89,12 +89,6 @@
   }
   
   if(view) {
-
-    CGRect viewRect = view.frame;
-    viewRect.size.height = cell.frame.size.height;
-    viewRect.size.width = cell.frame.size.width;
-    view.frame = viewRect;
-
     [cell addSubview: view];
   }
 
