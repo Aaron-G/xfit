@@ -34,12 +34,9 @@
   [super viewDidLoad];
 
   //The first time around it can happen that we are not completely initialized yet
-  if(!_measurableDetailSwitchViewController) {
-    self.measurableDetailSwitchViewController.measurable = self.measurable;
+  if(!_measurableDetailSwitchViewController) {    
+    self.measurableDetailSwitchViewController.measurableViewController = self;
   }
-  
-  self.measurableDetailSwitchViewController.measurableDetailPageControl = self.measurableDetailPageControl;
-  self.measurableDetailSwitchViewController.measurableTitleView = self.measurableTitleView;
   
   //Update the title view
   self.navigationItem.titleView = self.measurableTitleView;

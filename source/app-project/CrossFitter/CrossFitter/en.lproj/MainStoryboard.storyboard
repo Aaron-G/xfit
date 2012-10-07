@@ -471,19 +471,19 @@
                                 <rect key="frame" x="0.0" y="372" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem systemItem="action" id="dg5-e4-OQX">
+                                    <barButtonItem title="Item" id="dg5-e4-OQX">
                                         <connections>
                                             <action selector="shareMeasurableAction:" destination="LEZ-Nv-BEs" id="lVz-Ju-Tgd"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="tvg-Ar-dAK"/>
-                                    <barButtonItem systemItem="bookmarks" id="u6n-92-rsZ">
+                                    <barButtonItem title="Item" id="u6n-92-rsZ">
                                         <connections>
                                             <action selector="copyMeasurableAction:" destination="LEZ-Nv-BEs" id="foM-Wt-uoM"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="7cR-ls-dVz"/>
-                                    <barButtonItem systemItem="compose" id="uBL-Z6-14a">
+                                    <barButtonItem title="Item" id="uBL-Z6-14a">
                                         <connections>
                                             <action selector="editMeasurableAction:" destination="LEZ-Nv-BEs" id="rdE-Hs-x2c"/>
                                         </connections>
@@ -499,22 +499,35 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Log" id="3XP-7e-a8Q">
-                            <connections>
-                                <action selector="logMeasurableAction:" destination="LEZ-Nv-BEs" id="BTj-yP-tIL"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="barButtonItemCopy" destination="u6n-92-rsZ" id="pww-M7-nWz"/>
-                        <outlet property="barButtonItemEdit" destination="uBL-Z6-14a" id="tD3-Gr-bDW"/>
+                        <outlet property="barButtonItemChartLog" destination="mcI-Qr-xb5" id="oKL-fe-RUP"/>
+                        <outlet property="barButtonItemCopyMeasurable" destination="Y6g-yT-8d4" id="TRc-NK-O8S"/>
+                        <outlet property="barButtonItemEditInfo" destination="dfg-l8-cEA" id="FMJ-ze-6i7"/>
+                        <outlet property="barButtonItemEditLog" destination="9th-gh-B4C" id="I9w-uB-1c4"/>
                         <outlet property="barButtonItemLog" destination="3XP-7e-a8Q" id="95l-h0-1vX"/>
-                        <outlet property="barButtonItemShare" destination="dg5-e4-OQX" id="p9M-pc-joH"/>
+                        <outlet property="barButtonItemShareInfo" destination="17w-9y-Tt0" id="EaI-QX-5JE"/>
+                        <outlet property="barButtonItemShareLog" destination="esD-AN-yxw" id="rsr-gB-6mv"/>
+                        <outlet property="barButtonItemSpacerOne" destination="KJ4-R2-adu" id="t3g-HM-plq"/>
+                        <outlet property="barButtonItemSpacerTwo" destination="GDO-M4-rjS" id="vOF-Vv-Fxr"/>
                         <outlet property="measurableDetailPageControl" destination="ByB-Hi-7Uo" id="EwX-x5-gVg"/>
+                        <outlet property="toolbar" destination="YnZ-f6-MWo" id="KLi-39-PiQ"/>
                     </connections>
                 </viewController>
+                <barButtonItem title="Log" id="3XP-7e-a8Q">
+                    <connections>
+                        <action selector="logMeasurableAction:" destination="LEZ-Nv-BEs" id="BTj-yP-tIL"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem systemItem="action" id="17w-9y-Tt0" userLabel="Bar Button Item - share info"/>
+                <barButtonItem title="Copy" id="Y6g-yT-8d4" userLabel="Bar Button Item - copy"/>
+                <barButtonItem systemItem="compose" id="dfg-l8-cEA" userLabel="Bar Button Item - edit info"/>
+                <barButtonItem systemItem="action" id="esD-AN-yxw" userLabel="Bar Button Item - share log"/>
+                <barButtonItem title="Chart" id="mcI-Qr-xb5" userLabel="Bar Button Item - chart"/>
+                <barButtonItem systemItem="compose" id="9th-gh-B4C" userLabel="Bar Button Item - edit log"/>
+                <barButtonItem style="plain" systemItem="flexibleSpace" id="KJ4-R2-adu" userLabel="Bar Button Item - spacer 1"/>
+                <barButtonItem style="plain" systemItem="flexibleSpace" id="GDO-M4-rjS" userLabel="Bar Button Item - spacer 2"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LpE-IZ-oel" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2421" y="3765"/>
@@ -971,11 +984,17 @@
                 <relationship kind="action" name="editMeasurableAction:"/>
                 <relationship kind="action" name="logMeasurableAction:"/>
                 <relationship kind="action" name="shareMeasurableAction:"/>
-                <relationship kind="outlet" name="barButtonItemCopy" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemEdit" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="barButtonItemChartLog" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="barButtonItemCopyMeasurable" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="barButtonItemEditInfo" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="barButtonItemEditLog" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="barButtonItemLog" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemShare" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="barButtonItemShareInfo" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="barButtonItemShareLog" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="barButtonItemSpacerOne" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="barButtonItemSpacerTwo" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="measurableDetailPageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
             </relationships>
         </class>
         <class className="MenuCell" superclassName="UICollectionViewCell">

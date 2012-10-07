@@ -18,6 +18,18 @@
 @implementation MeasurableDetailSwitchViewController
 
 @synthesize measurable = _measurable;
+@synthesize measurableViewController = _measurableViewController;
+
+-(void)setMeasurableViewController:(MeasurableViewController *)measurableViewController {
+  
+  _measurableViewController = measurableViewController;
+  
+  self.measurable = measurableViewController.measurable;
+}
+
+- (MeasurableViewController *)measurableViewController {
+  return _measurableViewController;
+}
 
 - (void)setMeasurable:(id<Measurable>)measurable {
   
@@ -94,8 +106,32 @@
 
   //Update the page control
   if(indexPath.item < 2) {
-    self.measurableDetailPageControl.currentPage = indexPath.item;
+    self.measurableViewController.measurableDetailPageControl.currentPage = indexPath.item;
   }
+  NSArray* toolbarItems = nil;
+  
+  //Update the toolbar buttons
+  if(indexPath.item == 0) {
+    toolbarItems = [NSArray arrayWithObjects:
+                    self.measurableViewController.barButtonItemShareInfo,
+                    self.measurableViewController.barButtonItemSpacerOne,
+                    self.measurableViewController.barButtonItemCopyMeasurable,
+                    self.measurableViewController.barButtonItemSpacerTwo,
+                    self.measurableViewController.barButtonItemEditInfo,
+                    nil];
+    
+  } else if(indexPath.item == 1) {
+    toolbarItems = [NSArray arrayWithObjects:
+                    self.measurableViewController.barButtonItemShareLog,
+                    self.measurableViewController.barButtonItemSpacerOne,
+                    self.measurableViewController.barButtonItemChartLog,
+                    self.measurableViewController.barButtonItemSpacerTwo,
+                    self.measurableViewController.barButtonItemEditLog,
+                    nil];
+  }
+  
+  [self.measurableViewController.toolbar setItems:toolbarItems animated:NO];
+  
   return cell;
 }
 

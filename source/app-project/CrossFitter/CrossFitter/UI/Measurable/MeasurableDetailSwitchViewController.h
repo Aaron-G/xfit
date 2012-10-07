@@ -8,17 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "Measurable.h"
+#import "MeasurableViewController.h"
 #import "MeasurableInfoViewController.h"
 #import "MeasurableLogViewController.h"
 #import "MeasurableTitleView.h"
 
+@class MeasurableViewController;
+
 @interface MeasurableDetailSwitchViewController : UICollectionViewController
 
 @property id<Measurable> measurable;
+@property MeasurableViewController* measurableViewController;
 @property MeasurableInfoViewController* infoViewController;
 @property MeasurableLogViewController* logViewController;
-
-@property UIPageControl* measurableDetailPageControl;
-@property MeasurableTitleView* measurableTitleView;
 
 @end
