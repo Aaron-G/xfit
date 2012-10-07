@@ -13,18 +13,18 @@
 #import "AppScreenShareDelegate.h"
 #import "MyBodyScreenShareDelegate.h"
 #import "MyBodyUserInfoTableViewCell.h"
-#import "MyBodyMetricTableViewCell.h"
+#import "MeasurableTableViewCell.h"
 #import "ModelFactory.h"
 #import "BodyMetric.h"
 #import "UIHelper.h"
 #import "AppViewControllerSegue.h"
+#import "MeasurableHelper.h"
 
 @interface MyBodyViewController () {
 }
 
 @property AppViewController* appViewController;
 @property AppScreenShareDelegate* appScreenShareDelegate;
-@property NSDateFormatter* dateFormat;
 
 @end
 
@@ -37,8 +37,6 @@
     self.appScreenSwitchDelegate = [[MyBodyScreenSwitchDelegate alloc]initWithViewController:self];
     self.appScreenShareDelegate = [[MyBodyScreenShareDelegate alloc]initWithViewController:self];
     self.appViewController = [UIHelper appViewController];
-    self.dateFormat = [[NSDateFormatter alloc] init];
-    self.dateFormat.dateFormat = NSLocalizedString(@"measurable-date-format", @"MM/dd/yy ");
   }
   
   return self;
@@ -47,7 +45,7 @@
 -(void)viewDidLoad {
   
   //Register custom cell
-  [self.tableView registerNib: [UINib nibWithNibName:@"MyBodyMetricTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyBodyMetricTableViewCell"];
+  [self.tableView registerNib: [UINib nibWithNibName:@"MeasurableTableViewCell" bundle:nil] forCellReuseIdentifier:@"MeasurableTableViewCell"];
   [self.tableView registerNib: [UINib nibWithNibName:@"MyBodyUserInfoTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyBodyUserInfoTableViewCell"];
   
   [super viewDidLoad];
@@ -74,20 +72,8 @@
   NSString* metricIdentifier = [self metricIdentifierIndexPath:indexPath];
   if(metricIdentifier != BodyMetricIdentifierInvalid) {
     
-    MyBodyMetricTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyBodyMetricTableViewCell"];
-    
     BodyMetric* metric = [[App sharedInstance].userProfile.metrics valueForKey: metricIdentifier];
-    cell.metricNameLabel.text = metric.metadataProvider.name;
-    cell.metricValueLabel.text = [metric.valueFormatter formatValue:metric.dataProvider.value];
-    cell.metricMetadataLabel.text = metric.metadataProvider.metadataShort;
-    
-    NSString *dateString = [self.dateFormat stringFromDate:metric.dataProvider.date];
-    cell.metricDateLabel.text = dateString;
-    
-    //Adjust the trend image to tailor to the metric specifics
-    [UIHelper adjustImage:cell.metricTrendImageButton forMeasurable:metric];
-    
-    return cell;
+    return [MeasurableHelper tableViewCellForMeasurable:metric inTableView:tableView];
   } else {
     return [super tableView: tableView cellForRowAtIndexPath:indexPath];
   }
