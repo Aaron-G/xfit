@@ -17,6 +17,8 @@
 
 @property id<Measurable> measurable;
 
+@property IBOutlet UILabel* nameLabel;
+
 @property IBOutlet UIBarButtonItem* barButtonItemLog;
 
 @property IBOutlet UIToolbar* toolbar;

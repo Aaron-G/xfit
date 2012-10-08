@@ -43,9 +43,8 @@
   
   if(self.needsUIUpdate) {
     
-    if (self.measurable && self.nameLabel) {
+    if (self.measurable && self.descriptionTextView) {
       
-      self.nameLabel.text = self.measurable.metadataProvider.name;
       self.descriptionTextView.text = self.measurable.metadataProvider.description;
       self.metadataTextView.text = self.measurable.metadataProvider.metadataFull;
       

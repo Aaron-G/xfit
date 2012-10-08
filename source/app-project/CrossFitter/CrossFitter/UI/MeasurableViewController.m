@@ -13,6 +13,7 @@
 @interface MeasurableViewController () {
   
 }
+@property BOOL needsUIUpdate;
 
 @end
 
@@ -34,17 +35,23 @@
   [super viewDidLoad];
 
   //The first time around it can happen that we are not completely initialized yet
+  //Invoking the getter triggers the re-search" for this property
   if(!_measurableDetailSwitchViewController) {    
     self.measurableDetailSwitchViewController.measurableViewController = self;
   }
   
   //Update the title view
   self.navigationItem.titleView = self.measurableTitleView;
+  
+  //Add the log button
+  self.barButtonItemLog.title = NSLocalizedString(@"log-label", @"Log");
+  self.navigationItem.rightBarButtonItem = self.barButtonItemLog;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-  self.navigationItem.rightBarButtonItem = self.barButtonItemLog;
   
+  [self updateUI];
+
   [super viewWillAppear:animated];
 }
 
@@ -65,11 +72,10 @@
 - (void)setMeasurable:(id<Measurable>)measurable {
   _measurable = measurable;
   
-  self.measurableTitleView.titleLabel.text = measurable.metadataProvider.type.displayName;
-
-  self.barButtonItemLog.title = NSLocalizedString(@"log-label", @"Log");
-  
   self.measurableDetailSwitchViewController.measurable = self.measurable;
+  
+  self.needsUIUpdate = YES;
+  [self updateUI];  
 }
 
 - (MeasurableDetailSwitchViewController *)measurableDetailSwitchViewController {
@@ -81,6 +87,19 @@
     }
   }
   return _measurableDetailSwitchViewController;
+}
+
+- (void) updateUI {
+  
+  if(self.needsUIUpdate) {
+    
+    if (self.measurable && self.nameLabel) {
+      
+      self.nameLabel.text = self.measurable.metadataProvider.name;
+      self.measurableTitleView.titleLabel.text = self.measurable.metadataProvider.type.displayName;
+      self.needsUIUpdate = NO;
+    }
+  }
 }
 
 - (IBAction)editMeasurableAction:(id)sender {
