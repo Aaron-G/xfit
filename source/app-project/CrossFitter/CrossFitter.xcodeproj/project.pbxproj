@@ -82,6 +82,7 @@
 		74CA4E8115D86FD600DA3F10 /* MoveScreenSwitchDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CA4E8015D86FD600DA3F10 /* MoveScreenSwitchDelegate.m */; };
 		74CA4E8415D8709600DA3F10 /* MyBodyScreenSwitchDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CA4E8315D8709600DA3F10 /* MyBodyScreenSwitchDelegate.m */; };
 		74D2527515D56D5A00845160 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D2527415D56D5A00845160 /* AppConstants.m */; };
+		74E2422C16231C25004C76A4 /* MeasurableDataEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E2422B16231C25004C76A4 /* MeasurableDataEntryTableViewCell.m */; };
 		74E9D5F015BB74AF00B005B3 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E9D5EF15BB74AF00B005B3 /* MenuViewController.m */; };
 		74EF1E6C15D1C1B000F96131 /* move.png in Resources */ = {isa = PBXBuildFile; fileRef = 74EF1E6715D1C1B000F96131 /* move.png */; };
 		74EF1E6D15D1C1B000F96131 /* mybody.png in Resources */ = {isa = PBXBuildFile; fileRef = 74EF1E6815D1C1B000F96131 /* mybody.png */; };
@@ -243,6 +244,8 @@
 		74CA4E8315D8709600DA3F10 /* MyBodyScreenSwitchDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBodyScreenSwitchDelegate.m; path = UI/MyBody/MyBodyScreenSwitchDelegate.m; sourceTree = "<group>"; };
 		74D2527015D56A2400845160 /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppConstants.h; path = App/AppConstants.h; sourceTree = "<group>"; };
 		74D2527415D56D5A00845160 /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppConstants.m; path = App/AppConstants.m; sourceTree = "<group>"; };
+		74E2422A16231C25004C76A4 /* MeasurableDataEntryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableDataEntryTableViewCell.h; path = UI/Measurable/MeasurableDataEntryTableViewCell.h; sourceTree = "<group>"; };
+		74E2422B16231C25004C76A4 /* MeasurableDataEntryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableDataEntryTableViewCell.m; path = UI/Measurable/MeasurableDataEntryTableViewCell.m; sourceTree = "<group>"; };
 		74E9D5EE15BB74AF00B005B3 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = UI/Menu/MenuViewController.h; sourceTree = "<group>"; };
 		74E9D5EF15BB74AF00B005B3 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = UI/Menu/MenuViewController.m; sourceTree = "<group>"; };
 		74EF1E6715D1C1B000F96131 /* move.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = move.png; path = CrossFitter/Resources/Images/move.png; sourceTree = SOURCE_ROOT; };
@@ -436,6 +439,8 @@
 				7460967815FABF8500DE158B /* MeasurableTableViewCell.xib */,
 				74A17ED81621F17B00FD37F5 /* MeasurableHelper.h */,
 				74A17ED91621F17B00FD37F5 /* MeasurableHelper.m */,
+				74E2422A16231C25004C76A4 /* MeasurableDataEntryTableViewCell.h */,
+				74E2422B16231C25004C76A4 /* MeasurableDataEntryTableViewCell.m */,
 			);
 			name = Measurable;
 			sourceTree = "<group>";
@@ -864,6 +869,7 @@
 				743F8D83161FD01C006871D0 /* MeasurableTitleView.m in Sources */,
 				743F8D86161FF40D006871D0 /* MeasurableType.m in Sources */,
 				74A17EDA1621F17B00FD37F5 /* MeasurableHelper.m in Sources */,
+				74E2422C16231C25004C76A4 /* MeasurableDataEntryTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
