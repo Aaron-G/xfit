@@ -13,6 +13,8 @@
 
 @interface UIHelper : NSObject
 
++ (void) adjustImage: (UIButton*) buttonWithImage withMeasurableValueTrend: (MeasurableValueTrend) measurableValueTrend withMeasurableValueTrendBetterDirection: (MeasurableValueTrendBetterDirection) valueTrendBetterDirection;
+
 + (void) adjustImage: (UIButton*) buttonWithImage forMeasurable: (id <Measurable>) measurable;
 
 + (AppViewController*) appViewController;

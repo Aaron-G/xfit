@@ -12,18 +12,23 @@
 @implementation UIHelper
 
 + (void) adjustImage: (UIButton*) buttonWithImage forMeasurable: (id <Measurable>) measurable {
+  [UIHelper adjustImage: buttonWithImage
+withMeasurableValueTrend: measurable.dataProvider.valueTrend
+withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendBetterDirection];
+}
+
++ (void) adjustImage: (UIButton*) buttonWithImage withMeasurableValueTrend: (MeasurableValueTrend) measurableValueTrend withMeasurableValueTrendBetterDirection: (MeasurableValueTrendBetterDirection) valueTrendBetterDirection {
   
   CGAffineTransform transform = CGAffineTransformIdentity;
   
-  if(measurable.dataProvider.valueTrend == MeasurableValueTrendNone) {
+  if(measurableValueTrend == MeasurableValueTrendNone) {
     buttonWithImage.hidden = YES;
     [buttonWithImage setImage:nil forState:UIControlStateNormal];
   } else {
     
     buttonWithImage.hidden = NO;
     
-    MeasurableValueTrend valueTrend = measurable.dataProvider.valueTrend;
-    MeasurableValueTrendBetterDirection valueTrendBetterDirection = measurable.metadataProvider.valueTrendBetterDirection;
+    MeasurableValueTrend valueTrend = measurableValueTrend;
     
     [buttonWithImage setImage:[UIHelper imageForValueTrend:valueTrend
                              withValueTrendBetterDirection:valueTrendBetterDirection]
