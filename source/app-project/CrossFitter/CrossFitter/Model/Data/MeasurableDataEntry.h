@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Measurable.h"
 
 @interface MeasurableDataEntry : NSObject
 
 //Data Provider Properties
 @property NSString* identifier;
 @property NSNumber* value;
+@property MeasurableValueTrend valueTrend;
+
 @property NSDate* date;
 @property NSString* comment;
 
