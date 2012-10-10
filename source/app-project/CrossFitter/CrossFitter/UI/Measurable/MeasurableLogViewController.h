@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Measurable.h"
 
-@interface MeasurableLogViewController : UIViewController
+@interface MeasurableLogViewController : UITableViewController
 
 @property id<Measurable> measurable;
 
