@@ -9,6 +9,7 @@
 #import "MeasurableHelper.h"
 #import "MeasurableTableViewCell.h"
 #import "UIHelper.h"
+#import "MeasurableDataEntryTableViewCell.h"
 
 @interface MeasurableHelper () {
 }
@@ -33,6 +34,25 @@ static NSDateFormatter *_measurableDateFormat;
   //Adjust the trend image to tailor to the metric specifics
   [UIHelper adjustImage:cell.measurableTrendImageButton forMeasurable:measurable];
   
+  return cell;
+}
+
++ (UITableViewCell *)tableViewCellForMeasurableDataEntry: (MeasurableDataEntry*) measurableDataEntry ofMeasurable: (id <Measurable>) measurable inTableView: (UITableView *)tableView {
+  
+  MeasurableDataEntryTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MeasurableDataEntryTableViewCell"];
+
+  cell.measurableValueLabel.text = [measurable.valueFormatter formatValue:measurableDataEntry.value];
+  
+  NSString *dateString = [MeasurableHelper.measurableDateFormat stringFromDate:measurableDataEntry.date];
+  cell.measurableDateLabel.text = dateString;
+  
+  //Adjust the trend image to tailor to the metric specifics
+  [UIHelper adjustImage:cell.measurableTrendImageButton forMeasurable:measurable];
+  
+//  [UIHelper adjustImage:cell.measurableTrendImageButton
+//withMeasurableValueTrend: measurableDataEntry.valueTrend
+//withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendBetterDirection];
+
   return cell;
 }
 
