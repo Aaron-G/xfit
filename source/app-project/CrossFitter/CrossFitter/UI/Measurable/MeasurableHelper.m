@@ -47,11 +47,9 @@ static NSDateFormatter *_measurableDateFormat;
   cell.measurableDateLabel.text = dateString;
   
   //Adjust the trend image to tailor to the metric specifics
-  [UIHelper adjustImage:cell.measurableTrendImageButton forMeasurable:measurable];
-  
-//  [UIHelper adjustImage:cell.measurableTrendImageButton
-//withMeasurableValueTrend: measurableDataEntry.valueTrend
-//withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendBetterDirection];
+  [UIHelper adjustImage:cell.measurableTrendImageButton
+withMeasurableValueTrend: measurableDataEntry.valueTrend
+withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendBetterDirection];
 
   return cell;
 }
