@@ -21,7 +21,7 @@
 
 @synthesize measurableIdentifier = _measurableIdentifier;
 @synthesize values =_values;
-@synthesize valueTrend = _valueTrend;
+@synthesize valueTrend;
 
 @synthesize value;
 @synthesize date;
@@ -34,9 +34,12 @@
   
   if (self) {
     _measurableIdentifier = measurableIdentifier;
-    _valueTrend = MeasurableValueTrendNone;
   }
   return self;
+}
+
+- (MeasurableValueTrend)valueTrend {
+  return self.firstValue.valueTrend;
 }
 
 - (NSNumber *)value {
@@ -62,7 +65,7 @@
   [self updateFirstValue];
   
   //2 - Update 1st value
-  [self updateValueTrend];
+  [self updateValueTrends];
 }
 
 - (void)updateFirstValue {
@@ -74,22 +77,35 @@
   }
 }
 
-- (void)updateValueTrend {
+- (void)updateValueTrends {
   
-  if (_values.count < 2) {
-    _valueTrend = MeasurableValueTrendNone;
-  } else {
+  CGFloat curValue;
+  CGFloat previousValue;
+
+  MeasurableDataEntry* previousDataEntry = nil;
+  
+  for (NSInteger i = self.values.count-1; i>=0 ; i--) {
     
-    MeasurableDataEntry* valueLast = [_values objectAtIndex:0];
-    MeasurableDataEntry* valueBeforeLast = [_values objectAtIndex:1];
+    MeasurableDataEntry* curDataEntry = [_values objectAtIndex:i];
     
-    if([valueLast.value floatValue] > [valueBeforeLast.value floatValue]) {
-      _valueTrend = MeasurableValueTrendUp;
-    } else if([valueLast.value floatValue] < [valueBeforeLast.value floatValue]) {
-      _valueTrend = MeasurableValueTrendDown;
+    curValue = [curDataEntry.value floatValue];
+    
+    if(previousDataEntry) {
+      
+      previousValue = [previousDataEntry.value floatValue];
+      
+      if (curValue > previousValue) {
+        curDataEntry.valueTrend = MeasurableValueTrendUp;
+      } else if (curValue < previousValue) {
+        curDataEntry.valueTrend = MeasurableValueTrendDown;
+      } else {
+        curDataEntry.valueTrend = MeasurableValueTrendSame;
+      }
     } else {
-      _valueTrend = MeasurableValueTrendSame;
+      curDataEntry.valueTrend = MeasurableValueTrendNone;
     }
+    
+    previousDataEntry = curDataEntry;    
   }
 }
 
