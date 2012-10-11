@@ -39,7 +39,7 @@
   
   //Weight
   metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierWeight];
-  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:175], [NSNumber numberWithFloat:170], nil];
+  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:175], [NSNumber numberWithFloat:170],  [NSNumber numberWithFloat:173], nil];
   metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.measurableIdentifier withValues:values];
   [metrics setValue:metric forKey:metric.metadataProvider.measurableIdentifier];
   
@@ -51,7 +51,7 @@
   
   //Body Mass Index
   metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierBodyMassIndex];
-  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:22.5], [NSNumber numberWithFloat:23.5], nil];
+  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:22.5], [NSNumber numberWithFloat:23.5], [NSNumber numberWithFloat:23.5], nil];
   metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.measurableIdentifier withValues:values];
   [metrics setValue:metric forKey:metric.metadataProvider.measurableIdentifier];
   
