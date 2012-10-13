@@ -1,0 +1,61 @@
+	- AG- Get Mountain Lion running on Aaron's cpu
+	- AG- Review UI as laid out in mockup
+	- AG- Commit UI elements built already
+	- AG- Review My Body as built currently
+	- AG- Add data written to Wiki
+	- AG- investigate API to interface with Core Data
+	- CB- Making abstraction for adding/modifying data
+	
+	
+	Record Data, Edit data, share
+	
+	- Create content on Log screen,  table with data entry
+	- 
+	
+	measurable.metaDataProvider
+	measurable.dataProvider
+	measurable.layoutProvider
+	
+	Annie (name of measurable)
+	5 rd 50--- for time  (meta data)  equiv on body metric = biceps
+	
+	Move1: Double Under
+	Move2: Sit Up
+	
+	Description
+	
+	---
+	
+	Home screen fully implemented
+	 - All buttons are functioning
+	 - Share feature implemented
+	 - Menu UI implemented
+	
+	PR wall fully implemented
+	 - Graphics laid out and applied
+	 - Determine what labels to display and order of prs
+	 - Display of PRs functional
+	 - Full screen button implemented with rotation
+	 - Share button implemented
+	 
+	My Body fully implemented
+	 - Core UI element
+	 - All actionable items 
+	 - Implement Facebook on share
+	 - Implement user profile screen
+	
+	WODS fully implemented
+	 - Core UI
+	 - History log table implemented
+	 - 
+	
+	Workouts fully implemented
+	  - Core UI elements
+
+	Moves fully implemented
+	  - Core UI elements
+
+	Info fully implemented
+	- All info is presented
+	- Links are all working
+
