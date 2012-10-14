@@ -25,10 +25,12 @@
 
 @property IBOutlet UIBarButtonItem* barButtonItemShareInfo;
 @property IBOutlet UIBarButtonItem* barButtonItemEditInfo;
+@property IBOutlet UIBarButtonItem* barButtonItemDoneInfo;
 @property IBOutlet UIBarButtonItem* barButtonItemCopyMeasurable;
 
 @property IBOutlet UIBarButtonItem* barButtonItemShareLog;
 @property IBOutlet UIBarButtonItem* barButtonItemEditLog;
+@property IBOutlet UIBarButtonItem* barButtonItemDoneLog;
 @property IBOutlet UIBarButtonItem* barButtonItemChartLog;
 
 @property IBOutlet UIBarButtonItem* barButtonItemSpacerOne;
@@ -39,10 +41,14 @@
 @property IBOutlet UIPageControl* measurableDetailPageControl;
 @property (readonly) MeasurableTitleView* measurableTitleView;
 
-- (IBAction)editMeasurableAction:(id)sender;
 - (IBAction)copyMeasurableAction:(id)sender;
-- (IBAction)shareMeasurableAction:(id)sender;
 - (IBAction)logMeasurableAction:(id)sender;
-
+- (IBAction)editMeasurableInfoAction:(id)sender;
+- (IBAction)editMeasurableLogAction:(id)sender;
+- (IBAction)shareMeasurableInfoAction:(id)sender;
+- (IBAction)shareMeasurableLogAction:(id)sender;
+- (IBAction)chartMeasurableAction:(id)sender;
+- (IBAction)doneEditMeasurableInfoAction:(id)sender;
+- (IBAction)doneEditMeasurableLogAction:(id)sender;
 
 @end

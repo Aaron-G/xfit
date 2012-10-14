@@ -45,7 +45,7 @@
   
   //Add the log button
   self.barButtonItemLog.title = NSLocalizedString(@"log-label", @"Log");
-  self.navigationItem.rightBarButtonItem = self.barButtonItemLog;
+  [self displayStandardButtons];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -102,18 +102,64 @@
   }
 }
 
-- (IBAction)editMeasurableAction:(id)sender {
-//  NSLog(@"EDIT");
-}
 - (IBAction)copyMeasurableAction:(id)sender {
-//  NSLog(@"COPY");
-}
-- (IBAction)shareMeasurableAction:(id)sender {
-//  NSLog(@"SHARE");
 }
 
 - (IBAction)logMeasurableAction:(id)sender {
-//  NSLog(@"LOG");
+}
+
+- (void)shareMeasurableInfoAction:(id)sender {
+  
+}
+- (void)shareMeasurableLogAction:(id)sender {
+  
+}
+- (IBAction)chartMeasurableAction:(id)sender {
+  
+}
+
+- (IBAction)doneEditMeasurableInfoAction:(id)sender {
+  [self doneEditMeasurableAction:self.measurableDetailSwitchViewController.infoViewController toolbarItems:self.measurableDetailSwitchViewController.infoToolbarItems];
+}
+
+- (IBAction)doneEditMeasurableLogAction:(id)sender {
+  [self doneEditMeasurableAction:self.measurableDetailSwitchViewController.logViewController toolbarItems:self.measurableDetailSwitchViewController.logToolbarItems];
+}
+
+- (void)doneEditMeasurableAction: (UIViewController*) viewController toolbarItems: (NSArray*) toolbarItems {
+  
+  self.measurableDetailSwitchViewController.collectionView.scrollEnabled = YES;
+  [self displayStandardButtons];
+  [self.toolbar setItems:toolbarItems animated:YES];
+  
+  [viewController setEditing:NO animated:YES];
+}
+
+- (void)editMeasurableInfoAction:(id)sender {
+  [self editMeasurableAction:self.measurableDetailSwitchViewController.infoViewController doneButton: self.barButtonItemDoneInfo];
+}
+
+- (void)editMeasurableLogAction:(id)sender {
+  [self editMeasurableAction:self.measurableDetailSwitchViewController.logViewController doneButton: self.barButtonItemDoneLog];
+}
+
+- (void)editMeasurableAction:(UIViewController*) viewController doneButton:(UIBarButtonItem*) doneButton {
+
+  self.navigationItem.hidesBackButton = YES;
+  [self.navigationItem setRightBarButtonItem: doneButton animated:YES];
+  [self.toolbar setItems:nil animated:YES];
+  
+  self.measurableDetailPageControl.hidden = YES;
+  
+  self.measurableDetailSwitchViewController.collectionView.scrollEnabled = NO;
+  
+  [viewController setEditing:YES animated:YES];
+}
+
+- (void)displayStandardButtons {
+  self.navigationItem.hidesBackButton = NO;
+  self.navigationItem.rightBarButtonItem = self.barButtonItemLog;
+  self.measurableDetailPageControl.hidden = NO;
 }
 
 
