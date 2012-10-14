@@ -21,5 +21,7 @@
 @property MeasurableViewController* measurableViewController;
 @property MeasurableInfoViewController* infoViewController;
 @property MeasurableLogViewController* logViewController;
+@property (readonly) NSArray* logToolbarItems;
+@property (readonly) NSArray* infoToolbarItems;
 
 @end

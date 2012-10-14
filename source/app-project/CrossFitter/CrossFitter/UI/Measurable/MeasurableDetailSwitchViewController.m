@@ -19,6 +19,8 @@
 
 @synthesize measurable = _measurable;
 @synthesize measurableViewController = _measurableViewController;
+@synthesize logToolbarItems = _logToolbarItems;
+@synthesize infoToolbarItems = _infoToolbarItems;
 
 -(void)setMeasurableViewController:(MeasurableViewController *)measurableViewController {
   
@@ -112,22 +114,10 @@
   
   //Update the toolbar buttons
   if(indexPath.item == 0) {
-    toolbarItems = [NSArray arrayWithObjects:
-                    self.measurableViewController.barButtonItemShareInfo,
-                    self.measurableViewController.barButtonItemSpacerOne,
-                    self.measurableViewController.barButtonItemCopyMeasurable,
-                    self.measurableViewController.barButtonItemSpacerTwo,
-                    self.measurableViewController.barButtonItemEditInfo,
-                    nil];
+    toolbarItems = [self infoToolbarItems];
     
   } else if(indexPath.item == 1) {
-    toolbarItems = [NSArray arrayWithObjects:
-                    self.measurableViewController.barButtonItemShareLog,
-                    self.measurableViewController.barButtonItemSpacerOne,
-                    self.measurableViewController.barButtonItemChartLog,
-                    self.measurableViewController.barButtonItemSpacerTwo,
-                    self.measurableViewController.barButtonItemEditLog,
-                    nil];
+    toolbarItems = [self logToolbarItems];
   }
   
   [self.measurableViewController.toolbar setItems:toolbarItems animated:NO];
@@ -135,5 +125,34 @@
   return cell;
 }
 
+- (NSArray *)logToolbarItems {
+
+  if(!_logToolbarItems) {
+    
+    _logToolbarItems = [NSArray arrayWithObjects:
+                        self.measurableViewController.barButtonItemShareLog,
+                        self.measurableViewController.barButtonItemSpacerOne,
+                        self.measurableViewController.barButtonItemChartLog,
+                        self.measurableViewController.barButtonItemSpacerTwo,
+                        self.measurableViewController.barButtonItemEditLog,
+                        nil];
+  }
+  return _logToolbarItems;
+}
+
+- (NSArray *)infoToolbarItems {
+  
+  if(!_infoToolbarItems) {
+  
+    _infoToolbarItems = [NSArray arrayWithObjects:
+                        self.measurableViewController.barButtonItemShareInfo,
+                        self.measurableViewController.barButtonItemSpacerOne,
+                        self.measurableViewController.barButtonItemCopyMeasurable,
+                        self.measurableViewController.barButtonItemSpacerTwo,
+                        self.measurableViewController.barButtonItemEditInfo,
+                        nil];
+  }
+  return _infoToolbarItems;
+}
 
 @end
