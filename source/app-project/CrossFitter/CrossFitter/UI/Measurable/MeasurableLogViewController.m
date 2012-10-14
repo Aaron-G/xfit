@@ -61,6 +61,19 @@
   }
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+  
+  /////////////////////////////////////////////////////////////////////////////////////////////////
+  //THIS NEEDS TO BE UPDATED TO USE THE PROPER API
+  //See 
+  NSMutableArray* newValues = [NSMutableArray arrayWithArray: self.measurable.dataProvider.values];
+  [newValues removeObjectAtIndex:indexPath.item];
+  self.measurable.dataProvider.values = newValues;
+  /////////////////////////////////////////////////////////////////////////////////////////////////
+  
+  [self.tableView deleteRowsAtIndexPaths: [NSArray arrayWithObject: indexPath] withRowAnimation: YES];
+}
+
 - (id<Measurable>)measurable {
   return _measurable;
 }
