@@ -471,23 +471,11 @@
                                 <rect key="frame" x="0.0" y="372" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Item" id="dg5-e4-OQX">
-                                        <connections>
-                                            <action selector="shareMeasurableAction:" destination="LEZ-Nv-BEs" id="lVz-Ju-Tgd"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem title="Item" id="dg5-e4-OQX"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="tvg-Ar-dAK"/>
-                                    <barButtonItem title="Item" id="u6n-92-rsZ">
-                                        <connections>
-                                            <action selector="copyMeasurableAction:" destination="LEZ-Nv-BEs" id="foM-Wt-uoM"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem title="Item" id="u6n-92-rsZ"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="7cR-ls-dVz"/>
-                                    <barButtonItem title="Item" id="uBL-Z6-14a">
-                                        <connections>
-                                            <action selector="editMeasurableAction:" destination="LEZ-Nv-BEs" id="rdE-Hs-x2c"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem title="Item" id="uBL-Z6-14a"/>
                                 </items>
                             </toolbar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zuM-vs-n7Y">
@@ -511,6 +499,8 @@
                     <connections>
                         <outlet property="barButtonItemChartLog" destination="mcI-Qr-xb5" id="oKL-fe-RUP"/>
                         <outlet property="barButtonItemCopyMeasurable" destination="Y6g-yT-8d4" id="TRc-NK-O8S"/>
+                        <outlet property="barButtonItemDoneInfo" destination="zuI-yX-7R9" id="dAk-R0-UDI"/>
+                        <outlet property="barButtonItemDoneLog" destination="oLL-Xq-c2K" id="qaG-1F-49G"/>
                         <outlet property="barButtonItemEditInfo" destination="dfg-l8-cEA" id="FMJ-ze-6i7"/>
                         <outlet property="barButtonItemEditLog" destination="9th-gh-B4C" id="I9w-uB-1c4"/>
                         <outlet property="barButtonItemLog" destination="3XP-7e-a8Q" id="95l-h0-1vX"/>
@@ -525,15 +515,49 @@
                 </viewController>
                 <barButtonItem title="Log" id="3XP-7e-a8Q">
                     <connections>
-                        <action selector="logMeasurableAction:" destination="LEZ-Nv-BEs" id="BTj-yP-tIL"/>
+                        <action selector="logMeasurableAction:" destination="LEZ-Nv-BEs" id="XcC-aK-ffg"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem systemItem="action" id="17w-9y-Tt0" userLabel="Bar Button Item - share info"/>
-                <barButtonItem title="Copy" id="Y6g-yT-8d4" userLabel="Bar Button Item - copy"/>
-                <barButtonItem systemItem="compose" id="dfg-l8-cEA" userLabel="Bar Button Item - edit info"/>
-                <barButtonItem systemItem="action" id="esD-AN-yxw" userLabel="Bar Button Item - share log"/>
-                <barButtonItem title="Chart" id="mcI-Qr-xb5" userLabel="Bar Button Item - chart"/>
-                <barButtonItem systemItem="compose" id="9th-gh-B4C" userLabel="Bar Button Item - edit log"/>
+                <barButtonItem systemItem="action" id="17w-9y-Tt0" userLabel="Bar Button Item - share info">
+                    <connections>
+                        <action selector="shareMeasurableInfoAction:" destination="LEZ-Nv-BEs" id="fgm-Dr-G4C"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Copy" id="Y6g-yT-8d4" userLabel="Bar Button Item - copy">
+                    <connections>
+                        <action selector="copyMeasurableAction:" destination="LEZ-Nv-BEs" id="UAC-DO-SB4"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem systemItem="compose" id="dfg-l8-cEA" userLabel="Bar Button Item - edit info">
+                    <connections>
+                        <action selector="editMeasurableInfoAction:" destination="LEZ-Nv-BEs" id="gbk-BZ-JsE"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem systemItem="action" id="esD-AN-yxw" userLabel="Bar Button Item - share log">
+                    <connections>
+                        <action selector="shareMeasurableLogAction:" destination="LEZ-Nv-BEs" id="A2d-y2-RzT"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Chart" id="mcI-Qr-xb5" userLabel="Bar Button Item - chart">
+                    <connections>
+                        <action selector="chartMeasurableAction:" destination="LEZ-Nv-BEs" id="psz-7Y-bxk"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem systemItem="compose" id="9th-gh-B4C" userLabel="Bar Button Item - edit log">
+                    <connections>
+                        <action selector="editMeasurableLogAction:" destination="LEZ-Nv-BEs" id="9Be-Nn-FV3"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem systemItem="done" id="oLL-Xq-c2K" userLabel="Bar Button Item - done log">
+                    <connections>
+                        <action selector="doneEditMeasurableLogAction:" destination="LEZ-Nv-BEs" id="IyO-xR-evo"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem systemItem="done" id="zuI-yX-7R9" userLabel="Bar Button Item - done info">
+                    <connections>
+                        <action selector="doneEditMeasurableInfoAction:" destination="LEZ-Nv-BEs" id="OXM-Or-5ma"/>
+                    </connections>
+                </barButtonItem>
                 <barButtonItem style="plain" systemItem="flexibleSpace" id="KJ4-R2-adu" userLabel="Bar Button Item - spacer 1"/>
                 <barButtonItem style="plain" systemItem="flexibleSpace" id="GDO-M4-rjS" userLabel="Bar Button Item - spacer 2"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LpE-IZ-oel" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -865,7 +889,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MeasurableDataEntryTableViewCell" id="JEv-hZ-tLF" customClass="MeasurableDataEntryTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MeasurableDataEntryTableViewCell" editingAccessoryType="disclosureIndicator" id="JEv-hZ-tLF" customClass="MeasurableDataEntryTableViewCell">
                                 <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -900,7 +924,7 @@
                                         </button>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="10/01/12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tmF-tV-CsG">
                                             <rect key="frame" x="200" y="11" width="80" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1042,12 +1066,20 @@
         <class className="MeasurableViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableViewController.h"/>
             <relationships>
+                <relationship kind="action" name="chartMeasurableAction:"/>
                 <relationship kind="action" name="copyMeasurableAction:"/>
-                <relationship kind="action" name="editMeasurableAction:"/>
+                <relationship kind="action" name="doneEditMeasurableInfoAction:"/>
+                <relationship kind="action" name="doneEditMeasurableLogAction:"/>
+                <relationship kind="action" name="doneMeasurableInfoAction:"/>
+                <relationship kind="action" name="editMeasurableInfoAction:"/>
+                <relationship kind="action" name="editMeasurableLogAction:"/>
                 <relationship kind="action" name="logMeasurableAction:"/>
-                <relationship kind="action" name="shareMeasurableAction:"/>
+                <relationship kind="action" name="shareMeasurableInfoAction:"/>
+                <relationship kind="action" name="shareMeasurableLogAction:"/>
                 <relationship kind="outlet" name="barButtonItemChartLog" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="barButtonItemCopyMeasurable" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="barButtonItemDoneInfo" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="barButtonItemDoneLog" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="barButtonItemEditInfo" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="barButtonItemEditLog" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="barButtonItemLog" candidateClass="UIBarButtonItem"/>
@@ -1086,6 +1118,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="WODViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WODViewController.h"/>
