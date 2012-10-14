@@ -1070,7 +1070,6 @@
                 <relationship kind="action" name="copyMeasurableAction:"/>
                 <relationship kind="action" name="doneEditMeasurableInfoAction:"/>
                 <relationship kind="action" name="doneEditMeasurableLogAction:"/>
-                <relationship kind="action" name="doneMeasurableInfoAction:"/>
                 <relationship kind="action" name="editMeasurableInfoAction:"/>
                 <relationship kind="action" name="editMeasurableLogAction:"/>
                 <relationship kind="action" name="logMeasurableAction:"/>
