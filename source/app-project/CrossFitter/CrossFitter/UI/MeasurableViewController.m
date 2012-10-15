@@ -146,8 +146,8 @@
 - (void)editMeasurableAction:(UIViewController*) viewController doneButton:(UIBarButtonItem*) doneButton {
 
   self.navigationItem.hidesBackButton = YES;
-  [self.navigationItem setRightBarButtonItem: doneButton animated:YES];
-  [self.toolbar setItems:nil animated:YES];
+  [self.navigationItem setRightBarButtonItem: nil animated:YES];
+  [self.toolbar setItems: [NSArray arrayWithObjects:self.barButtonItemSpacerOne, self.barButtonItemSpacerTwo, doneButton, nil] animated:YES];
   
   self.measurableDetailPageControl.hidden = YES;
   
