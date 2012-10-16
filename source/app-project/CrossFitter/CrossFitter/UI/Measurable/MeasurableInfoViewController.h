@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "Measurable.h"
+#import "MeasurableProvider.h"
 
-@interface MeasurableInfoViewController : UIViewController
+@interface MeasurableInfoViewController : UIViewController <MeasurableProvider>
 
 @property id<Measurable> measurable;
 @property IBOutlet UITextView* metadataTextView;
 @property IBOutlet UITextView* descriptionTextView;
+
+- (void) share;
 
 @end

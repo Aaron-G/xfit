@@ -9,8 +9,13 @@
 #import "MeasurableLogViewController.h"
 #import "MeasurableDataEntryTableViewCell.h"
 #import "MeasurableHelper.h"
+#import "AppScreenShareDelegate.h"
+#import "MeasurableShareDelegate.h"
+#import "MeasurableLogShareDelegate.h"
 
 @interface MeasurableLogViewController ()
+
+@property MeasurableShareDelegate* shareDelegate;
 
 @end
 
@@ -22,6 +27,7 @@
   self = [super initWithCoder:aDecoder];
   if (self) {
     // Custom initialization
+    self.shareDelegate = [[MeasurableLogShareDelegate alloc]initWithViewController:self withMeasurableProvider:self];
   }
   return self;
 }
@@ -79,9 +85,13 @@
 }
 - (void)setMeasurable:(id<Measurable>)measurable {
   _measurable = measurable;
-  
+    
   //Reload the data for this new measurable
   [self.tableView reloadData];
+}
+
+- (void) share {
+  [self.shareDelegate share];
 }
 
 @end

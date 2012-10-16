@@ -108,14 +108,16 @@
 - (IBAction)logMeasurableAction:(id)sender {
 }
 
-- (void)shareMeasurableInfoAction:(id)sender {
-  
-}
-- (void)shareMeasurableLogAction:(id)sender {
-  
-}
 - (IBAction)chartMeasurableAction:(id)sender {
   
+}
+
+- (void)shareMeasurableInfoAction:(id)sender {
+  [self.measurableDetailSwitchViewController.infoViewController share];
+}
+
+- (void)shareMeasurableLogAction:(id)sender {
+  [self.measurableDetailSwitchViewController.logViewController share];
 }
 
 - (IBAction)doneEditMeasurableInfoAction:(id)sender {

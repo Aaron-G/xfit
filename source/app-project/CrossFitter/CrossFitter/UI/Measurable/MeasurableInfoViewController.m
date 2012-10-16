@@ -7,11 +7,13 @@
 //
 
 #import "MeasurableInfoViewController.h"
+#import "MeasurableShareDelegate.h"
+#import "MeasurableInfoShareDelegate.h"
 
-@interface MeasurableInfoViewController () {
-  
-}
+@interface MeasurableInfoViewController ()
+
 @property BOOL needsUIUpdate;
+@property MeasurableShareDelegate* shareDelegate;
 
 @end
 
@@ -19,8 +21,18 @@
 
 @synthesize measurable = _measurable;
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+  self = [super initWithCoder:aDecoder];
+  if (self) {
+    // Custom initialization
+    self.shareDelegate = [[MeasurableInfoShareDelegate alloc]initWithViewController:self withMeasurableProvider:self];
+  }
+  return self;
+}
+
 - (void)setMeasurable:(id<Measurable>)measurable {
   _measurable = measurable;
+
   self.needsUIUpdate = YES;
   [self updateUI];
 }
@@ -51,6 +63,10 @@
       self.needsUIUpdate = NO;
     }
   }
+}
+
+- (void) share {
+  [self.shareDelegate share];
 }
 
 @end
