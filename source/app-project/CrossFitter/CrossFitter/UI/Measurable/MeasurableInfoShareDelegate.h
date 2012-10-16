@@ -6,7 +6,7 @@
 //
 //
 
-#import "AppScreenShareDelegate.h"
+#import "ShareDelegate.h"
 #import "MeasurableShareDelegate.h"
 
 @interface MeasurableInfoShareDelegate : MeasurableShareDelegate

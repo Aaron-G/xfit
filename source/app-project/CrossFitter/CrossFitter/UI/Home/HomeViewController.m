@@ -10,14 +10,14 @@
 #import "UIHelper.h"
 #import "AppViewController.h"
 #import "HomeScreenSwitchDelegate.h"
-#import "AppScreenShareDelegate.h"
+#import "ShareDelegate.h"
 #import "HomeScreenShareDelegate.h"
 
 @interface HomeViewController () {
 }
 
 @property AppViewController* appViewController;
-@property AppScreenShareDelegate* appScreenShareDelegate;
+@property ShareDelegate* appScreenShareDelegate;
 
 @end
 

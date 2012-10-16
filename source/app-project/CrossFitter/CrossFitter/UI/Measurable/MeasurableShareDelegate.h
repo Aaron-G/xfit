@@ -6,11 +6,11 @@
 //
 //
 
-#import "AppScreenShareDelegate.h"
+#import "ShareDelegate.h"
 #import "MeasurableProvider.h"
 #import "Measurable.h"
 
-@interface MeasurableShareDelegate : AppScreenShareDelegate
+@interface MeasurableShareDelegate : ShareDelegate
 
 @property id<MeasurableProvider> measurableProvider;
 

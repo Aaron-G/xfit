@@ -6,8 +6,8 @@
 //
 //
 
-#import "AppScreenShareDelegate.h"
+#import "ShareDelegate.h"
 
-@interface HomeScreenShareDelegate : AppScreenShareDelegate
+@interface HomeScreenShareDelegate : ShareDelegate
 
 @end

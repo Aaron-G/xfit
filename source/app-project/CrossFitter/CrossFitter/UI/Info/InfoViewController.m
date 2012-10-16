@@ -10,7 +10,7 @@
 #import "InfoViewController.h"
 #import "AppViewController.h"
 #import "InfoScreenSwitchDelegate.h"
-#import "AppScreenShareDelegate.h"
+#import "ShareDelegate.h"
 #import "InfoScreenShareDelegate.h"
 #import "MailHelper.h"
 #import "UIHelper.h"
@@ -22,7 +22,7 @@
 - (void) displayEmailComposerWithTo: (NSString*) to withSubject: (NSString*) subject withText: (NSString*) text includeAppInfo: (BOOL) includeAppInfo includeSystemInfo: (BOOL) includeSystemInfo;
 
 @property AppViewController* appViewController;
-@property AppScreenShareDelegate* appScreenShareDelegate;
+@property ShareDelegate* appScreenShareDelegate;
 
 @end
 

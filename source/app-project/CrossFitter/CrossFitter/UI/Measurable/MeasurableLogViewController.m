@@ -9,7 +9,7 @@
 #import "MeasurableLogViewController.h"
 #import "MeasurableDataEntryTableViewCell.h"
 #import "MeasurableHelper.h"
-#import "AppScreenShareDelegate.h"
+#import "ShareDelegate.h"
 #import "MeasurableShareDelegate.h"
 #import "MeasurableLogShareDelegate.h"
 

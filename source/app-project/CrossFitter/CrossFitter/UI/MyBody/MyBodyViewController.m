@@ -10,7 +10,7 @@
 #import "AppViewController.h"
 #import "MyBodyScreenSwitchDelegate.h"
 #import "App.h"
-#import "AppScreenShareDelegate.h"
+#import "ShareDelegate.h"
 #import "MyBodyScreenShareDelegate.h"
 #import "MyBodyUserInfoTableViewCell.h"
 #import "MeasurableTableViewCell.h"
@@ -24,7 +24,7 @@
 }
 
 @property AppViewController* appViewController;
-@property AppScreenShareDelegate* appScreenShareDelegate;
+@property ShareDelegate* appScreenShareDelegate;
 
 @end
 

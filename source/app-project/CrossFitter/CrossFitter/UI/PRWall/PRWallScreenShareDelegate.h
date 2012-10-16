@@ -6,8 +6,8 @@
 //
 //
 
-#import "AppScreenShareDelegate.h"
+#import "ShareDelegate.h"
 
-@interface PRWallScreenShareDelegate : AppScreenShareDelegate
+@interface PRWallScreenShareDelegate : ShareDelegate
 
 @end

@@ -72,7 +72,7 @@
 		74BD96ED15FCF978009F34A9 /* UIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BD96EC15FCF978009F34A9 /* UIHelper.m */; };
 		74C2759215D87ACF00BB1F1A /* AppScreenSwitchDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2758F15D87ACF00BB1F1A /* AppScreenSwitchDelegate.m */; };
 		74C2759315D87ACF00BB1F1A /* AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2759115D87ACF00BB1F1A /* AppViewController.m */; };
-		74C2759615D87DA900BB1F1A /* AppScreenShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2759515D87DA900BB1F1A /* AppScreenShareDelegate.m */; };
+		74C2759615D87DA900BB1F1A /* ShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2759515D87DA900BB1F1A /* ShareDelegate.m */; };
 		74C2759915D87FA000BB1F1A /* HomeScreenShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2759815D87FA000BB1F1A /* HomeScreenShareDelegate.m */; };
 		74C2759C15D8826400BB1F1A /* PRWallScreenShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2759B15D8826400BB1F1A /* PRWallScreenShareDelegate.m */; };
 		74C2759F15D883E000BB1F1A /* MyBodyScreenShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2759E15D883E000BB1F1A /* MyBodyScreenShareDelegate.m */; };
@@ -155,7 +155,7 @@
 		743F8D751618AD57006871D0 /* MeasurableInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableInfoViewController.h; path = UI/Measurable/MeasurableInfoViewController.h; sourceTree = "<group>"; };
 		743F8D761618AD57006871D0 /* MeasurableInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableInfoViewController.m; path = UI/Measurable/MeasurableInfoViewController.m; sourceTree = "<group>"; };
 		743F8D791618AD81006871D0 /* MeasurableLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableLogViewController.h; path = UI/Measurable/MeasurableLogViewController.h; sourceTree = "<group>"; };
-		743F8D7A1618AD81006871D0 /* MeasurableLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableLogViewController.m; path = UI/Measurable/MeasurableLogViewController.m; sourceTree = "<group>"; };
+		743F8D7A1618AD81006871D0 /* MeasurableLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MeasurableLogViewController.m; path = UI/Measurable/MeasurableLogViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		743F8D7F161FCE26006871D0 /* MeasurableTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeasurableTitleView.xib; path = UI/Measurable/MeasurableTitleView.xib; sourceTree = "<group>"; };
 		743F8D81161FD01B006871D0 /* MeasurableTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableTitleView.h; path = UI/Measurable/MeasurableTitleView.h; sourceTree = "<group>"; };
 		743F8D82161FD01B006871D0 /* MeasurableTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableTitleView.m; path = UI/Measurable/MeasurableTitleView.m; sourceTree = "<group>"; };
@@ -195,13 +195,13 @@
 		747D62A915D47AB900360084 /* AppScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppScreen.m; path = UI/AppScreen.m; sourceTree = "<group>"; };
 		74947D8B160F8485008BC4E7 /* BodyMetricHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BodyMetricHelper.h; path = Model/Core/BodyMetricHelper.h; sourceTree = "<group>"; };
 		74947D8C160F8485008BC4E7 /* BodyMetricHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BodyMetricHelper.m; path = Model/Core/BodyMetricHelper.m; sourceTree = "<group>"; };
-		749A8702162C548800EFB7C1 /* MeasurableLogShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableLogShareDelegate.h; path = UI/Measurable/MeasurableLogShareDelegate.h; sourceTree = "<group>"; };
+		749A8702162C548800EFB7C1 /* MeasurableLogShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = MeasurableLogShareDelegate.h; path = UI/Measurable/MeasurableLogShareDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		749A8703162C548800EFB7C1 /* MeasurableLogShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableLogShareDelegate.m; path = UI/Measurable/MeasurableLogShareDelegate.m; sourceTree = "<group>"; };
-		749A8706162C596700EFB7C1 /* MeasurableInfoShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableInfoShareDelegate.h; path = UI/Measurable/MeasurableInfoShareDelegate.h; sourceTree = "<group>"; };
+		749A8706162C596700EFB7C1 /* MeasurableInfoShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = MeasurableInfoShareDelegate.h; path = UI/Measurable/MeasurableInfoShareDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		749A8707162C596700EFB7C1 /* MeasurableInfoShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableInfoShareDelegate.m; path = UI/Measurable/MeasurableInfoShareDelegate.m; sourceTree = "<group>"; };
 		749A8709162CE5ED00EFB7C1 /* MeasurableProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableProvider.h; path = UI/Measurable/MeasurableProvider.h; sourceTree = "<group>"; };
 		749A870C162CE72100EFB7C1 /* MeasurableShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableShareDelegate.m; path = UI/Measurable/MeasurableShareDelegate.m; sourceTree = "<group>"; };
-		749A870E162CE80900EFB7C1 /* MeasurableShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableShareDelegate.h; path = UI/Measurable/MeasurableShareDelegate.h; sourceTree = "<group>"; };
+		749A870E162CE80900EFB7C1 /* MeasurableShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = MeasurableShareDelegate.h; path = UI/Measurable/MeasurableShareDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		749BA3BA15D5DA3700FB1094 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		74A17ED81621F17B00FD37F5 /* MeasurableHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableHelper.h; path = UI/Measurable/MeasurableHelper.h; sourceTree = "<group>"; };
 		74A17ED91621F17B00FD37F5 /* MeasurableHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableHelper.m; path = UI/Measurable/MeasurableHelper.m; sourceTree = "<group>"; };
@@ -228,13 +228,13 @@
 		74C2758F15D87ACF00BB1F1A /* AppScreenSwitchDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppScreenSwitchDelegate.m; path = UI/AppScreenSwitchDelegate.m; sourceTree = "<group>"; };
 		74C2759015D87ACF00BB1F1A /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppViewController.h; path = UI/AppViewController.h; sourceTree = "<group>"; };
 		74C2759115D87ACF00BB1F1A /* AppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppViewController.m; path = UI/AppViewController.m; sourceTree = "<group>"; };
-		74C2759415D87DA800BB1F1A /* AppScreenShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppScreenShareDelegate.h; path = UI/AppScreenShareDelegate.h; sourceTree = "<group>"; };
-		74C2759515D87DA900BB1F1A /* AppScreenShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppScreenShareDelegate.m; path = UI/AppScreenShareDelegate.m; sourceTree = "<group>"; };
-		74C2759715D87FA000BB1F1A /* HomeScreenShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeScreenShareDelegate.h; path = UI/Home/HomeScreenShareDelegate.h; sourceTree = "<group>"; };
+		74C2759415D87DA800BB1F1A /* ShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = ShareDelegate.h; path = UI/ShareDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		74C2759515D87DA900BB1F1A /* ShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ShareDelegate.m; path = UI/ShareDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		74C2759715D87FA000BB1F1A /* HomeScreenShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = HomeScreenShareDelegate.h; path = UI/Home/HomeScreenShareDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		74C2759815D87FA000BB1F1A /* HomeScreenShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeScreenShareDelegate.m; path = UI/Home/HomeScreenShareDelegate.m; sourceTree = "<group>"; };
-		74C2759A15D8826400BB1F1A /* PRWallScreenShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRWallScreenShareDelegate.h; path = UI/PRWall/PRWallScreenShareDelegate.h; sourceTree = "<group>"; };
+		74C2759A15D8826400BB1F1A /* PRWallScreenShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PRWallScreenShareDelegate.h; path = UI/PRWall/PRWallScreenShareDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		74C2759B15D8826400BB1F1A /* PRWallScreenShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRWallScreenShareDelegate.m; path = UI/PRWall/PRWallScreenShareDelegate.m; sourceTree = "<group>"; };
-		74C2759D15D883E000BB1F1A /* MyBodyScreenShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyBodyScreenShareDelegate.h; path = UI/MyBody/MyBodyScreenShareDelegate.h; sourceTree = "<group>"; };
+		74C2759D15D883E000BB1F1A /* MyBodyScreenShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = MyBodyScreenShareDelegate.h; path = UI/MyBody/MyBodyScreenShareDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		74C2759E15D883E000BB1F1A /* MyBodyScreenShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBodyScreenShareDelegate.m; path = UI/MyBody/MyBodyScreenShareDelegate.m; sourceTree = "<group>"; };
 		74C275A415DC7C9300BB1F1A /* InfoScreenShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoScreenShareDelegate.h; path = UI/Info/InfoScreenShareDelegate.h; sourceTree = "<group>"; };
 		74C275A515DC7C9300BB1F1A /* InfoScreenShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoScreenShareDelegate.m; path = UI/Info/InfoScreenShareDelegate.m; sourceTree = "<group>"; };
@@ -265,7 +265,7 @@
 		74EF1E6B15D1C1B000F96131 /* workout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = workout.png; path = CrossFitter/Resources/Images/workout.png; sourceTree = SOURCE_ROOT; };
 		74EF1E7215D1C58600F96131 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		74EF1E7915D1E6C400F96131 /* PRWallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRWallViewController.h; path = UI/PRWall/PRWallViewController.h; sourceTree = "<group>"; };
-		74EF1E7A15D1E6C400F96131 /* PRWallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRWallViewController.m; path = UI/PRWall/PRWallViewController.m; sourceTree = "<group>"; };
+		74EF1E7A15D1E6C400F96131 /* PRWallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PRWallViewController.m; path = UI/PRWall/PRWallViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		74EF1E7E15D2BE8000F96131 /* PRWallView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRWallView.h; path = UI/PRWall/PRWallView.h; sourceTree = "<group>"; };
 		74EF1E7F15D2BE8000F96131 /* PRWallView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRWallView.m; path = UI/PRWall/PRWallView.m; sourceTree = "<group>"; };
 		74EF1E8215D2C5A500F96131 /* WODViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WODViewController.h; path = UI/WOD/WODViewController.h; sourceTree = "<group>"; };
@@ -277,7 +277,7 @@
 		74EF1E9415D2D7C000F96131 /* MyBodyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyBodyViewController.h; path = UI/MyBody/MyBodyViewController.h; sourceTree = "<group>"; };
 		74EF1E9515D2D7C000F96131 /* MyBodyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MyBodyViewController.m; path = UI/MyBody/MyBodyViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		74EF1E9A15D2D93400F96131 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoViewController.h; path = UI/Info/InfoViewController.h; sourceTree = "<group>"; };
-		74EF1E9B15D2D93400F96131 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoViewController.m; path = UI/Info/InfoViewController.m; sourceTree = "<group>"; };
+		74EF1E9B15D2D93400F96131 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = InfoViewController.m; path = UI/Info/InfoViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		74EF1EA615D2E78000F96131 /* menu-handle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-handle.png"; path = "CrossFitter/Resources/Images/menu-handle.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -472,14 +472,14 @@
 				74D2527415D56D5A00845160 /* AppConstants.m */,
 				74C2758E15D87ACF00BB1F1A /* AppScreenSwitchDelegate.h */,
 				74C2758F15D87ACF00BB1F1A /* AppScreenSwitchDelegate.m */,
-				74C2759415D87DA800BB1F1A /* AppScreenShareDelegate.h */,
-				74C2759515D87DA900BB1F1A /* AppScreenShareDelegate.m */,
 				7408404E15D1885B00A64D5B /* AppScreen.h */,
 				747D62A915D47AB900360084 /* AppScreen.m */,
 				747BC84315D80F4500AC2150 /* AppViewControllerSegue.h */,
 				747BC84415D80F4500AC2150 /* AppViewControllerSegue.m */,
 				745E9C0415F58248006222BB /* AppViewGestureRecognizer.h */,
 				745E9C0515F58249006222BB /* AppViewGestureRecognizer.m */,
+				74C2759415D87DA800BB1F1A /* ShareDelegate.h */,
+				74C2759515D87DA900BB1F1A /* ShareDelegate.m */,
 				743F8D701618A916006871D0 /* Measurable */,
 				7482865615B8E36F00C37154 /* Menu */,
 				7408403E15D1805E00A64D5B /* Home */,
@@ -849,7 +849,7 @@
 				74CA4E8415D8709600DA3F10 /* MyBodyScreenSwitchDelegate.m in Sources */,
 				74C2759215D87ACF00BB1F1A /* AppScreenSwitchDelegate.m in Sources */,
 				74C2759315D87ACF00BB1F1A /* AppViewController.m in Sources */,
-				74C2759615D87DA900BB1F1A /* AppScreenShareDelegate.m in Sources */,
+				74C2759615D87DA900BB1F1A /* ShareDelegate.m in Sources */,
 				74C2759915D87FA000BB1F1A /* HomeScreenShareDelegate.m in Sources */,
 				74C2759C15D8826400BB1F1A /* PRWallScreenShareDelegate.m in Sources */,
 				74C2759F15D883E000BB1F1A /* MyBodyScreenShareDelegate.m in Sources */,

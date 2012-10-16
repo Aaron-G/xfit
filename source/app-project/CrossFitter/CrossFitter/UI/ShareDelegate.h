@@ -1,5 +1,5 @@
 //
-//  AppScreenShareDelegate.h
+//  ShareDelegate.h
 //  CrossFitter
 //
 //  Created by Cleo Barretto on 8/12/12.
@@ -12,7 +12,7 @@
 #import "AppViewController.h"
 @class AppViewController;
 
-@interface AppScreenShareDelegate : NSObject <UIActionSheetDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate>
+@interface ShareDelegate : NSObject <UIActionSheetDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate>
 
 - initWithViewController: (UIViewController*) viewController;
 

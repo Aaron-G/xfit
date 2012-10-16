@@ -10,7 +10,7 @@
 #import "PRWallViewController.h"
 #import "AppViewController.h"
 #import "PRWallScreenSwitchDelegate.h"
-#import "AppScreenShareDelegate.h"
+#import "ShareDelegate.h"
 #import "PRWallScreenShareDelegate.h"
 #import "UIHelper.h"
 
@@ -18,7 +18,7 @@
 {
 }
 @property AppViewController* appViewController;
-@property AppScreenShareDelegate* appScreenShareDelegate;
+@property ShareDelegate* appScreenShareDelegate;
 
 @end
 

@@ -1,18 +1,18 @@
 //
-//  AppScreenShareDelegate.m
+//  ShareDelegate.m
 //  CrossFitter
 //
 //  Created by Cleo Barretto on 8/12/12.
 //
 //
 
-#import "AppScreenShareDelegate.h"
+#import "ShareDelegate.h"
 #import "UIHelper.h"
 #import "MailHelper.h"
 #import "MailAttachment.h"
 
 
-@implementation AppScreenShareDelegate
+@implementation ShareDelegate
 
 - initWithViewController: (UIViewController*) viewController {
   self = [super init];
