@@ -33,7 +33,7 @@
   
   if(self) {
     self.appScreenSwitchDelegate = [[InfoScreenSwitchDelegate alloc]initWithViewController:self];
-    self.appScreenShareDelegate = [[InfoScreenShareDelegate alloc]initWithViewController:self];
+    self.appScreenShareDelegate = [[InfoScreenShareDelegate alloc]init];
     self.appViewController = [UIHelper appViewController];
   }
   

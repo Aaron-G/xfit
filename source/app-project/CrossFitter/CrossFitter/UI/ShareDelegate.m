@@ -14,13 +14,12 @@
 
 @implementation ShareDelegate
 
-- initWithViewController: (UIViewController*) viewController {
+- init {
   self = [super init];
   
   if(self) {
     
     //Initialize
-    _viewController = viewController;
     _appViewController = [UIHelper appViewController];
 
   }

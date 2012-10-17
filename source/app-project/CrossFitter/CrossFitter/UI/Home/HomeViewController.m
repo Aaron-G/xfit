@@ -28,7 +28,7 @@
   
   if(self) {
     self.appScreenSwitchDelegate = [[HomeScreenSwitchDelegate alloc]initWithViewController:self];
-    self.appScreenShareDelegate = [[HomeScreenShareDelegate alloc]initWithViewController:self];
+    self.appScreenShareDelegate = [[HomeScreenShareDelegate alloc]init];
     self.appViewController = [UIHelper appViewController];
   }
   

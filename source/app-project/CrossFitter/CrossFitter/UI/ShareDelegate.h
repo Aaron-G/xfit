@@ -14,9 +14,6 @@
 
 @interface ShareDelegate : NSObject <UIActionSheetDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate>
 
-- initWithViewController: (UIViewController*) viewController;
-
-@property (readonly) UIViewController * viewController;
 @property (readonly) AppViewController * appViewController;
 
 //ActionSheet

@@ -11,7 +11,7 @@
 @implementation MeasurableShareDelegate
 
 - (id)initWithViewController:(UIViewController *)viewController withMeasurableProvider: (id<MeasurableProvider>) measurableProvider {
-  self = [super initWithViewController:viewController];
+  self = [super init];
   
   if(self) {
     self.measurableProvider = measurableProvider;
@@ -20,7 +20,7 @@
 }
 
 - (void) share {
-  [super showActionSheetWithTitlePart:self.measurableProvider.measurable.metadataProvider.type.displayName];
+  [self showActionSheetWithTitlePart:self.measurableProvider.measurable.metadataProvider.type.displayName];
 }
 
 #pragma UIActionSheetDelegate Helper methods

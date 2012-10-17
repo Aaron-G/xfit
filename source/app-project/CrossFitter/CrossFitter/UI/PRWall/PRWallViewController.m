@@ -29,7 +29,7 @@
   
   if(self) {
     self.appScreenSwitchDelegate = [[PRWallScreenSwitchDelegate alloc]initWithViewController:self];
-    self.appScreenShareDelegate = [[PRWallScreenShareDelegate alloc]initWithViewController:self];
+    self.appScreenShareDelegate = [[PRWallScreenShareDelegate alloc]init];
     self.appViewController = [UIHelper appViewController];
   }
   
