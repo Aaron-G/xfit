@@ -20,7 +20,7 @@
 }
 
 - (void) share {
-  [self showActionSheetWithTitlePart:self.measurableProvider.measurable.metadataProvider.type.displayName];
+  [self showActionSheetWithTitlePart:[NSString stringWithFormat:@"%@ %@", self.measurableProvider.measurable.metadataProvider.type.displayName, self.measurableDetailTitle]];
 }
 
 #pragma UIActionSheetDelegate Helper methods

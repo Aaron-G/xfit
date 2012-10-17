@@ -10,4 +10,8 @@
 
 @implementation MeasurableInfoShareDelegate
 
+- (NSString *)measurableDetailTitle {
+  return NSLocalizedString(@"measurable-detail-info-title", @"Info");
+}
+
 @end

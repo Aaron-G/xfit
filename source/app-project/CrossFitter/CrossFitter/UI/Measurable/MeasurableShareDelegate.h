@@ -13,6 +13,7 @@
 @interface MeasurableShareDelegate : ShareDelegate
 
 @property id<MeasurableProvider> measurableProvider;
+@property (readonly) NSString* measurableDetailTitle;
 
 - (id)initWithViewController:(UIViewController *)viewController withMeasurableProvider: (id<MeasurableProvider>) measurableProvider;
 

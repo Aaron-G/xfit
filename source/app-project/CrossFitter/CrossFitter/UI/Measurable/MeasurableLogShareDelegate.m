@@ -11,5 +11,7 @@
 
 @implementation MeasurableLogShareDelegate
 
-
+- (NSString *)measurableDetailTitle {
+  return NSLocalizedString(@"measurable-detail-log-title", @"Log");
+}
 @end

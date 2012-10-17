@@ -155,3 +155,8 @@
 //Measurable Formatters
 "measurable-date-format" = "MM/dd/yy ";
 
+//////////////////////////////
+//Measurable Detail
+"measurable-detail-info-title" = "Info";
+"measurable-detail-log-title" = "Log";
+
