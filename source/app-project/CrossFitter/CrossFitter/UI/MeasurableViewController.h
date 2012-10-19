@@ -31,6 +31,7 @@
 @property IBOutlet UIBarButtonItem* barButtonItemShareLog;
 @property IBOutlet UIBarButtonItem* barButtonItemEditLog;
 @property IBOutlet UIBarButtonItem* barButtonItemDoneLog;
+@property IBOutlet UIBarButtonItem* barButtonItemClearLog;
 @property IBOutlet UIBarButtonItem* barButtonItemChartLog;
 
 @property IBOutlet UIBarButtonItem* barButtonItemSpacerOne;
@@ -50,5 +51,5 @@
 - (IBAction)chartMeasurableAction:(id)sender;
 - (IBAction)doneEditMeasurableInfoAction:(id)sender;
 - (IBAction)doneEditMeasurableLogAction:(id)sender;
-
+- (IBAction)clearEditMeasurableLogAction:(id)sender;
 @end

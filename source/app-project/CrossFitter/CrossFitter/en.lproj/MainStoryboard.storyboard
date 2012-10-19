@@ -498,6 +498,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="barButtonItemChartLog" destination="mcI-Qr-xb5" id="oKL-fe-RUP"/>
+                        <outlet property="barButtonItemClearLog" destination="4pz-0X-yJR" id="Tyb-DO-8J4"/>
                         <outlet property="barButtonItemCopyMeasurable" destination="Y6g-yT-8d4" id="TRc-NK-O8S"/>
                         <outlet property="barButtonItemDoneInfo" destination="zuI-yX-7R9" id="dAk-R0-UDI"/>
                         <outlet property="barButtonItemDoneLog" destination="oLL-Xq-c2K" id="qaG-1F-49G"/>
@@ -551,6 +552,11 @@
                 <barButtonItem systemItem="done" id="oLL-Xq-c2K" userLabel="Bar Button Item - done log">
                     <connections>
                         <action selector="doneEditMeasurableLogAction:" destination="LEZ-Nv-BEs" id="IyO-xR-evo"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Clear" id="4pz-0X-yJR" userLabel="Bar Button Item - clear log">
+                    <connections>
+                        <action selector="clearEditMeasurableLogAction:" destination="LEZ-Nv-BEs" id="g26-gn-Iqc"/>
                     </connections>
                 </barButtonItem>
                 <barButtonItem systemItem="done" id="zuI-yX-7R9" userLabel="Bar Button Item - done info">
@@ -889,7 +895,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="MeasurableDataEntryTableViewCell" id="JEv-hZ-tLF" customClass="MeasurableDataEntryTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="MeasurableDataEntryTableViewCell" editingAccessoryType="disclosureIndicator" id="JEv-hZ-tLF" customClass="MeasurableDataEntryTableViewCell">
                                 <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1067,6 +1073,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableViewController.h"/>
             <relationships>
                 <relationship kind="action" name="chartMeasurableAction:"/>
+                <relationship kind="action" name="clearEditMeasurableLogAction:"/>
                 <relationship kind="action" name="copyMeasurableAction:"/>
                 <relationship kind="action" name="doneEditMeasurableInfoAction:"/>
                 <relationship kind="action" name="doneEditMeasurableLogAction:"/>
@@ -1076,6 +1083,7 @@
                 <relationship kind="action" name="shareMeasurableInfoAction:"/>
                 <relationship kind="action" name="shareMeasurableLogAction:"/>
                 <relationship kind="outlet" name="barButtonItemChartLog" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="barButtonItemClearLog" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="barButtonItemCopyMeasurable" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="barButtonItemDoneInfo" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="barButtonItemDoneLog" candidateClass="UIBarButtonItem"/>
@@ -1117,9 +1125,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="WODViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WODViewController.h"/>

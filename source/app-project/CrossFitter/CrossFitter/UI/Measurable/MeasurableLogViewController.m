@@ -12,6 +12,7 @@
 #import "ShareDelegate.h"
 #import "MeasurableShareDelegate.h"
 #import "MeasurableLogShareDelegate.h"
+#import "UIHelper.h"
 
 @interface MeasurableLogViewController ()
 
@@ -71,7 +72,6 @@
   
   /////////////////////////////////////////////////////////////////////////////////////////////////
   //THIS NEEDS TO BE UPDATED TO USE THE PROPER API
-  //See 
   NSMutableArray* newValues = [NSMutableArray arrayWithArray: self.measurable.dataProvider.values];
   [newValues removeObjectAtIndex:indexPath.item];
   self.measurable.dataProvider.values = newValues;
@@ -92,6 +92,30 @@
 
 - (void) share {
   [self.shareDelegate share];
+}
+
+- (void) clearLog {
+  
+  UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"measurable-clear-log-title", @"Clear Log?")
+                                                      message:NSLocalizedString(@"measurable-clear-log-message", @"This will delete all the entries in your log permanently")
+                                                     delegate:self
+                                            cancelButtonTitle:NSLocalizedString(@"cancel-label", @"Cancel")
+                                            otherButtonTitles:NSLocalizedString(@"delete-label", @"Delete"), nil];
+  [alertView show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+  if(buttonIndex == 1) {
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+    //THIS NEEDS TO BE UPDATED TO USE THE PROPER API
+    self.measurable.dataProvider.values = [NSMutableArray array];
+    [self.tableView reloadData];
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+
+    [UIHelper measurableViewController].barButtonItemClearLog.enabled = NO;
+  }
+
 }
 
 @end

@@ -10,10 +10,12 @@
 #import "Measurable.h"
 #import "MeasurableProvider.h"
 
-@interface MeasurableLogViewController : UITableViewController <MeasurableProvider>
+@interface MeasurableLogViewController : UITableViewController <MeasurableProvider, UIAlertViewDelegate>
 
 @property id<Measurable> measurable;
 
 - (void) share;
+
+- (void) clearLog;
 
 @end
