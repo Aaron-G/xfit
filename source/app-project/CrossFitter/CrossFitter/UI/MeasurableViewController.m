@@ -43,8 +43,12 @@
   //Update the title view
   self.navigationItem.titleView = self.measurableTitleView;
   
-  //Add the log button
+  //Localize button labels
   self.barButtonItemLog.title = NSLocalizedString(@"log-label", @"Log");
+  self.barButtonItemClearLog.title = NSLocalizedString(@"clear-label", @"Clear");
+  self.barButtonItemChartLog.title = NSLocalizedString(@"chart-label", @"Chart");
+
+  //Add the log button
   [self displayStandardButtons];
 }
 
@@ -120,6 +124,16 @@
   [self.measurableDetailSwitchViewController.logViewController share];
 }
 
+//////////////////////////////////////////////////////////////////
+//CLEAR MEASURABLE
+
+- (IBAction)clearEditMeasurableLogAction:(id)sender {
+  [self.measurableDetailSwitchViewController.logViewController clearLog];
+}
+
+//////////////////////////////////////////////////////////////////
+//DONE MEASURABLE
+
 - (IBAction)doneEditMeasurableInfoAction:(id)sender {
   [self doneEditMeasurableAction:self.measurableDetailSwitchViewController.infoViewController toolbarItems:self.measurableDetailSwitchViewController.infoToolbarItems];
 }
@@ -136,20 +150,32 @@
   
   [viewController setEditing:NO animated:YES];
 }
-
+//////////////////////////////////////////////////////////////////
+//EDIT MEASURABLE
 - (void)editMeasurableInfoAction:(id)sender {
   [self editMeasurableAction:self.measurableDetailSwitchViewController.infoViewController doneButton: self.barButtonItemDoneInfo];
 }
 
 - (void)editMeasurableLogAction:(id)sender {
   [self editMeasurableAction:self.measurableDetailSwitchViewController.logViewController doneButton: self.barButtonItemDoneLog];
+  
+  if(self.measurable.dataProvider.values.count > 0) {
+    self.barButtonItemClearLog.enabled = YES;
+  } else {
+    self.barButtonItemClearLog.enabled = NO;
+  }
+  
+  [self.navigationItem setLeftBarButtonItem: self.barButtonItemClearLog animated:YES];
 }
 
 - (void)editMeasurableAction:(UIViewController*) viewController doneButton:(UIBarButtonItem*) doneButton {
 
+  //Needed for Info screen where there is no left button
   self.navigationItem.hidesBackButton = YES;
-  [self.navigationItem setRightBarButtonItem: nil animated:YES];
-  [self.toolbar setItems: [NSArray arrayWithObjects:self.barButtonItemSpacerOne, self.barButtonItemSpacerTwo, doneButton, nil] animated:YES];
+  
+  [self.navigationItem setRightBarButtonItem: doneButton animated:YES];
+  
+  [self.toolbar setItems: nil animated:YES];
   
   self.measurableDetailPageControl.hidden = YES;
   
@@ -160,8 +186,10 @@
 
 - (void)displayStandardButtons {
   self.navigationItem.hidesBackButton = NO;
+  [self.navigationItem setLeftBarButtonItem: nil animated:YES];
   self.navigationItem.rightBarButtonItem = self.barButtonItemLog;
   self.measurableDetailPageControl.hidden = NO;
+  
 }
 
 

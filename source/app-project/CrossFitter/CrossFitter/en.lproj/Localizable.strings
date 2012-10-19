@@ -4,6 +4,9 @@
 "cancel-label" = "Cancel";
 "new-label" = "New";
 "log-label" = "Log";
+"clear-label" = "Clear";
+"chart-label" = "Chart";
+"delete-label" = "Delete";
 "app-review-url" = "tms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=APP_ID&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software";
 
 //Share App
@@ -156,7 +159,9 @@
 "measurable-date-format" = "MM/dd/yy ";
 
 //////////////////////////////
-//Measurable Detail
+//Measurable
 "measurable-detail-info-title" = "Info";
 "measurable-detail-log-title" = "Log";
 
+"measurable-clear-log-title" = "Clear Log?";
+"measurable-clear-log-message" = "This will delete all the entries in your log permanently";
