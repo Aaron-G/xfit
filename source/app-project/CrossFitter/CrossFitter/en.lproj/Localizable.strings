@@ -7,7 +7,10 @@
 "clear-label" = "Clear";
 "chart-label" = "Chart";
 "delete-label" = "Delete";
+"male-label" = "Male";
+"female-label" = "Female";
 "app-review-url" = "tms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=APP_ID&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software";
+"app-date-format" = "MM/dd/yyyy";
 
 //Share App
 "share-app" = "App";
@@ -107,6 +110,7 @@
 
 "mybody-user-profile-add-photo-label" = "Add Photo";
 "mybody-user-profile-summary-format" = "%@\n%@, %@\n%@";
+"mybody-user-profile-summary-no-name-format" = "%@, %@\n%@";
 
 "height-metric-label" = "Height";
 "height-metric-description" = "Your height without shoes to the top of your head not counting your hair.";
@@ -146,6 +150,15 @@
 
 "calf-right-metric-label" = "Calf";
 "calf-right-metric-description" = "Measure the circumference of the fullest part of your calf. Wrap the tape measure around your calf from front to back and then around to the front";
+
+//////////////////////////////
+//User Profile Screen
+"user-profile-screen-title" = "My Profile";
+"user-profile-name-tip" = "My name";
+"user-profile-date-of-birth-label" = "Date of Birth";
+"user-profile-box-label" = "Box";
+"user-profile-box-tip" = "My box";
+"user-profile-sex-label" = "Sex";
 
 //////////////////////////////
 //Unit Formatters
