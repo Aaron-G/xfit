@@ -35,7 +35,7 @@
 		743F8D80161FCE26006871D0 /* MeasurableTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743F8D7F161FCE26006871D0 /* MeasurableTitleView.xib */; };
 		743F8D83161FD01C006871D0 /* MeasurableTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 743F8D82161FD01B006871D0 /* MeasurableTitleView.m */; };
 		743F8D86161FF40D006871D0 /* MeasurableType.m in Sources */ = {isa = PBXBuildFile; fileRef = 743F8D85161FF40D006871D0 /* MeasurableType.m */; };
-		744EFB0C15FB1C12000AECBA /* MyBodyUserInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 744EFB0B15FB1C12000AECBA /* MyBodyUserInfoTableViewCell.xib */; };
+		744EFB0C15FB1C12000AECBA /* MyBodyUserProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 744EFB0B15FB1C12000AECBA /* MyBodyUserProfileTableViewCell.xib */; };
 		744EFB0F15FB9166000AECBA /* MeasurableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 744EFB0E15FB9166000AECBA /* MeasurableTableViewCell.m */; };
 		744EFB1415FBB82E000AECBA /* worse-value-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 744EFB1015FBB82E000AECBA /* worse-value-image.png */; };
 		744EFB1515FBB82E000AECBA /* same-value-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 744EFB1115FBB82E000AECBA /* same-value-image.png */; };
@@ -49,7 +49,7 @@
 		745E9C0615F58249006222BB /* AppViewGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 745E9C0515F58249006222BB /* AppViewGestureRecognizer.m */; };
 		745F5185160D64E20066F600 /* DefaultUnitValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 745F5184160D64E20066F600 /* DefaultUnitValueFormatter.m */; };
 		7460967A15FABF8500DE158B /* MeasurableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7460967815FABF8500DE158B /* MeasurableTableViewCell.xib */; };
-		7460967E15FACE2700DE158B /* MyBodyUserInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7460967D15FACE2700DE158B /* MyBodyUserInfoTableViewCell.m */; };
+		7460967E15FACE2700DE158B /* MyBodyUserProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7460967D15FACE2700DE158B /* MyBodyUserProfileTableViewCell.m */; };
 		7461191715BC8DF900BEEAE2 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7461191515BC8DF900BEEAE2 /* MenuCell.m */; };
 		747BC84515D80F4500AC2150 /* AppViewControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 747BC84415D80F4500AC2150 /* AppViewControllerSegue.m */; };
 		747D62A715D4653C00360084 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 747D62A515D4653C00360084 /* home.png */; };
@@ -77,6 +77,7 @@
 		74C2759C15D8826400BB1F1A /* PRWallScreenShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2759B15D8826400BB1F1A /* PRWallScreenShareDelegate.m */; };
 		74C2759F15D883E000BB1F1A /* MyBodyScreenShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2759E15D883E000BB1F1A /* MyBodyScreenShareDelegate.m */; };
 		74C275A615DC7C9300BB1F1A /* InfoScreenShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C275A515DC7C9300BB1F1A /* InfoScreenShareDelegate.m */; };
+		74C8DBDA1633228200F5AD66 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C8DBD91633228200F5AD66 /* UserProfileViewController.m */; };
 		74CA4E6F15D86AD600DA3F10 /* HomeScreenSwitchDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CA4E6E15D86AD600DA3F10 /* HomeScreenSwitchDelegate.m */; };
 		74CA4E7215D86AE200DA3F10 /* InfoScreenSwitchDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CA4E7115D86AE200DA3F10 /* InfoScreenSwitchDelegate.m */; };
 		74CA4E7815D86BB300DA3F10 /* PRWallScreenSwitchDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CA4E7715D86BB300DA3F10 /* PRWallScreenSwitchDelegate.m */; };
@@ -117,8 +118,8 @@
 		7408403F15D1810500A64D5B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = UI/Home/HomeViewController.h; sourceTree = "<group>"; };
 		7408404015D1810500A64D5B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = HomeViewController.m; path = UI/Home/HomeViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		7408404E15D1885B00A64D5B /* AppScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppScreen.h; path = UI/AppScreen.h; sourceTree = "<group>"; };
-		7408404F15D1B31E00A64D5B /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = App.h; path = App/App.h; sourceTree = "<group>"; };
-		7408405015D1B31E00A64D5B /* App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = App.m; path = App/App.m; sourceTree = "<group>"; };
+		7408404F15D1B31E00A64D5B /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = App.h; path = App/App.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		7408405015D1B31E00A64D5B /* App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = App.m; path = App/App.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		740970351618032800D2D9B8 /* MeasurableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = MeasurableViewController.h; path = UI/MeasurableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		740970361618032900D2D9B8 /* MeasurableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MeasurableViewController.m; path = UI/MeasurableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		740F437B160D68E100380CF5 /* UnitValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnitValueFormatter.h; path = UI/Helper/Formatter/Unit/UnitValueFormatter.h; sourceTree = "<group>"; };
@@ -161,7 +162,7 @@
 		743F8D82161FD01B006871D0 /* MeasurableTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableTitleView.m; path = UI/Measurable/MeasurableTitleView.m; sourceTree = "<group>"; };
 		743F8D84161FF40D006871D0 /* MeasurableType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableType.h; path = Model/Core/MeasurableType.h; sourceTree = "<group>"; };
 		743F8D85161FF40D006871D0 /* MeasurableType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableType.m; path = Model/Core/MeasurableType.m; sourceTree = "<group>"; };
-		744EFB0B15FB1C12000AECBA /* MyBodyUserInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyBodyUserInfoTableViewCell.xib; path = UI/MyBody/MyBodyUserInfoTableViewCell.xib; sourceTree = "<group>"; };
+		744EFB0B15FB1C12000AECBA /* MyBodyUserProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyBodyUserProfileTableViewCell.xib; path = UI/MyBody/MyBodyUserProfileTableViewCell.xib; sourceTree = "<group>"; };
 		744EFB0D15FB9166000AECBA /* MeasurableTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = MeasurableTableViewCell.h; path = UI/Measurable/MeasurableTableViewCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		744EFB0E15FB9166000AECBA /* MeasurableTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MeasurableTableViewCell.m; path = UI/Measurable/MeasurableTableViewCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		744EFB1015FBB82E000AECBA /* worse-value-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "worse-value-image.png"; path = "CrossFitter/Resources/Images/worse-value-image.png"; sourceTree = SOURCE_ROOT; };
@@ -184,8 +185,8 @@
 		745F5183160D64E20066F600 /* DefaultUnitValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultUnitValueFormatter.h; path = UI/Helper/Formatter/Unit/DefaultUnitValueFormatter.h; sourceTree = "<group>"; };
 		745F5184160D64E20066F600 /* DefaultUnitValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultUnitValueFormatter.m; path = UI/Helper/Formatter/Unit/DefaultUnitValueFormatter.m; sourceTree = "<group>"; };
 		7460967815FABF8500DE158B /* MeasurableTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeasurableTableViewCell.xib; path = UI/Measurable/MeasurableTableViewCell.xib; sourceTree = "<group>"; };
-		7460967C15FACE2700DE158B /* MyBodyUserInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyBodyUserInfoTableViewCell.h; path = UI/MyBody/MyBodyUserInfoTableViewCell.h; sourceTree = "<group>"; };
-		7460967D15FACE2700DE158B /* MyBodyUserInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBodyUserInfoTableViewCell.m; path = UI/MyBody/MyBodyUserInfoTableViewCell.m; sourceTree = "<group>"; };
+		7460967C15FACE2700DE158B /* MyBodyUserProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyBodyUserProfileTableViewCell.h; path = UI/MyBody/MyBodyUserProfileTableViewCell.h; sourceTree = "<group>"; };
+		7460967D15FACE2700DE158B /* MyBodyUserProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBodyUserProfileTableViewCell.m; path = UI/MyBody/MyBodyUserProfileTableViewCell.m; sourceTree = "<group>"; };
 		7461191415BC8DF900BEEAE2 /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuCell.h; path = UI/Menu/MenuCell.h; sourceTree = "<group>"; };
 		7461191515BC8DF900BEEAE2 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuCell.m; path = UI/Menu/MenuCell.m; sourceTree = "<group>"; };
 		747BC84315D80F4500AC2150 /* AppViewControllerSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppViewControllerSegue.h; path = UI/AppViewControllerSegue.h; sourceTree = "<group>"; };
@@ -238,6 +239,8 @@
 		74C2759E15D883E000BB1F1A /* MyBodyScreenShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBodyScreenShareDelegate.m; path = UI/MyBody/MyBodyScreenShareDelegate.m; sourceTree = "<group>"; };
 		74C275A415DC7C9300BB1F1A /* InfoScreenShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoScreenShareDelegate.h; path = UI/Info/InfoScreenShareDelegate.h; sourceTree = "<group>"; };
 		74C275A515DC7C9300BB1F1A /* InfoScreenShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoScreenShareDelegate.m; path = UI/Info/InfoScreenShareDelegate.m; sourceTree = "<group>"; };
+		74C8DBD81633228200F5AD66 /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = UserProfileViewController.h; path = UI/MyBody/UserProfileViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		74C8DBD91633228200F5AD66 /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = UserProfileViewController.m; path = UI/MyBody/UserProfileViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		74CA4E6D15D86AD600DA3F10 /* HomeScreenSwitchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = HomeScreenSwitchDelegate.h; path = UI/Home/HomeScreenSwitchDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		74CA4E6E15D86AD600DA3F10 /* HomeScreenSwitchDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = HomeScreenSwitchDelegate.m; path = UI/Home/HomeScreenSwitchDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		74CA4E7015D86AE200DA3F10 /* InfoScreenSwitchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = InfoScreenSwitchDelegate.h; path = UI/Info/InfoScreenSwitchDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -682,9 +685,11 @@
 				74CA4E8315D8709600DA3F10 /* MyBodyScreenSwitchDelegate.m */,
 				74C2759D15D883E000BB1F1A /* MyBodyScreenShareDelegate.h */,
 				74C2759E15D883E000BB1F1A /* MyBodyScreenShareDelegate.m */,
-				7460967C15FACE2700DE158B /* MyBodyUserInfoTableViewCell.h */,
-				7460967D15FACE2700DE158B /* MyBodyUserInfoTableViewCell.m */,
-				744EFB0B15FB1C12000AECBA /* MyBodyUserInfoTableViewCell.xib */,
+				7460967C15FACE2700DE158B /* MyBodyUserProfileTableViewCell.h */,
+				7460967D15FACE2700DE158B /* MyBodyUserProfileTableViewCell.m */,
+				744EFB0B15FB1C12000AECBA /* MyBodyUserProfileTableViewCell.xib */,
+				74C8DBD81633228200F5AD66 /* UserProfileViewController.h */,
+				74C8DBD91633228200F5AD66 /* UserProfileViewController.m */,
 			);
 			name = MyBody;
 			sourceTree = "<group>";
@@ -784,7 +789,7 @@
 				747D62A715D4653C00360084 /* home.png in Resources */,
 				747D62A815D4653C00360084 /* info.png in Resources */,
 				7460967A15FABF8500DE158B /* MeasurableTableViewCell.xib in Resources */,
-				744EFB0C15FB1C12000AECBA /* MyBodyUserInfoTableViewCell.xib in Resources */,
+				744EFB0C15FB1C12000AECBA /* MyBodyUserProfileTableViewCell.xib in Resources */,
 				744EFB1415FBB82E000AECBA /* worse-value-image.png in Resources */,
 				744EFB1515FBB82E000AECBA /* same-value-image.png in Resources */,
 				744EFB1715FBB82E000AECBA /* better-value-image.png in Resources */,
@@ -857,7 +862,7 @@
 				74B3165615DDD8B4003D5B09 /* MailAttachment.m in Sources */,
 				74B3165715DDD8B4003D5B09 /* MailHelper.m in Sources */,
 				745E9C0615F58249006222BB /* AppViewGestureRecognizer.m in Sources */,
-				7460967E15FACE2700DE158B /* MyBodyUserInfoTableViewCell.m in Sources */,
+				7460967E15FACE2700DE158B /* MyBodyUserProfileTableViewCell.m in Sources */,
 				744EFB0F15FB9166000AECBA /* MeasurableTableViewCell.m in Sources */,
 				744EFB1A15FBBA52000AECBA /* UserProfile.m in Sources */,
 				744EFB1D15FBBAA2000AECBA /* ModelFactory.m in Sources */,
@@ -890,6 +895,7 @@
 				749A8704162C548900EFB7C1 /* MeasurableLogShareDelegate.m in Sources */,
 				749A8708162C596800EFB7C1 /* MeasurableInfoShareDelegate.m in Sources */,
 				749A870D162CE72100EFB7C1 /* MeasurableShareDelegate.m in Sources */,
+				74C8DBDA1633228200F5AD66 /* UserProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
