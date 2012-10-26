@@ -38,6 +38,7 @@ static App *sharedInstance = nil;
 @synthesize appViewController = _appViewController;
 @synthesize navigationViewController = _navigationViewController;
 @synthesize measurableViewController = _measurableViewController;
+@synthesize userProfileViewController = _userProfileViewController;
 ////////////////////////////////////////////////////////////////
 
 - (id)init {
@@ -164,6 +165,12 @@ static App *sharedInstance = nil;
   return _measurableViewController;
 }
 
+- (UserProfileViewController *)userProfileViewController {
+  if(!_userProfileViewController) {
+    _userProfileViewController = (UserProfileViewController*) [UIHelper viewControllerWithViewStoryboardIdentifier: @"UserProfileViewController"];
+  }
+  return _userProfileViewController;  
+}
 ////////////////////////////////////////////////
 //Singleton Implementation
 ////////////////////////////////////////////////

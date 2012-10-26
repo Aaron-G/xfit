@@ -11,14 +11,16 @@
 #import "AppDelegate.h"
 #import "UserProfile.h"
 #import "MeasurableViewController.h"
+#import "UserProfileViewController.h"
 
 @interface App : NSObject
 
-@property (nonatomic, readonly) AppViewController *appViewController;
-@property (nonatomic, readonly) UINavigationController *navigationViewController;
-@property (nonatomic, readonly) MeasurableViewController *measurableViewController;
+@property (nonatomic, readonly) AppViewController* appViewController;
+@property (nonatomic, readonly) UINavigationController* navigationViewController;
+@property (nonatomic, readonly) MeasurableViewController* measurableViewController;
+@property (nonatomic, readonly) UserProfileViewController* userProfileViewController;
 
-@property (nonatomic) AppDelegate *appDelegate;
+@property (nonatomic) AppDelegate* appDelegate;
 @property (nonatomic, readonly) NSString* systemInformation;
 @property (nonatomic, readonly) NSString* appInformation;
 @property (nonatomic, readonly) NSString* appSupportEmail;
