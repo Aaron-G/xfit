@@ -10,10 +10,18 @@
 
 @interface UserProfile : NSObject
 
+typedef enum {
+  UserProfileSexMale,
+  UserProfileSexFemale,
+  UserProfileSexNone
+} UserProfileSex;
+
+
 @property NSString* name;
 @property NSDate* dateOfBirth;
 @property NSString* box;
-@property NSString* sex;
+@property UserProfileSex sex;
+
 @property NSDictionary* metrics;
 
 //This is computed
