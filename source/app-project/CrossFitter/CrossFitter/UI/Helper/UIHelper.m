@@ -11,6 +11,8 @@
 
 @implementation UIHelper
 
+static NSDateFormatter* _appDateFormat;
+
 + (void) adjustImage: (UIButton*) buttonWithImage forMeasurable: (id <Measurable>) measurable {
   [UIHelper adjustImage: buttonWithImage
 withMeasurableValueTrend: measurable.dataProvider.valueTrend
@@ -80,11 +82,22 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   return [[App sharedInstance] measurableViewController];
 }
 
++ (UserProfileViewController*) userProfileViewController {
+  return [[App sharedInstance] userProfileViewController];
+}
+
 + (UIViewController*) viewControllerWithViewStoryboardIdentifier: (NSString*) identifier {
   AppViewController* appViewController = [[App sharedInstance] appViewController];
   return [appViewController.storyboard instantiateViewControllerWithIdentifier:identifier];
 }
 
++ (NSDateFormatter *)appDateFormat {
+  if(!_appDateFormat) {
+    _appDateFormat = [[NSDateFormatter alloc] init];
+    _appDateFormat.dateFormat = NSLocalizedString(@"app-date-format", @"MM/dd/yy");
+  }
+  return _appDateFormat;
+}
 
 
 @end
