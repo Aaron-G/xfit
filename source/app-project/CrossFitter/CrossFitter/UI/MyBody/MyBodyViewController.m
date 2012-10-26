@@ -12,13 +12,14 @@
 #import "App.h"
 #import "ShareDelegate.h"
 #import "MyBodyScreenShareDelegate.h"
-#import "MyBodyUserInfoTableViewCell.h"
+#import "MyBodyUserProfileTableViewCell.h"
 #import "MeasurableTableViewCell.h"
 #import "ModelFactory.h"
 #import "BodyMetric.h"
 #import "UIHelper.h"
 #import "AppViewControllerSegue.h"
 #import "MeasurableHelper.h"
+#import "UserProfileViewController.h"
 
 @interface MyBodyViewController () {
 }
@@ -46,7 +47,7 @@
   
   //Register custom cell
   [self.tableView registerNib: [UINib nibWithNibName:@"MeasurableTableViewCell" bundle:nil] forCellReuseIdentifier:@"MeasurableTableViewCell"];
-  [self.tableView registerNib: [UINib nibWithNibName:@"MyBodyUserInfoTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyBodyUserInfoTableViewCell"];
+  [self.tableView registerNib: [UINib nibWithNibName:@"MyBodyUserProfileTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyBodyUserProfileTableViewCell"];
   
   [super viewDidLoad];
 }
@@ -55,14 +56,32 @@
   
   //Personal Info section
   if((indexPath.section == 0) && (indexPath.item == 0)) {
-    MyBodyUserInfoTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyBodyUserInfoTableViewCell"];
+    MyBodyUserProfileTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyBodyUserProfileTableViewCell"];
+    UserProfile* userProfile = [App sharedInstance].userProfile;
     
-    cell.userProfileSummaryLabel.text = [NSString stringWithFormat:
-                                         NSLocalizedString(@"mybody-user-profile-summary-format", @"%@\n%@, %@\n%@"),
-                                         [App sharedInstance].userProfile.name,
-                                         [App sharedInstance].userProfile.sex,
-                                         [App sharedInstance].userProfile.age,
-                                         [App sharedInstance].userProfile.box];
+    NSString* sexText = @"";
+    if(userProfile.sex == UserProfileSexMale) {
+      sexText = NSLocalizedString(@"male-label", @"Male");
+    } else if(userProfile.sex == UserProfileSexFemale) {
+      sexText = NSLocalizedString(@"female-label", @"Female");
+    }
+
+    if(userProfile.name.length) {
+      
+      cell.userProfileSummaryLabel.text = [NSString stringWithFormat:
+                                           NSLocalizedString(@"mybody-user-profile-summary-format", @"%@\n%@, %@\n%@"),
+                                           [App sharedInstance].userProfile.name,
+                                           sexText,
+                                           [App sharedInstance].userProfile.age,
+                                           [App sharedInstance].userProfile.box];
+      
+    } else {
+      cell.userProfileSummaryLabel.text = [NSString stringWithFormat:
+                                           NSLocalizedString(@"mybody-user-profile-summary-no-name-format", @"%@, %@\n%@"),
+                                           sexText,
+                                           [App sharedInstance].userProfile.age,
+                                           [App sharedInstance].userProfile.box];
+    }
     
     cell.userProfileImageButton.titleLabel.text = NSLocalizedString(@"mybody-user-profile-add-photo-label", @"Add Photo");
 
@@ -143,21 +162,35 @@
 //Add proper behavior to cell selection
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   
-  NSString* metricIdentifier = [self metricIdentifierIndexPath:indexPath];
-  
-  if(metricIdentifier != BodyMetricIdentifierInvalid) {
+  if(indexPath.section == 0 && indexPath.item == 0) {
     
-    BodyMetric* metric = [[App sharedInstance].userProfile.metrics valueForKey: metricIdentifier];
-
-    MeasurableViewController* measurableViewController = [UIHelper measurableViewController];
-    measurableViewController.measurable = metric;
+    UserProfileViewController* userProfileViewController = [UIHelper userProfileViewController];
+    userProfileViewController.myBodyViewController = self;
     
     AppViewControllerSegue* appViewControllerSegue =
-    [[AppViewControllerSegue alloc] initWithIdentifier:@"My Body to Body Metric"
+    [[AppViewControllerSegue alloc] initWithIdentifier:@"My Body to User Profile"
                                                 source:self
-                                           destination:measurableViewController];
+                                           destination:userProfileViewController];
     
-    [appViewControllerSegue perform];    
+    [appViewControllerSegue perform];
+    
+  } else {
+    NSString* metricIdentifier = [self metricIdentifierIndexPath:indexPath];
+    
+    if(metricIdentifier != BodyMetricIdentifierInvalid) {
+      
+      BodyMetric* metric = [[App sharedInstance].userProfile.metrics valueForKey: metricIdentifier];
+      
+      MeasurableViewController* measurableViewController = [UIHelper measurableViewController];
+      measurableViewController.measurable = metric;
+      
+      AppViewControllerSegue* appViewControllerSegue =
+      [[AppViewControllerSegue alloc] initWithIdentifier:@"My Body to Body Metric"
+                                                  source:self
+                                             destination:measurableViewController];
+      
+      [appViewControllerSegue perform];
+    }
   }
 }
 
