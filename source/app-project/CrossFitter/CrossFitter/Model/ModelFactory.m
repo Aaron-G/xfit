@@ -14,13 +14,13 @@
 + (UserProfile*) createDefaultUserProfile {
   
   UserProfile* profile = [[UserProfile alloc] init];
-  profile.name = @"John Doe";
-  profile.sex = @"Male";
-  profile.box = @"CrossFit USA";
+  profile.name = @"John Smith";
+  profile.sex = UserProfileSexMale;
+  profile.box = @"CrossFit Box";
   
   NSDateComponents *comps = [[NSDateComponents alloc] init];
-  [comps setDay:10];
-  [comps setMonth:10];
+  [comps setDay:1];
+  [comps setMonth:1];
   [comps setYear:1990];
   profile.dateOfBirth = [[NSCalendar currentCalendar] dateFromComponents:comps];
 
