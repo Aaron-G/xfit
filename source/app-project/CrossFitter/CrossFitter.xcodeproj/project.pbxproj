@@ -102,6 +102,8 @@
 		74EF1E9715D2D7C000F96131 /* MyBodyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EF1E9515D2D7C000F96131 /* MyBodyViewController.m */; };
 		74EF1E9D15D2D93400F96131 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EF1E9B15D2D93400F96131 /* InfoViewController.m */; };
 		74EF1EA715D2E78000F96131 /* menu-handle.png in Resources */ = {isa = PBXBuildFile; fileRef = 74EF1EA615D2E78000F96131 /* menu-handle.png */; };
+		9A54BB4E163D0A8A006F5435 /* home-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A54BB4D163D0A8A006F5435 /* home-background.png */; };
+		9A827DB7163CFF2F00258B07 /* more-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A827DB6163CFF2F00258B07 /* more-button.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -282,6 +284,8 @@
 		74EF1E9A15D2D93400F96131 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoViewController.h; path = UI/Info/InfoViewController.h; sourceTree = "<group>"; };
 		74EF1E9B15D2D93400F96131 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = InfoViewController.m; path = UI/Info/InfoViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		74EF1EA615D2E78000F96131 /* menu-handle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-handle.png"; path = "CrossFitter/Resources/Images/menu-handle.png"; sourceTree = SOURCE_ROOT; };
+		9A54BB4D163D0A8A006F5435 /* home-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home-background.png"; path = "Resources/Images/home-background.png"; sourceTree = "<group>"; };
+		9A827DB6163CFF2F00258B07 /* more-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "more-button.png"; path = "Resources/Images/more-button.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -469,6 +473,8 @@
 			isa = PBXGroup;
 			children = (
 				741BBC6415B7C2E300660BE6 /* MainStoryboard.storyboard */,
+				9A54BB4D163D0A8A006F5435 /* home-background.png */,
+				9A827DB6163CFF2F00258B07 /* more-button.png */,
 				74C2759015D87ACF00BB1F1A /* AppViewController.h */,
 				74C2759115D87ACF00BB1F1A /* AppViewController.m */,
 				74D2527015D56A2400845160 /* AppConstants.h */,
@@ -794,6 +800,8 @@
 				744EFB1515FBB82E000AECBA /* same-value-image.png in Resources */,
 				744EFB1715FBB82E000AECBA /* better-value-image.png in Resources */,
 				743F8D80161FCE26006871D0 /* MeasurableTitleView.xib in Resources */,
+				9A827DB7163CFF2F00258B07 /* more-button.png in Resources */,
+				9A54BB4E163D0A8A006F5435 /* home-background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
