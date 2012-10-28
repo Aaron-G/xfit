@@ -135,7 +135,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="y7j-0e-pnv" userLabel="PRWall">
-                                <rect key="frame" x="36" y="0.0" width="95" height="80"/>
+                                <rect key="frame" x="6" y="84" width="142" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
@@ -153,7 +153,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uZ2-An-OyR" userLabel="MyBody">
-                                <rect key="frame" x="160" y="0.0" width="145" height="95"/>
+                                <rect key="frame" x="6" y="222" width="142" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
@@ -171,7 +171,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qMr-eC-n7x" userLabel="Workout">
-                                <rect key="frame" x="187" y="231" width="95" height="80"/>
+                                <rect key="frame" x="164" y="222" width="142" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
@@ -189,7 +189,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yHh-ns-c9q" userLabel="Move">
-                                <rect key="frame" x="36" y="231" width="95" height="80"/>
+                                <rect key="frame" x="6" y="348" width="142" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
@@ -206,8 +206,26 @@
                                     <action selector="displayMove" destination="Lbo-kL-E5K" eventType="touchUpInside" id="kia-iw-m9O"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bJv-pF-3tI" userLabel="Move">
+                                <rect key="frame" x="164" y="348" width="142" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="more-button.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="displayMove" destination="Lbo-kL-E5K" eventType="touchUpInside" id="BOC-k3-kuc"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ORD-wM-dEA" userLabel="WOD">
-                                <rect key="frame" x="113" y="120" width="95" height="80"/>
+                                <rect key="frame" x="164" y="84" width="142" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
@@ -225,7 +243,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <connections>
                         <outlet property="view" destination="fkP-qk-pPX" id="lhq-B6-TdR"/>
@@ -1210,11 +1228,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </scene>
     </scenes>
     <resources>
-        <image name="move.png" width="95" height="80"/>
-        <image name="mybody.png" width="293" height="150"/>
-        <image name="prwall.png" width="95" height="80"/>
-        <image name="wod.png" width="95" height="80"/>
-        <image name="workout.png" width="95" height="80"/>
+        <image name="more-button.png" width="292" height="154"/>
+        <image name="move.png" width="293" height="152"/>
+        <image name="mybody.png" width="294" height="150"/>
+        <image name="prwall.png" width="294" height="152"/>
+        <image name="wod.png" width="298" height="150"/>
+        <image name="workout.png" width="293" height="152"/>
     </resources>
     <classes>
         <class className="AppViewController" superclassName="UIViewController">
@@ -1332,6 +1351,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
+<<<<<<< HEAD
         <class className="UserProfileViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UserProfileViewController.h"/>
             <relationships>
@@ -1349,6 +1369,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="sexLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="sexSegmentedControl" candidateClass="UISegmentedControl"/>
             </relationships>
+=======
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+>>>>>>> Added all home button graphics plus Photoshop PSD files
         </class>
         <class className="WODViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WODViewController.h"/>
