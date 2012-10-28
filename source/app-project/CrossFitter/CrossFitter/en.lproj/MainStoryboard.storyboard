@@ -135,7 +135,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="y7j-0e-pnv" userLabel="PRWall">
-                                <rect key="frame" x="36" y="0.0" width="95" height="80"/>
+                                <rect key="frame" x="12" y="8" width="143" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
@@ -153,7 +153,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uZ2-An-OyR" userLabel="MyBody">
-                                <rect key="frame" x="160" y="0.0" width="145" height="95"/>
+                                <rect key="frame" x="162" y="8" width="143" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
@@ -171,7 +171,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qMr-eC-n7x" userLabel="Workout">
-                                <rect key="frame" x="187" y="231" width="95" height="80"/>
+                                <rect key="frame" x="162" y="239" width="143" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
@@ -189,7 +189,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yHh-ns-c9q" userLabel="Move">
-                                <rect key="frame" x="36" y="231" width="95" height="80"/>
+                                <rect key="frame" x="12" y="239" width="143" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
@@ -207,7 +207,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ORD-wM-dEA" userLabel="WOD">
-                                <rect key="frame" x="113" y="120" width="95" height="80"/>
+                                <rect key="frame" x="89" y="123" width="143" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
@@ -1210,11 +1210,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </scene>
     </scenes>
     <resources>
-        <image name="move.png" width="95" height="80"/>
-        <image name="mybody.png" width="293" height="150"/>
-        <image name="prwall.png" width="95" height="80"/>
-        <image name="wod.png" width="95" height="80"/>
-        <image name="workout.png" width="95" height="80"/>
+        <image name="move.png" width="293" height="152"/>
+        <image name="mybody.png" width="294" height="150"/>
+        <image name="prwall.png" width="294" height="152"/>
+        <image name="wod.png" width="298" height="150"/>
+        <image name="workout.png" width="293" height="152"/>
     </resources>
     <classes>
         <class className="AppViewController" superclassName="UIViewController">
