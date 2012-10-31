@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MyBodyViewController.h"
 
-@interface UserProfileViewController : UITableViewController <UITextFieldDelegate>
+@interface UserProfileViewController : UITableViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property MyBodyViewController* myBodyViewController;
 
@@ -32,5 +32,6 @@
 - (IBAction) changeSex;
 - (IBAction) changeDateOfBirth;
 - (IBAction) dismissInputView;
+- (IBAction) startChangingImage;
 
 @end

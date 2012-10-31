@@ -10,8 +10,11 @@
 #import "App.h"
 #import "UserProfile.h"
 #import "UIHelper.h"
+#import "MediaHelper.h"
 
 @interface UserProfileViewController ()
+
+@property UIImagePickerController *imagePickerController;
 
 @end
 
@@ -57,6 +60,20 @@
 
   self.nameTextField.inputAccessoryView = self.editToolbar;
   self.boxTextField.inputAccessoryView = self.editToolbar;
+
+  /////////////////////////////////////////////////////////////////
+  //Image Picker
+  self.imagePickerController = [[UIImagePickerController alloc] init];
+  self.imagePickerController.delegate = self;
+  self.imagePickerController.allowsEditing = YES;
+
+  /////////////////////////////////////////////////////////////////
+  //Image Buttom
+  //
+  //Disable image picking if not available
+  if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+    self.imageButton.userInteractionEnabled = NO;
+  }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -78,6 +95,8 @@
   
   self.dateOfBirthDatePicker.date = userProfile.dateOfBirth;
 
+  [self.imageButton setImage:userProfile.image forState:UIControlStateNormal];
+  
   [super viewWillAppear:animated];
 }
 
@@ -161,8 +180,47 @@
 
 - (void) invalidateUserProfileSummaryRow {
 
-  //Update the first row of the first section
-  [self.myBodyViewController.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:[NSIndexPath indexPathForItem:0 inSection:0]] withRowAnimation: NO];
+  dispatch_async(dispatch_get_main_queue(), ^{
+    //Update the first row of the first section
+    [self.myBodyViewController.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:[NSIndexPath indexPathForItem:0 inSection:0]] withRowAnimation: NO];
+  });
+
+}
+
+- (IBAction) startChangingImage {  
+  [self presentViewController:self.imagePickerController animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+  
+  UIImage *image = [info valueForKey:UIImagePickerControllerEditedImage];
+  UserProfile* userProfile = [App sharedInstance].userProfile;
+  userProfile.image = image;
+
+  if([MediaHelper enoughSpaceForImage:image]) {
+    
+    NSURL* imageURL = [MediaHelper saveImage:image forPurpose:MediaHelperPurposeUserProfile];
+    
+    if(imageURL) {
+      [self.imageButton setImage:image forState:UIControlStateNormal];
+      [self invalidateUserProfileSummaryRow];
+    } else {
+      
+      [UIHelper showMessage:NSLocalizedString(@"unexpected-problem-message", "There was an unexpected problem. If the problem persists, please contact us.")
+                  withTitle:NSLocalizedString(@"user-profile-cannot-change-profile-image-title", "Can't Change Profile Image")];
+    }
+  } else {
+    
+    [UIHelper showMessage:NSLocalizedString(@"no-space-in-device-message", @"Your device does not have enough space.")
+                withTitle:NSLocalizedString(@"user-profile-cannot-change-profile-image-title", "Can't Change Profile Image")];
+    
+  }
+  
+  [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+  [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
