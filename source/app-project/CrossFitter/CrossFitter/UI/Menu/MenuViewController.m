@@ -32,13 +32,13 @@
   self = [super initWithCoder:aDecoder];
   if(self) {
     
-    self.homeImageName = NSLocalizedString(@"home-screen-image", @"The image of the Home screen");
-    self.prwallImageName = NSLocalizedString(@"prwall-screen-image", @"The image of the PRWall screen");
-    self.wodImageName = NSLocalizedString(@"wod-screen-image", @"The image of the WOD screen");
-    self.workoutImageName = NSLocalizedString(@"workout-screen-image", @"The image of the Workout screen");
-    self.moveImageName = NSLocalizedString(@"move-screen-image", @"The image of the Move screen");
-    self.mybodyImageName = NSLocalizedString(@"mybody-screen-image", @"The image of the My Body screen");
-    self.infoImageName = NSLocalizedString(@"info-screen-image", @"The image of the Info screen");
+    self.homeImageName = @"home-screen-app-menu.png";
+    self.prwallImageName = @"prwall-screen-app-menu.png";
+    self.wodImageName = @"wod-screen-app-menu.png";
+    self.workoutImageName = @"workout-screen-app-menu.png";
+    self.moveImageName = @"move-screen-app-menu.png";
+    self.mybodyImageName = @"mybody-screen-app-menu.png";
+    self.infoImageName = @"info-screen-app-menu.png";
   }
   return self;
 }
