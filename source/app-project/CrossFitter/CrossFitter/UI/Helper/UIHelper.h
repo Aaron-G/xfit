@@ -30,5 +30,6 @@
 
 + (NSDateFormatter *)appDateFormat;
 
++ (void) showMessage:(NSString*) message withTitle:(NSString*) title;
 @end
  

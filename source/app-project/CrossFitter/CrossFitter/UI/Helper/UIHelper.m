@@ -59,12 +59,12 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   
   if((valueTrend == MeasurableValueTrendUp && valueTrendBetterDirection == MeasurableValueTrendBetterDirectionUp) ||
      (valueTrend == MeasurableValueTrendDown && valueTrendBetterDirection == MeasurableValueTrendBetterDirectionDown)) {
-    imageName = @"better-value-image";
+    imageName = @"better-value-direction";
   } else if((valueTrend == MeasurableValueTrendUp && valueTrendBetterDirection == MeasurableValueTrendBetterDirectionDown) ||
             (valueTrend == MeasurableValueTrendDown && valueTrendBetterDirection == MeasurableValueTrendBetterDirectionUp)) {
-    imageName = @"worse-value-image";
+    imageName = @"worse-value-direction";
   } else if(valueTrend == MeasurableValueTrendSame) {
-    imageName = @"same-value-image";
+    imageName = @"same-value-direction";
   }
   
   if(imageName) {
@@ -99,5 +99,15 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   return _appDateFormat;
 }
 
++ (void) showMessage:(NSString*) message withTitle:(NSString*) title {
+  
+  UIAlertView *alertView = [[UIAlertView alloc]
+                            initWithTitle:title
+                            message:message
+                            delegate:nil cancelButtonTitle:NSLocalizedString(@"ok-label", @"OK")
+                            otherButtonTitles:nil];
+  [alertView show];
+
+}
 
 @end
