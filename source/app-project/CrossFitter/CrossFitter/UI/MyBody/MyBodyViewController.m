@@ -83,7 +83,7 @@
                                            [App sharedInstance].userProfile.box];
     }
     
-    cell.userProfileImageButton.titleLabel.text = NSLocalizedString(@"mybody-user-profile-add-photo-label", @"Add Photo");
+    [cell.userProfileImageButton setImage:userProfile.image forState:UIControlStateNormal];
 
     return cell;
   }
