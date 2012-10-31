@@ -74,6 +74,8 @@ static App *sharedInstance = nil;
   //If first time - initialize model
   //if(appRunCount == 0) {
     [self initDataModel];
+  
+    [self initDirectoryStructure];
   //}
   
 }
@@ -123,6 +125,23 @@ static App *sharedInstance = nil;
   
   //WODs
   
+}
+
+- (void) initDirectoryStructure {
+  
+  NSFileManager * fileManager = [NSFileManager defaultManager];
+  NSArray* directoryPaths = [NSArray arrayWithObjects: UserImagesDirectory, UserImagesContentDirectory, UserImagesUserDirectory, UserVideosDirectory, UserVideosContentDirectory, nil];
+  
+  NSError *error = nil;
+  
+  for (NSString* directoryPath in directoryPaths) {
+    
+    if(![fileManager createDirectoryAtPath: [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), directoryPath] withIntermediateDirectories:YES attributes:nil error:&error]) {
+      if(error) {
+        NSLog(@"Cannot create app directory path %@ with this error: %@", directoryPath, [error description]);
+      }
+    }
+  }
 }
 
 - (NSInteger) applicationRunCount {
