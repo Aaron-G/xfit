@@ -21,6 +21,7 @@ typedef enum {
 @property NSDate* dateOfBirth;
 @property NSString* box;
 @property UserProfileSex sex;
+@property UIImage* image;
 
 @property NSDictionary* metrics;
 
