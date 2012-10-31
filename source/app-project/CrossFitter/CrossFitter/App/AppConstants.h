@@ -15,4 +15,24 @@
 extern const CGFloat ScreenSwitchAnimationDuration;
 extern const NSInteger NumberOfRunsToShowHelp;
 
+extern NSString* UserImagesDirectory;
+extern NSString* UserImagesContentDirectory;
+extern NSString* UserImagesUserDirectory;
+
+extern NSString* UserVideosDirectory;
+extern NSString* UserVideosContentDirectory;
+
+extern NSString* UserProfileImageName;
+extern NSString* UserProfileDefaultImageName;
+
+extern NSString* MoveImageNamePreffix;
+extern NSString* WorkoutImageNamePreffix;
+extern NSString* WODImageNamePreffix;
+extern NSString* BodyMetricImageNamePreffix;
+
+extern NSString* MoveVideoNamePreffix;
+extern NSString* WorkoutVideoNamePreffix;
+extern NSString* WODVideoNamePreffix;
+extern NSString* BodyMetricVideoNamePreffix;
+
 @end
