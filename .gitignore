@@ -16,3 +16,14 @@ project.xcworkspace
 *.DS_Store
 *.swp
 *.out
+source/app-mockup-project/.DS_Store
+
+source/app-project/.DS_Store
+
+source/app-project/CrossFitter/CrossFitter/Resources/.DS_Store
+
+source/app-project/CrossFitter/CrossFitter/Resources/Images/.DS_Store
+
+source/app-project/CrossFitter/CrossFitter/UI/Helper/.DS_Store
+
+source/app-project/CrossFitter/CrossFitter/en.lproj/.DS_Store
