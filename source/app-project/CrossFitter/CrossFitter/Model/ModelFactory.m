@@ -18,6 +18,10 @@
   profile.sex = UserProfileSexMale;
   profile.box = @"CrossFit Box";
   
+  //NSData * content = [[NSFileManager defaultManager] contentsAtPath: [NSString stringWithFormat:@"%@%@%@", NSHomeDirectory(), @"/Documents/Images/User/", @"user-profile1.png"]];
+  //profile.image = [UIImage imageWithData:content];
+  profile.image = [UIImage imageNamed:@"default-user-profile-image"];
+  
   NSDateComponents *comps = [[NSDateComponents alloc] init];
   [comps setDay:1];
   [comps setMonth:1];
