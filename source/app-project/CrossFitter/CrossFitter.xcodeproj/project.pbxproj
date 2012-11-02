@@ -10,6 +10,18 @@
 		7408404215D1810500A64D5B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7408404015D1810500A64D5B /* HomeViewController.m */; };
 		7408405115D1B31E00A64D5B /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = 7408405015D1B31E00A64D5B /* App.m */; };
 		740970371618032A00D2D9B8 /* MeasurableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 740970361618032900D2D9B8 /* MeasurableViewController.m */; };
+		740C364716442B1000152169 /* home-screen-app-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 740C364916442B1000152169 /* home-screen-app-menu.png */; };
+		740C364A16442B1500152169 /* info-screen-app-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 740C364C16442B1500152169 /* info-screen-app-menu.png */; };
+		740C364D16442B1900152169 /* move-screen-app-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 740C364F16442B1900152169 /* move-screen-app-menu.png */; };
+		740C365016442B1C00152169 /* mybody-screen-app-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 740C365216442B1C00152169 /* mybody-screen-app-menu.png */; };
+		740C365316442B2100152169 /* prwall-screen-app-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 740C365516442B2100152169 /* prwall-screen-app-menu.png */; };
+		740C365616442B2500152169 /* wod-screen-app-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 740C365816442B2500152169 /* wod-screen-app-menu.png */; };
+		740C365916442B2800152169 /* workout-screen-app-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 740C365B16442B2800152169 /* workout-screen-app-menu.png */; };
+		740C365C16442B3600152169 /* move-screen-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 740C365E16442B3600152169 /* move-screen-button.png */; };
+		740C365F16442B3A00152169 /* mybody-screen-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 740C366116442B3A00152169 /* mybody-screen-button.png */; };
+		740C366216442B3E00152169 /* prwall-screen-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 740C366416442B3E00152169 /* prwall-screen-button.png */; };
+		740C366516442B4200152169 /* wod-screen-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 740C366716442B4200152169 /* wod-screen-button.png */; };
+		740C366816442B4600152169 /* workout-screen-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 740C366A16442B4600152169 /* workout-screen-button.png */; };
 		740F437F160D696B00380CF5 /* InchFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 740F437E160D696B00380CF5 /* InchFormatter.m */; };
 		740F4382160D6E1100380CF5 /* PercentFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 740F4381160D6E1100380CF5 /* PercentFormatter.m */; };
 		740F4385160D718B00380CF5 /* FootInchFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 740F4384160D718B00380CF5 /* FootInchFormatter.m */; };
@@ -50,22 +62,7 @@
 		7461191715BC8DF900BEEAE2 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7461191515BC8DF900BEEAE2 /* MenuCell.m */; };
 		7465B172163AF357008D0AA7 /* MediaHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7465B171163AF357008D0AA7 /* MediaHelper.m */; };
 		7465B188163B0D2C008D0AA7 /* better-value-direction.png in Resources */ = {isa = PBXBuildFile; fileRef = 7465B185163B0D2C008D0AA7 /* better-value-direction.png */; };
-		7465B189163B0D2C008D0AA7 /* same-value-direction.png in Resources */ = {isa = PBXBuildFile; fileRef = 7465B186163B0D2C008D0AA7 /* same-value-direction.png */; };
 		7465B18A163B0D2C008D0AA7 /* worse-value-direction.png in Resources */ = {isa = PBXBuildFile; fileRef = 7465B187163B0D2C008D0AA7 /* worse-value-direction.png */; };
-		7465B199163B0F00008D0AA7 /* home-screen-app-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 7465B18B163B0EFF008D0AA7 /* home-screen-app-menu.png */; };
-		7465B19A163B0F00008D0AA7 /* home-screen-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7465B18C163B0EFF008D0AA7 /* home-screen-button.png */; };
-		7465B19B163B0F00008D0AA7 /* info-screen-app-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 7465B18D163B0EFF008D0AA7 /* info-screen-app-menu.png */; };
-		7465B19C163B0F00008D0AA7 /* info-screen-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7465B18E163B0EFF008D0AA7 /* info-screen-button.png */; };
-		7465B19D163B0F00008D0AA7 /* move-screen-app-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 7465B18F163B0EFF008D0AA7 /* move-screen-app-menu.png */; };
-		7465B19E163B0F00008D0AA7 /* move-screen-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7465B190163B0EFF008D0AA7 /* move-screen-button.png */; };
-		7465B19F163B0F00008D0AA7 /* mybody-screen-app-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 7465B191163B0EFF008D0AA7 /* mybody-screen-app-menu.png */; };
-		7465B1A0163B0F00008D0AA7 /* mybody-screen-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7465B192163B0EFF008D0AA7 /* mybody-screen-button.png */; };
-		7465B1A1163B0F00008D0AA7 /* prwall-screen-app-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 7465B193163B0EFF008D0AA7 /* prwall-screen-app-menu.png */; };
-		7465B1A2163B0F00008D0AA7 /* prwall-screen-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7465B194163B0EFF008D0AA7 /* prwall-screen-button.png */; };
-		7465B1A3163B0F00008D0AA7 /* wod-screen-app-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 7465B195163B0EFF008D0AA7 /* wod-screen-app-menu.png */; };
-		7465B1A4163B0F00008D0AA7 /* wod-screen-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7465B196163B0EFF008D0AA7 /* wod-screen-button.png */; };
-		7465B1A5163B0F00008D0AA7 /* workout-screen-app-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 7465B197163B0EFF008D0AA7 /* workout-screen-app-menu.png */; };
-		7465B1A6163B0F00008D0AA7 /* workout-screen-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7465B198163B0EFF008D0AA7 /* workout-screen-button.png */; };
 		7465B1A9163B175C008D0AA7 /* default-user-profile-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7465B1A8163B175C008D0AA7 /* default-user-profile-image.png */; };
 		747BC84515D80F4500AC2150 /* AppViewControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 747BC84415D80F4500AC2150 /* AppViewControllerSegue.m */; };
 		747D62AA15D47ABA00360084 /* AppScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 747D62A915D47AB900360084 /* AppScreen.m */; };
@@ -84,6 +81,7 @@
 		74BD96DE15FBC9F2009F34A9 /* BodyMetric.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BD96DD15FBC9F2009F34A9 /* BodyMetric.m */; };
 		74BD96E515FC448D009F34A9 /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BD96E415FC448D009F34A9 /* Unit.m */; };
 		74BD96ED15FCF978009F34A9 /* UIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BD96EC15FCF978009F34A9 /* UIHelper.m */; };
+		74C0E65F16442F8C000F6282 /* home-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C0E65E16442F8C000F6282 /* home-background.png */; };
 		74C2759215D87ACF00BB1F1A /* AppScreenSwitchDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2758F15D87ACF00BB1F1A /* AppScreenSwitchDelegate.m */; };
 		74C2759315D87ACF00BB1F1A /* AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2759115D87ACF00BB1F1A /* AppViewController.m */; };
 		74C2759615D87DA900BB1F1A /* ShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2759515D87DA900BB1F1A /* ShareDelegate.m */; };
@@ -91,6 +89,7 @@
 		74C2759C15D8826400BB1F1A /* PRWallScreenShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2759B15D8826400BB1F1A /* PRWallScreenShareDelegate.m */; };
 		74C2759F15D883E000BB1F1A /* MyBodyScreenShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2759E15D883E000BB1F1A /* MyBodyScreenShareDelegate.m */; };
 		74C275A615DC7C9300BB1F1A /* InfoScreenShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C275A515DC7C9300BB1F1A /* InfoScreenShareDelegate.m */; };
+		74C86AAA16434563007C516B /* same-value-direction.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C86AA916434563007C516B /* same-value-direction.png */; };
 		74C8DBDA1633228200F5AD66 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C8DBD91633228200F5AD66 /* UserProfileViewController.m */; };
 		74CA4E6F15D86AD600DA3F10 /* HomeScreenSwitchDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CA4E6E15D86AD600DA3F10 /* HomeScreenSwitchDelegate.m */; };
 		74CA4E7215D86AE200DA3F10 /* InfoScreenSwitchDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CA4E7115D86AE200DA3F10 /* InfoScreenSwitchDelegate.m */; };
@@ -130,6 +129,18 @@
 		7408405015D1B31E00A64D5B /* App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = App.m; path = App/App.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		740970351618032800D2D9B8 /* MeasurableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = MeasurableViewController.h; path = UI/MeasurableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		740970361618032900D2D9B8 /* MeasurableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MeasurableViewController.m; path = UI/MeasurableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		740C364816442B1000152169 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/home-screen-app-menu.png"; sourceTree = "<group>"; };
+		740C364B16442B1500152169 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/info-screen-app-menu.png"; sourceTree = "<group>"; };
+		740C364E16442B1900152169 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/move-screen-app-menu.png"; sourceTree = "<group>"; };
+		740C365116442B1C00152169 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/mybody-screen-app-menu.png"; sourceTree = "<group>"; };
+		740C365416442B2100152169 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/prwall-screen-app-menu.png"; sourceTree = "<group>"; };
+		740C365716442B2500152169 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/wod-screen-app-menu.png"; sourceTree = "<group>"; };
+		740C365A16442B2800152169 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/workout-screen-app-menu.png"; sourceTree = "<group>"; };
+		740C365D16442B3600152169 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/move-screen-button.png"; sourceTree = "<group>"; };
+		740C366016442B3A00152169 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/mybody-screen-button.png"; sourceTree = "<group>"; };
+		740C366316442B3E00152169 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/prwall-screen-button.png"; sourceTree = "<group>"; };
+		740C366616442B4200152169 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/wod-screen-button.png"; sourceTree = "<group>"; };
+		740C366916442B4600152169 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/workout-screen-button.png"; sourceTree = "<group>"; };
 		740F437B160D68E100380CF5 /* UnitValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnitValueFormatter.h; path = UI/Helper/Formatter/Unit/UnitValueFormatter.h; sourceTree = "<group>"; };
 		740F437D160D696B00380CF5 /* InchFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InchFormatter.h; path = UI/Helper/Formatter/Unit/InchFormatter.h; sourceTree = "<group>"; };
 		740F437E160D696B00380CF5 /* InchFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InchFormatter.m; path = UI/Helper/Formatter/Unit/InchFormatter.m; sourceTree = "<group>"; };
@@ -197,22 +208,7 @@
 		7465B170163AF357008D0AA7 /* MediaHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaHelper.h; path = UI/Helper/Media/MediaHelper.h; sourceTree = "<group>"; };
 		7465B171163AF357008D0AA7 /* MediaHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaHelper.m; path = UI/Helper/Media/MediaHelper.m; sourceTree = "<group>"; };
 		7465B185163B0D2C008D0AA7 /* better-value-direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "better-value-direction.png"; path = "CrossFitter/Resources/Images/App/better-value-direction.png"; sourceTree = SOURCE_ROOT; };
-		7465B186163B0D2C008D0AA7 /* same-value-direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "same-value-direction.png"; path = "CrossFitter/Resources/Images/App/same-value-direction.png"; sourceTree = SOURCE_ROOT; };
 		7465B187163B0D2C008D0AA7 /* worse-value-direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "worse-value-direction.png"; path = "CrossFitter/Resources/Images/App/worse-value-direction.png"; sourceTree = SOURCE_ROOT; };
-		7465B18B163B0EFF008D0AA7 /* home-screen-app-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-screen-app-menu.png"; sourceTree = "<group>"; };
-		7465B18C163B0EFF008D0AA7 /* home-screen-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-screen-button.png"; sourceTree = "<group>"; };
-		7465B18D163B0EFF008D0AA7 /* info-screen-app-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-screen-app-menu.png"; sourceTree = "<group>"; };
-		7465B18E163B0EFF008D0AA7 /* info-screen-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-screen-button.png"; sourceTree = "<group>"; };
-		7465B18F163B0EFF008D0AA7 /* move-screen-app-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "move-screen-app-menu.png"; sourceTree = "<group>"; };
-		7465B190163B0EFF008D0AA7 /* move-screen-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "move-screen-button.png"; sourceTree = "<group>"; };
-		7465B191163B0EFF008D0AA7 /* mybody-screen-app-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mybody-screen-app-menu.png"; sourceTree = "<group>"; };
-		7465B192163B0EFF008D0AA7 /* mybody-screen-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mybody-screen-button.png"; sourceTree = "<group>"; };
-		7465B193163B0EFF008D0AA7 /* prwall-screen-app-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prwall-screen-app-menu.png"; sourceTree = "<group>"; };
-		7465B194163B0EFF008D0AA7 /* prwall-screen-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prwall-screen-button.png"; sourceTree = "<group>"; };
-		7465B195163B0EFF008D0AA7 /* wod-screen-app-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wod-screen-app-menu.png"; sourceTree = "<group>"; };
-		7465B196163B0EFF008D0AA7 /* wod-screen-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wod-screen-button.png"; sourceTree = "<group>"; };
-		7465B197163B0EFF008D0AA7 /* workout-screen-app-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout-screen-app-menu.png"; sourceTree = "<group>"; };
-		7465B198163B0EFF008D0AA7 /* workout-screen-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout-screen-button.png"; sourceTree = "<group>"; };
 		7465B1A8163B175C008D0AA7 /* default-user-profile-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-user-profile-image.png"; path = "CrossFitter/Resources/Images/Default/default-user-profile-image.png"; sourceTree = SOURCE_ROOT; };
 		747BC84315D80F4500AC2150 /* AppViewControllerSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppViewControllerSegue.h; path = UI/AppViewControllerSegue.h; sourceTree = "<group>"; };
 		747BC84415D80F4500AC2150 /* AppViewControllerSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppViewControllerSegue.m; path = UI/AppViewControllerSegue.m; sourceTree = "<group>"; };
@@ -248,6 +244,7 @@
 		74BD96EA15FCF6DA009F34A9 /* Measurable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = Measurable.h; path = Model/Core/Measurable.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		74BD96EB15FCF978009F34A9 /* UIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = UIHelper.h; path = UI/Helper/UIHelper.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		74BD96EC15FCF978009F34A9 /* UIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = UIHelper.m; path = UI/Helper/UIHelper.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		74C0E65E16442F8C000F6282 /* home-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home-background.png"; path = "CrossFitter/Resources/Images/App/Home/home-background.png"; sourceTree = SOURCE_ROOT; };
 		74C2758E15D87ACF00BB1F1A /* AppScreenSwitchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppScreenSwitchDelegate.h; path = UI/AppScreenSwitchDelegate.h; sourceTree = "<group>"; };
 		74C2758F15D87ACF00BB1F1A /* AppScreenSwitchDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppScreenSwitchDelegate.m; path = UI/AppScreenSwitchDelegate.m; sourceTree = "<group>"; };
 		74C2759015D87ACF00BB1F1A /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppViewController.h; path = UI/AppViewController.h; sourceTree = "<group>"; };
@@ -262,6 +259,7 @@
 		74C2759E15D883E000BB1F1A /* MyBodyScreenShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBodyScreenShareDelegate.m; path = UI/MyBody/MyBodyScreenShareDelegate.m; sourceTree = "<group>"; };
 		74C275A415DC7C9300BB1F1A /* InfoScreenShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoScreenShareDelegate.h; path = UI/Info/InfoScreenShareDelegate.h; sourceTree = "<group>"; };
 		74C275A515DC7C9300BB1F1A /* InfoScreenShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoScreenShareDelegate.m; path = UI/Info/InfoScreenShareDelegate.m; sourceTree = "<group>"; };
+		74C86AA916434563007C516B /* same-value-direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "same-value-direction.png"; path = "CrossFitter/Resources/Images/App/same-value-direction.png"; sourceTree = SOURCE_ROOT; };
 		74C8DBD81633228200F5AD66 /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = UserProfileViewController.h; path = UI/MyBody/UserProfileViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		74C8DBD91633228200F5AD66 /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = UserProfileViewController.m; path = UI/MyBody/UserProfileViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		74CA4E6D15D86AD600DA3F10 /* HomeScreenSwitchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = HomeScreenSwitchDelegate.h; path = UI/Home/HomeScreenSwitchDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -356,6 +354,34 @@
 				74E9D5F215BB763900B005B3 /* Images */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		740C362C16442A9600152169 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				740C365E16442B3600152169 /* move-screen-button.png */,
+				740C366116442B3A00152169 /* mybody-screen-button.png */,
+				740C366416442B3E00152169 /* prwall-screen-button.png */,
+				740C366716442B4200152169 /* wod-screen-button.png */,
+				740C366A16442B4600152169 /* workout-screen-button.png */,
+			);
+			name = Home;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		740C362E16442A9B00152169 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				740C364916442B1000152169 /* home-screen-app-menu.png */,
+				740C364C16442B1500152169 /* info-screen-app-menu.png */,
+				740C364F16442B1900152169 /* move-screen-app-menu.png */,
+				740C365216442B1C00152169 /* mybody-screen-app-menu.png */,
+				740C365516442B2100152169 /* prwall-screen-app-menu.png */,
+				740C365816442B2500152169 /* wod-screen-app-menu.png */,
+				740C365B16442B2800152169 /* workout-screen-app-menu.png */,
+			);
+			name = Menu;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		741BBC4315B7C2E300660BE6 = {
@@ -492,8 +518,9 @@
 		7465B173163B04CD008D0AA7 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				74C0E66116443262000F6282 /* Home */,
+				74C86AA916434563007C516B /* same-value-direction.png */,
 				7465B185163B0D2C008D0AA7 /* better-value-direction.png */,
-				7465B186163B0D2C008D0AA7 /* same-value-direction.png */,
 				7465B187163B0D2C008D0AA7 /* worse-value-direction.png */,
 			);
 			name = App;
@@ -523,20 +550,8 @@
 		7465B176163B0611008D0AA7 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				7465B18B163B0EFF008D0AA7 /* home-screen-app-menu.png */,
-				7465B18C163B0EFF008D0AA7 /* home-screen-button.png */,
-				7465B18D163B0EFF008D0AA7 /* info-screen-app-menu.png */,
-				7465B18E163B0EFF008D0AA7 /* info-screen-button.png */,
-				7465B18F163B0EFF008D0AA7 /* move-screen-app-menu.png */,
-				7465B190163B0EFF008D0AA7 /* move-screen-button.png */,
-				7465B191163B0EFF008D0AA7 /* mybody-screen-app-menu.png */,
-				7465B192163B0EFF008D0AA7 /* mybody-screen-button.png */,
-				7465B193163B0EFF008D0AA7 /* prwall-screen-app-menu.png */,
-				7465B194163B0EFF008D0AA7 /* prwall-screen-button.png */,
-				7465B195163B0EFF008D0AA7 /* wod-screen-app-menu.png */,
-				7465B196163B0EFF008D0AA7 /* wod-screen-button.png */,
-				7465B197163B0EFF008D0AA7 /* workout-screen-app-menu.png */,
-				7465B198163B0EFF008D0AA7 /* workout-screen-button.png */,
+				740C362E16442A9B00152169 /* Menu */,
+				740C362C16442A9600152169 /* Home */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -672,6 +687,14 @@
 				74A3982E160D5D01003AD87B /* Unit */,
 			);
 			name = Formatter;
+			sourceTree = "<group>";
+		};
+		74C0E66116443262000F6282 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				74C0E65E16442F8C000F6282 /* home-background.png */,
+			);
+			name = Home;
 			sourceTree = "<group>";
 		};
 		74C275A015DBE80400BB1F1A /* Helper */ = {
@@ -852,23 +875,22 @@
 				744EFB0C15FB1C12000AECBA /* MyBodyUserProfileTableViewCell.xib in Resources */,
 				743F8D80161FCE26006871D0 /* MeasurableTitleView.xib in Resources */,
 				7465B188163B0D2C008D0AA7 /* better-value-direction.png in Resources */,
-				7465B189163B0D2C008D0AA7 /* same-value-direction.png in Resources */,
 				7465B18A163B0D2C008D0AA7 /* worse-value-direction.png in Resources */,
-				7465B199163B0F00008D0AA7 /* home-screen-app-menu.png in Resources */,
-				7465B19A163B0F00008D0AA7 /* home-screen-button.png in Resources */,
-				7465B19B163B0F00008D0AA7 /* info-screen-app-menu.png in Resources */,
-				7465B19C163B0F00008D0AA7 /* info-screen-button.png in Resources */,
-				7465B19D163B0F00008D0AA7 /* move-screen-app-menu.png in Resources */,
-				7465B19E163B0F00008D0AA7 /* move-screen-button.png in Resources */,
-				7465B19F163B0F00008D0AA7 /* mybody-screen-app-menu.png in Resources */,
-				7465B1A0163B0F00008D0AA7 /* mybody-screen-button.png in Resources */,
-				7465B1A1163B0F00008D0AA7 /* prwall-screen-app-menu.png in Resources */,
-				7465B1A2163B0F00008D0AA7 /* prwall-screen-button.png in Resources */,
-				7465B1A3163B0F00008D0AA7 /* wod-screen-app-menu.png in Resources */,
-				7465B1A4163B0F00008D0AA7 /* wod-screen-button.png in Resources */,
-				7465B1A5163B0F00008D0AA7 /* workout-screen-app-menu.png in Resources */,
-				7465B1A6163B0F00008D0AA7 /* workout-screen-button.png in Resources */,
 				7465B1A9163B175C008D0AA7 /* default-user-profile-image.png in Resources */,
+				74C86AAA16434563007C516B /* same-value-direction.png in Resources */,
+				740C364716442B1000152169 /* home-screen-app-menu.png in Resources */,
+				740C364A16442B1500152169 /* info-screen-app-menu.png in Resources */,
+				740C364D16442B1900152169 /* move-screen-app-menu.png in Resources */,
+				740C365016442B1C00152169 /* mybody-screen-app-menu.png in Resources */,
+				740C365316442B2100152169 /* prwall-screen-app-menu.png in Resources */,
+				740C365616442B2500152169 /* wod-screen-app-menu.png in Resources */,
+				740C365916442B2800152169 /* workout-screen-app-menu.png in Resources */,
+				740C365C16442B3600152169 /* move-screen-button.png in Resources */,
+				740C365F16442B3A00152169 /* mybody-screen-button.png in Resources */,
+				740C366216442B3E00152169 /* prwall-screen-button.png in Resources */,
+				740C366516442B4200152169 /* wod-screen-button.png in Resources */,
+				740C366816442B4600152169 /* workout-screen-button.png in Resources */,
+				74C0E65F16442F8C000F6282 /* home-background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -995,6 +1017,114 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		740C364916442B1000152169 /* home-screen-app-menu.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				740C364816442B1000152169 /* en */,
+			);
+			name = "home-screen-app-menu.png";
+			path = CrossFitter/Resources/Images/App/Menu;
+			sourceTree = SOURCE_ROOT;
+		};
+		740C364C16442B1500152169 /* info-screen-app-menu.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				740C364B16442B1500152169 /* en */,
+			);
+			name = "info-screen-app-menu.png";
+			path = CrossFitter/Resources/Images/App/Menu;
+			sourceTree = SOURCE_ROOT;
+		};
+		740C364F16442B1900152169 /* move-screen-app-menu.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				740C364E16442B1900152169 /* en */,
+			);
+			name = "move-screen-app-menu.png";
+			path = CrossFitter/Resources/Images/App/Menu;
+			sourceTree = SOURCE_ROOT;
+		};
+		740C365216442B1C00152169 /* mybody-screen-app-menu.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				740C365116442B1C00152169 /* en */,
+			);
+			name = "mybody-screen-app-menu.png";
+			path = CrossFitter/Resources/Images/App/Menu;
+			sourceTree = SOURCE_ROOT;
+		};
+		740C365516442B2100152169 /* prwall-screen-app-menu.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				740C365416442B2100152169 /* en */,
+			);
+			name = "prwall-screen-app-menu.png";
+			path = CrossFitter/Resources/Images/App/Menu;
+			sourceTree = SOURCE_ROOT;
+		};
+		740C365816442B2500152169 /* wod-screen-app-menu.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				740C365716442B2500152169 /* en */,
+			);
+			name = "wod-screen-app-menu.png";
+			path = CrossFitter/Resources/Images/App/Menu;
+			sourceTree = SOURCE_ROOT;
+		};
+		740C365B16442B2800152169 /* workout-screen-app-menu.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				740C365A16442B2800152169 /* en */,
+			);
+			name = "workout-screen-app-menu.png";
+			path = CrossFitter/Resources/Images/App/Menu;
+			sourceTree = SOURCE_ROOT;
+		};
+		740C365E16442B3600152169 /* move-screen-button.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				740C365D16442B3600152169 /* en */,
+			);
+			name = "move-screen-button.png";
+			path = CrossFitter/Resources/Images/App/Home;
+			sourceTree = SOURCE_ROOT;
+		};
+		740C366116442B3A00152169 /* mybody-screen-button.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				740C366016442B3A00152169 /* en */,
+			);
+			name = "mybody-screen-button.png";
+			path = CrossFitter/Resources/Images/App/Home;
+			sourceTree = SOURCE_ROOT;
+		};
+		740C366416442B3E00152169 /* prwall-screen-button.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				740C366316442B3E00152169 /* en */,
+			);
+			name = "prwall-screen-button.png";
+			path = CrossFitter/Resources/Images/App/Home;
+			sourceTree = SOURCE_ROOT;
+		};
+		740C366716442B4200152169 /* wod-screen-button.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				740C366616442B4200152169 /* en */,
+			);
+			name = "wod-screen-button.png";
+			path = CrossFitter/Resources/Images/App/Home;
+			sourceTree = SOURCE_ROOT;
+		};
+		740C366A16442B4600152169 /* workout-screen-button.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				740C366916442B4600152169 /* en */,
+			);
+			name = "workout-screen-button.png";
+			path = CrossFitter/Resources/Images/App/Home;
+			sourceTree = SOURCE_ROOT;
+		};
 		741BBC5B15B7C2E300660BE6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
