@@ -75,15 +75,10 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
-                                    <view contentMode="scaleToFill" id="cD3-Vn-6F1" userLabel="Divider Right">
-                                        <rect key="frame" x="175" y="60" width="145" height="1"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
                                     <view contentMode="scaleToFill" id="DRO-17-boV" userLabel="Divider Left">
-                                        <rect key="frame" x="0.0" y="60" width="145" height="1"/>
+                                        <rect key="frame" x="0.0" y="60" width="320" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <containerView contentMode="scaleToFill" id="eL5-0K-KBN" userLabel="Menu View">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
@@ -134,8 +129,12 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="home-background.png" id="iWU-fW-tWB">
+                                <rect key="frame" x="0.0" y="-21" width="320" height="481"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="y7j-0e-pnv" userLabel="PRWall">
-                                <rect key="frame" x="12" y="8" width="143" height="95"/>
+                                <rect key="frame" x="14" y="47" width="143" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
@@ -153,7 +152,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uZ2-An-OyR" userLabel="MyBody">
-                                <rect key="frame" x="162" y="8" width="143" height="95"/>
+                                <rect key="frame" x="164" y="47" width="143" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
@@ -171,7 +170,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qMr-eC-n7x" userLabel="Workout">
-                                <rect key="frame" x="162" y="239" width="143" height="95"/>
+                                <rect key="frame" x="164" y="278" width="143" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
@@ -189,7 +188,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yHh-ns-c9q" userLabel="Move">
-                                <rect key="frame" x="12" y="239" width="143" height="95"/>
+                                <rect key="frame" x="14" y="278" width="143" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
@@ -207,7 +206,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ORD-wM-dEA" userLabel="WOD">
-                                <rect key="frame" x="89" y="123" width="143" height="94"/>
+                                <rect key="frame" x="91" y="162" width="143" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
@@ -225,15 +224,14 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
-                        <outlet property="moveButton" destination="yHh-ns-c9q" id="BhI-VO-wYx"/>
-                        <outlet property="myBodyButton" destination="uZ2-An-OyR" id="R6a-wx-H4C"/>
-                        <outlet property="prWallButton" destination="y7j-0e-pnv" id="Z48-vv-x7x"/>
+                        <outlet property="moveButton" destination="yHh-ns-c9q" id="lW5-Nw-n6w"/>
+                        <outlet property="myBodyButton" destination="uZ2-An-OyR" id="FHU-Ed-M3b"/>
+                        <outlet property="prWallButton" destination="y7j-0e-pnv" id="7sZ-7t-DRn"/>
                         <outlet property="view" destination="fkP-qk-pPX" id="lhq-B6-TdR"/>
-                        <outlet property="wodButton" destination="ORD-wM-dEA" id="etd-AY-Eab"/>
-                        <outlet property="workoutButton" destination="qMr-eC-n7x" id="haj-ZJ-CYe"/>
+                        <outlet property="wodButton" destination="ORD-wM-dEA" id="zXv-Xg-0Mj"/>
+                        <outlet property="workoutButton" destination="qMr-eC-n7x" id="DeR-a4-Hwo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yWg-d2-eDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1217,6 +1215,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="2046" y="4847"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home-background.png" width="639" height="960"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
