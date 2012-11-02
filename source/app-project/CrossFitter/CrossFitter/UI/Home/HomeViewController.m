@@ -38,11 +38,11 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  [self.prWallButton setImage: [UIImage imageNamed:@"prwall-screen-button.png"] forState:UIControlStateNormal];
-  [self.wodButton setImage: [UIImage imageNamed:@"wod-screen-button.png"] forState:UIControlStateNormal];
-  [self.workoutButton setImage: [UIImage imageNamed:@"workout-screen-button.png"] forState:UIControlStateNormal];
-  [self.myBodyButton setImage: [UIImage imageNamed:@"mybody-screen-button.png"] forState:UIControlStateNormal];
-  [self.moveButton setImage: [UIImage imageNamed:@"move-screen-button.png"] forState:UIControlStateNormal];
+  [self.prWallButton setImage: [UIImage imageNamed:@"prwall-screen-button"] forState:UIControlStateNormal];
+  [self.wodButton setImage: [UIImage imageNamed:@"wod-screen-button"] forState:UIControlStateNormal];
+  [self.workoutButton setImage: [UIImage imageNamed:@"workout-screen-button"] forState:UIControlStateNormal];
+  [self.myBodyButton setImage: [UIImage imageNamed:@"mybody-screen-button"] forState:UIControlStateNormal];
+  [self.moveButton setImage: [UIImage imageNamed:@"move-screen-button"] forState:UIControlStateNormal];
 }
 
 - (IBAction) displayPRWall {
