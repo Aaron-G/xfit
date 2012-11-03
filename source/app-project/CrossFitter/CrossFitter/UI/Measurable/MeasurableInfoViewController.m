@@ -9,12 +9,13 @@
 #import "MeasurableInfoViewController.h"
 #import "MeasurableShareDelegate.h"
 #import "MeasurableInfoShareDelegate.h"
+#import "MeasurableHelper.h"
+#import "MeasurableInfoUpdateDelegate.h"
 
 @interface MeasurableInfoViewController ()
 
 @property BOOL needsUIUpdate;
 @property MeasurableShareDelegate* shareDelegate;
-
 @end
 
 @implementation MeasurableInfoViewController
@@ -30,6 +31,12 @@
   return self;
 }
 
+-(void)viewDidLoad {
+  [super viewDidLoad];
+  
+  [self updateUI];
+}
+
 - (void)setMeasurable:(id<Measurable>)measurable {
   _measurable = measurable;
 
@@ -37,11 +44,6 @@
   [self updateUI];
 }
 
--(void)viewDidLoad {
-  [super viewDidLoad];
-  
-  [self updateUI];
-}
 - (id<Measurable>)measurable {
   return _measurable;
 }
@@ -57,8 +59,9 @@
     
     if (self.measurable && self.descriptionTextView) {
       
-      self.descriptionTextView.text = self.measurable.metadataProvider.description;
-      self.metadataTextView.text = self.measurable.metadataProvider.metadataFull;
+      //Update the UI components
+      id<MeasurableInfoUpdateDelegate> updateDelegate = [MeasurableHelper measurableInfoUpdateDelegateForMeasurable:self.measurable];
+      [updateDelegate updateUIWithMeasurable:self.measurable inMeasurableInfoViewController:self];
       
       self.needsUIUpdate = NO;
     }
