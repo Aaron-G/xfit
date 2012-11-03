@@ -27,15 +27,22 @@ static NSMutableDictionary* _measurableInfoUpdateDelegates;
 
   MeasurableTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MeasurableTableViewCell"];
   
+  BOOL hasValue = (measurable.dataProvider.value != nil);
+  
   cell.measurableNameLabel.text = measurable.metadataProvider.name;
-  cell.measurableValueLabel.text = [measurable.valueFormatter formatValue:measurable.dataProvider.value];
   cell.measurableMetadataLabel.text = measurable.metadataProvider.metadataShort;
-  
-  NSString *dateString = [MeasurableHelper.measurableDateFormat stringFromDate:measurable.dataProvider.date];
-  cell.measurableDateLabel.text = dateString;
-  
-  //Adjust the trend image to tailor to the metric specifics
+
   [UIHelper adjustImage:cell.measurableTrendImageButton forMeasurable:measurable];
+  
+  if(hasValue) {
+    cell.measurableValueLabel.text = [measurable.valueFormatter formatValue:measurable.dataProvider.value];
+
+    NSString *dateString = [MeasurableHelper.measurableDateFormat stringFromDate:measurable.dataProvider.date];
+    cell.measurableDateLabel.text = dateString;
+  } else {
+    cell.measurableValueLabel.text = nil;
+    cell.measurableDateLabel.text = nil;
+  }
   
   return cell;
 }

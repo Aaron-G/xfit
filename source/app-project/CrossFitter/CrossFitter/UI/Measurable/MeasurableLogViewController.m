@@ -74,7 +74,8 @@
   //THIS NEEDS TO BE UPDATED TO USE THE PROPER API
   NSMutableArray* newValues = [NSMutableArray arrayWithArray: self.measurable.dataProvider.values];
   [newValues removeObjectAtIndex:indexPath.item];
-  self.measurable.dataProvider.values = newValues;
+  self.measurable.dataProvider.values = newValues;  
+  [self invalidateMeasurableRow];
   /////////////////////////////////////////////////////////////////////////////////////////////////
   
   [self.tableView deleteRowsAtIndexPaths: [NSArray arrayWithObject: indexPath] withRowAnimation: YES];
@@ -111,11 +112,23 @@
     //THIS NEEDS TO BE UPDATED TO USE THE PROPER API
     self.measurable.dataProvider.values = [NSMutableArray array];
     [self.tableView reloadData];
+    
+    [self invalidateMeasurableRow];
+    
     /////////////////////////////////////////////////////////////////////////////////////////////////
 
     [UIHelper measurableViewController].barButtonItemClearLog.enabled = NO;
   }
 
+}
+
+- (void) invalidateMeasurableRow {
+  
+  dispatch_async(dispatch_get_main_queue(), ^{    
+    //Tell the associated Measurable Collection Display that this measurable has changed
+    [[UIHelper measurableViewController].measurableCollectionDisplay updateMeasurable: self.measurable.metadataProvider.measurableIdentifier];
+  });
+  
 }
 
 @end

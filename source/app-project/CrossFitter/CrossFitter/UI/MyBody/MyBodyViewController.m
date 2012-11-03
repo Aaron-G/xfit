@@ -159,6 +159,60 @@
   return BodyMetricIdentifierInvalid;
 }
 
+- (NSIndexPath *) indexPathForMetricIdentifier: (MeasurableIdentifier) bodyMetricIdentifier {
+  
+  NSInteger section = -1;
+  NSInteger item = -1;
+  
+  if(BodyMetricIdentifierHeight == bodyMetricIdentifier) {
+    section = 1;
+    item = 0;
+  } else if(BodyMetricIdentifierWeight == bodyMetricIdentifier) {
+    section = 1;
+    item = 1;
+  } else if(BodyMetricIdentifierBodyMassIndex == bodyMetricIdentifier) {
+    section = 2;
+    item = 0;
+  } else if(BodyMetricIdentifierBodyFat == bodyMetricIdentifier) {
+    section = 2;
+    item = 1;
+  } else if(BodyMetricIdentifierChest == bodyMetricIdentifier) {
+    section = 3;
+    item = 0;
+  } else if(BodyMetricIdentifierBiceptsRight == bodyMetricIdentifier) {
+    section = 3;
+    item = 1;
+  } else if(BodyMetricIdentifierBiceptsLeft == bodyMetricIdentifier) {
+    section = 3;
+    item = 2;
+  } else if(BodyMetricIdentifierWaist == bodyMetricIdentifier) {
+    section = 4;
+    item = 0;
+  } else if(BodyMetricIdentifierHip == bodyMetricIdentifier) {
+    section = 4;
+    item = 1;
+  } else if(BodyMetricIdentifierThighRight == bodyMetricIdentifier) {
+    section = 5;
+    item = 0;
+  } else if(BodyMetricIdentifierThighLeft == bodyMetricIdentifier) {
+    section = 5;
+    item = 1;
+  } else if(BodyMetricIdentifierCalfRight == bodyMetricIdentifier) {
+    section = 5;
+    item = 2;
+  } else if(BodyMetricIdentifierCalfLeft == bodyMetricIdentifier) {
+    section = 5;
+    item = 3;
+  }
+  
+  if(section == -1 || item == -1) {
+    return nil;
+  } else {
+    return [NSIndexPath indexPathForItem:item inSection:section];
+  }
+  
+}
+
 //Add proper behavior to cell selection
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   
@@ -183,6 +237,7 @@
       
       MeasurableViewController* measurableViewController = [UIHelper measurableViewController];
       measurableViewController.measurable = metric;
+      measurableViewController.measurableCollectionDisplay = self;
       
       AppViewControllerSegue* appViewControllerSegue =
       [[AppViewControllerSegue alloc] initWithIdentifier:@"My Body to Body Metric"
@@ -198,5 +253,13 @@
   [self.appScreenShareDelegate share];
 }
 
+- (void) updateMeasurable:(MeasurableIdentifier) measurableIdenfitier {
+  
+  NSIndexPath* indexPath =  [self indexPathForMetricIdentifier:measurableIdenfitier];
+  
+  if(indexPath) {
+    [self.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:indexPath] withRowAnimation: NO];
+  }
+}
 
 @end
