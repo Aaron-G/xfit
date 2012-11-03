@@ -10,6 +10,8 @@
 #import "MeasurableTableViewCell.h"
 #import "UIHelper.h"
 #import "MeasurableDataEntryTableViewCell.h"
+#import "MeasurableType.h"
+#import "BodyMetricInfoUpdateDelegate.h"
 
 @interface MeasurableHelper () {
 }
@@ -18,7 +20,8 @@
 
 @implementation MeasurableHelper
 
-static NSDateFormatter *_measurableDateFormat;
+static NSDateFormatter* _measurableDateFormat;
+static NSMutableDictionary* _measurableInfoUpdateDelegates;
 
 + (UITableViewCell *)tableViewCellForMeasurable: (id <Measurable>) measurable inTableView: (UITableView *)tableView {
 
@@ -61,4 +64,30 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   }
   return _measurableDateFormat;
 }
+
++ (NSMutableDictionary*) measurableInfoUpdateDelegates {
+  if(!_measurableInfoUpdateDelegates) {
+    _measurableInfoUpdateDelegates = [NSMutableDictionary dictionary];
+  }
+  return _measurableInfoUpdateDelegates;
+}
+
++ (id<MeasurableInfoUpdateDelegate>)measurableInfoUpdateDelegateForMeasurable:(id<Measurable>)measurable {
+
+  MeasurableType* measurableType = measurable.metadataProvider.type;
+  
+  id<MeasurableInfoUpdateDelegate> measurableInfoUpdateDelegate = [[MeasurableHelper measurableInfoUpdateDelegates] objectForKey: measurableType.displayName];
+  
+  if(!measurableInfoUpdateDelegate) {
+    
+    if(measurableType.identifier == MeasurableTypeIdentifierBodyMetric) {
+      measurableInfoUpdateDelegate  = [[BodyMetricInfoUpdateDelegate alloc] init];
+    }
+    
+    [[MeasurableHelper measurableInfoUpdateDelegates] setObject:measurableInfoUpdateDelegate forKey: measurableType.displayName];
+  }
+  
+  return measurableInfoUpdateDelegate;  
+}
+
 @end
