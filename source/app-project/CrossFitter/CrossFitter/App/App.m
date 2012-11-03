@@ -28,6 +28,7 @@ static App *sharedInstance = nil;
 
 @synthesize appDelegate = _appDelegate;
 @synthesize userProfile = _userProfile;
+@synthesize started = _started;
 
 ////////////////////////////////////////////////////////////////
 //View Controllers that are "provided" by the App
@@ -45,6 +46,7 @@ static App *sharedInstance = nil;
   self = [super init];
   if(self) {
     self.appMenuDisplayedAtStartup = NO;
+    _started = NO;
   }
   return self;
 }
@@ -78,6 +80,7 @@ static App *sharedInstance = nil;
     [self initDirectoryStructure];
   //}
   
+  _started = YES;
 }
 
 //Show and Hide the Application menu after a short moment - only the first
@@ -117,7 +120,6 @@ static App *sharedInstance = nil;
   //Body Metrics
   NSDictionary* metrics = [ModelFactory createDefaultBodyMetrics];
   _userProfile.metrics = metrics;
-
   
   //Moves
   

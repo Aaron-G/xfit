@@ -26,6 +26,7 @@
 @property (nonatomic, readonly) NSString* appSupportEmail;
 @property (nonatomic, readonly) NSString* appVersion;
 @property (readonly) UserProfile* userProfile;
+@property (readonly) BOOL started;
 
 //Starts the app
 - (void)startApp;

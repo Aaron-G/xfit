@@ -9,6 +9,7 @@
 #import "AppScreenSwitchDelegate.h"
 #import "UIHelper.h"
 #import "AppConstants.h"
+#import "App.h"
 
 @interface AppScreenSwitchDelegate () {
 }
@@ -54,34 +55,44 @@
   self.viewController.title = nil;
 }
 
-- (void)updateMainView
-{
+- (void)updateMainView {
   
-  //Put a nice animation when doing the view transition...
-  [UIView transitionWithView:self.appViewController.contentView
-                    duration:ScreenSwitchAnimationDuration
-                     options:UIViewAnimationOptionTransitionCrossDissolve
-                  animations:^ {
-                    
-                    //Remove all the subviews
-                    NSArray *viewsToRemove = self.appViewController.contentView.subviews;
-                    for (UIView *viewToRemove in viewsToRemove) {
-                      [viewToRemove removeFromSuperview];
+  //Only use animation after the app has started
+  if([App sharedInstance].started) {
+    
+    //Put a nice animation when doing the view transition...
+    [UIView transitionWithView:self.appViewController.contentView
+                      duration:ScreenSwitchAnimationDuration
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^ {
+                      [self updateMainViewImpl];
                     }
-                    //Add the new view
-                    [self.appViewController.contentView addSubview:self.viewController.view];
-                    
-                    //Adjust the height of the newly displayed view if needed
-                    CGRect currentFrame = self.viewController.view.frame;
-                    NSInteger minHeight = self.appViewController.contentView.bounds.size.height;
+                    completion:nil];
+  } else {
+    [self updateMainViewImpl];
+  }
+}
 
-                    if(currentFrame.size.height < minHeight) {
-                      self.viewController.view.frame = CGRectMake(currentFrame.origin.x, currentFrame.origin.y, currentFrame.size.width, minHeight);
-                    }
-                  }
-                  completion:nil];
+- (void)updateMainViewImpl {
+  
+  //Remove all the subviews
+  NSArray *viewsToRemove = self.appViewController.contentView.subviews;
+  for (UIView *viewToRemove in viewsToRemove) {
+    [viewToRemove removeFromSuperview];
+  }
+  //Add the new view
+  [self.appViewController.contentView addSubview:self.viewController.view];
+  
+  //Adjust the height of the newly displayed view if needed
+  CGRect currentFrame = self.viewController.view.frame;
+  NSInteger minHeight = self.appViewController.contentView.bounds.size.height;
+  
+  if(currentFrame.size.height < minHeight) {
+    self.viewController.view.frame = CGRectMake(currentFrame.origin.x, currentFrame.origin.y, currentFrame.size.width, minHeight);
+  }
   
 }
+
 
 - (void)updateNavigationBar
 {
