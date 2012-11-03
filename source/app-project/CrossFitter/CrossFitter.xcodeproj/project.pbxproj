@@ -82,6 +82,8 @@
 		74BD96E515FC448D009F34A9 /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BD96E415FC448D009F34A9 /* Unit.m */; };
 		74BD96ED15FCF978009F34A9 /* UIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BD96EC15FCF978009F34A9 /* UIHelper.m */; };
 		74C0E65F16442F8C000F6282 /* home-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C0E65E16442F8C000F6282 /* home-background.png */; };
+		74C0E67C16448B53000F6282 /* MeasurableInfoUpdateDelegateBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C0E67A16448B53000F6282 /* MeasurableInfoUpdateDelegateBase.m */; };
+		74C0E67E16448CDD000F6282 /* BodyMetricInfoUpdateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C0E67D16448CDC000F6282 /* BodyMetricInfoUpdateDelegate.m */; };
 		74C2759215D87ACF00BB1F1A /* AppScreenSwitchDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2758F15D87ACF00BB1F1A /* AppScreenSwitchDelegate.m */; };
 		74C2759315D87ACF00BB1F1A /* AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2759115D87ACF00BB1F1A /* AppViewController.m */; };
 		74C2759615D87DA900BB1F1A /* ShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2759515D87DA900BB1F1A /* ShareDelegate.m */; };
@@ -245,6 +247,11 @@
 		74BD96EB15FCF978009F34A9 /* UIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = UIHelper.h; path = UI/Helper/UIHelper.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		74BD96EC15FCF978009F34A9 /* UIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = UIHelper.m; path = UI/Helper/UIHelper.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		74C0E65E16442F8C000F6282 /* home-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home-background.png"; path = "CrossFitter/Resources/Images/App/Home/home-background.png"; sourceTree = SOURCE_ROOT; };
+		74C0E67616448AF3000F6282 /* MeasurableInfoUpdateDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MeasurableInfoUpdateDelegate.h; path = UI/Measurable/Info/MeasurableInfoUpdateDelegate.h; sourceTree = "<group>"; };
+		74C0E67716448B51000F6282 /* BodyMetricInfoUpdateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BodyMetricInfoUpdateDelegate.h; path = UI/Measurable/Info/BodyMetricInfoUpdateDelegate.h; sourceTree = "<group>"; };
+		74C0E67916448B52000F6282 /* MeasurableInfoUpdateDelegateBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableInfoUpdateDelegateBase.h; path = UI/Measurable/Info/MeasurableInfoUpdateDelegateBase.h; sourceTree = "<group>"; };
+		74C0E67A16448B53000F6282 /* MeasurableInfoUpdateDelegateBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableInfoUpdateDelegateBase.m; path = UI/Measurable/Info/MeasurableInfoUpdateDelegateBase.m; sourceTree = "<group>"; };
+		74C0E67D16448CDC000F6282 /* BodyMetricInfoUpdateDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BodyMetricInfoUpdateDelegate.m; path = UI/Measurable/Info/BodyMetricInfoUpdateDelegate.m; sourceTree = "<group>"; };
 		74C2758E15D87ACF00BB1F1A /* AppScreenSwitchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppScreenSwitchDelegate.h; path = UI/AppScreenSwitchDelegate.h; sourceTree = "<group>"; };
 		74C2758F15D87ACF00BB1F1A /* AppScreenSwitchDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppScreenSwitchDelegate.m; path = UI/AppScreenSwitchDelegate.m; sourceTree = "<group>"; };
 		74C2759015D87ACF00BB1F1A /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppViewController.h; path = UI/AppViewController.h; sourceTree = "<group>"; };
@@ -482,6 +489,7 @@
 				740970361618032900D2D9B8 /* MeasurableViewController.m */,
 				743F8D751618AD57006871D0 /* MeasurableInfoViewController.h */,
 				743F8D761618AD57006871D0 /* MeasurableInfoViewController.m */,
+				74C0E66F16448135000F6282 /* Info */,
 				743F8D791618AD81006871D0 /* MeasurableLogViewController.h */,
 				743F8D7A1618AD81006871D0 /* MeasurableLogViewController.m */,
 				743F8D721618A987006871D0 /* MeasurableDetailSwitchViewController.h */,
@@ -695,6 +703,18 @@
 				74C0E65E16442F8C000F6282 /* home-background.png */,
 			);
 			name = Home;
+			sourceTree = "<group>";
+		};
+		74C0E66F16448135000F6282 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				74C0E67616448AF3000F6282 /* MeasurableInfoUpdateDelegate.h */,
+				74C0E67916448B52000F6282 /* MeasurableInfoUpdateDelegateBase.h */,
+				74C0E67A16448B53000F6282 /* MeasurableInfoUpdateDelegateBase.m */,
+				74C0E67716448B51000F6282 /* BodyMetricInfoUpdateDelegate.h */,
+				74C0E67D16448CDC000F6282 /* BodyMetricInfoUpdateDelegate.m */,
+			);
+			name = Info;
 			sourceTree = "<group>";
 		};
 		74C275A015DBE80400BB1F1A /* Helper */ = {
@@ -994,6 +1014,8 @@
 				749A870D162CE72100EFB7C1 /* MeasurableShareDelegate.m in Sources */,
 				74C8DBDA1633228200F5AD66 /* UserProfileViewController.m in Sources */,
 				7465B172163AF357008D0AA7 /* MediaHelper.m in Sources */,
+				74C0E67C16448B53000F6282 /* MeasurableInfoUpdateDelegateBase.m in Sources */,
+				74C0E67E16448CDD000F6282 /* BodyMetricInfoUpdateDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
