@@ -16,7 +16,7 @@
 @synthesize valueFormatter = _valueFormatter;
 
 //Designated initializer
-- (id)initWithIdentifier:(NSString*) identifier {
+- (id)initWithIdentifier:(MeasurableIdentifier) identifier {
   self = [super init];
   
   if (self) {
@@ -33,10 +33,10 @@
 }
 
 
-- (MeasurableDataProvider*) createDataProviderWithIdentifier:(NSString*) identifier {
+- (MeasurableDataProvider*) createDataProviderWithIdentifier:(MeasurableIdentifier) identifier {
   return [[MeasurableDataProvider alloc] init];
 }
-- (MeasurableMetadataProvider*) createMetadataProviderWithIdentifier:(NSString*) identifier {
+- (MeasurableMetadataProvider*) createMetadataProviderWithIdentifier:(MeasurableIdentifier) identifier {
   return [[MeasurableMetadataProvider alloc] initWithMeasurableIdentifier:identifier];
 }
 

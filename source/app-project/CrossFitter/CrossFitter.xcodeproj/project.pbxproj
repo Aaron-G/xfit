@@ -252,6 +252,7 @@
 		74C0E67916448B52000F6282 /* MeasurableInfoUpdateDelegateBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableInfoUpdateDelegateBase.h; path = UI/Measurable/Info/MeasurableInfoUpdateDelegateBase.h; sourceTree = "<group>"; };
 		74C0E67A16448B53000F6282 /* MeasurableInfoUpdateDelegateBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableInfoUpdateDelegateBase.m; path = UI/Measurable/Info/MeasurableInfoUpdateDelegateBase.m; sourceTree = "<group>"; };
 		74C0E67D16448CDC000F6282 /* BodyMetricInfoUpdateDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BodyMetricInfoUpdateDelegate.m; path = UI/Measurable/Info/BodyMetricInfoUpdateDelegate.m; sourceTree = "<group>"; };
+		74C0E67F16459394000F6282 /* MeasurableCollectionDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableCollectionDisplay.h; path = UI/Measurable/MeasurableCollectionDisplay.h; sourceTree = "<group>"; };
 		74C2758E15D87ACF00BB1F1A /* AppScreenSwitchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppScreenSwitchDelegate.h; path = UI/AppScreenSwitchDelegate.h; sourceTree = "<group>"; };
 		74C2758F15D87ACF00BB1F1A /* AppScreenSwitchDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppScreenSwitchDelegate.m; path = UI/AppScreenSwitchDelegate.m; sourceTree = "<group>"; };
 		74C2759015D87ACF00BB1F1A /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppViewController.h; path = UI/AppViewController.h; sourceTree = "<group>"; };
@@ -510,6 +511,7 @@
 				749A8703162C548800EFB7C1 /* MeasurableLogShareDelegate.m */,
 				749A8706162C596700EFB7C1 /* MeasurableInfoShareDelegate.h */,
 				749A8707162C596700EFB7C1 /* MeasurableInfoShareDelegate.m */,
+				74C0E67F16459394000F6282 /* MeasurableCollectionDisplay.h */,
 			);
 			name = Measurable;
 			sourceTree = "<group>";

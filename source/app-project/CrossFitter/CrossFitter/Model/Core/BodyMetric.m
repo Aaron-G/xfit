@@ -12,20 +12,20 @@
 
 @implementation BodyMetric
 
-NSString* BodyMetricIdentifierHeight = @"BodyMetricIdentifierHeight";
-NSString* BodyMetricIdentifierWeight = @"BodyMetricIdentifierWeight";
-NSString* BodyMetricIdentifierChest = @"BodyMetricIdentifierChest";
-NSString* BodyMetricIdentifierBiceptsLeft = @"BodyMetricIdentifierBiceptsLeft";
-NSString* BodyMetricIdentifierBiceptsRight = @"BodyMetricIdentifierBiceptsRight";
-NSString* BodyMetricIdentifierWaist = @"BodyMetricIdentifierWaist";
-NSString* BodyMetricIdentifierHip = @"BodyMetricIdentifierHip";
-NSString* BodyMetricIdentifierThighLeft = @"BodyMetricIdentifierThighLeft";
-NSString* BodyMetricIdentifierThighRight = @"BodyMetricIdentifierThighRight";
-NSString* BodyMetricIdentifierCalfLeft = @"BodyMetricIdentifierCalfLeft";
-NSString* BodyMetricIdentifierCalfRight = @"BodyMetricIdentifierCalfRight";
-NSString* BodyMetricIdentifierBodyMassIndex = @"BodyMetricIdentifierBodyMassIndex";
-NSString* BodyMetricIdentifierBodyFat = @"BodyMetricIdentifierBodyFat";
-NSString* BodyMetricIdentifierInvalid = @"BodyMetricIdentifierInvalid";
+MeasurableIdentifier BodyMetricIdentifierHeight = @"BodyMetricIdentifierHeight";
+MeasurableIdentifier BodyMetricIdentifierWeight = @"BodyMetricIdentifierWeight";
+MeasurableIdentifier BodyMetricIdentifierChest = @"BodyMetricIdentifierChest";
+MeasurableIdentifier BodyMetricIdentifierBiceptsLeft = @"BodyMetricIdentifierBiceptsLeft";
+MeasurableIdentifier BodyMetricIdentifierBiceptsRight = @"BodyMetricIdentifierBiceptsRight";
+MeasurableIdentifier BodyMetricIdentifierWaist = @"BodyMetricIdentifierWaist";
+MeasurableIdentifier BodyMetricIdentifierHip = @"BodyMetricIdentifierHip";
+MeasurableIdentifier BodyMetricIdentifierThighLeft = @"BodyMetricIdentifierThighLeft";
+MeasurableIdentifier BodyMetricIdentifierThighRight = @"BodyMetricIdentifierThighRight";
+MeasurableIdentifier BodyMetricIdentifierCalfLeft = @"BodyMetricIdentifierCalfLeft";
+MeasurableIdentifier BodyMetricIdentifierCalfRight = @"BodyMetricIdentifierCalfRight";
+MeasurableIdentifier BodyMetricIdentifierBodyMassIndex = @"BodyMetricIdentifierBodyMassIndex";
+MeasurableIdentifier BodyMetricIdentifierBodyFat = @"BodyMetricIdentifierBodyFat";
+MeasurableIdentifier BodyMetricIdentifierInvalid = @"BodyMetricIdentifierInvalid";
 
 - (id)initWithIdentifier:(NSString *)identifier {
   self = [super initWithIdentifier:identifier];
@@ -36,11 +36,11 @@ NSString* BodyMetricIdentifierInvalid = @"BodyMetricIdentifierInvalid";
   return self;
   
 }
-- (MeasurableDataProvider*) createDataProviderWithIdentifier:(NSString*) identifier {
+- (MeasurableDataProvider*) createDataProviderWithIdentifier:(MeasurableIdentifier) identifier {
   return [[MeasurableDataProvider alloc] initWithMeasurableIdentifier: identifier];
 }
 
-- (MeasurableMetadataProvider*) createMetadataProviderWithIdentifier:(NSString*) identifier {
+- (MeasurableMetadataProvider*) createMetadataProviderWithIdentifier:(MeasurableIdentifier) identifier {
   return [[BodyMetricMetadataProvider alloc] initWithMeasurableIdentifier:identifier];
 }
 

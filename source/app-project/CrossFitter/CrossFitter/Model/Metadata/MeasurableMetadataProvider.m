@@ -10,7 +10,7 @@
 
 @implementation MeasurableMetadataProvider
 
-- (id)initWithMeasurableIdentifier:(NSString*) measurableIdentifier {
+- (id)initWithMeasurableIdentifier:(MeasurableIdentifier) measurableIdentifier {
   self = [super init];
   
   if (self) {

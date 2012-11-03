@@ -31,6 +31,9 @@ typedef enum {
   MeasurableSourceUser,
   MeasurableSourceFeed
 } MeasurableSource;
+
+typedef NSString* MeasurableIdentifier;
+
 //////////////////////////////////////////////////////
 
 #import <Foundation/Foundation.h>

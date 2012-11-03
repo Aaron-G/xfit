@@ -10,6 +10,7 @@
 #import "Measurable.h"
 #import "MeasurableDetailSwitchViewController.h"
 #import "MeasurableTitleView.h"
+#import "MeasurableCollectionDisplay.h"
 
 @class MeasurableDetailSwitchViewController;
 
@@ -41,6 +42,8 @@
 
 @property IBOutlet UIPageControl* measurableDetailPageControl;
 @property (readonly) MeasurableTitleView* measurableTitleView;
+
+@property id<MeasurableCollectionDisplay> measurableCollectionDisplay;
 
 - (IBAction)copyMeasurableAction:(id)sender;
 - (IBAction)logMeasurableAction:(id)sender;

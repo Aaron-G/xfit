@@ -29,7 +29,7 @@
 
 @synthesize firstValue;
 
-- (id)initWithMeasurableIdentifier:(NSString*) measurableIdentifier {
+- (id)initWithMeasurableIdentifier:(MeasurableIdentifier) measurableIdentifier {
   self = [super init];
   
   if (self) {
@@ -39,7 +39,7 @@
 }
 
 - (MeasurableValueTrend)valueTrend {
-  return self.firstValue.valueTrend;
+  return  (self.firstValue) ? self.firstValue.valueTrend : MeasurableValueTrendNone;
 }
 
 - (NSNumber *)value {

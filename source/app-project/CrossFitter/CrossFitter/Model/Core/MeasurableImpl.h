@@ -13,10 +13,10 @@
 
 @interface MeasurableImpl : NSObject <Measurable>
 
-- (id)initWithIdentifier:(NSString*) identifier;
+- (id)initWithIdentifier:(MeasurableIdentifier) identifier;
 
 //Subclasses
-- (MeasurableDataProvider*) createDataProviderWithIdentifier:(NSString*) identifier;
-- (MeasurableMetadataProvider*) createMetadataProviderWithIdentifier:(NSString*) identifier;
+- (MeasurableDataProvider*) createDataProviderWithIdentifier:(MeasurableIdentifier) identifier;
+- (MeasurableMetadataProvider*) createMetadataProviderWithIdentifier:(MeasurableIdentifier) identifier;
 
 @end

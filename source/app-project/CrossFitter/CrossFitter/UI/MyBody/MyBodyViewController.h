@@ -6,8 +6,9 @@
 //
 //
 #import "AppScreenSwitchDelegate.h"
+#import "MeasurableCollectionDisplay.h"
 
-@interface MyBodyViewController : UITableViewController <UIActionSheetDelegate>
+@interface MyBodyViewController : UITableViewController <UIActionSheetDelegate, MeasurableCollectionDisplay>
 
 @property AppScreenSwitchDelegate* appScreenSwitchDelegate;
 

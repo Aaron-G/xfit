@@ -18,7 +18,7 @@
 @synthesize metadataShort = _metadataShort;
 @synthesize metadataFull = _metadataFull;
 
-- (id)initWithMeasurableIdentifier:(NSString*) measurableIdentifier {
+- (id)initWithMeasurableIdentifier:(MeasurableIdentifier) measurableIdentifier {
   self = [super initWithMeasurableIdentifier: measurableIdentifier];
   
   if (self) {
