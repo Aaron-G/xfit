@@ -33,6 +33,7 @@ NSMutableDictionary* measurableTypes;
   }
   
   measurableType.displayName = displayName;
+  measurableType.identifier = identifier;
   
   return measurableType;
 }
