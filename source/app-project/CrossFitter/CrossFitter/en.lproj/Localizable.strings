@@ -22,9 +22,11 @@
 //Share
 "share-title" = "Share %@";
 "share-facebook" = "Facebook";
+"share-twitter" = "Twitter";
 "share-email" = "Email";
 "share-text" = "Message";
 "cannot-share-title" = "Cannot Share";
+"share-service-not-available-message-format"="%@ sharing not available in your device.";
 
 //Email
 "no-email-support-message" = "Your device cannot send emails. Try another sharing option.";
@@ -38,7 +40,9 @@
 "share-app" = "App";
 "share-app-email-subject" = "CrossFit App: CrossFitter";
 "share-app-email-text" = "Checkout this sweet CrossFit app: <br>\n<a href=\"http://download.itunes.com/crossfitter\">CrossFitter App</a><p>\n\nIt has a PR Wall, WODs, Workouts and Moves. Plus you can track your body progress on it.<p>\n\nIt is pretty simple to use too and it has charts for all these things.";
-"share-app-text-message-text" = "Check out this sweet CrossFit app: CrossFitter http://http://download.itunes.com/crossfitter";
+"share-app-text-message-text" = "Check out this CrossFit app: CrossFitter http://http://download.itunes.com/crossfitter";
+"share-app-facebook-text" = "Checkout this sweet CrossFit app. It has a PR Wall, WODs, Workouts and Moves. Plus you can track your body progress on it.\n\nIt is pretty simple to use too and it has charts for all these things.";
+"share-app-twitter-text" = "Sweet CrossFit app with PR Wall, WODs, Workouts, Moves, charts...";
 
 //////////////////////////////
 //PR Wall Screen
@@ -90,6 +94,7 @@
 "info-cell-title-version-format" = "Version %@";
 "info-cell-title-rateapp" = "Rate App";
 "info-cell-title-facebook" = "Facebook";
+"info-cell-title-twitter" = "Twitter";
 "info-cell-title-message" = "Message";
 "info-cell-title-email" = "Email";
 "info-cell-title-feature" = "Request Feature";
