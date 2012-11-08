@@ -40,17 +40,20 @@
   return self;
 }
 
-- (IBAction) shareAppEmail {
+- (void) shareAppEmail {
   [self.appScreenShareDelegate displayEmailComposer];
-  
 }
 
-- (IBAction) shareAppTextMessage {
+- (void) shareAppTextMessage {
   [self.appScreenShareDelegate displayTextMessageComposer];
 }
 
-- (IBAction) shareAppFacebook {
+- (void) shareAppFacebook {
   [self.appScreenShareDelegate displayFacebookComposer];
+}
+
+- (void) shareAppTwitter {
+  [self.appScreenShareDelegate displayTwitterComposer];
 }
 
 - (void) rateApp {
@@ -139,8 +142,10 @@
     if (selectedIndex == 0) {
       [self shareAppFacebook];
     } else if (selectedIndex == 1) {
-      [self shareAppTextMessage];
+      [self shareAppTwitter];
     } else if (selectedIndex == 2) {
+      [self shareAppTextMessage];
+    } else if (selectedIndex == 3) {
       [self shareAppEmail];
     }    
   }
@@ -174,6 +179,7 @@
 
   //Share Group
   self.facebookLabel.text = NSLocalizedString(@"info-cell-title-facebook", @"Facebook");
+  self.twitterLabel.text = NSLocalizedString(@"info-cell-title-twitter", @"Twitter");
   self.messageLabel.text = NSLocalizedString(@"info-cell-title-message", @"Message");
   self.emailLabel.text = NSLocalizedString(@"info-cell-title-email", @"Email");
 

@@ -17,6 +17,7 @@
 
 //Share Group
 @property IBOutlet UILabel* facebookLabel;
+@property IBOutlet UILabel* twitterLabel;
 @property IBOutlet UILabel* messageLabel;
 @property IBOutlet UILabel* emailLabel;
 
@@ -27,10 +28,6 @@
 @property IBOutlet UILabel* featureLabel;
 @property IBOutlet UILabel* feedbackLabel;
 @property IBOutlet UILabel* issueLabel;
-
-- (IBAction) shareAppEmail;
-- (IBAction) shareAppTextMessage;
-- (IBAction) shareAppFacebook;
 
 
 @end
