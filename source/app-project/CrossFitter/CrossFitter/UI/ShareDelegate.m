@@ -33,9 +33,22 @@
 - (void) share {
 }
 
+- (void)shareFromToolBar:(UIToolbar *)toolbar {  
+}
+
 #pragma ActionSheetDelegate Helper methods
 
 - (void)showActionSheetWithTitlePart:(NSString*) titlePart {
+  UIActionSheet *actionSheet = [self actionSheetWithTitlePart:titlePart];
+  [actionSheet showInView:self.appViewController.view];
+}
+
+- (void)showActionSheetWithTitlePart:(NSString*) titlePart fromToolBar: (UIToolbar*) toolbar {
+  UIActionSheet *actionSheet = [self actionSheetWithTitlePart:titlePart];
+  [actionSheet showFromToolbar:toolbar];
+}
+
+- (UIActionSheet*)actionSheetWithTitlePart:(NSString*) titlePart {
   
   UIActionSheet *actionSheet =
   [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"share-title", @"Share XXX"), titlePart]
@@ -43,13 +56,13 @@
                      cancelButtonTitle:NSLocalizedString(@"cancel-label", @"Cancel")
                 destructiveButtonTitle:nil
                      otherButtonTitles:NSLocalizedString(@"share-facebook", @"Facebook"),
-                                       NSLocalizedString(@"share-twitter", @"Twitter"),
-                                       NSLocalizedString(@"share-text", @"Message"),
-                                       NSLocalizedString(@"share-email", @"Email"),
+   NSLocalizedString(@"share-twitter", @"Twitter"),
+   NSLocalizedString(@"share-text", @"Message"),
+   NSLocalizedString(@"share-email", @"Email"),
    nil];
   
   actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-  [actionSheet showInView:self.appViewController.view];
+  return actionSheet;
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {

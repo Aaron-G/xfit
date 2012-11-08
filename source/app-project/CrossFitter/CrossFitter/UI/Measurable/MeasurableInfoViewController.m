@@ -11,6 +11,7 @@
 #import "MeasurableInfoShareDelegate.h"
 #import "MeasurableHelper.h"
 #import "MeasurableInfoUpdateDelegate.h"
+#import "UIHelper.h"
 
 @interface MeasurableInfoViewController ()
 
@@ -69,7 +70,7 @@
 }
 
 - (void) share {
-  [self.shareDelegate share];
+  [self.shareDelegate shareFromToolBar:[UIHelper measurableViewController].toolbar];
 }
 
 @end

@@ -92,7 +92,7 @@
 }
 
 - (void) share {
-  [self.shareDelegate share];
+  [self.shareDelegate shareFromToolBar:[UIHelper measurableViewController].toolbar];
 }
 
 - (void) clearLog {

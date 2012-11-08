@@ -18,9 +18,11 @@
 
 //ActionSheet
 - (void)showActionSheetWithTitlePart:(NSString*) titlePart;
+- (void)showActionSheetWithTitlePart:(NSString*) titlePart fromToolBar: (UIToolbar*) toolbar;
 
 //Sharing
 - (void)share;
+- (void) shareFromToolBar:(UIToolbar*) toolbar;
 
 //Text Message
 @property (readonly) NSString * textMessageText;
