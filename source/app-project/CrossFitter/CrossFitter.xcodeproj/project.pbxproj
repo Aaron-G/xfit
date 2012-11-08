@@ -84,6 +84,9 @@
 		74C0E65F16442F8C000F6282 /* home-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C0E65E16442F8C000F6282 /* home-background.png */; };
 		74C0E67C16448B53000F6282 /* MeasurableInfoUpdateDelegateBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C0E67A16448B53000F6282 /* MeasurableInfoUpdateDelegateBase.m */; };
 		74C0E67E16448CDD000F6282 /* BodyMetricInfoUpdateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C0E67D16448CDC000F6282 /* BodyMetricInfoUpdateDelegate.m */; };
+		74C0E6871646D21E000F6282 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C0E6841646D21B000F6282 /* Accounts.framework */; };
+		74C0E6881646D21E000F6282 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C0E6851646D21C000F6282 /* AdSupport.framework */; };
+		74C0E6891646D21E000F6282 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C0E6861646D21E000F6282 /* Social.framework */; };
 		74C2759215D87ACF00BB1F1A /* AppScreenSwitchDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2758F15D87ACF00BB1F1A /* AppScreenSwitchDelegate.m */; };
 		74C2759315D87ACF00BB1F1A /* AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2759115D87ACF00BB1F1A /* AppViewController.m */; };
 		74C2759615D87DA900BB1F1A /* ShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C2759515D87DA900BB1F1A /* ShareDelegate.m */; };
@@ -253,6 +256,9 @@
 		74C0E67A16448B53000F6282 /* MeasurableInfoUpdateDelegateBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableInfoUpdateDelegateBase.m; path = UI/Measurable/Info/MeasurableInfoUpdateDelegateBase.m; sourceTree = "<group>"; };
 		74C0E67D16448CDC000F6282 /* BodyMetricInfoUpdateDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BodyMetricInfoUpdateDelegate.m; path = UI/Measurable/Info/BodyMetricInfoUpdateDelegate.m; sourceTree = "<group>"; };
 		74C0E67F16459394000F6282 /* MeasurableCollectionDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableCollectionDisplay.h; path = UI/Measurable/MeasurableCollectionDisplay.h; sourceTree = "<group>"; };
+		74C0E6841646D21B000F6282 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		74C0E6851646D21C000F6282 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		74C0E6861646D21E000F6282 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		74C2758E15D87ACF00BB1F1A /* AppScreenSwitchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppScreenSwitchDelegate.h; path = UI/AppScreenSwitchDelegate.h; sourceTree = "<group>"; };
 		74C2758F15D87ACF00BB1F1A /* AppScreenSwitchDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppScreenSwitchDelegate.m; path = UI/AppScreenSwitchDelegate.m; sourceTree = "<group>"; };
 		74C2759015D87ACF00BB1F1A /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppViewController.h; path = UI/AppViewController.h; sourceTree = "<group>"; };
@@ -312,6 +318,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74C0E6871646D21E000F6282 /* Accounts.framework in Frameworks */,
+				74C0E6881646D21E000F6282 /* AdSupport.framework in Frameworks */,
+				74C0E6891646D21E000F6282 /* Social.framework in Frameworks */,
 				749BA3BB15D5DA3700FB1094 /* MessageUI.framework in Frameworks */,
 				741BBC5315B7C2E300660BE6 /* UIKit.framework in Frameworks */,
 				741BBC5515B7C2E300660BE6 /* Foundation.framework in Frameworks */,
@@ -414,6 +423,9 @@
 		741BBC5115B7C2E300660BE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				74C0E6841646D21B000F6282 /* Accounts.framework */,
+				74C0E6851646D21C000F6282 /* AdSupport.framework */,
+				74C0E6861646D21E000F6282 /* Social.framework */,
 				749BA3BA15D5DA3700FB1094 /* MessageUI.framework */,
 				741BBC5215B7C2E300660BE6 /* UIKit.framework */,
 				741BBC5415B7C2E300660BE6 /* Foundation.framework */,
@@ -1232,10 +1244,15 @@
 		741BBC8215B7C2E300660BE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CrossFitter/CrossFitter-Prefix.pch";
 				INFOPLIST_FILE = "CrossFitter/CrossFitter-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1244,10 +1261,15 @@
 		741BBC8315B7C2E300660BE6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CrossFitter/CrossFitter-Prefix.pch";
 				INFOPLIST_FILE = "CrossFitter/CrossFitter-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
