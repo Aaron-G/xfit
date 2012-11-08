@@ -13,7 +13,7 @@
 @interface MeasurableDataProvider : NSObject
 
 //Data Provider Properties
-@property (readonly) MeasurableIdentifier measurableIdentifier;
+@property (readonly) MeasurableIdentifier identifier;
 @property NSArray* values;
 @property (readonly) MeasurableValueTrend valueTrend;
 
@@ -24,6 +24,6 @@
 @property (readonly) NSString* comment;
 
 
-- (id)initWithMeasurableIdentifier:(MeasurableIdentifier) measurableIdentifier;
+- (id)initWithMeasurableIdentifier:(MeasurableIdentifier) identifier;
 
 @end

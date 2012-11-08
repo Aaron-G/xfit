@@ -19,7 +19,7 @@
 
 @implementation MeasurableDataProvider
 
-@synthesize measurableIdentifier = _measurableIdentifier;
+@synthesize identifier = _identifier;
 @synthesize values =_values;
 @synthesize valueTrend;
 
@@ -29,11 +29,11 @@
 
 @synthesize firstValue;
 
-- (id)initWithMeasurableIdentifier:(MeasurableIdentifier) measurableIdentifier {
+- (id)initWithMeasurableIdentifier:(MeasurableIdentifier) identifier {
   self = [super init];
   
   if (self) {
-    _measurableIdentifier = measurableIdentifier;
+    _identifier = identifier;
   }
   return self;
 }

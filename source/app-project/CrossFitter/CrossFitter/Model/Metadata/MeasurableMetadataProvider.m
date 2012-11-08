@@ -10,11 +10,11 @@
 
 @implementation MeasurableMetadataProvider
 
-- (id)initWithMeasurableIdentifier:(MeasurableIdentifier) measurableIdentifier {
+- (id)initWithMeasurableIdentifier:(MeasurableIdentifier) identifier {
   self = [super init];
   
   if (self) {
-    self.measurableIdentifier = measurableIdentifier;
+    self.identifier = identifier;
     
   }
   return self;

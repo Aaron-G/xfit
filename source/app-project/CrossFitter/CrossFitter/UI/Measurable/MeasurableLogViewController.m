@@ -126,7 +126,7 @@
   
   dispatch_async(dispatch_get_main_queue(), ^{    
     //Tell the associated Measurable Collection Display that this measurable has changed
-    [[UIHelper measurableViewController].measurableCollectionDisplay updateMeasurable: self.measurable.metadataProvider.measurableIdentifier];
+    [[UIHelper measurableViewController].measurableCollectionDisplay updateMeasurable: self.measurable.metadataProvider.identifier];
   });
   
 }

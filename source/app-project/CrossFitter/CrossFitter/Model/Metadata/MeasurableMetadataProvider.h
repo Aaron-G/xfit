@@ -14,7 +14,7 @@
 
 @interface MeasurableMetadataProvider : NSObject
 
-@property MeasurableIdentifier measurableIdentifier;
+@property MeasurableIdentifier identifier;
 @property NSString* name;
 @property NSString* description;
 @property NSString* metadataShort;
@@ -30,7 +30,7 @@
 
 @property MeasurableSource source;
 
-- (id)initWithMeasurableIdentifier:(MeasurableIdentifier) measurableIdentifier;
+- (id)initWithMeasurableIdentifier:(MeasurableIdentifier) identifier;
 
 
 @end

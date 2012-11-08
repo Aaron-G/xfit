@@ -159,48 +159,48 @@
   return BodyMetricIdentifierInvalid;
 }
 
-- (NSIndexPath *) indexPathForMetricIdentifier: (MeasurableIdentifier) bodyMetricIdentifier {
+- (NSIndexPath *) indexPathForBodyMetricIdentifier: (MeasurableIdentifier) identifier {
   
   NSInteger section = -1;
   NSInteger item = -1;
   
-  if(BodyMetricIdentifierHeight == bodyMetricIdentifier) {
+  if(BodyMetricIdentifierHeight == identifier) {
     section = 1;
     item = 0;
-  } else if(BodyMetricIdentifierWeight == bodyMetricIdentifier) {
+  } else if(BodyMetricIdentifierWeight == identifier) {
     section = 1;
     item = 1;
-  } else if(BodyMetricIdentifierBodyMassIndex == bodyMetricIdentifier) {
+  } else if(BodyMetricIdentifierBodyMassIndex == identifier) {
     section = 2;
     item = 0;
-  } else if(BodyMetricIdentifierBodyFat == bodyMetricIdentifier) {
+  } else if(BodyMetricIdentifierBodyFat == identifier) {
     section = 2;
     item = 1;
-  } else if(BodyMetricIdentifierChest == bodyMetricIdentifier) {
+  } else if(BodyMetricIdentifierChest == identifier) {
     section = 3;
     item = 0;
-  } else if(BodyMetricIdentifierBiceptsRight == bodyMetricIdentifier) {
+  } else if(BodyMetricIdentifierBiceptsRight == identifier) {
     section = 3;
     item = 1;
-  } else if(BodyMetricIdentifierBiceptsLeft == bodyMetricIdentifier) {
+  } else if(BodyMetricIdentifierBiceptsLeft == identifier) {
     section = 3;
     item = 2;
-  } else if(BodyMetricIdentifierWaist == bodyMetricIdentifier) {
+  } else if(BodyMetricIdentifierWaist == identifier) {
     section = 4;
     item = 0;
-  } else if(BodyMetricIdentifierHip == bodyMetricIdentifier) {
+  } else if(BodyMetricIdentifierHip == identifier) {
     section = 4;
     item = 1;
-  } else if(BodyMetricIdentifierThighRight == bodyMetricIdentifier) {
+  } else if(BodyMetricIdentifierThighRight == identifier) {
     section = 5;
     item = 0;
-  } else if(BodyMetricIdentifierThighLeft == bodyMetricIdentifier) {
+  } else if(BodyMetricIdentifierThighLeft == identifier) {
     section = 5;
     item = 1;
-  } else if(BodyMetricIdentifierCalfRight == bodyMetricIdentifier) {
+  } else if(BodyMetricIdentifierCalfRight == identifier) {
     section = 5;
     item = 2;
-  } else if(BodyMetricIdentifierCalfLeft == bodyMetricIdentifier) {
+  } else if(BodyMetricIdentifierCalfLeft == identifier) {
     section = 5;
     item = 3;
   }
@@ -253,9 +253,9 @@
   [self.appScreenShareDelegate share];
 }
 
-- (void) updateMeasurable:(MeasurableIdentifier) measurableIdenfitier {
+- (void) updateMeasurable:(MeasurableIdentifier) identifier {
   
-  NSIndexPath* indexPath =  [self indexPathForMetricIdentifier:measurableIdenfitier];
+  NSIndexPath* indexPath = [self indexPathForBodyMetricIdentifier:identifier];
   
   if(indexPath) {
     [self.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:indexPath] withRowAnimation: NO];

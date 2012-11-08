@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "Measurable.h"
 
+typedef NSString* MeasurableDataEntryIdentifier;
+
 @interface MeasurableDataEntry : NSObject
 
 //Data Provider Properties
-@property NSString* identifier;
+@property MeasurableDataEntryIdentifier identifier;
 @property NSNumber* value;
 @property MeasurableValueTrend valueTrend;
 

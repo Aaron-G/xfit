@@ -11,6 +11,6 @@
 
 @protocol MeasurableCollectionDisplay <NSObject>
 
-- (void) updateMeasurable:(MeasurableIdentifier) measurableIdenfitier;
+- (void) updateMeasurable:(MeasurableIdentifier) idenfitier;
 
 @end
