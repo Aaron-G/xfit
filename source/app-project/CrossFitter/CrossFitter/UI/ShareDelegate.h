@@ -32,11 +32,22 @@
 @property (readonly) NSString * emailAttachmentFileName;
 @property (readonly) NSString * emailAttachmentMimeType;
 
+//Facebook
+@property (readonly) UIImage * facebookImage;
+@property (readonly) NSString * facebookMessage;
+@property (readonly) NSURL * facebookURL;
+
+//Twitter
+@property (readonly) UIImage * twitterImage;
+@property (readonly) NSString * twitterMessage;
+@property (readonly) NSURL * twitterURL;
+
 ////////////////////////////////////////////////////////////////////////////////
 //Subclasses
 ////////////////////////////////////////////////////////////////////////////////
 - (void)displayEmailComposer;
 - (void)displayTextMessageComposer;
 - (void)displayFacebookComposer;
+- (void)displayTwitterComposer;
 
 @end

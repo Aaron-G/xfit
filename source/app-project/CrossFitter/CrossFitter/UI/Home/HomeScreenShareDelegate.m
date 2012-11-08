@@ -17,32 +17,50 @@
 
 #pragma UIActionSheetDelegate Helper methods
 
-//CXB REVIEW_AND_IMPL
 - (NSString*) textMessageText {
   return NSLocalizedString(@"share-app-text-message-text", @"Share app text message text");
 }
 
 #pragma MFMaileComposeViewControllerDelegate Helper methods
 
-//CXB REVIEW_AND_IMPL
 - (NSString *)emailSubject {
   return NSLocalizedString(@"share-app-email-subject", @"Share app email subject");
 }
 
-//CXB REVIEW_AND_IMPL
 - (NSString *)emailText {
   return NSLocalizedString(@"share-app-email-text", @"Share app email text");
 }
 
-//CXB REVIEW_AND_IMPL
 - (NSData *)emailAttachmentData {
-  UIImage *myImage = [UIImage imageNamed:@"move.png"];
+  UIImage *myImage = [UIImage imageNamed:@"default-user-profile-image"];
   return UIImagePNGRepresentation(myImage);
 }
 
-//CXB REVIEW_AND_IMPL
 - (NSString *)emailAttachmentFileName {
   return @"move";
+}
+
+- (UIImage *)twitterImage {
+  return [UIImage imageNamed:@"default-user-profile-image"];
+}
+
+- (NSString *)twitterMessage {
+  return NSLocalizedString(@"share-app-twitter-text", @"");
+}
+
+- (NSURL *)twitterURL {
+  return [NSURL URLWithString:@"http://tinyurl.om/crossfitter"];
+}
+
+- (UIImage *)facebookImage {
+  return [UIImage imageNamed:@"default-user-profile-image"];
+}
+
+- (NSString *)facebookMessage {
+  return NSLocalizedString(@"share-app-facebook-text", @"");
+}
+- (NSURL *)facebookURL {
+  return [NSURL URLWithString:@"http://download.itunes.com/crossfitter"];
 }
 
 @end

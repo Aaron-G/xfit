@@ -6,11 +6,13 @@
 //
 //
 
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
+
 #import "ShareDelegate.h"
 #import "UIHelper.h"
 #import "MailHelper.h"
 #import "MailAttachment.h"
-
 
 @implementation ShareDelegate
 
@@ -41,8 +43,9 @@
                      cancelButtonTitle:NSLocalizedString(@"cancel-label", @"Cancel")
                 destructiveButtonTitle:nil
                      otherButtonTitles:NSLocalizedString(@"share-facebook", @"Facebook"),
-   NSLocalizedString(@"share-text", @"Message"),
-   NSLocalizedString(@"share-email", @"Email"),
+                                       NSLocalizedString(@"share-twitter", @"Twitter"),
+                                       NSLocalizedString(@"share-text", @"Message"),
+                                       NSLocalizedString(@"share-email", @"Email"),
    nil];
   
   actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
@@ -51,21 +54,24 @@
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
   
-  //CXB REVIEW_AND_IMPL
   //Facebook
   if (buttonIndex == 0) {
-    NSLog(@"Facebook");
+    [self displayFacebookComposer];
+  }
+  //Twitter
+  else if (buttonIndex == 1) {
+    [self displayTwitterComposer];
   }
   //Message
-  else if (buttonIndex == 1) {
+  else if (buttonIndex == 2) {
     [self displayTextMessageComposer];
   }
   //Email
-  else if (buttonIndex == 2) {
+  else if (buttonIndex == 3) {
     [self displayEmailComposer];
   }
   //Cancel
-  else if (buttonIndex == 3) {
+  else if (buttonIndex == 4) {
     //Nothing to do here
   }
 }
@@ -181,9 +187,50 @@
   }
 }
 
-//CXB_IMPL
-- (void)displayFacebookComposer {
-  
+- (void)displayTwitterComposer {
+  [self displayShareSheetforSocialLibraryService:SLServiceTypeTwitter withServiceName: NSLocalizedString(@"share-twitter", @"Twitter") withText: [self twitterMessage] withImage:[self twitterImage] withURL: [self twitterURL]];
 }
+
+- (UIImage *)twitterImage {
+  return nil;
+}
+
+- (NSString *)twitterMessage {
+  return nil;
+}
+- (NSURL *)twitterURL {
+  return nil;
+}
+
+- (void)displayFacebookComposer {
+  [self displayShareSheetforSocialLibraryService:SLServiceTypeFacebook withServiceName: NSLocalizedString(@"share-facebook", @"Facebook") withText: [self facebookMessage] withImage:[self facebookImage] withURL: [self facebookURL]];
+}
+
+- (UIImage *)facebookImage {
+  return nil;
+}
+
+- (NSString *)facebookMessage {
+  return nil;
+}
+- (NSURL *)facebookURL {
+  return nil;
+}
+
+- (void)displayShareSheetforSocialLibraryService:(NSString*) slServiceType withServiceName: (NSString*) serviceName withText:(NSString*) text withImage:(UIImage*) image withURL:(NSURL*) url {
+  
+  if ([SLComposeViewController isAvailableForServiceType:slServiceType]) {
+    
+    SLComposeViewController* slComposerSheet = [SLComposeViewController composeViewControllerForServiceType:slServiceType];
+    [slComposerSheet setInitialText:text];
+    [slComposerSheet addImage:image];
+    [slComposerSheet addURL:url];
+    
+    [self.appViewController presentViewController:slComposerSheet animated:YES completion:nil];
+  } else {
+    [UIHelper showMessage: [NSString stringWithFormat:NSLocalizedString(@"share-service-not-available-message-format", @""), serviceName] withTitle:NSLocalizedString(@"cannot-share-title", @"Cannot Share")];
+  }
+}
+
 
 @end
