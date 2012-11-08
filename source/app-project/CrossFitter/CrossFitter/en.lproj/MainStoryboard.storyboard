@@ -314,8 +314,26 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Ij3-EN-Agy" style="IBUITableViewCellStyleDefault" id="i9i-bJ-Idi">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="7Pq-dT-bWu" style="IBUITableViewCellStyleDefault" id="3XB-Pn-QQu">
                                         <rect key="frame" x="0.0" y="227" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Twitter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Pq-dT-bWu">
+                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Ij3-EN-Agy" style="IBUITableViewCellStyleDefault" id="i9i-bJ-Idi">
+                                        <rect key="frame" x="0.0" y="271" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="280" height="43"/>
@@ -333,7 +351,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Edg-R7-O7N" style="IBUITableViewCellStyleDefault" id="9JI-iu-IU6">
-                                        <rect key="frame" x="0.0" y="271" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="315" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="280" height="43"/>
@@ -355,7 +373,7 @@
                             <tableViewSection headerTitle="Review" id="mwK-o2-zBn">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="jOE-Vd-ldX" style="IBUITableViewCellStyleDefault" id="dDr-em-pV7">
-                                        <rect key="frame" x="0.0" y="362" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="406" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
@@ -377,7 +395,7 @@
                             <tableViewSection headerTitle="Support" id="Ffr-qc-32L">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ERa-xW-aUQ" style="IBUITableViewCellStyleDefault" id="U4G-EP-Qnm">
-                                        <rect key="frame" x="0.0" y="454" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="498" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
@@ -395,7 +413,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="fDo-Lz-0Pc" style="IBUITableViewCellStyleDefault" id="4Dd-GL-NWh">
-                                        <rect key="frame" x="0.0" y="499" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="543" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
@@ -413,7 +431,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Ofv-Bs-s5a" style="IBUITableViewCellStyleDefault" id="qza-uQ-dO5">
-                                        <rect key="frame" x="0.0" y="543" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="587" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="280" height="43"/>
@@ -447,6 +465,7 @@
                         <outlet property="issueLabel" destination="Ofv-Bs-s5a" id="jLE-Op-ElW"/>
                         <outlet property="messageLabel" destination="Ij3-EN-Agy" id="xAa-gj-REx"/>
                         <outlet property="rateAppLabel" destination="jOE-Vd-ldX" id="sJx-xT-JkS"/>
+                        <outlet property="twitterLabel" destination="7Pq-dT-bWu" id="rka-gB-L0M"/>
                         <outlet property="versionLabel" destination="eF3-dH-qA2" id="IPT-tR-pLl"/>
                     </connections>
                 </tableViewController>
@@ -1217,153 +1236,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     <resources>
         <image name="home-background.png" width="639" height="960"/>
     </resources>
-    <classes>
-        <class className="AppViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showOrHideMenuAction:"/>
-                <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="contentView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="menuDisclosureButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="menuView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="HomeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="displayMove"/>
-                <relationship kind="action" name="displayMyBody"/>
-                <relationship kind="action" name="displayPRWall"/>
-                <relationship kind="action" name="displayWOD"/>
-                <relationship kind="action" name="displayWorkout"/>
-                <relationship kind="outlet" name="moveButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="myBodyButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="prWallButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="wodButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="workoutButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="InfoViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="shareAppEmail"/>
-                <relationship kind="action" name="shareAppFacebook"/>
-                <relationship kind="action" name="shareAppTextMessage"/>
-                <relationship kind="outlet" name="aboutLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="facebookLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="featureLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="feedbackLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="issueLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rateAppLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="versionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MeasurableDataEntryTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableDataEntryTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="measurableDateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="measurableTrendImageButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="measurableValueLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MeasurableDetailSwitchViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableDetailSwitchViewController.h"/>
-        </class>
-        <class className="MeasurableInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableInfoViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="metadataTextView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="MeasurableLogViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableLogViewController.h"/>
-        </class>
-        <class className="MeasurableViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="chartMeasurableAction:"/>
-                <relationship kind="action" name="clearEditMeasurableLogAction:"/>
-                <relationship kind="action" name="copyMeasurableAction:"/>
-                <relationship kind="action" name="doneEditMeasurableInfoAction:"/>
-                <relationship kind="action" name="doneEditMeasurableLogAction:"/>
-                <relationship kind="action" name="editMeasurableInfoAction:"/>
-                <relationship kind="action" name="editMeasurableLogAction:"/>
-                <relationship kind="action" name="logMeasurableAction:"/>
-                <relationship kind="action" name="shareMeasurableInfoAction:"/>
-                <relationship kind="action" name="shareMeasurableLogAction:"/>
-                <relationship kind="outlet" name="barButtonItemChartLog" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemClearLog" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemCopyMeasurable" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemDoneInfo" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemDoneLog" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemEditInfo" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemEditLog" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemLog" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemShareInfo" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemShareLog" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemSpacerOne" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemSpacerTwo" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="measurableDetailPageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-            </relationships>
-        </class>
-        <class className="MenuCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuCell.h"/>
-        </class>
-        <class className="MenuViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
-        </class>
-        <class className="MoveViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoveViewController.h"/>
-        </class>
-        <class className="MyBodyViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyBodyViewController.h"/>
-        </class>
-        <class className="PRWallViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PRWallViewController.h"/>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UserProfileViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserProfileViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changeDateOfBirth"/>
-                <relationship kind="action" name="changeSex"/>
-                <relationship kind="action" name="dismissInputView"/>
-                <relationship kind="action" name="startChangingImage"/>
-                <relationship kind="outlet" name="boxLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="boxTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="dateOfBirthDatePicker" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="dateOfBirthLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dateOfBirthTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="editToolbar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="imageButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="sexLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="sexSegmentedControl" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="WODViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WODViewController.h"/>
-        </class>
-        <class className="WorkoutViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WorkoutViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
