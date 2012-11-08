@@ -3,7 +3,7 @@
 //  CrossFitter
 //
 //  Created by Cleo Barretto on 7/18/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 CrossFitter. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
