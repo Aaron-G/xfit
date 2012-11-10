@@ -144,6 +144,7 @@
   
   if(!_infoToolbarItems) {
   
+    if(self.measurable.metadataProvider.editable) {
     _infoToolbarItems = [NSArray arrayWithObjects:
                         self.measurableViewController.barButtonItemShareInfo,
                         self.measurableViewController.barButtonItemSpacerOne,
@@ -151,6 +152,14 @@
                         self.measurableViewController.barButtonItemSpacerTwo,
                         self.measurableViewController.barButtonItemEditInfo,
                         nil];
+    } else {
+      _infoToolbarItems = [NSArray arrayWithObjects:
+                           self.measurableViewController.barButtonItemShareInfo,
+                           self.measurableViewController.barButtonItemSpacerOne,
+                           self.measurableViewController.barButtonItemSpacerTwo,
+                           nil];
+
+    }
   }
   return _infoToolbarItems;
 }

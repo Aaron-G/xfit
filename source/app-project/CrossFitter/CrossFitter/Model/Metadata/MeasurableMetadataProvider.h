@@ -22,6 +22,8 @@
 
 @property MeasurableType* type;
 
+@property BOOL editable;
+
 @property Unit* unit;
 @property MeasurableValueTrendBetterDirection valueTrendBetterDirection;
 

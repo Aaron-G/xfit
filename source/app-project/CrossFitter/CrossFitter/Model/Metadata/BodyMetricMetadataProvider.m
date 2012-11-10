@@ -254,5 +254,8 @@
   return _metadataFull;
 }
 
+- (BOOL)editable {
+  return NO;
+}
 
 @end
