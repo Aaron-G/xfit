@@ -121,11 +121,13 @@
 
   NSMutableArray* dataEntries = [NSMutableArray arrayWithCapacity:values.count];
   
+  NSInteger count = 0;
   for (NSNumber* value in values) {
     MeasurableDataEntry* dataEntry = [[MeasurableDataEntry alloc] init];
     dataEntry.value = value;
-    dataEntry.date = [NSDate date];
+    dataEntry.date = [NSDate dateWithTimeInterval:((-count)*24*60*60) sinceDate:[NSDate date]];
     [dataEntries addObject:dataEntry];
+    count++;
   }
 
   return dataEntries;
