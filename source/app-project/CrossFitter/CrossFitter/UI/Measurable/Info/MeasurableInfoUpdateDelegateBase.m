@@ -9,16 +9,17 @@
 #import "MeasurableInfoUpdateDelegateBase.h"
 #import "Measurable.h"
 #import "MeasurableInfoViewController.h"
+#import "UIHelper.h"
 
 @implementation MeasurableInfoUpdateDelegateBase
 
 //Vertical spacing between UI component
-static CGFloat LAYOUT_VERTICAL_SPACING = 0;
+static CGFloat VERTICAL_LAYOUT_PADDING = 0;
 
 //Vertical position where to start to layout the UI components
 //
 //This is the bottom of the of the "divider" under the measurable names
-static CGFloat LAYOUT_VERTICAL_START_POSITION = 36;
+static CGFloat VERTICAL_LAYOUT_START_POSITION = 36;
 
 - (void) updateUIWithMeasurable: (id<Measurable>) measurable inMeasurableInfoViewController:(MeasurableInfoViewController*) measurableInfoViewController {
   [self updateUIContentWithMeasurable:measurable inMeasurableInfoViewController:measurableInfoViewController];
@@ -36,37 +37,22 @@ static CGFloat LAYOUT_VERTICAL_START_POSITION = 36;
 
 - (void)layoutUIForMeasurable:(id<Measurable>)measurable inMeasurableInfoViewController:(MeasurableInfoViewController *)measurableInfoViewController {
   
-  CGFloat layoutYCoordinate = LAYOUT_VERTICAL_START_POSITION;
+  CGFloat layoutYCoordinate = VERTICAL_LAYOUT_START_POSITION;
 
   //Metadata (Full) View
-  layoutYCoordinate = [self moveToLocation:layoutYCoordinate
-                           reshapeWithSize:CGSizeMake(measurableInfoViewController.metadataTextView.frame.size.width, measurableInfoViewController.metadataTextView.contentSize.height)
-                                    orHide:(measurable.metadataProvider.metadataFull == nil)
-                                      view:measurableInfoViewController.metadataTextView];
+  layoutYCoordinate = [UIHelper moveToYLocation:layoutYCoordinate
+                                reshapeWithSize:CGSizeMake(measurableInfoViewController.metadataTextView.frame.size.width, measurableInfoViewController.metadataTextView.contentSize.height)
+                                         orHide:(measurable.metadataProvider.metadataFull == nil)
+                                           view:measurableInfoViewController.metadataTextView
+                            withVerticalSpacing:VERTICAL_LAYOUT_PADDING];
   
   //Description View
-  layoutYCoordinate = [self moveToLocation:layoutYCoordinate
-                           reshapeWithSize:CGSizeMake(measurableInfoViewController.descriptionTextView.frame.size.width, measurableInfoViewController.descriptionTextView.contentSize.height)
-                                    orHide:(measurable.metadataProvider.description == nil)
-                                      view:measurableInfoViewController.descriptionTextView];
+  layoutYCoordinate = [UIHelper moveToYLocation:layoutYCoordinate
+                                reshapeWithSize:CGSizeMake(measurableInfoViewController.descriptionTextView.frame.size.width, measurableInfoViewController.descriptionTextView.contentSize.height)
+                                         orHide:(measurable.metadataProvider.description == nil)
+                                           view:measurableInfoViewController.descriptionTextView
+                            withVerticalSpacing:VERTICAL_LAYOUT_PADDING];
   
-}
-
-- (CGFloat) moveToLocation:(CGFloat) location reshapeWithSize:(CGSize) size orHide:(BOOL) hide view:(UIView*) view {
-
-  if(hide) {
-    view.hidden = YES;
-    return location;
-  } else {
-    CGRect curViewFrame = view.frame;
-    CGRect newViewFrame = CGRectMake(curViewFrame.origin.x, location, size.width, size.height);
-    view.frame = newViewFrame;
-    
-    //Unhide, just in case it was hidden before
-    view.hidden = NO;
-    
-    return newViewFrame.origin.y + newViewFrame.size.height + LAYOUT_VERTICAL_SPACING;
-  }
 }
 
 @end
