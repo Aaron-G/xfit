@@ -8,7 +8,6 @@
 
 #import "ImageDisplayViewController.h"
 #import "UIHelper.h"
-#import "ImageDisplayViewGestureRecognizer.h"
 
 @interface ImageDisplayViewController ()
 
@@ -22,7 +21,6 @@
   
   self.imageView.image = self.image;
 
-  //
   UITapGestureRecognizer* showNavigationBarGestureRecognizer =
     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showNavigationBar)];
   showNavigationBarGestureRecognizer.numberOfTapsRequired = 1;
