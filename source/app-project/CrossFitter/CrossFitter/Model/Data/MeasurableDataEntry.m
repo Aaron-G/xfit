@@ -18,4 +18,7 @@
 @synthesize images;
 @synthesize videos;
 
+- (BOOL)hasAdditionalInfo {
+  return (comment != nil || images.count > 0 || videos.count > 0);
+}
 @end

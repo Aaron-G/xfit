@@ -24,5 +24,5 @@ typedef NSString* MeasurableDataEntryIdentifier;
 @property NSArray* images;
 @property NSArray* videos;
 
-
+@property (readonly) BOOL hasAdditionalInfo;
 @end
