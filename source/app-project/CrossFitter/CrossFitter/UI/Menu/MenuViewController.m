@@ -47,7 +47,7 @@
 {
   [super viewDidLoad];
   
-  [self.collectionView registerClass:[MenuCell class] forCellWithReuseIdentifier:@"MENU_CELL"];
+  [self.collectionView registerClass:[MenuCell class] forCellWithReuseIdentifier:@"MenuCell"];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section;
@@ -62,7 +62,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
-  MenuCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"MENU_CELL" forIndexPath:indexPath];
+  MenuCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"MenuCell" forIndexPath:indexPath];
   
   NSString *imageName = nil;  
   SEL action = nil;
