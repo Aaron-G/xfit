@@ -87,7 +87,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
-  UICollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"MEASURABLE_CELL" forIndexPath:indexPath];
+  UICollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"MeasurableViewControllerCollectionViewCell_StoryBoard" forIndexPath:indexPath];
 
   //Clean up the cell
   for (UIView* view in [cell subviews]) {
@@ -97,9 +97,9 @@
   //Add appropriate sub view
   UIView* view = nil;
   if(indexPath.item == 0) {
-    view = self.infoViewController.view;
-  } else if(indexPath.item == 1) {
     view = self.logViewController.view;
+  } else if(indexPath.item == 1) {
+    view = self.infoViewController.view;
   }
   
   if(view) {
@@ -114,10 +114,9 @@
   
   //Update the toolbar buttons
   if(indexPath.item == 0) {
-    toolbarItems = [self infoToolbarItems];
-    
+    toolbarItems = [self logToolbarItems];    
   } else if(indexPath.item == 1) {
-    toolbarItems = [self logToolbarItems];
+    toolbarItems = [self infoToolbarItems];
   }
   
   [self.measurableViewController.toolbar setItems:toolbarItems animated:NO];
