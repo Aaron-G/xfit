@@ -11,6 +11,7 @@
 #import "MeasurableViewController.h"
 #import "AppViewController.h"
 #import "UserProfileViewController.h"
+#import "ImageDisplayViewController.h"
 
 @interface UIHelper : NSObject
 
@@ -24,6 +25,8 @@
 
 + (UserProfileViewController*) userProfileViewController;
 
++ (ImageDisplayViewController*) imageDisplayViewController;
+
 //Returns a new instance of the UIViewController that has the provided
 //identifier on the Storyboard.
 + (UIViewController*) viewControllerWithViewStoryboardIdentifier: (NSString*) identifier;
@@ -31,5 +34,14 @@
 + (NSDateFormatter *)appDateFormat;
 
 + (void) showMessage:(NSString*) message withTitle:(NSString*) title;
+
++ (CGFloat) moveToYLocation:(CGFloat) yLocation reshapeWithSize:(CGSize) size orHide:(BOOL) hide view:(UIView*) view withVerticalSpacing:(NSInteger) verticalSpacing;
+
++ (void) displayImageFullScreen:(UIImage*) image;
+
++ (NSUInteger)supportedInterfaceOrientations;
+
++ (NSUInteger)supportedInterfaceOrientationsWithLandscape;
+
 @end
  

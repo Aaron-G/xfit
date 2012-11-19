@@ -74,6 +74,12 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   }
 }
 
++ (void) displayImageFullScreen:(UIImage*) image {
+  ImageDisplayViewController* imageDisplayViewController = [UIHelper imageDisplayViewController];
+  imageDisplayViewController.image = image;
+  [[[UIHelper appViewController] navigationController] presentViewController:imageDisplayViewController animated:YES completion:nil];
+}
+
 + (AppViewController*) appViewController {
   return [[App sharedInstance] appViewController];
 }
@@ -89,6 +95,10 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
 + (UIViewController*) viewControllerWithViewStoryboardIdentifier: (NSString*) identifier {
   AppViewController* appViewController = [[App sharedInstance] appViewController];
   return [appViewController.storyboard instantiateViewControllerWithIdentifier:identifier];
+}
+
++ (ImageDisplayViewController*) imageDisplayViewController {
+  return (ImageDisplayViewController*)[UIHelper viewControllerWithViewStoryboardIdentifier: @"ImageDisplayViewController"];
 }
 
 + (NSDateFormatter *)appDateFormat {
@@ -108,6 +118,34 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
                             otherButtonTitles:nil];
   [alertView show];
 
+}
+
++ (CGFloat) moveToYLocation:(CGFloat) yLocation reshapeWithSize:(CGSize) size orHide:(BOOL) hide view:(UIView*) view withVerticalSpacing:(NSInteger) verticalSpacing {
+  
+  if(hide) {
+    view.hidden = YES;
+    return yLocation;
+  } else {
+    
+    CGRect curViewFrame = view.frame;
+    
+    CGRect newViewFrame = CGRectMake(curViewFrame.origin.x, yLocation, size.width, size.height);
+
+    //Unhide, just in case it was hidden before
+    view.hidden = NO;
+    
+    view.frame = newViewFrame;
+    
+    return newViewFrame.origin.y + newViewFrame.size.height + verticalSpacing;
+  }
+}
+
++ (NSUInteger)supportedInterfaceOrientations {
+  return UIInterfaceOrientationMaskPortrait;
+}
+
++ (NSUInteger)supportedInterfaceOrientationsWithLandscape {
+  return UIInterfaceOrientationMaskPortrait & UIInterfaceOrientationMaskLandscapeRight;
 }
 
 @end
