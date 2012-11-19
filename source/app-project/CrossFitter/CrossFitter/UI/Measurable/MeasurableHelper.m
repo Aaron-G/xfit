@@ -12,6 +12,7 @@
 #import "MeasurableDataEntryTableViewCell.h"
 #import "MeasurableType.h"
 #import "BodyMetricInfoUpdateDelegate.h"
+#import "MeasurableDataEntryAdditionalInfoTableViewCell.h"
 
 @interface MeasurableHelper () {
 }
@@ -50,7 +51,7 @@ static NSMutableDictionary* _measurableInfoUpdateDelegates;
 + (UITableViewCell *)tableViewCellForMeasurableDataEntry: (MeasurableDataEntry*) measurableDataEntry ofMeasurable: (id <Measurable>) measurable inTableView: (UITableView *)tableView {
   
   MeasurableDataEntryTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MeasurableDataEntryTableViewCell"];
-
+  cell.measurableDataEntry = measurableDataEntry;
   cell.measurableValueLabel.text = [measurable.valueFormatter formatValue:measurableDataEntry.value];
   
   NSString *dateString = [MeasurableHelper.measurableDateFormat stringFromDate:measurableDataEntry.date];
@@ -61,6 +62,18 @@ static NSMutableDictionary* _measurableInfoUpdateDelegates;
 withMeasurableValueTrend: measurableDataEntry.valueTrend
 withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendBetterDirection];
 
+  //Show or Hide the Info button/icon
+  cell.measurableAdditionalInfoImageButton.hidden = (!measurableDataEntry.hasAdditionalInfo);
+  
+  return cell;
+}
+
++ (UITableViewCell *)tableViewCellWithAdditionalInfoForMeasurableDataEntry: (MeasurableDataEntry*) measurableDataEntry ofMeasurable: (id <Measurable>) measurable inTableView: (UITableView *)tableView {
+  
+  MeasurableDataEntryAdditionalInfoTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MeasurableDataEntryAdditionalInfoTableViewCell"];
+
+  cell.measurableDataEntry = measurableDataEntry;
+  
   return cell;
 }
 
