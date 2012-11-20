@@ -20,6 +20,7 @@
 #import "AppViewControllerSegue.h"
 #import "MeasurableHelper.h"
 #import "UserProfileViewController.h"
+#import "AppConstants.h"
 
 @interface MyBodyViewController () {
 }
@@ -101,10 +102,15 @@
 //Localize the table section titles
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
   
-  if(section == 0 || section == 2) {
-    return @"";
+  if(section == 0 ) {
+    //Adding this blank header to provide additional enough room between the first row of data and the
+    //app menu above it. If we remove this, the two overlap.
+    return TableViewSectionTitleSpacer;
   } else if(section == 1) {
     return NSLocalizedString(@"mybody-section-title-body", @"Body");
+  } else if(section == 2) {
+    //No title for this section
+    return @"";
   } else if(section == 3) {
     return NSLocalizedString(@"mybody-section-title-upper", @"Upper");
   } else if(section == 4) {
@@ -120,9 +126,9 @@
   
   if(indexPath.section == 1) {
     if(indexPath.item == 0) {
-      return BodyMetricIdentifierHeight;
-    } else if(indexPath.item == 1) {
       return BodyMetricIdentifierWeight;
+    } else if(indexPath.item == 1) {
+      return BodyMetricIdentifierHeight;
     }
   } else if(indexPath.section == 2) {
     if(indexPath.item == 0) {
@@ -164,10 +170,10 @@
   NSInteger section = -1;
   NSInteger item = -1;
   
-  if(BodyMetricIdentifierHeight == identifier) {
+  if(BodyMetricIdentifierWeight == identifier) {
     section = 1;
     item = 0;
-  } else if(BodyMetricIdentifierWeight == identifier) {
+  } else if(BodyMetricIdentifierHeight == identifier) {
     section = 1;
     item = 1;
   } else if(BodyMetricIdentifierBodyMassIndex == identifier) {
