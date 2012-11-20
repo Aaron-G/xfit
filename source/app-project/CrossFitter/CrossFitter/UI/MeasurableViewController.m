@@ -59,6 +59,10 @@
   [super viewWillAppear:animated];
 }
 
+- (NSUInteger)supportedInterfaceOrientations {
+  return [UIHelper supportedInterfaceOrientations];
+}
+
 - (MeasurableTitleView *)measurableTitleView {
   if(!_measurableTitleView) {
     NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"MeasurableTitleView"

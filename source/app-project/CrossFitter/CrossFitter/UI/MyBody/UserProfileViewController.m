@@ -108,6 +108,10 @@
   [super viewWillDisappear:animated];
 }
 
+- (NSUInteger)supportedInterfaceOrientations {
+  return [UIHelper supportedInterfaceOrientations];
+}
+
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
 
   //Prevents the Date of Birth field from being manually edited

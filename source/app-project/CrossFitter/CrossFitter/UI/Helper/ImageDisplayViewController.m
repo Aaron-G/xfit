@@ -38,6 +38,9 @@
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
 }
+- (NSUInteger)supportedInterfaceOrientations {
+  return [UIHelper supportedInterfaceOrientationsWithLandscape];
+}
 
 - (void) updateToolbarVisibility:(BOOL) visible when:(CGFloat) when {
   

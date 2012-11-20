@@ -40,6 +40,9 @@
 //Shows the application menu and hides it after the provided hide delay
 - (void) showOrHideMenuWithDelay: (CGFloat) delay withAutoHideDelay: (CGFloat) autoHideDelay;
 
+//Sets the supported interface orientation. Passing zero to it resets to the app's defaults
+- (void)setSupportedInterfaceOrientations:(NSUInteger)supportedInterfaceOrientations;
+
 //Allows AppScreenSwitchDelegate to register themselves
 + (void) addAppScreenSwitchDelegate: (AppScreenSwitchDelegate *) appScreenSwitchDelegate forAppScreen: (AppScreenIdentifier) screenIdentifier;
 //Return the AppScreenSwitchDelegate for the given AppScreenIdentifier

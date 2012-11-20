@@ -141,11 +141,11 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
 }
 
 + (NSUInteger)supportedInterfaceOrientations {
-  return UIInterfaceOrientationMaskPortrait;
+  return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskPortraitUpsideDown;
 }
 
 + (NSUInteger)supportedInterfaceOrientationsWithLandscape {
-  return UIInterfaceOrientationMaskPortrait & UIInterfaceOrientationMaskLandscapeRight;
+  return [UIHelper supportedInterfaceOrientations] | UIInterfaceOrientationMaskLandscapeRight | UIInterfaceOrientationMaskLandscapeLeft;
 }
 
 @end

@@ -58,6 +58,8 @@ typedef enum {
 //Gesture Reconizer
 @property AppViewGestureRecognizer* gestureRecognizer;
 
+@property NSUInteger supportedInterfaceOrientations;
+
 -(IBAction) showOrHideMenuAction:(id)sender;
 
 //API
@@ -70,6 +72,7 @@ typedef enum {
 
 @implementation AppViewController
 
+@synthesize supportedInterfaceOrientations = _supportedInterfaceOrientations;
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
   self = [super initWithCoder:aDecoder];
@@ -81,6 +84,8 @@ typedef enum {
     
     //Gesture recognizer
     self.gestureRecognizer = [[AppViewGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    
+    self.supportedInterfaceOrientations = 0;
   }
   
   return self;
@@ -144,6 +149,17 @@ typedef enum {
   [super viewWillDisappear:animated];
 }
 
+- (void)setSupportedInterfaceOrientations:(NSUInteger)supportedInterfaceOrientations {
+  
+  if(supportedInterfaceOrientations == 0) {
+    _supportedInterfaceOrientations = [UIHelper supportedInterfaceOrientations];
+  } else {
+    _supportedInterfaceOrientations = supportedInterfaceOrientations;
+  }
+}
+- (NSUInteger)supportedInterfaceOrientations {  
+  return _supportedInterfaceOrientations;
+}
 
 #pragma Application API
 - (void) displayScreenForStartUp:(AppScreenIdentifier) screen {
