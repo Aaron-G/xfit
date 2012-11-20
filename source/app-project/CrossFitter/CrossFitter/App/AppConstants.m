@@ -33,4 +33,8 @@ const NSString* WorkoutVideoNamePreffix = @"workout-video-";
 const NSString* WODVideoNamePreffix = @"wod-video-";
 const NSString* BodyMetricVideoNamePreffix = @"bodymetric-video-";
 
+//This is used as a blank header title in UITableView sections to provide additional spacing
+//at the top between the given section and the previous section or the previous UI component
+//if this is the first section
+const NSString* TableViewSectionTitleSpacer = @" ";
 @end

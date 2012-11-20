@@ -35,4 +35,6 @@ extern NSString* WorkoutVideoNamePreffix;
 extern NSString* WODVideoNamePreffix;
 extern NSString* BodyMetricVideoNamePreffix;
 
+extern NSString* TableViewSectionTitleSpacer;
+
 @end
