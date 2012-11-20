@@ -13,6 +13,7 @@
 #import "MeasurableLogShareDelegate.h"
 #import "UIHelper.h"
 #import "MeasurableDataEntryAdditionalInfoTableViewCell.h"
+#import "AppConstants.h"
 
 @interface MeasurableLogViewController ()
 
@@ -117,10 +118,9 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
   if(section == 0) {
-    //IMPL NOTE
-    //Adding this blank header provides enough room between the first for of data and the
+    //Adding this blank header to provide additional enough room between the first row of data and the
     //measurable name above it. If we remove this, the two overlap.
-    return @" ";
+    return TableViewSectionTitleSpacer;
   } else {
     return [super tableView:tableView titleForHeaderInSection:section];
   }
