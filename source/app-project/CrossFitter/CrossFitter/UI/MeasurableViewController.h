@@ -38,6 +38,9 @@
 @property IBOutlet UIBarButtonItem* barButtonItemSpacerOne;
 @property IBOutlet UIBarButtonItem* barButtonItemSpacerTwo;
 
+@property IBOutlet UIButton* buttonSwitchToInfo;
+@property IBOutlet UIButton* buttonSwitchToLog;
+
 @property (readonly) MeasurableDetailSwitchViewController* measurableDetailSwitchViewController;
 
 @property IBOutlet UIPageControl* measurableDetailPageControl;

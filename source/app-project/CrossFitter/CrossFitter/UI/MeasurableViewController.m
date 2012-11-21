@@ -15,6 +15,9 @@
 }
 @property BOOL needsUIUpdate;
 
+- (IBAction)showMeasurableInfo;
+- (IBAction)showMeasurableLog;
+
 @end
 
 @implementation MeasurableViewController
@@ -139,29 +142,31 @@
 //DONE MEASURABLE
 
 - (IBAction)doneEditMeasurableInfoAction:(id)sender {
-  [self doneEditMeasurableAction:self.measurableDetailSwitchViewController.infoViewController toolbarItems:self.measurableDetailSwitchViewController.infoToolbarItems];
+  [self doneEditMeasurableAction:self.measurableDetailSwitchViewController.infoViewController toolbarItems:self.measurableDetailSwitchViewController.infoToolbarItems switchButton:self.buttonSwitchToLog];
 }
 
 - (IBAction)doneEditMeasurableLogAction:(id)sender {
-  [self doneEditMeasurableAction:self.measurableDetailSwitchViewController.logViewController toolbarItems:self.measurableDetailSwitchViewController.logToolbarItems];
+  [self doneEditMeasurableAction:self.measurableDetailSwitchViewController.logViewController toolbarItems:self.measurableDetailSwitchViewController.logToolbarItems switchButton:self.buttonSwitchToInfo];
 }
 
-- (void)doneEditMeasurableAction: (UIViewController*) viewController toolbarItems: (NSArray*) toolbarItems {
+- (void)doneEditMeasurableAction: (UIViewController*) viewController toolbarItems: (NSArray*) toolbarItems switchButton:(UIButton*) switchButton {
   
   self.measurableDetailSwitchViewController.collectionView.scrollEnabled = YES;
   [self displayStandardButtons];
   [self.toolbar setItems:toolbarItems animated:YES];
   
+  switchButton.hidden = NO;
+
   [viewController setEditing:NO animated:YES];
 }
 //////////////////////////////////////////////////////////////////
 //EDIT MEASURABLE
 - (void)editMeasurableInfoAction:(id)sender {
-  [self editMeasurableAction:self.measurableDetailSwitchViewController.infoViewController doneButton: self.barButtonItemDoneInfo];
+  [self editMeasurableAction:self.measurableDetailSwitchViewController.infoViewController doneButton: self.barButtonItemDoneInfo switchButton:self.buttonSwitchToLog];
 }
 
 - (void)editMeasurableLogAction:(id)sender {
-  [self editMeasurableAction:self.measurableDetailSwitchViewController.logViewController doneButton: self.barButtonItemDoneLog];
+  [self editMeasurableAction:self.measurableDetailSwitchViewController.logViewController doneButton: self.barButtonItemDoneLog switchButton:self.buttonSwitchToInfo];
   
   if(self.measurable.dataProvider.values.count > 0) {
     self.barButtonItemClearLog.enabled = YES;
@@ -172,7 +177,7 @@
   [self.navigationItem setLeftBarButtonItem: self.barButtonItemClearLog animated:YES];
 }
 
-- (void)editMeasurableAction:(UIViewController*) viewController doneButton:(UIBarButtonItem*) doneButton {
+- (void)editMeasurableAction:(UIViewController*) viewController doneButton:(UIBarButtonItem*) doneButton switchButton:(UIButton*) switchButton {
 
   //Needed for Info screen where there is no left button
   self.navigationItem.hidesBackButton = YES;
@@ -185,6 +190,8 @@
   
   self.measurableDetailSwitchViewController.collectionView.scrollEnabled = NO;
   
+  switchButton.hidden = YES;
+  
   [viewController setEditing:YES animated:YES];
 }
 
@@ -193,7 +200,13 @@
   [self.navigationItem setLeftBarButtonItem: nil animated:YES];
   self.navigationItem.rightBarButtonItem = self.barButtonItemLog;
   self.measurableDetailPageControl.hidden = NO;
-  
+}
+
+- (IBAction)showMeasurableInfo {
+  [self.measurableDetailSwitchViewController showMeasurableInfo];
+}
+- (IBAction)showMeasurableLog {
+  [self.measurableDetailSwitchViewController showMeasurableLog];
 }
 
 
