@@ -14,6 +14,7 @@
 #import "UIHelper.h"
 #import "MeasurableDataEntryAdditionalInfoTableViewCell.h"
 #import "AppConstants.h"
+#import "MeasurableDataEntryTableViewCell.h"
 
 @interface MeasurableLogViewController ()
 
@@ -88,15 +89,18 @@
       return [MeasurableHelper tableViewCellForMeasurableDataEntry: dataEntry ofMeasurable: self.measurable inTableView: tableView];
     }
     
-  } else {
-    return [super tableView: tableView cellForRowAtIndexPath:indexPath];
   }
+  
+  //Should never reach this 
+  return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
   if(indexPath.item < self.measurableTableLogData.count) {
   
+    
+    //Height of MeasurableDataEntryAdditionalInfoTableViewCell
     if(indexPath.item == self.indexOfAdditionalInfoRow && !self.additionalInfoTableViewCell) {
   
       //Get the target MeasurableDataEntry
@@ -111,19 +115,27 @@
       //Return the minimum height
       return self.additionalInfoTableViewCell.minimumHeight;
     }
+    
+    //Height of MeasurableDataEntryTableViewCell
+    else {
+      return MeasurableDataEntryTableViewCellHeight;
+    }
   }
   
-  return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+  //Should never reach this
+  return 0;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+  
+  //There is only 1 section on this table
   if(section == 0) {
     //Adding this blank header to provide additional enough room between the first row of data and the
     //measurable name above it. If we remove this, the two overlap.
     return TableViewSectionTitleSpacer;
-  } else {
-    return [super tableView:tableView titleForHeaderInSection:section];
   }
+
+  return nil;
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -283,16 +295,6 @@
     [self.tableView endUpdates];
   }
 }
-//- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
-//  return NO;
-//}
-
-//- (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
-//  NSLog(@"Edit will start at %i", indexPath.item);
-//}
-//- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
-//  NSLog(@"Edit did complete at %i", indexPath.item);
-//}
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
   
@@ -300,6 +302,8 @@
   [self removeAdditionalInfoRow];
   
   [super setEditing:editing animated:animated];
+  
+  [self.tableView setEditing:editing animated:animated];
 }
 
 - (id<Measurable>)measurable {

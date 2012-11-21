@@ -16,6 +16,8 @@
 
 @implementation MeasurableDataEntryTableViewCell
 
+const NSInteger MeasurableDataEntryTableViewCellHeight = 45;
+
 @synthesize measurableTrendImageButton;
 @synthesize measurableValueLabel;
 @synthesize measurableDateLabel;

@@ -10,6 +10,8 @@
 #import "MeasurableDataEntry.h"
 @interface MeasurableDataEntryTableViewCell : UITableViewCell
 
+extern const NSInteger MeasurableDataEntryTableViewCellHeight;
+
 @property IBOutlet UILabel* measurableValueLabel;
 @property IBOutlet UILabel* measurableDateLabel;
 @property IBOutlet UIButton* measurableTrendImageButton;
