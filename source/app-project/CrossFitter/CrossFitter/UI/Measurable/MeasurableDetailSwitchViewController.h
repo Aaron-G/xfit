@@ -24,4 +24,7 @@
 @property (readonly) NSArray* logToolbarItems;
 @property (readonly) NSArray* infoToolbarItems;
 
+- (void)showMeasurableInfo;
+- (void)showMeasurableLog;
+
 @end

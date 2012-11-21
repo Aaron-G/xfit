@@ -13,6 +13,7 @@
   
 }
 
+@property NSInteger currentViewControllerIndex;
 @end
 
 @implementation MeasurableDetailSwitchViewController
@@ -21,6 +22,7 @@
 @synthesize measurableViewController = _measurableViewController;
 @synthesize logToolbarItems = _logToolbarItems;
 @synthesize infoToolbarItems = _infoToolbarItems;
+@synthesize currentViewControllerIndex = _currentViewControllerIndex;
 
 -(void)setMeasurableViewController:(MeasurableViewController *)measurableViewController {
   
@@ -47,12 +49,8 @@
 //to the measurable can be displayed
 - (void)reset {
 
-  NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
-  
-  //Reset to the info view
-  [self.collectionView scrollToItemAtIndexPath:indexPath
-                              atScrollPosition:UICollectionViewScrollPositionNone
-                                      animated:NO];
+  //Reset to the first view
+  [self scrollToViewControllerAtIndex:0 animated:NO];
 }
 
 - (id<Measurable>)measurable {
@@ -64,7 +62,8 @@
   self = [super initWithCoder:aDecoder];
   if(self) {
     self.infoViewController = (MeasurableInfoViewController*)[UIHelper viewControllerWithViewStoryboardIdentifier:@"MeasurableInfoViewController"];
-    self.logViewController = (MeasurableLogViewController*)[UIHelper viewControllerWithViewStoryboardIdentifier:@"MeasurableLogViewController"];    
+    self.logViewController = (MeasurableLogViewController*)[UIHelper viewControllerWithViewStoryboardIdentifier:@"MeasurableLogViewController"];
+    self.currentViewControllerIndex = 0;    
   }
   return self;
 }
@@ -72,8 +71,16 @@
 -(void)viewDidLoad
 {
   [super viewDidLoad];
+  
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+  
+  [self updateUIControlsToIndex:self.currentViewControllerIndex];
+  
+  [super viewWillAppear:animated];
+  
+}
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section
 {
   if(section == 0) {
@@ -105,23 +112,49 @@
   if(view) {
     [cell addSubview: view];
   }
+  
+  return cell;
+}
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+  
+  NSInteger viewIndex = (scrollView.contentOffset.x < scrollView.bounds.size.width/2) ? 0 : 1;
+  
+  if(viewIndex != _currentViewControllerIndex) {
+    //Update the UI controls 
+    [self updateUIControlsToIndex:viewIndex];
+  }
+}
+
+//Updates the UI controls so that info and log related UI controls are shown/hidden appropriately
+- (void) updateUIControlsToIndex:(NSInteger)viewIndex {
+  
   //Update the page control
-  if(indexPath.item < 2) {
-    self.measurableViewController.measurableDetailPageControl.currentPage = indexPath.item;
+  if(viewIndex < 2) {
+    self.measurableViewController.measurableDetailPageControl.currentPage = viewIndex;
   }
   NSArray* toolbarItems = nil;
   
   //Update the toolbar buttons
-  if(indexPath.item == 0) {
-    toolbarItems = [self logToolbarItems];    
-  } else if(indexPath.item == 1) {
+  if(viewIndex == 0) {
+    toolbarItems = [self logToolbarItems];
+  } else if(viewIndex == 1) {
     toolbarItems = [self infoToolbarItems];
   }
   
-  [self.measurableViewController.toolbar setItems:toolbarItems animated:NO];
-  
-  return cell;
+  [self.measurableViewController.toolbar setItems:toolbarItems animated:YES];
+
+  [UIView animateWithDuration: 0.3
+                        delay: 0
+                      options: 0
+                   animations:^{
+                     self.measurableViewController.buttonSwitchToLog.alpha = (viewIndex == 0) ? 0 : 1;
+                     self.measurableViewController.buttonSwitchToInfo.alpha = (viewIndex == 1) ? 0 : 1;
+                   }
+                   completion: nil];
+
+  //Update current view index
+  _currentViewControllerIndex = viewIndex;
 }
 
 - (NSArray *)logToolbarItems {
@@ -161,6 +194,24 @@
     }
   }
   return _infoToolbarItems;
+}
+
+- (void)showMeasurableLog {
+  [self scrollToViewControllerAtIndex:0 animated:YES];
+}
+
+- (void)showMeasurableInfo {
+  [self scrollToViewControllerAtIndex:1 animated:YES];
+}
+
+
+- (void)scrollToViewControllerAtIndex:(NSInteger)index animated:(BOOL)animated {
+  
+  NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+  
+  [self.collectionView scrollToItemAtIndexPath:indexPath
+                              atScrollPosition:UICollectionViewScrollPositionNone
+                                      animated:animated];
 }
 
 @end
