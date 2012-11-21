@@ -378,7 +378,7 @@
   if(self.requiresViewUpdate) {
     
     //Update view
-    id<MeasurableViewUpdateDelegate> updateDelegate = [MeasurableHelper measurableLogUpdateDelegateForMeasurable:self.measurable];
+    id<MeasurableViewUpdateDelegate> updateDelegate = [MeasurableHelper measurableLogViewUpdateDelegateForMeasurable:self.measurable];
     [updateDelegate updateViewInViewController:self withMeasurable: self.measurable withLayoutPosition: self.viewLayoutPosition];
   }
 }

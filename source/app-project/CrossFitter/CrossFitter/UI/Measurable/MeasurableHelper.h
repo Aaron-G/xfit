@@ -18,7 +18,7 @@
 
 + (UITableViewCell *)tableViewCellWithAdditionalInfoForMeasurableDataEntry: (MeasurableDataEntry*) measurableDataEntry ofMeasurable: (id <Measurable>) measurable inTableView: (UITableView *)tableView;
 
-+ (id<MeasurableViewUpdateDelegate>) measurableInfoUpdateDelegateForMeasurable: (id<Measurable>) measurable;
-+ (id<MeasurableViewUpdateDelegate>) measurableLogUpdateDelegateForMeasurable: (id<Measurable>) measurable;
++ (id<MeasurableViewUpdateDelegate>) measurableInfoViewUpdateDelegateForMeasurable: (id<Measurable>) measurable;
++ (id<MeasurableViewUpdateDelegate>) measurableLogViewUpdateDelegateForMeasurable: (id<Measurable>) measurable;
 
 @end

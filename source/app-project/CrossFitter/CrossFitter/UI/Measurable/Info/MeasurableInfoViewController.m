@@ -58,7 +58,7 @@
   if(self.requiresViewUpdate) {
     
     //Update the view
-    id<MeasurableViewUpdateDelegate> updateDelegate = [MeasurableHelper measurableInfoUpdateDelegateForMeasurable:self.measurable];
+    id<MeasurableViewUpdateDelegate> updateDelegate = [MeasurableHelper measurableInfoViewUpdateDelegateForMeasurable:self.measurable];
     [updateDelegate updateViewInViewController:self withMeasurable: self.measurable withLayoutPosition: self.viewLayoutPosition];
   }
 }

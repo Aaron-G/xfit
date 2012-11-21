@@ -95,7 +95,7 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   return _measurableInfoUpdateDelegates;
 }
 
-+ (id<MeasurableViewUpdateDelegate>) measurableInfoUpdateDelegateForMeasurable: (id<Measurable>) measurable {
++ (id<MeasurableViewUpdateDelegate>) measurableInfoViewUpdateDelegateForMeasurable: (id<Measurable>) measurable {
   
   MeasurableType* measurableType = measurable.metadataProvider.type;
   
@@ -120,7 +120,7 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   return _measurableLogUpdateDelegate;
 }
 
-+ (id<MeasurableViewUpdateDelegate>) measurableLogUpdateDelegateForMeasurable: (id<Measurable>) measurable {
++ (id<MeasurableViewUpdateDelegate>) measurableLogViewUpdateDelegateForMeasurable: (id<Measurable>) measurable {
   //They all use the same logic - for now
   return [MeasurableHelper measurableLogUpdateDelegate];
 }
