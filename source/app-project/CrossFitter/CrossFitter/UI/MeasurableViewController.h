@@ -19,6 +19,7 @@
 @property id<Measurable> measurable;
 
 @property IBOutlet UILabel* nameLabel;
+@property IBOutlet UITextView* metadataTextView;
 
 @property IBOutlet UIBarButtonItem* barButtonItemLog;
 
@@ -47,6 +48,9 @@
 @property (readonly) MeasurableTitleView* measurableTitleView;
 
 @property id<MeasurableCollectionDisplay> measurableCollectionDisplay;
+
+//Marks this View Controller as needing to update its view
+@property BOOL requiresViewUpdate;
 
 - (IBAction)copyMeasurableAction:(id)sender;
 - (IBAction)logMeasurableAction:(id)sender;

@@ -16,43 +16,48 @@
 //Vertical spacing between UI component
 static CGFloat VERTICAL_LAYOUT_PADDING = 0;
 
-//Vertical position where to start to layout the UI components
-//
-//This is the bottom of the of the "divider" under the measurable names
-static CGFloat VERTICAL_LAYOUT_START_POSITION = 36;
+- (void) updateViewInViewController:(UIViewController*) viewController withMeasurable: (id<Measurable>) measurable withLayoutPosition:(CGPoint) startPosition {
+  
+  if([[viewController class] isSubclassOfClass: [MeasurableInfoViewController class]]) {
 
-- (void) updateUIWithMeasurable: (id<Measurable>) measurable inMeasurableInfoViewController:(MeasurableInfoViewController*) measurableInfoViewController {
-  [self updateUIContentWithMeasurable:measurable inMeasurableInfoViewController:measurableInfoViewController];
-  [self layoutUIForMeasurable:measurable inMeasurableInfoViewController:measurableInfoViewController];
+    MeasurableInfoViewController* measurableInfoViewController = (MeasurableInfoViewController*)viewController;
+    
+    //If we have a measurable and the UI components have been created
+    if (measurable && measurableInfoViewController.descriptionTextView) {
+      
+      [self updateContentWithMeasurable:measurable inMeasurableInfoViewController:measurableInfoViewController];
+      [self updateLayoutWithMeasurable:measurable inMeasurableInfoViewController:measurableInfoViewController startAtPosition:startPosition];
+      
+      measurableInfoViewController.requiresViewUpdate = NO;
+    }
+  }
 }
 
-- (void)updateUIContentWithMeasurable:(id<Measurable>)measurable inMeasurableInfoViewController:(MeasurableInfoViewController *)measurableInfoViewController {
+- (void)updateContentWithMeasurable:(id<Measurable>)measurable inMeasurableInfoViewController:(MeasurableInfoViewController *)measurableInfoViewController {
   
-  //Metadata (Full) View
-  measurableInfoViewController.metadataTextView.text = measurable.metadataProvider.metadataFull;
-
   //Description View
   measurableInfoViewController.descriptionTextView.text = measurable.metadataProvider.description;  
 }
 
-- (void)layoutUIForMeasurable:(id<Measurable>)measurable inMeasurableInfoViewController:(MeasurableInfoViewController *)measurableInfoViewController {
-  
-  CGFloat layoutYCoordinate = VERTICAL_LAYOUT_START_POSITION;
+- (void) updateLayoutWithMeasurable: (id<Measurable>) measurable inMeasurableInfoViewController:(MeasurableInfoViewController*) measurableInfoViewController startAtPosition:(CGPoint) startPosition {
 
-  //Metadata (Full) View
-  layoutYCoordinate = [UIHelper moveToYLocation:layoutYCoordinate
-                                reshapeWithSize:CGSizeMake(measurableInfoViewController.metadataTextView.frame.size.width, measurableInfoViewController.metadataTextView.contentSize.height)
-                                         orHide:(measurable.metadataProvider.metadataFull == nil)
-                                           view:measurableInfoViewController.metadataTextView
-                            withVerticalSpacing:VERTICAL_LAYOUT_PADDING];
+  //Additional space to align properly with Log content
+  CGFloat layoutYCoordinate = startPosition.y + 10;
   
+  //Divider
+  layoutYCoordinate = [UIHelper moveToYLocation:layoutYCoordinate
+            reshapeWithSize:CGSizeMake(measurableInfoViewController.dividerButton.frame.size.width, measurableInfoViewController.dividerButton.frame.size.height)
+                     orHide:NO
+                       view:measurableInfoViewController.dividerButton
+        withVerticalSpacing:VERTICAL_LAYOUT_PADDING];
+
   //Description View
-  layoutYCoordinate = [UIHelper moveToYLocation:layoutYCoordinate
-                                reshapeWithSize:CGSizeMake(measurableInfoViewController.descriptionTextView.frame.size.width, measurableInfoViewController.descriptionTextView.contentSize.height)
-                                         orHide:(measurable.metadataProvider.description == nil)
-                                           view:measurableInfoViewController.descriptionTextView
-                            withVerticalSpacing:VERTICAL_LAYOUT_PADDING];
-  
+  [UIHelper moveToYLocation:layoutYCoordinate
+            reshapeWithSize:CGSizeMake(measurableInfoViewController.descriptionTextView.frame.size.width, measurableInfoViewController.descriptionTextView.contentSize.height)
+                     orHide:(measurable.metadataProvider.description == nil)
+                       view:measurableInfoViewController.descriptionTextView
+        withVerticalSpacing:VERTICAL_LAYOUT_PADDING];
+
 }
 
 @end

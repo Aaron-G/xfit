@@ -13,6 +13,8 @@
 #import "MeasurableType.h"
 #import "BodyMetricInfoUpdateDelegate.h"
 #import "MeasurableDataEntryAdditionalInfoTableViewCell.h"
+#import "MeasurableViewUpdateDelegate.h"
+#import "MeasurableLogUpdateDelegateBase.h"
 
 @interface MeasurableHelper () {
 }
@@ -23,6 +25,7 @@
 
 static NSDateFormatter* _measurableDateFormat;
 static NSMutableDictionary* _measurableInfoUpdateDelegates;
+static id<MeasurableViewUpdateDelegate> _measurableLogUpdateDelegate;
 
 + (UITableViewCell *)tableViewCellForMeasurable: (id <Measurable>) measurable inTableView: (UITableView *)tableView {
 
@@ -92,11 +95,11 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   return _measurableInfoUpdateDelegates;
 }
 
-+ (id<MeasurableInfoUpdateDelegate>)measurableInfoUpdateDelegateForMeasurable:(id<Measurable>)measurable {
-
++ (id<MeasurableViewUpdateDelegate>) measurableInfoUpdateDelegateForMeasurable: (id<Measurable>) measurable {
+  
   MeasurableType* measurableType = measurable.metadataProvider.type;
   
-  id<MeasurableInfoUpdateDelegate> measurableInfoUpdateDelegate = [[MeasurableHelper measurableInfoUpdateDelegates] objectForKey: measurableType.displayName];
+  id<MeasurableViewUpdateDelegate> measurableInfoUpdateDelegate = [[MeasurableHelper measurableInfoUpdateDelegates] objectForKey: measurableType.displayName];
   
   if(!measurableInfoUpdateDelegate) {
     
@@ -108,6 +111,18 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   }
   
   return measurableInfoUpdateDelegate;  
+}
+
++ (id<MeasurableViewUpdateDelegate>) measurableLogUpdateDelegate {
+  if(!_measurableLogUpdateDelegate) {
+    _measurableLogUpdateDelegate = [[MeasurableLogUpdateDelegateBase alloc] init];
+  }
+  return _measurableLogUpdateDelegate;
+}
+
++ (id<MeasurableViewUpdateDelegate>) measurableLogUpdateDelegateForMeasurable: (id<Measurable>) measurable {
+  //They all use the same logic - for now
+  return [MeasurableHelper measurableLogUpdateDelegate];
 }
 
 @end

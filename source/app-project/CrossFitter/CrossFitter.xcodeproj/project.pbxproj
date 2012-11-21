@@ -54,6 +54,8 @@
 		744EFB1D15FBBAA2000AECBA /* ModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 744EFB1C15FBBAA2000AECBA /* ModelFactory.m */; };
 		74506286165BE4B900344D83 /* AppNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74506285165BE4B900344D83 /* AppNavigationController.m */; };
 		74506289165BFAB600344D83 /* menu-disclosure-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 74506288165BFAB600344D83 /* menu-disclosure-bar.png */; };
+		74506291165C678B00344D83 /* MeasurableLogUpdateDelegateBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 74506290165C678B00344D83 /* MeasurableLogUpdateDelegateBase.m */; };
+		74506294165C7FA700344D83 /* MeasurableUpdateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74506293165C7FA500344D83 /* MeasurableUpdateDelegate.m */; };
 		7454960516042B3200308609 /* WorkoutMetadataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7454960416042B3200308609 /* WorkoutMetadataProvider.m */; };
 		7454960916042B9800308609 /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7454960816042B9800308609 /* Workout.m */; };
 		7454960C16042C8600308609 /* MeasurableImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7454960B16042C8600308609 /* MeasurableImpl.m */; };
@@ -204,6 +206,10 @@
 		74506284165BE4B900344D83 /* AppNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppNavigationController.h; path = UI/AppNavigationController.h; sourceTree = "<group>"; };
 		74506285165BE4B900344D83 /* AppNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppNavigationController.m; path = UI/AppNavigationController.m; sourceTree = "<group>"; };
 		74506288165BFAB600344D83 /* menu-disclosure-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-disclosure-bar.png"; path = "CrossFitter/Resources/Images/App/Menu/menu-disclosure-bar.png"; sourceTree = SOURCE_ROOT; };
+		7450628F165C678B00344D83 /* MeasurableLogUpdateDelegateBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableLogUpdateDelegateBase.h; path = UI/Measurable/Log/MeasurableLogUpdateDelegateBase.h; sourceTree = "<group>"; };
+		74506290165C678B00344D83 /* MeasurableLogUpdateDelegateBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableLogUpdateDelegateBase.m; path = UI/Measurable/Log/MeasurableLogUpdateDelegateBase.m; sourceTree = "<group>"; };
+		74506292165C7FA400344D83 /* MeasurableUpdateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableUpdateDelegate.h; path = UI/Measurable/MeasurableUpdateDelegate.h; sourceTree = "<group>"; };
+		74506293165C7FA500344D83 /* MeasurableUpdateDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableUpdateDelegate.m; path = UI/Measurable/MeasurableUpdateDelegate.m; sourceTree = "<group>"; };
 		7454960316042B3200308609 /* WorkoutMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutMetadataProvider.h; path = Model/Metadata/WorkoutMetadataProvider.h; sourceTree = "<group>"; };
 		7454960416042B3200308609 /* WorkoutMetadataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutMetadataProvider.m; path = Model/Metadata/WorkoutMetadataProvider.m; sourceTree = "<group>"; };
 		7454960716042B9800308609 /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Workout.h; path = Model/Core/Workout.h; sourceTree = "<group>"; };
@@ -265,7 +271,7 @@
 		74BD96EB15FCF978009F34A9 /* UIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = UIHelper.h; path = UI/Helper/UIHelper.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		74BD96EC15FCF978009F34A9 /* UIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = UIHelper.m; path = UI/Helper/UIHelper.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		74C0E65E16442F8C000F6282 /* home-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home-background.png"; path = "CrossFitter/Resources/Images/App/Home/home-background.png"; sourceTree = SOURCE_ROOT; };
-		74C0E67616448AF3000F6282 /* MeasurableInfoUpdateDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MeasurableInfoUpdateDelegate.h; path = UI/Measurable/Info/MeasurableInfoUpdateDelegate.h; sourceTree = "<group>"; };
+		74C0E67616448AF3000F6282 /* MeasurableViewUpdateDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MeasurableViewUpdateDelegate.h; path = UI/Measurable/MeasurableViewUpdateDelegate.h; sourceTree = "<group>"; };
 		74C0E67716448B51000F6282 /* BodyMetricInfoUpdateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BodyMetricInfoUpdateDelegate.h; path = UI/Measurable/Info/BodyMetricInfoUpdateDelegate.h; sourceTree = "<group>"; };
 		74C0E67916448B52000F6282 /* MeasurableInfoUpdateDelegateBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableInfoUpdateDelegateBase.h; path = UI/Measurable/Info/MeasurableInfoUpdateDelegateBase.h; sourceTree = "<group>"; };
 		74C0E67A16448B53000F6282 /* MeasurableInfoUpdateDelegateBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableInfoUpdateDelegateBase.m; path = UI/Measurable/Info/MeasurableInfoUpdateDelegateBase.m; sourceTree = "<group>"; };
@@ -516,8 +522,11 @@
 			isa = PBXGroup;
 			children = (
 				749A8709162CE5ED00EFB7C1 /* MeasurableProvider.h */,
+				74C0E67616448AF3000F6282 /* MeasurableViewUpdateDelegate.h */,
 				740970351618032800D2D9B8 /* MeasurableViewController.h */,
 				740970361618032900D2D9B8 /* MeasurableViewController.m */,
+				74506292165C7FA400344D83 /* MeasurableUpdateDelegate.h */,
+				74506293165C7FA500344D83 /* MeasurableUpdateDelegate.m */,
 				74C0E66F16448135000F6282 /* Info */,
 				74A64ED21655DB4B0011DA6D /* Log */,
 				743F8D721618A987006871D0 /* MeasurableDetailSwitchViewController.h */,
@@ -718,6 +727,8 @@
 				74A64ED416569EBF0011DA6D /* MeasurableDataEntryMediaCollectionViewCell.m */,
 				74A64ECE1655DB410011DA6D /* MeasurableDataEntryMediaViewDelegate.h */,
 				74A64ECF1655DB410011DA6D /* MeasurableDataEntryMediaViewDelegate.m */,
+				7450628F165C678B00344D83 /* MeasurableLogUpdateDelegateBase.h */,
+				74506290165C678B00344D83 /* MeasurableLogUpdateDelegateBase.m */,
 			);
 			name = Log;
 			sourceTree = "<group>";
@@ -754,11 +765,10 @@
 			children = (
 				743F8D751618AD57006871D0 /* MeasurableInfoViewController.h */,
 				743F8D761618AD57006871D0 /* MeasurableInfoViewController.m */,
-				749A8706162C596700EFB7C1 /* MeasurableInfoShareDelegate.h */,
-				749A8707162C596700EFB7C1 /* MeasurableInfoShareDelegate.m */,
-				74C0E67616448AF3000F6282 /* MeasurableInfoUpdateDelegate.h */,
 				74C0E67916448B52000F6282 /* MeasurableInfoUpdateDelegateBase.h */,
 				74C0E67A16448B53000F6282 /* MeasurableInfoUpdateDelegateBase.m */,
+				749A8706162C596700EFB7C1 /* MeasurableInfoShareDelegate.h */,
+				749A8707162C596700EFB7C1 /* MeasurableInfoShareDelegate.m */,
 				74C0E67716448B51000F6282 /* BodyMetricInfoUpdateDelegate.h */,
 				74C0E67D16448CDC000F6282 /* BodyMetricInfoUpdateDelegate.m */,
 			);
@@ -1072,6 +1082,8 @@
 				74A64ED516569EBF0011DA6D /* MeasurableDataEntryMediaCollectionViewCell.m in Sources */,
 				74343FA91656E0EF00DB9D08 /* ImageDisplayViewController.m in Sources */,
 				74506286165BE4B900344D83 /* AppNavigationController.m in Sources */,
+				74506291165C678B00344D83 /* MeasurableLogUpdateDelegateBase.m in Sources */,
+				74506294165C7FA700344D83 /* MeasurableUpdateDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

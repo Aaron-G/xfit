@@ -56,6 +56,18 @@
   return self;
 }
 
+-(void)viewDidLoad {
+  [super viewDidLoad];
+  
+  [self updateView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+  [self updateView];
+  
+  [super viewWillAppear:animated];
+}
+
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   return 1;
@@ -127,14 +139,6 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-  
-  //There is only 1 section on this table
-  if(section == 0) {
-    //Adding this blank header to provide additional enough room between the first row of data and the
-    //measurable name above it. If we remove this, the two overlap.
-    return TableViewSectionTitleSpacer;
-  }
-
   return nil;
 }
 
@@ -319,6 +323,10 @@
   
   //Reload the data for this new measurable
   [self.tableView reloadData];
+
+  self.requiresViewUpdate = YES;
+  
+  [self updateView];
 }
 
 - (void) share {
@@ -363,6 +371,16 @@
     [[UIHelper measurableViewController].measurableCollectionDisplay updateMeasurable: self.measurable.metadataProvider.identifier];
   });
   
+}
+
+- (void) updateView {
+  
+  if(self.requiresViewUpdate) {
+    
+    //Update view
+    id<MeasurableViewUpdateDelegate> updateDelegate = [MeasurableHelper measurableLogUpdateDelegateForMeasurable:self.measurable];
+    [updateDelegate updateViewInViewController:self withMeasurable: self.measurable withLayoutPosition: self.viewLayoutPosition];
+  }
 }
 
 @end

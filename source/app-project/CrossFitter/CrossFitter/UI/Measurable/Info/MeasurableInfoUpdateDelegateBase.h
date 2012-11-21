@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MeasurableInfoUpdateDelegate.h"
+#import "MeasurableViewUpdateDelegate.h"
+#import "MeasurableInfoViewController.h"
 
-@interface MeasurableInfoUpdateDelegateBase : NSObject <MeasurableInfoUpdateDelegate>
+@interface MeasurableInfoUpdateDelegateBase : NSObject <MeasurableViewUpdateDelegate>
 
 //Subclasses
-- (void) layoutUIForMeasurable: (id<Measurable>) measurable inMeasurableInfoViewController:(MeasurableInfoViewController*) measurableInfoViewController;
-- (void) updateUIContentWithMeasurable: (id<Measurable>)measurable inMeasurableInfoViewController: (MeasurableInfoViewController *)measurableInfoViewController;
+- (void) updateContentWithMeasurable: (id<Measurable>)measurable inMeasurableInfoViewController: (MeasurableInfoViewController *)measurableInfoViewController;
+- (void) updateLayoutWithMeasurable: (id<Measurable>) measurable inMeasurableInfoViewController:(MeasurableInfoViewController*) measurableInfoViewController startAtPosition:(CGPoint) startPosition;
 
 @end

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Measurable.h"
-#import "MeasurableInfoUpdateDelegate.h"
+#import "MeasurableViewUpdateDelegate.h"
 
 @interface MeasurableHelper : NSObject
 
@@ -18,6 +18,7 @@
 
 + (UITableViewCell *)tableViewCellWithAdditionalInfoForMeasurableDataEntry: (MeasurableDataEntry*) measurableDataEntry ofMeasurable: (id <Measurable>) measurable inTableView: (UITableView *)tableView;
 
-+ (id<MeasurableInfoUpdateDelegate>) measurableInfoUpdateDelegateForMeasurable: (id<Measurable>) measurable;
++ (id<MeasurableViewUpdateDelegate>) measurableInfoUpdateDelegateForMeasurable: (id<Measurable>) measurable;
++ (id<MeasurableViewUpdateDelegate>) measurableLogUpdateDelegateForMeasurable: (id<Measurable>) measurable;
 
 @end

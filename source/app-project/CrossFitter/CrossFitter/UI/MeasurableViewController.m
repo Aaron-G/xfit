@@ -8,12 +8,13 @@
 
 #import "MeasurableViewController.h"
 #import "MeasurableDetailSwitchViewController.h"
+#import "MeasurableUpdateDelegate.h"
 #import "UIHelper.h"
 
 @interface MeasurableViewController () {
   
 }
-@property BOOL needsUIUpdate;
+@property MeasurableUpdateDelegate* updateDelegate;
 
 - (IBAction)showMeasurableInfo;
 - (IBAction)showMeasurableLog;
@@ -30,6 +31,7 @@
   
   self = [super initWithCoder:aDecoder];
   if(self) {
+    self.updateDelegate = [[MeasurableUpdateDelegate alloc] init];
   }
   return self;
 }
@@ -57,7 +59,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
   
-  [self updateUI];
+  [self updateView];
 
   [super viewWillAppear:animated];
 }
@@ -83,10 +85,12 @@
 - (void)setMeasurable:(id<Measurable>)measurable {
   _measurable = measurable;
   
-  self.measurableDetailSwitchViewController.measurable = self.measurable;
+  self.requiresViewUpdate = YES;
+  [self updateView];
   
-  self.needsUIUpdate = YES;
-  [self updateUI];  
+  //Do this after the previous call so that the location for the components to be
+  //positioned is available to the Log and Info View Constrollers
+  self.measurableDetailSwitchViewController.measurable = self.measurable;
 }
 
 - (MeasurableDetailSwitchViewController *)measurableDetailSwitchViewController {
@@ -100,16 +104,12 @@
   return _measurableDetailSwitchViewController;
 }
 
-- (void) updateUI {
+- (void) updateView {
   
-  if(self.needsUIUpdate) {
+  if(self.requiresViewUpdate) {
     
-    if (self.measurable && self.nameLabel) {
-      
-      self.nameLabel.text = self.measurable.metadataProvider.name;
-      self.measurableTitleView.titleLabel.text = self.measurable.metadataProvider.type.displayName;
-      self.needsUIUpdate = NO;
-    }
+    //Update the view
+    [self.updateDelegate updateViewInViewController:self withMeasurable: self.measurable withLayoutPosition: CGPointMake(0, 0)];
   }
 }
 

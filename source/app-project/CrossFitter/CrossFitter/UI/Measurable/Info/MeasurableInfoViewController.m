@@ -10,12 +10,11 @@
 #import "MeasurableShareDelegate.h"
 #import "MeasurableInfoShareDelegate.h"
 #import "MeasurableHelper.h"
-#import "MeasurableInfoUpdateDelegate.h"
+#import "MeasurableViewUpdateDelegate.h"
 #import "UIHelper.h"
 
 @interface MeasurableInfoViewController ()
 
-@property BOOL needsUIUpdate;
 @property MeasurableShareDelegate* shareDelegate;
 @end
 
@@ -35,14 +34,14 @@
 -(void)viewDidLoad {
   [super viewDidLoad];
   
-  [self updateUI];
+  [self updateView];
 }
 
 - (void)setMeasurable:(id<Measurable>)measurable {
   _measurable = measurable;
 
-  self.needsUIUpdate = YES;
-  [self updateUI];
+  self.requiresViewUpdate = YES;
+  [self updateView];
 }
 
 - (id<Measurable>)measurable {
@@ -50,22 +49,17 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-  [self updateUI];
+  [self updateView];
   
   [super viewWillAppear:animated];
 }
-- (void) updateUI {
+- (void) updateView {
   
-  if(self.needsUIUpdate) {
+  if(self.requiresViewUpdate) {
     
-    if (self.measurable && self.descriptionTextView) {
-      
-      //Update the UI components
-      id<MeasurableInfoUpdateDelegate> updateDelegate = [MeasurableHelper measurableInfoUpdateDelegateForMeasurable:self.measurable];
-      [updateDelegate updateUIWithMeasurable:self.measurable inMeasurableInfoViewController:self];
-      
-      self.needsUIUpdate = NO;
-    }
+    //Update the view
+    id<MeasurableViewUpdateDelegate> updateDelegate = [MeasurableHelper measurableInfoUpdateDelegateForMeasurable:self.measurable];
+    [updateDelegate updateViewInViewController:self withMeasurable: self.measurable withLayoutPosition: self.viewLayoutPosition];
   }
 }
 

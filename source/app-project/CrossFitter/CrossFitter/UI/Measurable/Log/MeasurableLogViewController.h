@@ -15,8 +15,13 @@
 @property id<Measurable> measurable;
 @property IBOutlet UITableView* tableView;
 
-- (void) share;
+//Marks this View Controller as needing to update its view
+@property BOOL requiresViewUpdate;
 
+//The location where the view should start displaying its content
+@property CGPoint viewLayoutPosition;
+
+- (void) share;
 - (void) clearLog;
 
 @end
