@@ -42,6 +42,11 @@
                                   forState:UIControlStateNormal];
   
   /////////////////////////////////////////////////////////////////
+  //Customize the Date Picker Control
+  /////////////////////////////////////////////////////////////////
+  self.dateOfBirthDatePicker.maximumDate = [NSDate date];
+  
+  /////////////////////////////////////////////////////////////////
   //Localize Labels
   /////////////////////////////////////////////////////////////////
   self.nameTextField.placeholder = NSLocalizedString(@"user-profile-name-tip", @"Add name");
@@ -94,8 +99,9 @@
   self.sexSegmentedControl.selectedSegmentIndex =  sexSelection;
   
   self.dateOfBirthDatePicker.date = userProfile.dateOfBirth;
-
-  [self.imageButton setImage:userProfile.image forState:UIControlStateNormal];
+  
+  UIImage* profileImage = [UIImage imageWithContentsOfFile:userProfile.image];
+  [self.imageButton setImage:profileImage forState:UIControlStateNormal];
   
   [super viewWillAppear:animated];
 }
@@ -198,14 +204,16 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
   
   UIImage *image = [info valueForKey:UIImagePickerControllerEditedImage];
-  UserProfile* userProfile = [App sharedInstance].userProfile;
-  userProfile.image = image;
 
   if([MediaHelper enoughSpaceForImage:image]) {
     
     NSURL* imageURL = [MediaHelper saveImage:image forPurpose:MediaHelperPurposeUserProfile];
     
     if(imageURL) {
+      
+      UserProfile* userProfile = [App sharedInstance].userProfile;
+      userProfile.image = imageURL.path;
+      
       [self.imageButton setImage:image forState:UIControlStateNormal];
       [self invalidateUserProfileSummaryRow];
     } else {
