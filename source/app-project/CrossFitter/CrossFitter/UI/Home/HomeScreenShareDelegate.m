@@ -8,11 +8,11 @@
 
 #import "HomeScreenShareDelegate.h"
 #import "HomeViewController.h"
-
+#import "App.h"
 @implementation HomeScreenShareDelegate
 
 - (void) share {
-  [super showActionSheetWithTitlePart:NSLocalizedString(@"share-app", @"App")];
+  [super showActionSheetWithTitlePart:[[App sharedInstance] appName]];
 }
 
 #pragma UIActionSheetDelegate Helper methods
