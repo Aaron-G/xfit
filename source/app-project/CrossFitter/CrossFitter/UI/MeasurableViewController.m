@@ -10,6 +10,7 @@
 #import "MeasurableDetailSwitchViewController.h"
 #import "MeasurableUpdateDelegate.h"
 #import "UIHelper.h"
+#import "MeasurableHelper.h"
 
 @interface MeasurableViewController () {
   
@@ -117,6 +118,9 @@
 }
 
 - (IBAction)logMeasurableAction:(id)sender {
+  
+  MeasurableDataEntryViewController* measurableDataEntryViewController = [MeasurableHelper measurableDataEntryViewController];
+  [measurableDataEntryViewController createMeasurableDataEntryInMeasurable:self.measurable withDelegate:self];
 }
 
 - (IBAction)chartMeasurableAction:(id)sender {
@@ -135,7 +139,7 @@
 //CLEAR MEASURABLE
 
 - (IBAction)clearEditMeasurableLogAction:(id)sender {
-  [self.measurableDetailSwitchViewController.logViewController clearLog];
+  [self.measurableDetailSwitchViewController.logViewController clearLog];  
 }
 
 //////////////////////////////////////////////////////////////////
@@ -207,6 +211,13 @@
 }
 - (IBAction)showMeasurableLog {
   [self.measurableDetailSwitchViewController showMeasurableLog];
+}
+
+-(void)didFinishCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable {
+  [self.measurableDetailSwitchViewController.logViewController logMeasurableDataEntry:measurableDataEntry];
+}
+
+-(void)didCancelCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable {
 }
 
 

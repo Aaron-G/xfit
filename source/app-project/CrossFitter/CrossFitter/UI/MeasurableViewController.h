@@ -11,10 +11,11 @@
 #import "MeasurableDetailSwitchViewController.h"
 #import "MeasurableTitleView.h"
 #import "MeasurableCollectionDisplay.h"
+#import "MeasurableDataEntryViewController.h"
 
 @class MeasurableDetailSwitchViewController;
 
-@interface MeasurableViewController : UIViewController
+@interface MeasurableViewController : UIViewController <MeasurableDataEntryDelegate>
 
 @property id<Measurable> measurable;
 
