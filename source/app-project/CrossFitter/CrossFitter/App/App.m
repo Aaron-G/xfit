@@ -166,8 +166,12 @@ static App *sharedInstance = nil;
           device.model];
 }
 
+- (NSString*) appName {
+  return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
+}
+
 - (NSString*) appInformation {
-  return [NSString stringWithFormat:@"%@ %@", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"], [self appVersion]];
+  return [NSString stringWithFormat:@"%@ %@", [self appName], [self appVersion]];
 }
 
 - (NSString*) appVersion {
