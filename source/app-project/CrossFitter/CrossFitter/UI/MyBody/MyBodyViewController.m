@@ -84,7 +84,10 @@
                                            [App sharedInstance].userProfile.box];
     }
     
-    [cell.userProfileImageButton setImage:userProfile.image forState:UIControlStateNormal];
+    if(userProfile.image) {
+      UIImage* profileImage = [UIImage imageWithContentsOfFile:userProfile.image];
+      [cell.userProfileImageButton setImage:profileImage forState:UIControlStateNormal];
+    }
 
     return cell;
   }
