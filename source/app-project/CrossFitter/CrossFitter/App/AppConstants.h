@@ -21,6 +21,8 @@ extern NSString* UserImagesUserDirectory;
 
 extern NSString* UserVideosDirectory;
 extern NSString* UserVideosContentDirectory;
+extern NSString* UserVideosDefaultThumbnailImageName;
+extern NSString* UserVideosThumbnailImageNameSuffix;
 
 extern NSString* UserProfileImageName;
 extern NSString* UserProfileDefaultImageName;

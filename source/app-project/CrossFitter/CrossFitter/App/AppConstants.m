@@ -19,8 +19,10 @@ const NSString* UserImagesUserDirectory = @"/Documents/Images/User/";
 
 const NSString* UserVideosDirectory = @"/Documents/Videos/";
 const NSString* UserVideosContentDirectory = @"/Documents/Videos/Content/";
+const NSString* UserVideosDefaultThumbnailImageName = @"default-video-thumbnail.png";
+const NSString* UserVideosThumbnailImageNameSuffix = @"-thumbnail.png";
 
-const NSString* UserProfileImageName = @"user-profile-image.png";
+const NSString* UserProfileImageName = @"user-profile-image";
 const NSString* UserProfileDefaultImageName = @"default-user-profile-image.png";
 
 const NSString* MoveImageNamePreffix = @"move-image-";
