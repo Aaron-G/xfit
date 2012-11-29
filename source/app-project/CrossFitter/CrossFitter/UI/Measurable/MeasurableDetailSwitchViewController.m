@@ -129,6 +129,11 @@
 //Updates the UI controls so that info and log related UI controls are shown/hidden appropriately
 - (void) updateUIControlsToIndex:(NSInteger)viewIndex {
   
+  //If we are editing, do not mess with the UI controls
+  if((viewIndex == 0 && self.logViewController.editing) || (viewIndex == 1 && self.infoViewController.editing)) {
+    return;
+  }
+    
   //Update the page control
   if(viewIndex < 2) {
     self.measurableViewController.measurableDetailPageControl.currentPage = viewIndex;
@@ -169,6 +174,13 @@
                         self.measurableViewController.barButtonItemEditLog,
                         nil];
   }
+  
+  //Should only be enable when we have data
+  BOOL buttonsEnabled = (self.measurable.dataProvider.values.count > 0);
+  self.measurableViewController.barButtonItemEditLog.enabled = buttonsEnabled;
+  self.measurableViewController.barButtonItemChartLog.enabled = buttonsEnabled;
+  self.measurableViewController.barButtonItemShareLog.enabled = buttonsEnabled;
+  
   return _logToolbarItems;
 }
 
