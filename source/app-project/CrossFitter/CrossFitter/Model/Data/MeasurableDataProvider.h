@@ -22,6 +22,7 @@
 @property (readonly) NSNumber* value;
 @property (readonly) NSDate* date;
 @property (readonly) NSString* comment;
+@property NSNumber* sampleValue;
 
 
 - (id)initWithMeasurableIdentifier:(MeasurableIdentifier) identifier;
