@@ -8,6 +8,8 @@
 
 #import "UIHelper.h"
 #import "App.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import "AppViewControllerSegue.h"
 
 @implementation UIHelper
 
@@ -72,12 +74,6 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   } else {
     return nil;
   }
-}
-
-+ (void) displayImageFullScreen:(UIImage*) image {
-  ImageDisplayViewController* imageDisplayViewController = [UIHelper imageDisplayViewController];
-  imageDisplayViewController.image = image;
-  [[[UIHelper appViewController] navigationController] presentViewController:imageDisplayViewController animated:YES completion:nil];
 }
 
 + (AppViewController*) appViewController {
@@ -148,4 +144,7 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   return [UIHelper supportedInterfaceOrientations] | UIInterfaceOrientationMaskLandscapeRight | UIInterfaceOrientationMaskLandscapeLeft;
 }
 
++ (BOOL) isEmptyString:(NSString*) string {
+  return [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length == 0;
+}
 @end
