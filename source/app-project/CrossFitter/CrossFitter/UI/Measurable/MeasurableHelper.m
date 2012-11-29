@@ -15,7 +15,6 @@
 #import "MeasurableDataEntryAdditionalInfoTableViewCell.h"
 #import "MeasurableViewUpdateDelegate.h"
 #import "MeasurableLogUpdateDelegateBase.h"
-
 @interface MeasurableHelper () {
 }
 
@@ -26,6 +25,7 @@
 static NSDateFormatter* _measurableDateFormat;
 static NSMutableDictionary* _measurableInfoUpdateDelegates;
 static id<MeasurableViewUpdateDelegate> _measurableLogUpdateDelegate;
+static MeasurableDataEntryViewController* _measurableDataEntryViewController;
 
 + (UITableViewCell *)tableViewCellForMeasurable: (id <Measurable>) measurable inTableView: (UITableView *)tableView {
 
@@ -67,15 +67,6 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
 
   //Show or Hide the Info button/icon
   cell.measurableAdditionalInfoImageButton.hidden = (!measurableDataEntry.hasAdditionalInfo);
-  
-  return cell;
-}
-
-+ (UITableViewCell *)tableViewCellWithAdditionalInfoForMeasurableDataEntry: (MeasurableDataEntry*) measurableDataEntry ofMeasurable: (id <Measurable>) measurable inTableView: (UITableView *)tableView {
-  
-  MeasurableDataEntryAdditionalInfoTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MeasurableDataEntryAdditionalInfoTableViewCell"];
-
-  cell.measurableDataEntry = measurableDataEntry;
   
   return cell;
 }
@@ -123,6 +114,38 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
 + (id<MeasurableViewUpdateDelegate>) measurableLogViewUpdateDelegateForMeasurable: (id<Measurable>) measurable {
   //They all use the same logic - for now
   return [MeasurableHelper measurableLogUpdateDelegate];
+}
+
++ (MeasurableDataEntryViewController*) measurableDataEntryViewController {
+  if(!_measurableDataEntryViewController) {
+    _measurableDataEntryViewController = (MeasurableDataEntryViewController*)[UIHelper viewControllerWithViewStoryboardIdentifier:@"MeasurableDataEntryViewController"];
+  }
+  return _measurableDataEntryViewController;
+}
+
++ (MeasurableDataEntry*) createMeasurableDataEntryForMeasurable:(id<Measurable>) measurable {
+  
+  MeasurableDataEntry* measurableDataEntry = [[MeasurableDataEntry alloc] init];
+  measurableDataEntry.value = measurable.dataProvider.value;
+  measurableDataEntry.date = [NSDate date];
+  
+  return measurableDataEntry;
+}
+
++ (MediaHelperPurpose) mediaHelperPurposeForMeasurable:(id<Measurable>)measurable {
+  
+  MeasurableTypeIdentifier typeIdentifier = measurable.metadataProvider.type.identifier;
+  
+  if(MeasurableTypeIdentifierBodyMetric == typeIdentifier) {
+    return MediaHelperPurposeBodyMetric;
+  } else if(MeasurableTypeIdentifierMove == typeIdentifier) {
+    return MediaHelperPurposeMove;
+  } else if(MeasurableTypeIdentifierWorkout == typeIdentifier) {
+    return MediaHelperPurposeWorkout;
+  } else if(MeasurableTypeIdentifierWOD == typeIdentifier) {
+    return MediaHelperPurposeWOD;
+  }
+  return -1;
 }
 
 @end
