@@ -35,8 +35,6 @@
       return [[DefaultUnitValueFormatter alloc] init];
     }
   }
-  
-  //CXB TODO
   //Add the other precise else if statments
   else {
       return [[InchFormatter alloc] init];
