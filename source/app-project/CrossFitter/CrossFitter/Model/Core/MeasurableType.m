@@ -12,30 +12,53 @@
 
 @synthesize displayName;
 
-NSMutableDictionary* measurableTypes;
+static NSMutableDictionary* _measurableTypes;
 
 + (MeasurableType*) measurableTypeWithMeasurableTypeIdentifier: (MeasurableTypeIdentifier) identifier {
   
-  //CXB TODO
-  //Make this into the equivalent of a static dictionary
-  MeasurableType* measurableType = [[MeasurableType alloc] init];
+  NSMutableDictionary* measurableTypes = [MeasurableType measurableTypes];
+  NSString* identifierKey = [MeasurableType keyForMeasurableTypeIdentifier:identifier];
   
-  NSString* displayName = nil;
+  MeasurableType* measurableType = [measurableTypes objectForKey:identifierKey];
   
-  if(identifier == MeasurableTypeIdentifierBodyMetric) {
-    displayName = @"Body Metric";
-  } else if(identifier == MeasurableTypeIdentifierMove) {
-    displayName = @"Move";
-  } else if(identifier == MeasurableTypeIdentifierWOD) {
-    displayName = @"WOD";
-  } else if(identifier == MeasurableTypeIdentifierWorkout) {
-    displayName = @"Workout";
+  if(!measurableType) {
+
+    //Create it
+    measurableType = [[MeasurableType alloc] init];
+    
+    NSString* displayName = nil;
+    
+    if(identifier == MeasurableTypeIdentifierBodyMetric) {
+      displayName = NSLocalizedString(@"body-metric-display-name", @"Body Metric");
+    } else if(identifier == MeasurableTypeIdentifierMove) {
+      displayName = NSLocalizedString(@"move-display-name", @"Move");
+    } else if(identifier == MeasurableTypeIdentifierWOD) {
+      displayName = NSLocalizedString(@"wod-display-name", @"WOD");
+    } else if(identifier == MeasurableTypeIdentifierWorkout) {
+      displayName = NSLocalizedString(@"workout-display-name", @"Workout");
+    }
+    
+    measurableType.displayName = displayName;
+    measurableType.identifier = identifier;
+    
+    //Save it
+    [measurableTypes setObject:measurableType forKey: identifierKey];
   }
   
-  measurableType.displayName = displayName;
-  measurableType.identifier = identifier;
-  
+  //Return it
   return measurableType;
+}
+
++ (NSString*) keyForMeasurableTypeIdentifier:(MeasurableTypeIdentifier) identifier {
+  return [NSString stringWithFormat:@"%d", identifier];
+}
+
++ (NSMutableDictionary*) measurableTypes {
+  
+  if(!_measurableTypes) {
+    _measurableTypes = [NSMutableDictionary dictionary];
+  }
+  return _measurableTypes;
 }
 
 @end
