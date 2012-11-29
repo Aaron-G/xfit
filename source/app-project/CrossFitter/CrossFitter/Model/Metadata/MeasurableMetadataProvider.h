@@ -26,6 +26,7 @@
 
 @property Unit* unit;
 @property MeasurableValueTrendBetterDirection valueTrendBetterDirection;
+@property MeasurableValueType valueType;
 
 @property NSArray* images;
 @property NSArray* videos;

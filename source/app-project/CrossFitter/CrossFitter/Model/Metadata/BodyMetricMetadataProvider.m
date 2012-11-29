@@ -17,6 +17,7 @@
 @synthesize description = _description;
 @synthesize metadataShort = _metadataShort;
 @synthesize metadataFull = _metadataFull;
+@synthesize valueType = _valueType;
 
 - (id)initWithMeasurableIdentifier:(MeasurableIdentifier) identifier {
   self = [super initWithMeasurableIdentifier: identifier];
@@ -253,6 +254,50 @@
   
   return _metadataFull;
 }
+
+- (MeasurableValueType)valueType {
+  
+  if(!_valueType) {
+    
+    MeasurableValueType valueType = -1;
+    
+    if([BodyMetricIdentifierHeight isEqualToString: self.identifier]) {
+      valueType = MeasurableValueTypeNumberWithDecimal;
+    } else if([BodyMetricIdentifierWeight isEqualToString: self.identifier]) {
+      valueType = MeasurableValueTypeNumberWithDecimal;
+    } else if([BodyMetricIdentifierChest isEqualToString: self.identifier]) {
+      valueType = MeasurableValueTypeNumberWithDecimal;
+    } else if([BodyMetricIdentifierWaist isEqualToString: self.identifier]) {
+      valueType = MeasurableValueTypeNumberWithDecimal;
+    } else if([BodyMetricIdentifierHip isEqualToString: self.identifier]) {
+      valueType = MeasurableValueTypeNumberWithDecimal;
+    } else if([BodyMetricIdentifierBiceptsLeft isEqualToString: self.identifier]) {
+      valueType = MeasurableValueTypeNumberWithDecimal;
+    } else if([BodyMetricIdentifierBiceptsRight isEqualToString: self.identifier]) {
+      valueType = MeasurableValueTypeNumberWithDecimal;
+    } else if([BodyMetricIdentifierThighLeft isEqualToString: self.identifier]) {
+      valueType = MeasurableValueTypeNumberWithDecimal;
+    } else if([BodyMetricIdentifierThighRight isEqualToString: self.identifier]) {
+      valueType = MeasurableValueTypeNumberWithDecimal;
+    } else if([BodyMetricIdentifierCalfLeft isEqualToString: self.identifier]) {
+      valueType = MeasurableValueTypeNumberWithDecimal;
+    } else if([BodyMetricIdentifierCalfRight isEqualToString: self.identifier]) {
+      valueType = MeasurableValueTypeNumberWithDecimal;
+    } else if([BodyMetricIdentifierBodyMassIndex isEqualToString: self.identifier]) {
+      valueType = MeasurableValueTypePercent;
+    } else if([BodyMetricIdentifierBodyFat isEqualToString: self.identifier]) {
+      valueType = MeasurableValueTypePercent;
+    }
+    
+    //This should never happen
+    assert(valueType != -1);
+    
+    _valueType = valueType;
+  }
+  
+  return _valueType;
+}
+
 
 - (BOOL)editable {
   return NO;

@@ -27,10 +27,18 @@ typedef enum {
 } MeasurableValueTrendBetterDirection;
 
 typedef enum {
+  MeasurableValueTypeNumber,
+  MeasurableValueTypeNumberWithDecimal,
+  MeasurableValueTypePercent,
+  MeasurableValueTypeTime
+} MeasurableValueType;
+
+typedef enum {
   MeasurableSourceApp,
   MeasurableSourceUser,
   MeasurableSourceFeed
 } MeasurableSource;
+
 
 typedef NSString* MeasurableIdentifier;
 
