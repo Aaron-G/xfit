@@ -8,12 +8,16 @@
 
 #import "MeasurableDataEntryMediaCollectionViewCell.h"
 #import "ImageDisplayViewController.h"
-#import "UIHelper.h"
+#import "MediaHelper.h"
 
 @implementation MeasurableDataEntryMediaCollectionViewCell
 
-- (void)displayMedia {
-  [UIHelper displayImageFullScreen:[self.mediaButton backgroundImageForState:UIControlStateNormal]];
+- (void)displayPicture {
+  [MediaHelper displayImageFullScreen:self.mediaPath];
+}
+
+- (void)displayVideo {
+  [MediaHelper displayVideoFullScreen:self.mediaPath];
 }
 
 @end

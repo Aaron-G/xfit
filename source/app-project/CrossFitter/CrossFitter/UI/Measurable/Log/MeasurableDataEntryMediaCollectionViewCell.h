@@ -11,5 +11,6 @@
 @interface MeasurableDataEntryMediaCollectionViewCell : UICollectionViewCell
 
 @property IBOutlet UIButton* mediaButton;
+@property NSString* mediaPath;
 
 @end

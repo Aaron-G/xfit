@@ -49,7 +49,7 @@ static NSInteger MEDIA_TABLE_CELL_HEIGHT = 75;
 - (void) updateCell {
   
   //Media - images and videos
-  //It is done automatically see MeasurableDataEntryMediaViewDelegate
+  [self.mediaCollectionView reloadData];
   
   //Comment
   self.commentTextView.text = self.measurableDataEntry.comment;
@@ -60,9 +60,7 @@ static NSInteger MEDIA_TABLE_CELL_HEIGHT = 75;
 
 - (void) updateMinimumHeight {
 
-  //CXB TODO - incorporate videos
-  //BOOL hasImagesOrVideos = (self.measurableDataEntry.images != nil || self.measurableDataEntry.videos != nil);
-  BOOL hasImagesOrVideos = (self.measurableDataEntry.images != nil);
+  BOOL hasImagesOrVideos = (self.measurableDataEntry.images != nil || self.measurableDataEntry.videos != nil);
   BOOL hasComments = (self.measurableDataEntry.comment != nil);
   
   NSInteger newMinimumHeight = 0;
