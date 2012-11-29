@@ -7,7 +7,9 @@
 //
 
 #import "MediaHelper.h"
+#import <MediaPlayer/MediaPlayer.h>
 #import "AppConstants.h"
+#import "UIHelper.h"
 
 @interface MediaHelper ()
 
@@ -30,106 +32,149 @@ typedef enum {
 
 @implementation MediaHelper
 
-//IMPL NOTE
-//This will be needed for video saves
-//
-//+ (NSURL*) saveVideo:(UIVideo*) image forPurpose: (MediaHelperPurpose) purpose {
-//  return [MediaHelper save: UIImagePNGRepresentation(image) forPurpose: purpose forMediaType: MediaHelperMediaTypeImage];
-//}
-
 + (NSURL*) saveImage:(UIImage*) image forPurpose: (MediaHelperPurpose) purpose {
-  return [MediaHelper save: UIImagePNGRepresentation(image) forPurpose: purpose forMediaType: MediaHelperMediaTypeImage];
+  return [MediaHelper saveMedia: UIImagePNGRepresentation(image) forPurpose: purpose forMediaType: MediaHelperMediaTypeImage];
 }
 
-+ (NSURL*) save:(NSData*) data forPurpose: (MediaHelperPurpose) purpose forMediaType: (MediaHelperMediaType) mediaType {
++ (NSURL*) saveVideo:(NSURL*) videoURL forPurpose: (MediaHelperPurpose) purpose {
+  return [MediaHelper saveMedia: videoURL forPurpose: purpose forMediaType: MediaHelperMediaTypeVideo];
+}
+
++ (NSURL*) saveMedia:(id) media forPurpose: (MediaHelperPurpose) purpose forMediaType: (MediaHelperMediaType) mediaType {
   
   NSString* directoryPath = nil;
-  NSString* imageName = nil;
+  NSString* mediaName = nil;
   
-  NSString* imageCountKey = nil;
-  NSInteger imageCount;
+  NSString* mediaCountKey = nil;
   
   if(MediaHelperPurposeUserProfile == purpose) {
     
-    directoryPath = UserImagesUserDirectory;
-    imageName = UserProfileImageName;
+    if(MediaHelperMediaTypeImage == mediaType) {
+      directoryPath = UserImagesUserDirectory;
+      mediaName = UserProfileImageName;
+    }
     
   } else if (MediaHelperPurposeMove == purpose) {
-
+    
     if(MediaHelperMediaTypeImage == mediaType) {
       directoryPath = UserImagesContentDirectory;
-      imageName = MoveImageNamePreffix;
-      imageCountKey = MoveImageCountKey;
+      mediaName = MoveImageNamePreffix;
+      mediaCountKey = MoveImageCountKey;
     } else if (MediaHelperMediaTypeVideo == mediaType) {
       directoryPath = UserVideosContentDirectory;
-      imageName = MoveVideoNamePreffix;
-      imageCountKey = MoveVideoCountKey;
+      mediaName = MoveVideoNamePreffix;
+      mediaCountKey = MoveVideoCountKey;
     }
     
   } else if (MediaHelperPurposeWOD == purpose) {
     
     if(MediaHelperMediaTypeImage == mediaType) {
       directoryPath = UserImagesContentDirectory;
-      imageName = WODImageNamePreffix;
-      imageCountKey = WODImageCountKey;
+      mediaName = WODImageNamePreffix;
+      mediaCountKey = WODImageCountKey;
     } else if (MediaHelperMediaTypeVideo == mediaType) {
       directoryPath = UserVideosContentDirectory;
-      imageName = WODVideoNamePreffix;
-      imageCountKey = WODVideoCountKey;
+      mediaName = WODVideoNamePreffix;
+      mediaCountKey = WODVideoCountKey;
     }
     
   } else if (MediaHelperPurposeWorkout == purpose) {
     
     if(MediaHelperMediaTypeImage == mediaType) {
       directoryPath = UserImagesContentDirectory;
-      imageName = WorkoutImageNamePreffix;
-      imageCountKey = WorkoutImageCountKey;
+      mediaName = WorkoutImageNamePreffix;
+      mediaCountKey = WorkoutImageCountKey;
     } else if (MediaHelperMediaTypeVideo == mediaType) {
       directoryPath = UserVideosContentDirectory;
-      imageName = WorkoutVideoNamePreffix;
-      imageCountKey = WorkoutVideoCountKey;
+      mediaName = WorkoutVideoNamePreffix;
+      mediaCountKey = WorkoutVideoCountKey;
     }
     
   } else if (MediaHelperPurposeBodyMetric == purpose) {
     
     if(MediaHelperMediaTypeImage == mediaType) {
       directoryPath = UserImagesContentDirectory;
-      imageName = BodyMetricImageNamePreffix;
-      imageCountKey = BodyMetricImageCountKey;
+      mediaName = BodyMetricImageNamePreffix;
+      mediaCountKey = BodyMetricImageCountKey;
     } else if (MediaHelperMediaTypeVideo == mediaType) {
       directoryPath = UserVideosContentDirectory;
-      imageName = BodyMetricVideoNamePreffix;
-      imageCountKey = BodyMetricVideoCountKey;
+      mediaName = BodyMetricVideoNamePreffix;
+      mediaCountKey = BodyMetricVideoCountKey;
     }
     
-  } else {
-    return NO;
   }
   
-  if(imageCountKey) {
-    imageCount = [MediaHelper countForKey:imageCountKey];
-    imageName = [NSString stringWithFormat: @"%@%d.png", imageName, imageCount];
+  if(mediaName && directoryPath) {
+    
+    NSString* fileExtension = nil;
+    if(MediaHelperMediaTypeImage == mediaType) {
+      fileExtension = @"png";
+    } else if(MediaHelperMediaTypeVideo == mediaType) {
+      fileExtension = [((NSURL*)media).path pathExtension];
+    }
+    
+    if(mediaCountKey) {
+      NSInteger mediaCount = [MediaHelper countForKey:mediaCountKey];
+      mediaName = [NSString stringWithFormat: @"%@%d.%@", mediaName, mediaCount, fileExtension];
+    }
+    //Only 1 user profile image is kept so no need to keep a media count
+    else {
+      //CXB TODO replace with NSString stringsByAppendingPaths
+      mediaName = [NSString stringWithFormat: @"%@.%@", mediaName, fileExtension];
+    }
+    
+    NSString* filePath = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), [NSString stringWithFormat:@"%@%@", directoryPath, mediaName]];
+    
+    if(MediaHelperMediaTypeImage == mediaType) {
+      return [MediaHelper saveData:(NSData*)media withPath:filePath withCountKey:mediaCountKey];
+    } else if(MediaHelperMediaTypeVideo == mediaType) {
+      return [MediaHelper copyFileAtPath:((NSURL*)media).path toPath: filePath withCountKey: mediaCountKey];
+    }
   }
   
-  return [MediaHelper saveData: data withPath: [NSString stringWithFormat:@"%@%@", directoryPath, imageName] withCountKey: imageCountKey];
+  return nil;
 }
-
 
 + (NSURL*) saveData:(NSData*) data withPath: (NSString*) filePath withCountKey: (NSString*) countKey {
   
   NSURL* fileURL = nil;
   
-  NSString* finalFilePath = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), filePath];
-  
-  BOOL success = [[NSFileManager defaultManager] createFileAtPath:finalFilePath
+  BOOL success = [[NSFileManager defaultManager] createFileAtPath:filePath
                                                          contents:data
                                                        attributes:nil];
+  
   if(success) {
     if (countKey) {
       [MediaHelper setCount: ([MediaHelper countForKey: countKey]+1) forKey: countKey];
     }
     
-    fileURL = [NSURL fileURLWithPath:finalFilePath];
+    fileURL = [NSURL fileURLWithPath:filePath];
+  }
+  
+  return fileURL;
+}
+
++ (NSURL*) saveImage:(UIImage*) image withPath: (NSString*) filePath {
+  return [MediaHelper saveData:UIImagePNGRepresentation(image) withPath: filePath withCountKey:nil];
+}
+
+
++ (NSURL*) copyFileAtPath:(NSString*) fromPath toPath: (NSString*) toPath withCountKey: (NSString*) countKey {
+  
+  NSURL* fileURL = nil;
+  
+  NSError* error;
+
+  BOOL success = [[NSFileManager defaultManager] copyItemAtPath:fromPath toPath:toPath error:&error];
+  
+  if(success) {
+    if (countKey) {
+      [MediaHelper setCount: ([MediaHelper countForKey: countKey]+1) forKey: countKey];
+    }
+    
+    fileURL = [NSURL fileURLWithPath:toPath];
+  } else if(error) {
+    NSLog(@"Could not copy file from '%@' to '%@' with this error: '%@'", fromPath, toPath, [error localizedDescription]);
   }
   
   return fileURL;
@@ -157,6 +202,56 @@ typedef enum {
   } else {
     return NO;
   }
+}
+
++ (BOOL) enoughSpaceForVideo:(NSURL*) video {
+  
+  NSError* error;
+  
+  NSDictionary* fileSystemProperties = [[NSFileManager defaultManager]attributesOfFileSystemForPath:[NSString stringWithFormat:@"%@%@", NSHomeDirectory(), UserVideosDirectory] error:&error];
+  
+  if(!error) {
+    NSDictionary* properties = [[NSFileManager defaultManager] attributesOfItemAtPath:video.path error:&error];
+    NSNumber* size = [properties objectForKey: NSFileSize];
+    NSNumber* freeSpace = [fileSystemProperties objectForKey:NSFileSystemFreeSize];
+    //NSLog(@"%@ - %@", size, video.path);
+    
+    return (freeSpace.intValue >= size.intValue);
+  } else {
+    return NO;
+  }
+}
+
++ (NSString*) thumbnailForVideo:(NSString*) video returnDefaultIfNotAvailable:(BOOL) returnDefault {
+
+  NSString* videoFileName = [video substringToIndex: (video.length - 4)];
+  NSString* videoThumbnailFileName = [NSString stringWithFormat:@"%@%@", videoFileName, UserVideosThumbnailImageNameSuffix];
+  
+  if((!returnDefault) || [[NSFileManager defaultManager] fileExistsAtPath:videoThumbnailFileName]) {
+    return videoThumbnailFileName;
+  } else {
+    return [NSString stringWithFormat:@"%@/%@", [NSBundle mainBundle].resourcePath, UserVideosDefaultThumbnailImageName];
+  }  
+}
+
++ (void) displayImageFullScreen:(NSString*) image {
+  ImageDisplayViewController* imageDisplayViewController = [UIHelper imageDisplayViewController];
+  imageDisplayViewController.image = [UIImage imageWithContentsOfFile:image];
+
+  [[[UIHelper appViewController] navigationController] presentViewController:imageDisplayViewController animated:YES completion:nil];
+}
+
++ (void) displayVideoFullScreen:(NSString*) video {
+  
+  NSURL* url = [NSURL fileURLWithPath:video isDirectory:NO];
+
+  MPMoviePlayerViewController* moviePlayerController = [[MPMoviePlayerViewController alloc] initWithContentURL: url];
+  moviePlayerController.moviePlayer.shouldAutoplay = NO;
+  
+  moviePlayerController.moviePlayer.movieSourceType = MPMovieSourceTypeFile;
+  [moviePlayerController.moviePlayer prepareToPlay];
+  
+  [[[UIHelper appViewController] navigationController].topViewController presentMoviePlayerViewControllerAnimated:moviePlayerController];
 }
 
 @end
