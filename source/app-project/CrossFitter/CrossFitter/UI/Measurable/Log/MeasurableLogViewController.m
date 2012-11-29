@@ -15,6 +15,7 @@
 #import "MeasurableDataEntryAdditionalInfoTableViewCell.h"
 #import "AppConstants.h"
 #import "MeasurableDataEntryTableViewCell.h"
+#import "AppViewControllerSegue.h"
 
 @interface MeasurableLogViewController ()
 
@@ -87,8 +88,10 @@
     
     //This is the additional info row
     if(indexPath.item == self.indexOfAdditionalInfoRow) {
-      
+
       UITableViewCell* tableViewCell = self.additionalInfoTableViewCell;
+      
+      self.additionalInfoTableViewCell.measurableDataEntry = dataEntry;
 
       //Reset it
       self.additionalInfoTableViewCell = nil;
@@ -154,32 +157,101 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
   
-  /////////////////////////////////////////////////////////////////////////////////////////////////
-  //THIS NEEDS TO BE UPDATED TO USE THE PROPER API
-  
-  //1- Update local data array
-  [self.measurableTableLogData removeObjectAtIndex:indexPath.item];
-  
-  //2- Update Measurable with updated data array
-  [self updateMeasurableDataProviderWithLocalMeasurableLogData];
-  
-  //3- Ensure the Measurable representation is notified of change
-  [self invalidateMeasurableRow];
-  /////////////////////////////////////////////////////////////////////////////////////////////////
-  
-  //4- Delete the removed row
-  [self.tableView deleteRowsAtIndexPaths: [NSArray arrayWithObject: indexPath] withRowAnimation: YES];
-  
-  //5- Update the adjacent most recent row (ensures the trend value is properly updated)
-
-  //Do not need to update if this is the most recent value or if there are no more items in data array
-  //if(indexPath.item > 0 && self.measurableTableLogData.count > 0) {
-  //  [self.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:[NSIndexPath indexPathForItem:indexPath.item - 1 inSection:indexPath.section]] withRowAnimation: NO];    
-  //}
+  if(UITableViewCellEditingStyleDelete ==  editingStyle) {
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+    //THIS NEEDS TO BE UPDATED TO USE THE PROPER API
+    
+    //1- Update local data array
+    [self.measurableTableLogData removeObjectAtIndex:indexPath.item];
+    
+    //2- Update Measurable with updated data array
+    [self updateMeasurableDataProviderWithLocalMeasurableLogData];
+    
+    //3- Ensure the Measurable representation is notified of change
+    [self invalidateMeasurableRow];
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    //4- Delete the removed row
+    [self.tableView deleteRowsAtIndexPaths: [NSArray arrayWithObject: indexPath] withRowAnimation: YES];
+    
+    //5- Update the adjacent most recent row (ensures the trend value is properly updated)
+    //Do not need to update if this is the most recent value or if there are no more items in data array
+    //CXB TODO - replace this with MVCdelegate
+    if(indexPath.item > 0 && self.measurableTableLogData.count > 0) {
+      [self.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:[NSIndexPath indexPathForItem:indexPath.item - 1 inSection:indexPath.section]] withRowAnimation: NO];
+    }
+    
+    if(self.measurableTableLogData.count == 0) {
+      [[UIHelper measurableViewController] doneEditMeasurableLogAction:nil];
+    }
+    
+    [self forceUpdateView];
+  }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   
+  if(self.editing) {
+    [self editMeasurableDataEntryAtIndexPath:indexPath];
+  } else {
+    [self showOrHideMeasurableDataEntryAdditionalInfoAtIndexPath:indexPath];
+  }
+}
+
+- (void) editMeasurableDataEntryAtIndexPath:(NSIndexPath *)indexPath {
+  
+  MeasurableDataEntryViewController* measurableDataEntryViewController = [MeasurableHelper measurableDataEntryViewController];
+  
+  [measurableDataEntryViewController editMeasurableDataEntry:[self.measurableTableLogData
+                                                              objectAtIndex:indexPath.item]
+                                                inMeasurable:self.measurable withDelegate:self];
+}
+
+- (void)didFinishEditingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable:(id<Measurable>)measurable {
+  
+  NSInteger currentIndex = [self.measurable.dataProvider.values indexOfObject:measurableDataEntry];  
+  NSInteger newIndex = [self findIndexForMeasurableDataEntry:measurableDataEntry];
+
+  if(newIndex != currentIndex) {
+    
+    //Update local data array
+    [self.measurableTableLogData removeObjectAtIndex:currentIndex];
+    [self.measurableTableLogData insertObject:measurableDataEntry atIndex:newIndex];
+    
+    //Update Measurable with updated data array
+    [self updateMeasurableDataProviderWithLocalMeasurableLogData];
+    
+    //Reload the data
+    [self.tableView reloadData];
+    
+  } else {
+    
+    //Simply update the row itself and the related most recent adjacent row
+    NSMutableArray* indexesToUpdateArray = [NSMutableArray arrayWithCapacity:2];
+    
+    if(newIndex >= 0) {
+      
+      if(newIndex > 0) {
+        [indexesToUpdateArray addObject:[NSIndexPath indexPathForItem:(newIndex-1) inSection:0]];
+      }
+      
+      [indexesToUpdateArray addObject:[NSIndexPath indexPathForItem:(newIndex) inSection:0]];      
+    }
+
+    //Update Measurable with updated data array
+    [self updateMeasurableDataProviderWithLocalMeasurableLogData];
+    
+    [self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths: indexesToUpdateArray withRowAnimation: NO];
+    [self.tableView endUpdates];
+  }
+
+  //Ensure the Measurable representation is notified of change
+  [self invalidateMeasurableRow];
+}
+
+- (void) showOrHideMeasurableDataEntryAdditionalInfoAtIndexPath:(NSIndexPath *)indexPath {
+
   //Ignore selection on rows displaying the additional info
   if(indexPath.item == self.indexOfAdditionalInfoRow) {
     return;
@@ -241,6 +313,9 @@
       //Reset current selection index
       self.indexOfMeasurableDataEntryInAdditionalInfo = -1;
       self.indexOfAdditionalInfoRow = -1;
+      
+      //Hide it after a bit
+      [self clearCurrentSelectionInABit];
     }
   }
   
@@ -261,22 +336,39 @@
     //Reset current selection index
     self.indexOfMeasurableDataEntryInAdditionalInfo = -1;
     self.indexOfAdditionalInfoRow = -1;
+    
+    //Clear the selection after a bit
+    [self clearCurrentSelectionInABit];
+
   }
   
   //Actually perform the change in unity
-  [tableView beginUpdates];
+  [self.tableView beginUpdates];
   
   if(indexPathsToRemove) {
-    [tableView deleteRowsAtIndexPaths:indexPathsToRemove withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView deleteRowsAtIndexPaths:indexPathsToRemove withRowAnimation:UITableViewRowAnimationFade];
   }
 
   if(indexPathsToInsert) {
-    [tableView insertRowsAtIndexPaths:indexPathsToInsert withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView insertRowsAtIndexPaths:indexPathsToInsert withRowAnimation:UITableViewRowAnimationFade];
   }
 
-  [tableView endUpdates];  
+  [self.tableView endUpdates];
+  
+  [self forceUpdateView];
 }
 
+- (void) clearCurrentSelectionInABit {
+  
+  int64_t delayInSeconds = 0.5;
+  dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+  dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    if(indexPath != nil) {
+      [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+  });
+}
 - (void) removeAdditionalInfoRow {
 
   if(self.indexOfAdditionalInfoRow > 0) {
@@ -324,9 +416,7 @@
   //Reload the data for this new measurable
   [self.tableView reloadData];
 
-  self.requiresViewUpdate = YES;
-  
-  [self updateView];
+  [self forceUpdateView];
 }
 
 - (void) share {
@@ -354,9 +444,11 @@
     
     [self invalidateMeasurableRow];
     
+    [self forceUpdateView];
+    
     /////////////////////////////////////////////////////////////////////////////////////////////////
 
-    [UIHelper measurableViewController].barButtonItemClearLog.enabled = NO;
+    [[UIHelper measurableViewController] doneEditMeasurableLogAction:nil];
   }
 }
 
@@ -383,4 +475,73 @@
   }
 }
 
+
+- (void) logMeasurableDataEntry:(MeasurableDataEntry*)measurableDataEntry {
+  
+  //Find the correct index based on the date
+  NSInteger indexToInsert = [self findIndexForMeasurableDataEntry:measurableDataEntry];
+  
+  NSIndexPath* indexPathToInsert = [NSIndexPath indexPathForRow: indexToInsert inSection:0];
+  
+  dispatch_async(dispatch_get_main_queue(), ^{
+    
+    //Hide the additional info row if shown
+    if(self.indexOfAdditionalInfoRow > 0) {
+      [self showOrHideMeasurableDataEntryAdditionalInfoAtIndexPath:[NSIndexPath indexPathForRow: self.indexOfMeasurableDataEntryInAdditionalInfo inSection:0]];
+    }
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+    //THIS NEEDS TO BE UPDATED TO USE THE PROPER API
+    
+    //1- Update local data array
+    [self.measurableTableLogData insertObject:measurableDataEntry atIndex:indexPathToInsert.item];
+    
+    //2- Update Measurable with updated data array
+    [self updateMeasurableDataProviderWithLocalMeasurableLogData];
+    
+    //3- Ensure the Measurable representation is notified of change
+    [self invalidateMeasurableRow];
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    //4- Delete the removed row
+    NSArray* indexPathsToInsert = [NSArray arrayWithObjects: indexPathToInsert, nil];
+    [self.tableView insertRowsAtIndexPaths: indexPathsToInsert withRowAnimation: NO];
+
+    //5- Update the adjacent most recent row (ensures the trend value is properly updated)
+    //Do not need to update if this is the most recent value or if there are no more items in data array
+    if(indexPathToInsert.item > 0 && self.measurableTableLogData.count > 0) {
+      [self.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:[NSIndexPath indexPathForItem:indexPathToInsert.item - 1 inSection:indexPathToInsert.section]] withRowAnimation: NO];
+    }
+    
+    //Re evaluate the state of the toolbar buttons
+    [[UIHelper measurableViewController] doneEditMeasurableLogAction:nil];
+    
+    [self forceUpdateView];
+  });
+}
+
+- (NSInteger) findIndexForMeasurableDataEntry:(MeasurableDataEntry*)measurableDataEntry {
+  
+  NSInteger index = 0;
+  for (MeasurableDataEntry* curMeasurableDataEntry in self.measurable.dataProvider.values) {
+    
+    if (measurableDataEntry.date == curMeasurableDataEntry.date) {
+      continue;
+    }
+        
+    if(measurableDataEntry.date == [curMeasurableDataEntry.date laterDate:measurableDataEntry.date]) {
+      break;
+    }
+    
+    index++;
+  }
+  return index;
+}
+
+- (void) forceUpdateView {
+
+  self.requiresViewUpdate = YES;
+  [self updateView];
+
+}
 @end

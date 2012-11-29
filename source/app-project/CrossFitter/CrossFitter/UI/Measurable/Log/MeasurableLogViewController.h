@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Measurable.h"
 #import "MeasurableProvider.h"
+#import "MeasurableDataEntryViewController.h"
 
-@interface MeasurableLogViewController : UIViewController <MeasurableProvider, UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface MeasurableLogViewController : UIViewController <MeasurableProvider, UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate, MeasurableDataEntryDelegate>
 
 @property id<Measurable> measurable;
 @property IBOutlet UITableView* tableView;
+@property IBOutlet UITextView* messageTextView;
 
 //Marks this View Controller as needing to update its view
 @property BOOL requiresViewUpdate;
@@ -23,5 +25,7 @@
 
 - (void) share;
 - (void) clearLog;
+
+- (void) logMeasurableDataEntry:(MeasurableDataEntry*)measurableDataEntry;
 
 @end
