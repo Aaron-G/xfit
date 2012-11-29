@@ -34,8 +34,32 @@ static CGFloat VERTICAL_LAYOUT_PADDING = 0;
                            view:measurableLogViewController.tableView
             withVerticalSpacing:VERTICAL_LAYOUT_PADDING];
       
+      
+      //Message view
+      [UIHelper moveToYLocation:layoutYCoordinate + 30
+                reshapeWithSize:measurableLogViewController.messageTextView.frame.size
+                         orHide: NO
+                           view:measurableLogViewController.messageTextView
+            withVerticalSpacing:VERTICAL_LAYOUT_PADDING];
+      
+      //The message view is very prominent so let's make a nice animation when showing it
+      if(measurable.dataProvider.values.count == 0) {
+        
+        [UIView animateWithDuration: 0.5
+                              delay: 0
+                            options: UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                           measurableLogViewController.messageTextView.alpha = 1;
+                         }
+                         completion: nil];
+        
+      } else {
+        measurableLogViewController.messageTextView.alpha = 0;
+      }
+      
       measurableLogViewController.requiresViewUpdate = NO;
     }
+    
   }
 }
 
