@@ -24,4 +24,9 @@
   return self;
 }
 
+
+- (NSString *)formatValue:(NSNumber*)value {
+  return [super formatValue: [NSNumber numberWithFloat:[value floatValue]/100]];
+}
+
 @end
