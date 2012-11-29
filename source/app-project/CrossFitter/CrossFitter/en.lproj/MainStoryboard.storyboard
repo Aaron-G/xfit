@@ -527,8 +527,8 @@
                                 <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </pageControl>
-                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="WBz-Gp-Ygx" userLabel="Info Switch Button">
-                                <rect key="frame" x="146" y="344" width="320" height="19"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="tzT-jQ-Hhd" userLabel="Info Switch Button">
+                                <rect key="frame" x="292" y="344" width="18" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
@@ -539,12 +539,12 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="showMeasurableInfo" destination="LEZ-Nv-BEs" eventType="touchUpInside" id="FaF-X8-eFP"/>
+                                    <action selector="showMeasurableInfo" destination="LEZ-Nv-BEs" eventType="touchUpInside" id="8r3-pI-h7b"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="zrG-lK-we2" userLabel="Log Switch Button">
-                                <rect key="frame" x="-146" y="344" width="320" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="S1p-9A-7OB" userLabel="Log Switch Button">
+                                <rect key="frame" x="10" y="344" width="18" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -554,7 +554,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="showMeasurableLog" destination="LEZ-Nv-BEs" eventType="touchUpInside" id="r9d-Bp-juc"/>
+                                    <action selector="showMeasurableLog" destination="LEZ-Nv-BEs" eventType="touchUpInside" id="Y7L-tm-3By"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -575,8 +575,8 @@
                         <outlet property="barButtonItemShareLog" destination="esD-AN-yxw" id="rsr-gB-6mv"/>
                         <outlet property="barButtonItemSpacerOne" destination="KJ4-R2-adu" id="t3g-HM-plq"/>
                         <outlet property="barButtonItemSpacerTwo" destination="GDO-M4-rjS" id="vOF-Vv-Fxr"/>
-                        <outlet property="buttonSwitchToInfo" destination="WBz-Gp-Ygx" id="evy-C4-n9j"/>
-                        <outlet property="buttonSwitchToLog" destination="zrG-lK-we2" id="c82-XV-rV0"/>
+                        <outlet property="buttonSwitchToInfo" destination="tzT-jQ-Hhd" id="5Ag-ij-CIj"/>
+                        <outlet property="buttonSwitchToLog" destination="S1p-9A-7OB" id="dj9-iv-kpw"/>
                         <outlet property="measurableDetailPageControl" destination="ByB-Hi-7Uo" id="EwX-x5-gVg"/>
                         <outlet property="metadataTextView" destination="wfW-w5-CCd" id="h2e-n7-nXV"/>
                         <outlet property="nameLabel" destination="zuM-vs-n7Y" id="0JG-b5-9vA"/>
@@ -774,7 +774,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Body" id="oVL-PU-mMa">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="PvZ-Ii-HmH">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="PvZ-Ii-HmH">
                                         <rect key="frame" x="0.0" y="148" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -783,7 +783,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="v9l-I1-dBu">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="v9l-I1-dBu">
                                         <rect key="frame" x="0.0" y="193" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -796,7 +796,7 @@
                             </tableViewSection>
                             <tableViewSection id="p0O-Rh-CKc">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="XPt-Lk-vdE">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="XPt-Lk-vdE">
                                         <rect key="frame" x="0.0" y="258" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -805,7 +805,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="BO5-bF-DBe">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="BO5-bF-DBe">
                                         <rect key="frame" x="0.0" y="303" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -818,7 +818,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Upper" id="yPJ-He-btT">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Tbt-xc-Z7z">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Tbt-xc-Z7z">
                                         <rect key="frame" x="0.0" y="394" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -827,7 +827,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="qtm-EI-YY6">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="qtm-EI-YY6">
                                         <rect key="frame" x="0.0" y="439" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -836,7 +836,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="D8t-pv-FAi">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="D8t-pv-FAi">
                                         <rect key="frame" x="0.0" y="483" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -849,7 +849,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Torso" id="KfG-Ql-Ldm">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="5EF-Uu-Mp6">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="5EF-Uu-Mp6">
                                         <rect key="frame" x="0.0" y="574" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -858,7 +858,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="uKe-JY-uAF">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="uKe-JY-uAF">
                                         <rect key="frame" x="0.0" y="619" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -871,7 +871,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Lower" id="lLk-fH-Upl">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Byd-wJ-Ej3">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Byd-wJ-Ej3">
                                         <rect key="frame" x="0.0" y="710" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -880,7 +880,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ceq-rV-8Ku">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ceq-rV-8Ku">
                                         <rect key="frame" x="0.0" y="755" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -889,7 +889,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="S5k-mT-YjJ">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="S5k-mT-YjJ">
                                         <rect key="frame" x="0.0" y="799" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -898,7 +898,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ou9-wK-ZfX">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ou9-wK-ZfX">
                                         <rect key="frame" x="0.0" y="843" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1172,12 +1172,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="f25-9V-JjT">
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="f25-9V-JjT">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="MeasurableDataEntryTableViewCell" editingAccessoryType="disclosureIndicator" id="Cdy-Ub-N0k" customClass="MeasurableDataEntryTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="MeasurableDataEntryTableViewCell" editingAccessoryType="disclosureIndicator" id="Cdy-Ub-N0k" customClass="MeasurableDataEntryTableViewCell">
                                         <rect key="frame" x="0.0" y="46" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1215,7 +1215,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 </button>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="10/01/12" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FyS-2X-NPb">
                                                     <rect key="frame" x="155" y="11" width="106" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
                                                     </accessibility>
@@ -1223,9 +1223,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="Un6-PZ-0Wp">
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" lineBreakMode="middleTruncation" id="Un6-PZ-0Wp">
                                                     <rect key="frame" x="265" y="12" width="18" height="19"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" none="YES" button="YES" notEnabled="YES"/>
                                                     </accessibility>
@@ -1283,7 +1283,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                                 <rect key="frame" x="0.0" y="0.0" width="110" height="70"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="adn-ar-iEZ">
+                                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="adn-ar-iEZ">
                                                                         <rect key="frame" x="0.0" y="0.0" width="105" height="70"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1323,16 +1323,258 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <outlet property="delegate" destination="Otc-TN-TrR" id="Jf9-2g-lr2"/>
                                 </connections>
                             </tableView>
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="No entries logged" textAlignment="center" id="k8w-09-B90">
+                                <rect key="frame" x="20" y="80" width="280" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="messageTextView" destination="k8w-09-B90" id="RSk-Iq-dQj"/>
                         <outlet property="tableView" destination="f25-9V-JjT" id="yrs-0e-Z0Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0a0-VG-F2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2419" y="4877"/>
+        </scene>
+        <!--Measurable Data Entry View Controller-->
+        <scene sceneID="rKs-gL-FXQ">
+            <objects>
+                <tableViewController storyboardIdentifier="MeasurableDataEntryViewController" id="QHR-bw-TUg" customClass="MeasurableDataEntryViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="8m6-HC-14u">
+                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MeasurableDataEntryEditValueTableViewCell" id="Pke-Fx-EhR" userLabel="Result Cell" customClass="MeasurableDataEntryEditValueTableViewCell">
+                                <rect key="frame" x="0.0" y="46" width="320" height="45"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" id="UxX-8m-DSK">
+                                            <rect key="frame" x="70" y="7" width="160" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="QHR-bw-TUg" id="0Je-hD-otZ"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="valueTextField" destination="UxX-8m-DSK" id="jms-V3-JyO"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MeasurableDataEntryEditDateTableViewCell" id="cKk-Hw-SxZ" userLabel="When Cell" customClass="MeasurableDataEntryEditDateTableViewCell">
+                                <rect key="frame" x="0.0" y="91" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" id="CuM-bR-3kP">
+                                            <rect key="frame" x="70" y="7" width="160" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="QHR-bw-TUg" id="oHm-dy-9Vr"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="dateTextField" destination="CuM-bR-3kP" id="XH1-Fa-f6f"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MeasurableDataEntryEditCommentTableViewCell" rowHeight="80" id="XqB-bs-pF0" userLabel="Comment Cell" customClass="MeasurableDataEntryEditCommentTableViewCell">
+                                <rect key="frame" x="0.0" y="135" width="320" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="0.0" width="300" height="79"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="szM-S6-OzI">
+                                            <rect key="frame" x="20" y="10" width="260" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" enablesReturnKeyAutomatically="YES"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="QHR-bw-TUg" id="vqk-OA-yI9"/>
+                                            </connections>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="commentTextView" destination="szM-S6-OzI" id="I1g-Fd-eNd"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MeasurableDataEntryAddMediaTableViewCell" editingAccessoryType="disclosureIndicator" id="8Jx-Dr-ygv" userLabel="Add Media Cell" customClass="MeasurableDataEntryAddMediaTableViewCell">
+                                <rect key="frame" x="0.0" y="215" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4ib-Y9-VW6">
+                                            <rect key="frame" x="20" y="11" width="240" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="addMediaLabel" destination="4ib-Y9-VW6" id="Lfm-Kw-ZmV"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="MeasurableDataEntryEditMediaTableViewCell" rowHeight="80" id="svo-Be-CRe" userLabel="Edit Media Cell" customClass="MeasurableDataEntryEditMediaTableViewCell">
+                                <rect key="frame" x="0.0" y="259" width="320" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="0.0" width="300" height="79"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="CpN-ye-aej">
+                                            <rect key="frame" x="35" y="10" width="130" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="mediaImageView" destination="CpN-ye-aej" id="9AM-Jy-ma1"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="QHR-bw-TUg" id="ncO-96-fDz"/>
+                            <outlet property="delegate" destination="QHR-bw-TUg" id="fxw-pQ-sSr"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="done" systemItem="done" id="Sea-yJ-Hyg">
+                            <connections>
+                                <action selector="doneEditingMeasurableDataEntry" destination="QHR-bw-TUg" id="Jtw-lF-MuU"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="cancel" id="cJA-zH-sk0">
+                            <connections>
+                                <action selector="cancelEditingMeasurableDataEntry" destination="QHR-bw-TUg" id="W6b-hH-NZY"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="cancelBarButtonItem" destination="cJA-zH-sk0" id="YJ7-Ou-8ll"/>
+                        <outlet property="dateDatePicker" destination="yqz-L8-gFG" id="zB2-vS-ZvO"/>
+                        <outlet property="doneBarButtonItem" destination="Sea-yJ-Hyg" id="CyR-jH-6Sk"/>
+                        <outlet property="editToolbar" destination="9fz-t0-cco" id="zQg-yF-iEe"/>
+                        <outlet property="valueTypeFootInchPickerView" destination="uhg-tW-tuh" id="anX-yO-S8z"/>
+                        <outlet property="valueTypeNumberPickerView" destination="3Ps-uh-adF" id="FIl-PX-ShN"/>
+                        <outlet property="valueTypeNumberWithDecimalPickerView" destination="PfF-l4-zob" id="Quw-WF-2rI"/>
+                        <outlet property="valueTypePercentPickerView" destination="ouz-LR-Srg" id="Rle-Fg-yGR"/>
+                        <outlet property="valueTypeTimePickerView" destination="q7A-oc-rGq" id="nMb-nd-5q4"/>
+                    </connections>
+                </tableViewController>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="9fz-t0-cco">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="ZAh-SA-2Ft"/>
+                        <barButtonItem systemItem="done" id="UXF-MZ-IPF">
+                            <connections>
+                                <action selector="doneEditingField" destination="QHR-bw-TUg" id="ZeL-Gg-986"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" id="yqz-L8-gFG" userLabel="Date Picker">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <date key="date" timeIntervalSinceReferenceDate="372608276.99589598">
+                        <!--2012-10-22 14:17:56 +0000-->
+                    </date>
+                    <timeZone key="timeZone" name="America/Los_Angeles">
+                        <data key="data">
+VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
+y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
+5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
+8n/BkPNvwKD0X6OQ9U+ioPY/hZD3L4Sg+CiiEPkPZqD6CIQQ+viDIPvoZhD82GUg/chIEP64RyD/qCoQ
+AJgpIAGIDBACeAsgA3EokARhJ6AFUQqQBkEJoAcw7JAHjUOgCRDOkAmtvyAK8LCQC+CvoAzZzRANwJGg
+DrmvEA+priAQmZEQEYmQIBJ5cxATaXIgFFlVEBVJVCAWOTcQFyk2IBgiU5AZCRggGgI1kBryNKAb4heQ
+HNIWoB3B+ZAesfigH6HbkCB2KyAhgb2QIlYNICNq2hAkNe8gJUq8ECYV0SAnKp4QJ/7toCkKgBAp3s+g
+KupiECu+saAs036QLZ6ToC6zYJAvfnWgMJNCkDFnkiAycySQM0d0IDRTBpA1J1YgNjLokDcHOCA4HAUQ
+OOcaIDn75xA6xvwgO9vJEDywGKA9u6sQPo/6oD+bjRBAb9ygQYSpkEJPvqBDZIuQRC+goEVEbZBF89Mg
+Ry2KEEfTtSBJDWwQSbOXIErtThBLnLOgTNZqkE18laBOtkyQT1x3oFCWLpBRPFmgUnYQkFMcO6BUVfKQ
+VPwdoFY11JBW5TogWB7xEFjFHCBZ/tMQWqT+IFvetRBchOAgXb6XEF5kwiBfnnkQYE3eoGGHlZBiLcCg
+Y2d3kGQNoqBlR1mQZe2EoGcnO5BnzWagaQcdkGmtSKBq5v+Qa5ZlIGzQHBBtdkcgbq/+EG9WKSBwj+AQ
+cTYLIHJvwhBzFe0gdE+kEHT/CaB2OMCQdt7roHgYopB4vs2gefiEkHqer6B72GaQfH6RoH24SJB+XnOg
+f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
+</data>
+                    </timeZone>
+                    <connections>
+                        <action selector="doneEditingDate" destination="QHR-bw-TUg" eventType="valueChanged" id="Uqr-Ky-zEv"/>
+                    </connections>
+                </datePicker>
+                <pickerView contentMode="scaleToFill" id="3Ps-uh-adF" userLabel="Number Picker" customClass="MeasurableNumberValuePickerView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <outlet property="measurableValuePickerViewDelegate" destination="QHR-bw-TUg" id="fHF-Z0-RJZ"/>
+                    </connections>
+                </pickerView>
+                <pickerView contentMode="scaleToFill" id="PfF-l4-zob" userLabel="Number with Decimal Picker" customClass="MeasurableNumberWithDecimalValuePickerView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <outlet property="measurableValuePickerViewDelegate" destination="QHR-bw-TUg" id="7vW-EQ-uHn"/>
+                    </connections>
+                </pickerView>
+                <pickerView contentMode="scaleToFill" id="q7A-oc-rGq" userLabel="Time Picker" customClass="MeasurableTimeValuePickerView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <outlet property="measurableValuePickerViewDelegate" destination="QHR-bw-TUg" id="k26-t3-eKi"/>
+                    </connections>
+                </pickerView>
+                <pickerView contentMode="scaleToFill" id="ouz-LR-Srg" userLabel="Percent Picker" customClass="MeasurablePercentValuePickerView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <outlet property="measurableValuePickerViewDelegate" destination="QHR-bw-TUg" id="O9N-0c-xH1"/>
+                    </connections>
+                </pickerView>
+                <pickerView contentMode="scaleToFill" id="uhg-tW-tuh" userLabel="Foot Inch Picker" customClass="MeasurableFootInchValuePickerView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <outlet property="measurableValuePickerViewDelegate" destination="QHR-bw-TUg" id="2dw-cF-TvF"/>
+                    </connections>
+                </pickerView>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="141-oa-zyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3186" y="4870"/>
         </scene>
         <!--Measurable Info View Controller-->
         <scene sceneID="b0h-RM-J5G">
@@ -1472,11 +1714,41 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="versionLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="MeasurableDataEntryAddMediaTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableDataEntryAddMediaTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addMediaLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
         <class className="MeasurableDataEntryAdditionalInfoTableViewCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableDataEntryAdditionalInfoTableViewCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="commentTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="mediaCollectionView" candidateClass="UICollectionView"/>
+            </relationships>
+        </class>
+        <class className="MeasurableDataEntryEditCommentTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableDataEntryEditCommentTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="commentTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="MeasurableDataEntryEditDateTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableDataEntryEditDateTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MeasurableDataEntryEditMediaTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableDataEntryEditMediaTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mediaImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="MeasurableDataEntryEditValueTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableDataEntryEditValueTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="valueTextField" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="MeasurableDataEntryMediaCollectionViewCell" superclassName="UICollectionViewCell">
@@ -1494,8 +1766,31 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="measurableValueLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="MeasurableDataEntryViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableDataEntryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelEditingMeasurableDataEntry"/>
+                <relationship kind="action" name="doneEditingDate"/>
+                <relationship kind="action" name="doneEditingField"/>
+                <relationship kind="action" name="doneEditingMeasurableDataEntry"/>
+                <relationship kind="action" name="startPickingImage"/>
+                <relationship kind="action" name="startPickingVideo"/>
+                <relationship kind="outlet" name="cancelBarButtonItem" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="dateDatePicker" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="doneBarButtonItem" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="editToolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="valueTypeFootInchPickerView" candidateClass="MeasurableFootInchValuePickerView"/>
+                <relationship kind="outlet" name="valueTypeNumberPickerView" candidateClass="MeasurableNumberValuePickerView"/>
+                <relationship kind="outlet" name="valueTypeNumberWithDecimalPickerView" candidateClass="MeasurableNumberWithDecimalValuePickerView"/>
+                <relationship kind="outlet" name="valueTypePercentPickerView" candidateClass="MeasurablePercentValuePickerView"/>
+                <relationship kind="outlet" name="valueTypeTimePickerView" candidateClass="MeasurableTimeValuePickerView"/>
+            </relationships>
+        </class>
         <class className="MeasurableDetailSwitchViewController" superclassName="UICollectionViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableDetailSwitchViewController.h"/>
+        </class>
+        <class className="MeasurableFootInchValuePickerView" superclassName="MeasurableValuePickerView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableFootInchValuePickerView.h"/>
         </class>
         <class className="MeasurableInfoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableInfoViewController.h"/>
@@ -1507,7 +1802,26 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="MeasurableLogViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableLogViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="messageTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MeasurableNumberValuePickerView" superclassName="MeasurableValuePickerView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableNumberValuePickerView.h"/>
+        </class>
+        <class className="MeasurableNumberWithDecimalValuePickerView" superclassName="MeasurableValuePickerView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableNumberWithDecimalValuePickerView.h"/>
+        </class>
+        <class className="MeasurablePercentValuePickerView" superclassName="MeasurableNumberWithDecimalValuePickerView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurablePercentValuePickerView.h"/>
+        </class>
+        <class className="MeasurableTimeValuePickerView" superclassName="MeasurableValuePickerView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableTimeValuePickerView.h"/>
+        </class>
+        <class className="MeasurableValuePickerView" superclassName="UIPickerView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableValuePickerView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="measurableValuePickerViewDelegate"/>
             </relationships>
         </class>
         <class className="MeasurableViewController" superclassName="UIViewController">
