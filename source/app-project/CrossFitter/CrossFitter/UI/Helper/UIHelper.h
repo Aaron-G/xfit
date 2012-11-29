@@ -37,11 +37,11 @@
 
 + (CGFloat) moveToYLocation:(CGFloat) yLocation reshapeWithSize:(CGSize) size orHide:(BOOL) hide view:(UIView*) view withVerticalSpacing:(NSInteger) verticalSpacing;
 
-+ (void) displayImageFullScreen:(UIImage*) image;
-
 + (NSUInteger)supportedInterfaceOrientations;
 
 + (NSUInteger)supportedInterfaceOrientationsWithLandscape;
+
++ (BOOL) isEmptyString:(NSString*) string;
 
 @end
  
