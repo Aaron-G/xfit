@@ -40,6 +40,7 @@
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
   UILabel* valueLabel = (view) ? (UILabel*)view : [[UILabel alloc]init];
   valueLabel.text = [NSString stringWithFormat:@"%d", row];
+  valueLabel.font = [UIFont boldSystemFontOfSize:20];
   return valueLabel;
 }
 

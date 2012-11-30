@@ -39,7 +39,7 @@ static NSInteger PICKER_WIDTH = 100;
     NSInteger horizontalOffset = 85;
     
     for (int i = 0; i < labels.count; i++) {
-      [super createLabelForPickerWithText: [labels objectAtIndex:i]  andFrame:CGRectMake( (PICKER_WIDTH * i) + horizontalOffset + (i * 2), 94, 60, 30)];
+      [super createLabelForPickerWithText: [labels objectAtIndex:i]  andFrame:CGRectMake( (PICKER_WIDTH * i) + horizontalOffset + 2, 94, 60, 30)];
     }
     
     self.labelsInitialized = YES;
