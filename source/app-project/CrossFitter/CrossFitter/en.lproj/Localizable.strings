@@ -13,6 +13,8 @@
 "app-date-format" = "MM/dd/yyyy";
 "no-space-in-device-message" = "Your device does not have enough space.";
 "unexpected-problem-message" = "There was an unexpected problem. If the problem persists, please contact us.";
+"no-image-support-message" = "Your device does not support images.";
+"no-video-support-message" = "Your device does not support videos.";
 
 //Share App
 "share-app" = "App";
@@ -32,12 +34,17 @@
 "no-email-support-message" = "Your device cannot send emails. Try another sharing option.";
 "no-text-message-support-message" = "Your device cannot send text messages. Try another sharing option.";
 
+//////////////////////////////
+//Core
+"body-metric-display-name" = "Body Metric";
+"move-display-name" = "Move";
+"wod-display-name" = "WOD";
+"workout-display-name" = "Workout";
 
 //////////////////////////////
 //Home Screen
 "home-screen-title" = "CrossFitter";
 
-"share-app" = "App";
 "share-app-email-subject" = "CrossFit App: CrossFitter";
 "share-app-email-text" = "Checkout this sweet CrossFit app: <br>\n<a href=\"http://download.itunes.com/crossfitter\">CrossFitter App</a><p>\n\nIt has a PR Wall, WODs, Workouts and Moves. Plus you can track your body progress on it.<p>\n\nIt is pretty simple to use too and it has charts for all these things.";
 "share-app-text-message-text" = "Check out this CrossFit app: CrossFitter http://http://download.itunes.com/crossfitter";
@@ -180,3 +187,19 @@
 
 "measurable-clear-log-title" = "Clear Log?";
 "measurable-clear-log-message" = "This will delete all the entries in your log permanently";
+
+//////////////////////////////
+//Measurable Data Entry
+"measurable-data-entry-date-section-title" = "When";
+"measurable-data-entry-comment-section-title" = "Note";
+"measurable-data-entry-images-section-title" = "Pictures";
+"measurable-data-entry-videos-section-title" = "Videos";
+
+"measurable-data-entry-add-video-label" = "Add Video";
+"measurable-data-entry-add-picture-label" = "Add Picture";
+
+"measurable-data-entry-screen-log-title-format" = "Log %@";
+"measurable-data-entry-screen-edit-title-format" = "Edit %@";
+
+"measurable-data-entry-cannot-add-picture-title" = "Cannot Add Picture";
+"measurable-data-entry-cannot-add-video-title" = "Cannot Add Video";
