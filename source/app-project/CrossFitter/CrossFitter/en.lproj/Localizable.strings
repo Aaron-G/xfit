@@ -203,3 +203,11 @@
 
 "measurable-data-entry-cannot-add-picture-title" = "Cannot Add Picture";
 "measurable-data-entry-cannot-add-video-title" = "Cannot Add Video";
+
+//////////////////////////////
+//Measurable Data Entry Value Pickers
+"hours-label" = "hours";
+"minutes-label" = "mins";
+"seconds-label" = "secs";
+"feet-label" = "feet";
+"inches-label" = "inches";
