@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "UnitValueFormatter.h"
+#import "Unit.h"
 
-@interface DefaultUnitValueFormatter : NSObject <UnitValueFormatter>
+@interface DefaultUnitValueFormatter : NSObject <UnitValueFormatter> 
 
 //The string suffix for values "lb, m, Kg...")
 @property NSString* suffixString;
