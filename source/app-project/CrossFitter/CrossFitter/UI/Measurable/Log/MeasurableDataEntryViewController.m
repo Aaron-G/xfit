@@ -171,11 +171,11 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
     MeasurableDataEntryEditValueTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MeasurableDataEntryEditValueTableViewCell"];
 
     if(hasValue) {
-      cell.valueTextField.text = [self.measurable.valueFormatter formatValue: self.measurableDataEntry.value];
+      cell.valueTextField.text = [self.measurable.metadataProvider.unit.valueFormatter formatValue: self.measurableDataEntry.value];
     } else {
       cell.valueTextField.text = nil;
     }
-    cell.valueTextField.placeholder = [self.measurable.valueFormatter formatValue: self.measurable.dataProvider.sampleValue];
+    cell.valueTextField.placeholder = [self.measurable.metadataProvider.unit.valueFormatter formatValue: self.measurable.dataProvider.sampleValue];
     
     return cell;
     
@@ -425,11 +425,9 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
 
 -(void)setMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable {
   
-  if (_measurableDataEntry != measurableDataEntry || _measurable != measurable) {
-    _measurableDataEntry = measurableDataEntry;
-    _measurable = measurable;
-    self.requiresViewUpdate = YES;
-  }
+  _measurableDataEntry = measurableDataEntry;
+  _measurable = measurable;
+  self.requiresViewUpdate = YES;
 }
 
 - (IBAction)doneEditingMeasurableDataEntry {
@@ -491,7 +489,7 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
       }
 
       //Special case
-      if([self.measurable.valueFormatter.class isSubclassOfClass: [FootInchFormatter class]]) {
+      if(self.measurable.metadataProvider.unit.identifier == UnitIdentifierFoot) {
         measurableValuePickerView = self.valueTypeFootInchPickerView;
       }
 
@@ -588,7 +586,7 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
   self.measurableDataEntry.value = measurableValuePickerView.value;
 
   //Update UI
-  ((UITextField*)self.currentlyEditingView).text = [self.measurable.valueFormatter formatValue: self.measurableDataEntry.value];
+  ((UITextField*)self.currentlyEditingView).text = [self.measurable.metadataProvider.unit.valueFormatter formatValue: self.measurableDataEntry.value];
 }
 
 ///////////////////////////////////////////////////////////////////
