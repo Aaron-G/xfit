@@ -15,9 +15,9 @@
   
   if(self) {
     self.suffixString = NSLocalizedString(@"foot-suffix", @"'");
+    self.unit = [Unit unitForUnitIdentifier:UnitIdentifierFoot];
   }
   
   return self;
 }
-
 @end

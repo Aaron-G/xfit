@@ -18,7 +18,8 @@
     
     //Default to 2 decimal points for percentage
     [self.numberFormatter setMinimumFractionDigits:2];
-
+    
+    self.unit = [Unit unitForUnitIdentifier:UnitIdentifierPercent];
   }
   
   return self;
@@ -28,5 +29,4 @@
 - (NSString *)formatValue:(NSNumber*)value {
   return [super formatValue: [NSNumber numberWithFloat:[value floatValue]/100]];
 }
-
 @end

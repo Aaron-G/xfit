@@ -15,9 +15,9 @@
   
   if(self) {
     self.suffixString = NSLocalizedString(@"inch-suffix", @"\"");
+    self.unit = [Unit unitForUnitIdentifier:UnitIdentifierInch];
   }
   
   return self;
 }
-
 @end
