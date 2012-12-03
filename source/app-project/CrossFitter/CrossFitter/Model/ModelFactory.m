@@ -35,95 +35,143 @@
   
   //Height
   BodyMetric * metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierHeight];
-  NSArray* values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:73], [NSNumber numberWithFloat:70], nil];
+  NSArray* values = [NSArray arrayWithObjects:
+                     [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 6]],
+                     [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 6.5]],
+                     [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 5]],
+                     nil];
   metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.identifier withValues:values];
   [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  metric.dataProvider.sampleValue = [NSNumber numberWithFloat:73];
+  metric.dataProvider.sampleValue = [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 73]];
   
   //Weight
   metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierWeight];
-  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:175.5],
-            [NSNumber numberWithFloat:170], [NSNumber numberWithFloat:173], [NSNumber numberWithFloat:177], [NSNumber numberWithFloat:177], nil];
+  values = [NSArray arrayWithObjects:
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 175.5]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 170]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 173]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 177]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 177]],
+            nil];
   metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.identifier withValues:values];
   [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  metric.dataProvider.sampleValue = [NSNumber numberWithFloat:173];
+  metric.dataProvider.sampleValue = [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 173]];
   
   //Body Mass Index
   metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierBodyMassIndex];
-  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:22.3], [NSNumber numberWithFloat:22.5], [NSNumber numberWithFloat:23.5], [NSNumber numberWithFloat:23.5], nil];
+  values = [NSArray arrayWithObjects:
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 22.3]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 22.5]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 23.5]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 23.5]],
+            nil];
   metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.identifier withValues:values];
   [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  metric.dataProvider.sampleValue = [NSNumber numberWithFloat:22.3];
+  metric.dataProvider.sampleValue = [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 22.3]];
   
   //Body Fat
   metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierBodyFat];
-  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:23.01], [NSNumber numberWithFloat:24.01], [NSNumber numberWithFloat:23.35], [NSNumber numberWithFloat:25.4], nil];
+  values = [NSArray arrayWithObjects:
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 23.01]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 24.01]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 23.35]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 25.4]],
+            nil];
   metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.identifier withValues:values];
   [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  metric.dataProvider.sampleValue = [NSNumber numberWithFloat:25.00];
+  metric.dataProvider.sampleValue = [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 25]];
   
   //Chest
   metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierChest];
-  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:37.2], [NSNumber numberWithFloat:36.5], [NSNumber numberWithFloat:37], [NSNumber numberWithFloat:38], nil];
+  values = [NSArray arrayWithObjects:
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 37.2]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 36.5]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 37]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 38]],
+            nil];
   metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.identifier withValues:values];
   [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  metric.dataProvider.sampleValue = [NSNumber numberWithFloat:35];
+  metric.dataProvider.sampleValue = [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 35]];
   
   //Biceps Right
   metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierBiceptsRight];
-  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:12.8], [NSNumber numberWithFloat:12.8], nil];
+  values = [NSArray arrayWithObjects:
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 12.8]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 12.8]],
+            nil];
   metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.identifier withValues:values];
   [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  metric.dataProvider.sampleValue = [NSNumber numberWithFloat:12];
+  metric.dataProvider.sampleValue = [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 12]];
   
   //Biceps Left
   metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierBiceptsLeft];
-  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:12.5], [NSNumber numberWithFloat:12.5], nil];
+  values = [NSArray arrayWithObjects:
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 12.5]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 12.5]],
+            nil];
   metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.identifier withValues:values];
   [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  metric.dataProvider.sampleValue = [NSNumber numberWithFloat:12];
+  metric.dataProvider.sampleValue = [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 12]];
   
   //Waist
   metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierWaist];
-  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:35.6], [NSNumber numberWithFloat:35.7], nil];
+  values = [NSArray arrayWithObjects:
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 35.6]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 35.7]],
+            nil];
   metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.identifier withValues:values];
   [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  metric.dataProvider.sampleValue = [NSNumber numberWithFloat:35];
+  metric.dataProvider.sampleValue = [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 35]];
   
   //Hip
   metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierHip];
-  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:39.9], [NSNumber numberWithFloat:37.7], nil];
+  values = [NSArray arrayWithObjects:
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 39.9]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 37.7]],
+            nil];
   metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.identifier withValues:values];
   [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  metric.dataProvider.sampleValue = [NSNumber numberWithFloat:40];
+  metric.dataProvider.sampleValue = [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 40]];
   
   //Thigh Right
   metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierThighRight];
-  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:24.5], [NSNumber numberWithFloat:23], nil];
+  values = [NSArray arrayWithObjects:
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 24.5]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 23]],
+            nil];
   metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.identifier withValues:values];
   [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  metric.dataProvider.sampleValue = [NSNumber numberWithFloat:25];
+  metric.dataProvider.sampleValue = [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 25]];
   
   //Thigh Left
   metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierThighLeft];
-  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:24.1], [NSNumber numberWithFloat:24.1], nil];
+  values = [NSArray arrayWithObjects:
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 24.1]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 24.1]],
+            nil];
   metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.identifier withValues:values];
   [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  metric.dataProvider.sampleValue = [NSNumber numberWithFloat:25];
+  metric.dataProvider.sampleValue = [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 25]];
   
   //Calf Right
   metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierCalfRight];
-  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:11.7], [NSNumber numberWithFloat:12.1], nil];
+  values = [NSArray arrayWithObjects:
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 11.7]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 12.1]],
+            nil];
   metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.identifier withValues:values];
   [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  metric.dataProvider.sampleValue = [NSNumber numberWithFloat:12];
+  metric.dataProvider.sampleValue = [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 12]];
   
   //Calf Left
   metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierCalfLeft];
-  values = [NSArray arrayWithObjects: [NSNumber numberWithFloat:11.3], [NSNumber numberWithFloat:11.1], nil];
+  values = [NSArray arrayWithObjects:
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 11.3]],
+            [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 11.1]],
+            nil];
   metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.identifier withValues:values];
   [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  metric.dataProvider.sampleValue = [NSNumber numberWithFloat:12];
+  metric.dataProvider.sampleValue = [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 12]];
   
   return metrics;
 }
