@@ -11,10 +11,12 @@
 @implementation MeasurablePercentValuePickerView
 
 - (void)setValue:(NSNumber *)value {
-  
+
+  NSNumber* localValue = [self.measurableValuePickerViewDelegate.measurable.metadataProvider.unit.unitSystemConverter convertFromSystemValue:value];
+
   //Update local variables
-  self.numberValue = value.intValue;
-  self.decimalValue = (value.floatValue - self.numberValue) * 100;
+  self.numberValue = localValue.intValue;
+  self.decimalValue = (localValue.floatValue - self.numberValue) * 100;
   
   //Update the display
   [self selectRow:self.numberValue inComponent:0 animated:NO];

@@ -21,13 +21,14 @@
 @synthesize valueUnitTitle = _valueUnitTitle;
 
 - (NSNumber *)value {
-  return [NSNumber numberWithInt:self.numberValue];
+  return [self.measurableValuePickerViewDelegate.measurable.metadataProvider.unit.unitSystemConverter convertToSystemValue:
+          [NSNumber numberWithInt:self.numberValue]];
 }
 
 - (void)setValue:(NSNumber *)value {
   
   //Update local variables
-  self.numberValue = value.intValue;
+  self.numberValue = [[self.measurableValuePickerViewDelegate.measurable.metadataProvider.unit.unitSystemConverter convertFromSystemValue:value] intValue];
   
   //Update the display based on the new value
   [self selectRow:self.numberValue inComponent:0 animated:NO];
@@ -39,8 +40,8 @@
   
   if(!_valueUnitTitle && measurable) {
     
-    if([measurable.valueFormatter isKindOfClass: [DefaultUnitValueFormatter class]]) {
-      _valueUnitTitle = ((DefaultUnitValueFormatter*)measurable.valueFormatter).suffixString;
+    if([measurable.metadataProvider.unit.valueFormatter isKindOfClass: [DefaultUnitValueFormatter class]]) {
+      _valueUnitTitle = ((DefaultUnitValueFormatter*)measurable.metadataProvider.unit.valueFormatter).suffixString;
     }
   }
   

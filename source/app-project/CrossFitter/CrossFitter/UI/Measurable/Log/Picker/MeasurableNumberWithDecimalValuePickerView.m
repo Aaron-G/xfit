@@ -14,15 +14,18 @@
 
 @implementation MeasurableNumberWithDecimalValuePickerView
 
-- (NSNumber *)value {
-  return [NSNumber numberWithFloat: (self.numberValue + ((CGFloat)self.decimalValue)/100)];
+- (NSNumber *)value {  
+  return [self.measurableValuePickerViewDelegate.measurable.metadataProvider.unit.unitSystemConverter convertToSystemValue:
+          [NSNumber numberWithFloat:(self.numberValue + ((CGFloat)self.decimalValue)/100)]];
 }
 
 - (void)setValue:(NSNumber *)value {
 
+  NSNumber* localValue = [self.measurableValuePickerViewDelegate.measurable.metadataProvider.unit.unitSystemConverter convertFromSystemValue:value];
+
   //Update local variables
-  self.numberValue = value.intValue;
-  self.decimalValue = (value.floatValue - self.numberValue) * 10;
+  self.numberValue = localValue.intValue;
+  self.decimalValue = (localValue.floatValue - self.numberValue) * 10;
   
   //Update the display
   [self selectRow:self.numberValue inComponent:0 animated:NO];
