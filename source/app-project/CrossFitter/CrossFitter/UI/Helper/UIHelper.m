@@ -59,6 +59,11 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   
   NSString* imageName = nil;
   
+  //The user is not interested in tracking this
+  if(valueTrendBetterDirection == MeasurableValueTrendBetterDirectionNone) {
+    return nil;
+  }
+  
   if((valueTrend == MeasurableValueTrendUp && valueTrendBetterDirection == MeasurableValueTrendBetterDirectionUp) ||
      (valueTrend == MeasurableValueTrendDown && valueTrendBetterDirection == MeasurableValueTrendBetterDirectionDown)) {
     imageName = @"better-value-direction";
@@ -147,4 +152,12 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
 + (BOOL) isEmptyString:(NSString*) string {
   return [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length == 0;
 }
+
++ (void)applyFontToSegmentedControl:(UISegmentedControl*) segmentedControl {
+  UIFont* font = [UIFont boldSystemFontOfSize:14.0f];
+  NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
+                                                         forKey:UITextAttributeFont];
+  [segmentedControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
+}
+
 @end

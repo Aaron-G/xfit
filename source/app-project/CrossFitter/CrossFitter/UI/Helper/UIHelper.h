@@ -43,5 +43,7 @@
 
 + (BOOL) isEmptyString:(NSString*) string;
 
++ (void)applyFontToSegmentedControl:(UISegmentedControl*) segmentedControl;
+
 @end
  
