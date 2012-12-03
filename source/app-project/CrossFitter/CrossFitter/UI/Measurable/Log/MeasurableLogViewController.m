@@ -167,16 +167,14 @@
     //2- Update Measurable with updated data array
     [self updateMeasurableDataProviderWithLocalMeasurableLogData];
     
-    //3- Ensure the Measurable representation is notified of change
-    [self invalidateMeasurableRow];
     /////////////////////////////////////////////////////////////////////////////////////////////////
     
-    //4- Delete the removed row
+    //3- Delete the removed row
     [self.tableView deleteRowsAtIndexPaths: [NSArray arrayWithObject: indexPath] withRowAnimation: YES];
     
-    //5- Update the adjacent most recent row (ensures the trend value is properly updated)
+    //4- Update the adjacent most recent row (ensures the trend value is properly updated)
     //Do not need to update if this is the most recent value or if there are no more items in data array
-    //CXB TODO - replace this with MVCdelegate
+    //CXB TODO - replace this with MVCdelegate - MeasurableLogEditViewControllerDelegate and make MeasurableViewController the delegate. Make it update the log screen too 
     if(indexPath.item > 0 && self.measurableTableLogData.count > 0) {
       [self.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:[NSIndexPath indexPathForItem:indexPath.item - 1 inSection:indexPath.section]] withRowAnimation: NO];
     }
@@ -247,7 +245,7 @@
   }
 
   //Ensure the Measurable representation is notified of change
-  [self invalidateMeasurableRow];
+  [self notifyMeasurableViewControllerDelegate];
 }
 
 - (void) showOrHideMeasurableDataEntryAdditionalInfoAtIndexPath:(NSIndexPath *)indexPath {
@@ -408,15 +406,7 @@
 - (void)setMeasurable:(id<Measurable>)measurable {
   _measurable = measurable;
   
-  self.measurableTableLogData = [NSMutableArray arrayWithArray: measurable.dataProvider.values];
-  
-  self.indexOfMeasurableDataEntryInAdditionalInfo = -1;
-  self.indexOfAdditionalInfoRow = -1;
-  
-  //Reload the data for this new measurable
-  [self.tableView reloadData];
-
-  [self forceUpdateView];
+  [self reloadView];
 }
 
 - (void) share {
@@ -442,7 +432,7 @@
     [self updateMeasurableDataProviderWithLocalMeasurableLogData];
     [self.tableView reloadData];
     
-    [self invalidateMeasurableRow];
+    [self notifyMeasurableViewControllerDelegate];
     
     [self forceUpdateView];
     
@@ -456,13 +446,10 @@
   self.measurable.dataProvider.values = self.measurableTableLogData;
 }
 
-- (void) invalidateMeasurableRow {
-  
-  dispatch_async(dispatch_get_main_queue(), ^{    
-    //Tell the associated Measurable Collection Display that this measurable has changed
-    [[UIHelper measurableViewController].measurableCollectionDisplay updateMeasurable: self.measurable.metadataProvider.identifier];
-  });
-  
+- (void) notifyMeasurableViewControllerDelegate {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [[UIHelper measurableViewController].delegate didChangeMeasurable:self.measurable];
+  });  
 }
 
 - (void) updateView {
@@ -500,7 +487,7 @@
     [self updateMeasurableDataProviderWithLocalMeasurableLogData];
     
     //3- Ensure the Measurable representation is notified of change
-    [self invalidateMeasurableRow];
+    [self notifyMeasurableViewControllerDelegate];
     /////////////////////////////////////////////////////////////////////////////////////////////////
     
     //4- Delete the removed row
@@ -536,6 +523,19 @@
     index++;
   }
   return index;
+}
+
+- (void) reloadView {
+
+  self.measurableTableLogData = [NSMutableArray arrayWithArray: self.measurable.dataProvider.values];
+  
+  self.indexOfMeasurableDataEntryInAdditionalInfo = -1;
+  self.indexOfAdditionalInfoRow = -1;
+  
+  //Reload the data for this new measurable
+  [self.tableView reloadData];
+  
+  [self forceUpdateView];
 }
 
 - (void) forceUpdateView {
