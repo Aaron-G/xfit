@@ -23,5 +23,6 @@
 @property CGPoint viewLayoutPosition;
 
 - (void) share;
+- (void) reloadView;
 
 @end

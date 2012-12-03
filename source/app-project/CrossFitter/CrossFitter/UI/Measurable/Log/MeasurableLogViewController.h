@@ -28,4 +28,6 @@
 
 - (void) logMeasurableDataEntry:(MeasurableDataEntry*)measurableDataEntry;
 
+- (void) reloadView;
+
 @end

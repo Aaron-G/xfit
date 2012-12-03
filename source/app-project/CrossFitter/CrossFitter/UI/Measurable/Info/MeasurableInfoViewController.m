@@ -12,10 +12,14 @@
 #import "MeasurableHelper.h"
 #import "MeasurableViewUpdateDelegate.h"
 #import "UIHelper.h"
+#import "AppViewControllerSegue.h"
+#import "MeasurableInfoEditViewController.h"
 
 @interface MeasurableInfoViewController ()
 
 @property MeasurableShareDelegate* shareDelegate;
+@property MeasurableInfoEditViewController* measurableInfoEditViewController;
+
 @end
 
 @implementation MeasurableInfoViewController
@@ -40,8 +44,7 @@
 - (void)setMeasurable:(id<Measurable>)measurable {
   _measurable = measurable;
 
-  self.requiresViewUpdate = YES;
-  [self updateView];
+  [self reloadView];
 }
 
 - (id<Measurable>)measurable {
@@ -63,8 +66,57 @@
   }
 }
 
+- (void) reloadView {
+  
+  [self forceUpdateView];
+}
+
+- (void) forceUpdateView {
+  
+  self.requiresViewUpdate = YES;
+  [self updateView];
+  
+}
+
 - (void) share {
   [self.shareDelegate shareFromToolBar:[UIHelper measurableViewController].toolbar];
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+  
+  UIView* fromView = nil;
+  UIView* toView = nil;
+  
+  if(editing) {
+    
+    //Get hold of info edit view controller
+    self.measurableInfoEditViewController = [MeasurableHelper measurableInfoEditViewControllerForMeasurable:self.measurable];
+    
+    //Link the delegate for it
+    self.measurableInfoEditViewController.delegate = [UIHelper measurableViewController];
+    self.measurableInfoEditViewController.viewLayoutPosition = self.viewLayoutPosition;
+    
+    //Setup views
+    toView = self.measurableInfoEditViewController.view;
+    fromView = self.view;
+    
+  } else {
+    
+    toView = self.view;
+    fromView = self.measurableInfoEditViewController.view;
+    
+    //Clear reference
+    self.measurableInfoEditViewController = nil;
+  }
+  
+  if(toView && fromView) {
+    [UIView transitionFromView:fromView
+                        toView:toView
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionCrossDissolve|UIViewAnimationOptionCurveEaseOut
+                    completion:nil];
+  }
+  
 }
 
 @end
