@@ -246,8 +246,8 @@
       
       MeasurableViewController* measurableViewController = [UIHelper measurableViewController];
       measurableViewController.measurable = metric;
-      measurableViewController.measurableCollectionDisplay = self;
-      
+      measurableViewController.delegate = self;
+            
       AppViewControllerSegue* appViewControllerSegue =
       [[AppViewControllerSegue alloc] initWithIdentifier:@"My Body to Body Metric"
                                                   source:self
@@ -269,6 +269,16 @@
   if(indexPath) {
     [self.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:indexPath] withRowAnimation: NO];
   }
+}
+
+- (void)didChangeMeasurable:(id<Measurable>)measurable {
+  
+  NSIndexPath* indexPath = [self indexPathForBodyMetricIdentifier:measurable.metadataProvider.identifier];
+  
+  if(indexPath) {
+    [self.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:indexPath] withRowAnimation: NO];
+  }
+  
 }
 
 @end
