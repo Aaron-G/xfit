@@ -10,15 +10,17 @@
 #import "Measurable.h"
 #import "MeasurableDetailSwitchViewController.h"
 #import "MeasurableTitleView.h"
-#import "MeasurableCollectionDisplay.h"
 #import "MeasurableDataEntryViewController.h"
+#import "MeasurableInfoEditViewController.h"
+#import "MeasurableViewControllerDelegate.h"
 
 @class MeasurableDetailSwitchViewController;
+@class MeasurableViewControllerDelegate;
 
-@interface MeasurableViewController : UIViewController <MeasurableDataEntryDelegate>
+@interface MeasurableViewController : UIViewController <MeasurableDataEntryDelegate, MeasurableInfoEditViewControllerDelegate>
 
 @property id<Measurable> measurable;
-
+@property id<MeasurableViewControllerDelegate> delegate;
 @property IBOutlet UILabel* nameLabel;
 @property IBOutlet UITextView* metadataTextView;
 
@@ -47,8 +49,6 @@
 
 @property IBOutlet UIPageControl* measurableDetailPageControl;
 @property (readonly) MeasurableTitleView* measurableTitleView;
-
-@property id<MeasurableCollectionDisplay> measurableCollectionDisplay;
 
 //Marks this View Controller as needing to update its view
 @property BOOL requiresViewUpdate;

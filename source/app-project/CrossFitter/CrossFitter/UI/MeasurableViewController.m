@@ -15,6 +15,7 @@
 @interface MeasurableViewController () {
   
 }
+//CXB REVIEW THIS
 @property MeasurableUpdateDelegate* updateDelegate;
 
 - (IBAction)showMeasurableInfo;
@@ -215,10 +216,24 @@
 
 -(void)didFinishCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable {
   [self.measurableDetailSwitchViewController.logViewController logMeasurableDataEntry:measurableDataEntry];
+
+  //Update the MeasurableViewControllerDelegate
+  [self.delegate didChangeMeasurable:self.measurable];
 }
 
 -(void)didCancelCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable {
 }
 
+- (void)didEditMeasurableInfoForMeasurable:(id<Measurable>)measurable {
+
+  //Update the info VC
+  [self.measurableDetailSwitchViewController.infoViewController reloadView];
+
+  //Update the log VC
+  [self.measurableDetailSwitchViewController.logViewController reloadView];
+  
+  //Update the MeasurableViewControllerDelegate
+  [self.delegate didChangeMeasurable:self.measurable];
+}
 
 @end

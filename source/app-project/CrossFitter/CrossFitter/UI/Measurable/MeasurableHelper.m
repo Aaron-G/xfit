@@ -15,6 +15,9 @@
 #import "MeasurableDataEntryAdditionalInfoTableViewCell.h"
 #import "MeasurableViewUpdateDelegate.h"
 #import "MeasurableLogUpdateDelegateBase.h"
+#import "BodyMetricInfoEditViewController.h"
+#import "MeasurableInfoEditUpdateDelegateBase.h"
+
 @interface MeasurableHelper () {
 }
 
@@ -23,8 +26,9 @@
 @implementation MeasurableHelper
 
 static NSDateFormatter* _measurableDateFormat;
-static NSMutableDictionary* _measurableInfoUpdateDelegates;
-static id<MeasurableViewUpdateDelegate> _measurableLogUpdateDelegate;
+static NSMutableDictionary* _measurableInfoViewUpdateDelegates;
+static id<MeasurableViewUpdateDelegate> _measurableInfoEditViewUpdateDelegate;
+static id<MeasurableViewUpdateDelegate> _measurableLogViewUpdateDelegate;
 static MeasurableDataEntryViewController* _measurableDataEntryViewController;
 
 + (UITableViewCell *)tableViewCellForMeasurable: (id <Measurable>) measurable inTableView: (UITableView *)tableView {
@@ -39,7 +43,7 @@ static MeasurableDataEntryViewController* _measurableDataEntryViewController;
   [UIHelper adjustImage:cell.measurableTrendImageButton forMeasurable:measurable];
   
   if(hasValue) {
-    cell.measurableValueLabel.text = [measurable.valueFormatter formatValue:measurable.dataProvider.value];
+    cell.measurableValueLabel.text = [measurable.metadataProvider.unit.valueFormatter formatValue:measurable.dataProvider.value];
 
     NSString *dateString = [MeasurableHelper.measurableDateFormat stringFromDate:measurable.dataProvider.date];
     cell.measurableDateLabel.text = dateString;
@@ -55,7 +59,7 @@ static MeasurableDataEntryViewController* _measurableDataEntryViewController;
   
   MeasurableDataEntryTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MeasurableDataEntryTableViewCell"];
   cell.measurableDataEntry = measurableDataEntry;
-  cell.measurableValueLabel.text = [measurable.valueFormatter formatValue:measurableDataEntry.value];
+  cell.measurableValueLabel.text = [measurable.metadataProvider.unit.valueFormatter formatValue:measurableDataEntry.value];
   
   NSString *dateString = [MeasurableHelper.measurableDateFormat stringFromDate:measurableDataEntry.date];
   cell.measurableDateLabel.text = dateString;
@@ -80,10 +84,10 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
 }
 
 + (NSMutableDictionary*) measurableInfoUpdateDelegates {
-  if(!_measurableInfoUpdateDelegates) {
-    _measurableInfoUpdateDelegates = [NSMutableDictionary dictionary];
+  if(!_measurableInfoViewUpdateDelegates) {
+    _measurableInfoViewUpdateDelegates = [NSMutableDictionary dictionary];
   }
-  return _measurableInfoUpdateDelegates;
+  return _measurableInfoViewUpdateDelegates;
 }
 
 + (id<MeasurableViewUpdateDelegate>) measurableInfoViewUpdateDelegateForMeasurable: (id<Measurable>) measurable {
@@ -104,16 +108,29 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   return measurableInfoUpdateDelegate;  
 }
 
-+ (id<MeasurableViewUpdateDelegate>) measurableLogUpdateDelegate {
-  if(!_measurableLogUpdateDelegate) {
-    _measurableLogUpdateDelegate = [[MeasurableLogUpdateDelegateBase alloc] init];
++ (id<MeasurableViewUpdateDelegate>) measurableInfoEditViewUpdateDelegate {
+  if(!_measurableInfoEditViewUpdateDelegate) {
+    _measurableInfoEditViewUpdateDelegate = [[MeasurableInfoEditUpdateDelegateBase alloc] init];
+
   }
-  return _measurableLogUpdateDelegate;
+  return _measurableInfoEditViewUpdateDelegate;
+}
+
++ (id<MeasurableViewUpdateDelegate>) measurableInfoEditViewUpdateDelegateForMeasurable: (id<Measurable>) measurable {
+  //They all use the same logic - for now
+  return [MeasurableHelper measurableInfoEditViewUpdateDelegate];
+}
+
++ (id<MeasurableViewUpdateDelegate>) measurableLogViewUpdateDelegate {
+  if(!_measurableLogViewUpdateDelegate) {
+    _measurableLogViewUpdateDelegate = [[MeasurableLogUpdateDelegateBase alloc] init];
+  }
+  return _measurableLogViewUpdateDelegate;
 }
 
 + (id<MeasurableViewUpdateDelegate>) measurableLogViewUpdateDelegateForMeasurable: (id<Measurable>) measurable {
   //They all use the same logic - for now
-  return [MeasurableHelper measurableLogUpdateDelegate];
+  return [MeasurableHelper measurableLogViewUpdateDelegate];
 }
 
 + (MeasurableDataEntryViewController*) measurableDataEntryViewController {
@@ -146,6 +163,33 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
     return MediaHelperPurposeWOD;
   }
   return -1;
+}
+
+
++ (MeasurableInfoEditViewController*) measurableInfoEditViewControllerForMeasurable:(id<Measurable>)measurable {
+
+  MeasurableTypeIdentifier typeIdentifier = measurable.metadataProvider.type.identifier;
+  
+  NSString* viewControllerName = nil;
+  
+  if(MeasurableTypeIdentifierBodyMetric == typeIdentifier) {
+    viewControllerName = @"BodyMetricInfoEditViewController";    
+  } else if(MeasurableTypeIdentifierMove == typeIdentifier) {
+    
+  } else if(MeasurableTypeIdentifierWorkout == typeIdentifier) {
+    
+  } else if(MeasurableTypeIdentifierWOD == typeIdentifier) {
+    
+  }
+
+  MeasurableInfoEditViewController* measurableInfoEditViewController = nil;
+  
+  if(viewControllerName) {
+    measurableInfoEditViewController = (MeasurableInfoEditViewController*)[UIHelper viewControllerWithViewStoryboardIdentifier:viewControllerName];
+    measurableInfoEditViewController.measurable = measurable;
+  }
+
+  return measurableInfoEditViewController;
 }
 
 @end

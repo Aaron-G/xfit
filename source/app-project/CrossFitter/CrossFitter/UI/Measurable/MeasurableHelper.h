@@ -11,6 +11,7 @@
 #import "MeasurableViewUpdateDelegate.h"
 #import "MeasurableDataEntryViewController.h"
 #import "MediaHelper.h"
+#import "MeasurableInfoEditViewController.h"
 
 @interface MeasurableHelper : NSObject
 
@@ -28,5 +29,9 @@
 + (MeasurableDataEntry*) createMeasurableDataEntryForMeasurable:(id<Measurable>) measurable;
 
 + (MediaHelperPurpose) mediaHelperPurposeForMeasurable:(id<Measurable>)measurable;
+
++ (MeasurableInfoEditViewController*) measurableInfoEditViewControllerForMeasurable:(id<Measurable>)measurable;
+
++ (id<MeasurableViewUpdateDelegate>) measurableInfoEditViewUpdateDelegateForMeasurable: (id<Measurable>) measurable;
 
 @end
