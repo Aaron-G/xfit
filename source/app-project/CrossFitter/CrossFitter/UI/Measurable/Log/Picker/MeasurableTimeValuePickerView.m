@@ -7,12 +7,14 @@
 //
 
 #import "MeasurableTimeValuePickerView.h"
+#import "TimeDuration.h"
 
 @interface MeasurableTimeValuePickerView ()
 
 @property NSInteger secondsValue;
 @property NSInteger minutesValue;
 @property NSInteger hoursValue;
+@property TimeDuration* timeDuration;
 
 @property BOOL labelsInitialized;
 
@@ -26,6 +28,7 @@ static NSInteger PICKER_WIDTH = 100;
   self = [super initWithCoder:aDecoder];
   if(self) {
     self.labelsInitialized = NO;
+    self.timeDuration = [[TimeDuration alloc]init];
   }
   return self;
 }
@@ -47,16 +50,22 @@ static NSInteger PICKER_WIDTH = 100;
   }
 }
 
-- (NSNumber *)value {
-  return [NSNumber numberWithInt: self.secondsValue + self.minutesValue * 60 + self.hoursValue * 3600];
+- (NSNumber *)value {  
+  return [self.measurableValuePickerViewDelegate.measurable.metadataProvider.unit.unitSystemConverter convertToSystemValue:
+          [NSNumber numberWithInt:self.secondsValue + self.minutesValue * 60 + self.hoursValue * 3600]];
 }
 
 - (void)setValue:(NSNumber *)value {
   
+  NSNumber* localValue = [self.measurableValuePickerViewDelegate.measurable.metadataProvider.unit.unitSystemConverter convertFromSystemValue:value];
+
+  //Makes it easy to figure out the time components
+  self.timeDuration.value = localValue.intValue;
+
   //Update local variables
-  self.hoursValue = value.intValue/3600;
-  self.minutesValue = (value.intValue % 3600)/60;
-  self.secondsValue = (value.intValue % 60);
+  self.hoursValue = self.timeDuration.hours;
+  self.minutesValue = self.timeDuration.minutes;
+  self.secondsValue = self.timeDuration.seconds;
   
   //Update the display
   [self selectRow:self.hoursValue inComponent:0 animated:NO];
