@@ -9,6 +9,7 @@
 #import "FootInchFormatter.h"
 #import "FootFormatter.h"
 #import "InchFormatter.h"
+#import "Unit.h"
 
 @interface FootInchFormatter () {
   
@@ -20,12 +21,15 @@
 
 @implementation FootInchFormatter
 
+@synthesize unit;
+
 -(id)init {
   self = [super init];
   
   if(self) {
     self.footFormatter = [[FootFormatter alloc] init];
     self.inchFormatter = [[InchFormatter alloc] init];
+    self.unit = [Unit unitForUnitIdentifier:UnitIdentifierNone];
   }
   
   return self;
@@ -33,19 +37,20 @@
 
 - (NSString *)formatValue:(NSNumber*)value {
   
-  NSInteger intValue = value.integerValue;
-  
-  NSInteger feet = intValue / 12;
-  NSInteger inches = intValue % 12;
+  //Convert from system unit to local unit - we want inches here
+  NSNumber* localUnitValue = [self.footFormatter.unit.unitSystemConverter convertFromSystemValue:value];
+
+  NSInteger feet = localUnitValue.integerValue;
+  NSInteger inches = (localUnitValue.floatValue - feet) * 12;
   
   if(inches == 0) {
-    return [self.footFormatter formatValue: [NSNumber numberWithInt: feet]];
+    return [self.footFormatter formatValue: [self.footFormatter.unit.unitSystemConverter convertToSystemValue: [NSNumber numberWithInt:feet]]];
   } else if (feet == 0) {
-    return [self.inchFormatter formatValue: [NSNumber numberWithInt: inches]];
+    return [self.inchFormatter formatValue: [self.inchFormatter.unit.unitSystemConverter convertToSystemValue: [NSNumber numberWithInt:inches]]];
   } else {
     return [NSString stringWithFormat: NSLocalizedString(@"foot-and-inch-format", "%@ %@"),
-            [self.footFormatter formatValue: [NSNumber numberWithInt: feet]],
-            [self.inchFormatter formatValue: [NSNumber numberWithInt: inches]]];
+            [self.footFormatter formatValue: [self.footFormatter.unit.unitSystemConverter convertToSystemValue: [NSNumber numberWithInt:feet]]],
+            [self.inchFormatter formatValue: [self.inchFormatter.unit.unitSystemConverter convertToSystemValue: [NSNumber numberWithInt:inches]]]];
   }
 }
 
