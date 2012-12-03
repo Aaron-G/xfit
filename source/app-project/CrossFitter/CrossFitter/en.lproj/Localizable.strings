@@ -173,8 +173,16 @@
 //Unit Formatters
 "pound-suffix" = "lb";
 "inch-suffix" = "\"";
+"inch-suffix-word" = "in";
 "foot-suffix" = "'";
+"foot-suffix-word" = "ft";
 "foot-and-inch-format" = "%@ %@";
+"meter-suffix" = "m";
+"kilometer-suffix" = "km";
+"mile-suffix" = "mi";
+"yard-suffix" = "yd";
+"kilogram-suffix" = "kg";
+"pood-suffix" = "pu";
 
 //////////////////////////////
 //Measurable Formatters
@@ -203,6 +211,15 @@
 
 "measurable-data-entry-cannot-add-picture-title" = "Cannot Add Picture";
 "measurable-data-entry-cannot-add-video-title" = "Cannot Add Video";
+
+//////////////////////////////
+//Measurable Data Entry Edit
+"better-direction-more-label" = "more";
+"better-direction-less-label" = "less";
+"better-direction-none-label" = "none";
+
+"better-direction-title" = "Your goal";
+"unit-title" = "Unit";
 
 //////////////////////////////
 //Measurable Data Entry Value Pickers
