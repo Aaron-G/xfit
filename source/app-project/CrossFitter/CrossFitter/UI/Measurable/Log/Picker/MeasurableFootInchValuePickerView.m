@@ -47,14 +47,19 @@ static NSInteger PICKER_WIDTH = 100;
 }
 
 - (NSNumber *)value {
-  return [NSNumber numberWithInt: self.feetValue * 12 + self.inchesValue];
+  
+  NSNumber* value = [NSNumber numberWithFloat: self.feetValue + ((CGFloat)self.inchesValue)/12];
+  
+  return [[Unit unitForUnitIdentifier:UnitIdentifierFoot].unitSystemConverter convertToSystemValue: value];
 }
 
 - (void)setValue:(NSNumber *)value {
   
+  NSNumber* localValue = [[Unit unitForUnitIdentifier:UnitIdentifierFoot].unitSystemConverter convertFromSystemValue:value];
+
   //Update local variables
-  self.feetValue = value.intValue/12;
-  self.inchesValue = (value.intValue%12);
+  self.feetValue = localValue.integerValue;
+  self.inchesValue = (localValue.floatValue - self.feetValue) * 12;
   
   //Update the display
   [self selectRow:self.feetValue inComponent:0 animated:NO];
