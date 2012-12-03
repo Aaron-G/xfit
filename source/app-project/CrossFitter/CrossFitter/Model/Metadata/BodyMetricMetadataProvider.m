@@ -24,13 +24,15 @@
   
   if (self) {
     self.type = [MeasurableType measurableTypeWithMeasurableTypeIdentifier:MeasurableTypeIdentifierBodyMetric];
+    self.valueTrendBetterDirection = -1;
+    self.valueType = -1;
   }
   return self;
 }
 
 - (MeasurableValueTrendBetterDirection)valueTrendBetterDirection {
   
-  if(!_valueTrendBetterDirection) {
+  if(_valueTrendBetterDirection == -1) {
     
   //Arbitrary default value
     MeasurableValueTrendBetterDirection trendBetterDirection = MeasurableValueTrendBetterDirectionUp;
@@ -63,6 +65,10 @@
   return _valueTrendBetterDirection;
 }
 
+- (void)setValueTrendBetterDirection:(MeasurableValueTrendBetterDirection)valueTrendBetterDirection {
+  _valueTrendBetterDirection = valueTrendBetterDirection;
+}
+
 - (Unit *)unit {
 
   //For now this is hardcoded. We need to provide
@@ -71,8 +77,7 @@
     
     Unit * unit = nil;
     
-    if([BodyMetricIdentifierHeight isEqualToString: self.identifier] ||
-       [BodyMetricIdentifierChest isEqualToString: self.identifier] ||
+    if([BodyMetricIdentifierChest isEqualToString: self.identifier] ||
        [BodyMetricIdentifierWaist isEqualToString: self.identifier] ||
        [BodyMetricIdentifierHip isEqualToString: self.identifier] ||
        [BodyMetricIdentifierBiceptsLeft isEqualToString: self.identifier] ||
@@ -81,23 +86,29 @@
        [BodyMetricIdentifierThighRight isEqualToString: self.identifier] ||
        [BodyMetricIdentifierCalfLeft isEqualToString: self.identifier] ||
        [BodyMetricIdentifierCalfRight isEqualToString: self.identifier]) {
-      
       unit = [Unit unitForUnitIdentifier:UnitIdentifierInch];
+      
+    } else if([BodyMetricIdentifierHeight isEqualToString: self.identifier]) {
+      unit = [Unit unitForUnitIdentifier:UnitIdentifierFoot];
+      
     } else if([BodyMetricIdentifierWeight isEqualToString: self.identifier]) {
-      
       unit = [Unit unitForUnitIdentifier:UnitIdentifierPound];
+      
     } else if([BodyMetricIdentifierBodyMassIndex isEqualToString: self.identifier]) {
-      
       unit = [Unit unitForUnitIdentifier:UnitIdentifierNone];
-    } else if([BodyMetricIdentifierBodyFat isEqualToString: self.identifier]) {
       
+    } else if([BodyMetricIdentifierBodyFat isEqualToString: self.identifier]) {
       unit = [Unit unitForUnitIdentifier:UnitIdentifierPercent];
+      
     }
     _unit = unit;
   }
   return _unit;
 }
 
+- (void)setUnit:(Unit *)unit {
+  _unit = unit;
+}
 
 - (NSString *) name {
   
@@ -257,7 +268,7 @@
 
 - (MeasurableValueType)valueType {
   
-  if(!_valueType) {
+  if(_valueType == -1) {
     
     MeasurableValueType valueType = -1;
     
@@ -298,9 +309,8 @@
   return _valueType;
 }
 
-
 - (BOOL)editable {
-  return NO;
+  return YES;
 }
 
 @end
