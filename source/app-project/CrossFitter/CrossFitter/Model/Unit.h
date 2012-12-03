@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "UnitValueFormatter.h"
+#import "UnitSystemConverter.h"
 
 @class UnitValueFormatter;
+@class UnitSystemConverter;
 
 typedef enum {
   UnitTypeGeneral, //Body Mass Index, Body Fat...
@@ -38,8 +40,7 @@ typedef enum {
   UnitIdentifierPood,
   
   //Time
-  UnitIdentifierSecond,
-  UnitIdentifierMinute
+  UnitIdentifierSecond
   
 } UnitIdentifier;
 
@@ -48,7 +49,10 @@ typedef enum {
 
 @property UnitIdentifier identifier;
 @property UnitType type;
+@property id<UnitValueFormatter> valueFormatter;
+@property id<UnitSystemConverter> unitSystemConverter;
 
 + (Unit *) unitForUnitIdentifier: (UnitIdentifier) unitIdentifier;
+
 
 @end
