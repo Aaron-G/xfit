@@ -13,7 +13,6 @@
 
 @synthesize metadataProvider;
 @synthesize dataProvider;
-@synthesize valueFormatter = _valueFormatter;
 
 //Designated initializer
 - (id)initWithIdentifier:(MeasurableIdentifier) identifier {
@@ -24,7 +23,6 @@
     if(identifier) {
       self.metadataProvider = [self createMetadataProviderWithIdentifier:identifier];
       self.dataProvider = [self createDataProviderWithIdentifier:identifier];
-      self.valueFormatter = [[DefaultUnitValueFormatter alloc] init];
     } else {
       self = nil;
     }

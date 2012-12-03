@@ -27,15 +27,6 @@ MeasurableIdentifier BodyMetricIdentifierBodyMassIndex = @"BodyMetricIdentifierB
 MeasurableIdentifier BodyMetricIdentifierBodyFat = @"BodyMetricIdentifierBodyFat";
 MeasurableIdentifier BodyMetricIdentifierInvalid = @"BodyMetricIdentifierInvalid";
 
-- (id)initWithIdentifier:(NSString *)identifier {
-  self = [super initWithIdentifier:identifier];
-  
-  if(self) {
-    self.valueFormatter = [BodyMetricHelper formatterForBodyMetric:self];
-  }
-  return self;
-  
-}
 - (MeasurableDataProvider*) createDataProviderWithIdentifier:(MeasurableIdentifier) identifier {
   return [[MeasurableDataProvider alloc] initWithMeasurableIdentifier: identifier];
 }

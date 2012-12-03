@@ -13,6 +13,4 @@
 //Holds BodyMetric related utility methods.
 @interface BodyMetricHelper : NSObject
 
-+ (id<UnitValueFormatter>) formatterForBodyMetric: (BodyMetric*) bodyMetric;
-
 @end

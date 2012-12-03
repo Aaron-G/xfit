@@ -22,6 +22,7 @@ typedef enum {
 } MeasurableValueTrend;
 
 typedef enum {
+  MeasurableValueTrendBetterDirectionNone,
   MeasurableValueTrendBetterDirectionUp,
   MeasurableValueTrendBetterDirectionDown
 } MeasurableValueTrendBetterDirection;
@@ -56,6 +57,4 @@ typedef NSString* MeasurableIdentifier;
 
 @property MeasurableDataProvider* dataProvider;
 @property MeasurableMetadataProvider* metadataProvider;
-@property id<UnitValueFormatter> valueFormatter;
-
 @end
