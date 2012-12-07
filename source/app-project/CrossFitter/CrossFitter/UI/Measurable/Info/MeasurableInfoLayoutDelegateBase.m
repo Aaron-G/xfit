@@ -1,22 +1,22 @@
 //
-//  MeasurableInfoUpdateDelegateBase.m
+//  MeasurableInfoLayoutDelegateBase.m
 //  CrossFitter
 //
 //  Created by Cleo Barretto on 11/2/12.
 //
 //
 
-#import "MeasurableInfoUpdateDelegateBase.h"
+#import "MeasurableInfoLayoutDelegateBase.h"
 #import "Measurable.h"
 #import "MeasurableInfoViewController.h"
 #import "UIHelper.h"
 
-@implementation MeasurableInfoUpdateDelegateBase
+@implementation MeasurableInfoLayoutDelegateBase
 
 //Vertical spacing between UI component
 static CGFloat VERTICAL_LAYOUT_PADDING = 0;
 
-- (void) updateViewInViewController:(UIViewController*) viewController withMeasurable: (id<Measurable>) measurable withLayoutPosition:(CGPoint) startPosition {
+- (void) layoutViewInViewController:(UIViewController*) viewController withMeasurable: (id<Measurable>) measurable withLayoutPosition:(CGPoint) startPosition {
   
   if([[viewController class] isSubclassOfClass: [MeasurableInfoViewController class]]) {
 
@@ -28,7 +28,7 @@ static CGFloat VERTICAL_LAYOUT_PADDING = 0;
       [self updateContentWithMeasurable:measurable inMeasurableInfoViewController:measurableInfoViewController];
       [self updateLayoutWithMeasurable:measurable inMeasurableInfoViewController:measurableInfoViewController startAtPosition:startPosition];
       
-      measurableInfoViewController.requiresViewUpdate = NO;
+      measurableInfoViewController.needsLayout = NO;
     }
   }
 }

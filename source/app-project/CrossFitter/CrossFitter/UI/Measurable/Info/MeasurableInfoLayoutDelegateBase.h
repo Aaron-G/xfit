@@ -1,5 +1,5 @@
 //
-//  MeasurableInfoUpdateDelegateBase.h
+//  MeasurableInfoLayoutDelegateBase.h
 //  CrossFitter
 //
 //  Created by Cleo Barretto on 11/2/12.
@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MeasurableViewUpdateDelegate.h"
+#import "MeasurableViewLayoutDelegate.h"
 #import "MeasurableInfoViewController.h"
 
-@interface MeasurableInfoUpdateDelegateBase : NSObject <MeasurableViewUpdateDelegate>
+@interface MeasurableInfoLayoutDelegateBase : NSObject <MeasurableViewLayoutDelegate>
 
 //Subclasses
 - (void) updateContentWithMeasurable: (id<Measurable>)measurable inMeasurableInfoViewController: (MeasurableInfoViewController *)measurableInfoViewController;
