@@ -1,18 +1,18 @@
 //
-//  MeasurableUpdateDelegate.m
+//  MeasurableLayoutDelegate.m
 //  CrossFitter
 //
 //  Created by Cleo Barretto on 11/20/12.
 //
 //
 
-#import "MeasurableUpdateDelegate.h"
+#import "MeasurableLayoutDelegate.h"
 #import "MeasurableViewController.h"
 #import "UIHelper.h"
 
-@implementation MeasurableUpdateDelegate
+@implementation MeasurableLayoutDelegate
 
-- (void) updateViewInViewController:(UIViewController*) viewController withMeasurable: (id<Measurable>) measurable withLayoutPosition:(CGPoint) startPosition {
+- (void) layoutViewInViewController:(UIViewController*) viewController withMeasurable: (id<Measurable>) measurable withLayoutPosition:(CGPoint) startPosition {
   
   if([[viewController class] isSubclassOfClass: [MeasurableViewController class]]) {
     
@@ -41,13 +41,13 @@
                       //the content - too much white space
                            withVerticalSpacing:-10];
       
-      measurableViewController.requiresViewUpdate = NO;
+      measurableViewController.needsLayout = NO;
       
       //3- Update the Info and Log VCs so that they know where to layout their view
       CGPoint newStartPosition = CGPointMake(startPosition.x, newYLocation);
       
-      measurableViewController.measurableDetailSwitchViewController.infoViewController.viewLayoutPosition = newStartPosition;
-      measurableViewController.measurableDetailSwitchViewController.logViewController.viewLayoutPosition = newStartPosition;      
+      measurableViewController.measurableDetailSwitchViewController.infoViewController.layoutPosition = newStartPosition;
+      measurableViewController.measurableDetailSwitchViewController.logViewController.layoutPosition = newStartPosition;
     }
   }
 }
