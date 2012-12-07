@@ -540,7 +540,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="showMeasurableInfo" destination="LEZ-Nv-BEs" eventType="touchUpInside" id="8r3-pI-h7b"/>
+                                    <action selector="displayMeasurableInfo" destination="LEZ-Nv-BEs" eventType="touchUpInside" id="waV-Ng-3EU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="S1p-9A-7OB" userLabel="Log Switch Button">
@@ -555,7 +555,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="showMeasurableLog" destination="LEZ-Nv-BEs" eventType="touchUpInside" id="Y7L-tm-3By"/>
+                                    <action selector="displayMeasurableLog" destination="LEZ-Nv-BEs" eventType="touchUpInside" id="d36-eB-ZWB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1824,7 +1824,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="MeasurableFootInchValuePickerView" superclassName="MeasurableValuePickerView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableFootInchValuePickerView.h"/>
         </class>
-        <class className="MeasurableInfoEditViewController" superclassName="UIViewController">
+        <class className="MeasurableInfoEditViewController" superclassName="MeasurableLayoutViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableInfoEditViewController.h"/>
             <relationships>
                 <relationship kind="action" name="changeBetterDirection:"/>
@@ -1833,14 +1833,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
-        <class className="MeasurableInfoViewController" superclassName="UIViewController">
+        <class className="MeasurableInfoViewController" superclassName="MeasurableLayoutViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableInfoViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="dividerButton" candidateClass="UIButton"/>
             </relationships>
         </class>
-        <class className="MeasurableLogViewController" superclassName="UIViewController">
+        <class className="MeasurableLayoutViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableLayoutViewController.h"/>
+        </class>
+        <class className="MeasurableLogViewController" superclassName="MeasurableLayoutViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableLogViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="messageTextView" candidateClass="UITextView"/>
@@ -1865,12 +1868,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="measurableValuePickerViewDelegate"/>
             </relationships>
         </class>
-        <class className="MeasurableViewController" superclassName="UIViewController">
+        <class className="MeasurableViewController" superclassName="MeasurableLayoutViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableViewController.h"/>
             <relationships>
                 <relationship kind="action" name="chartMeasurableAction:"/>
                 <relationship kind="action" name="clearEditMeasurableLogAction:"/>
                 <relationship kind="action" name="copyMeasurableAction:"/>
+                <relationship kind="action" name="displayMeasurableInfo"/>
+                <relationship kind="action" name="displayMeasurableLog"/>
                 <relationship kind="action" name="doneEditMeasurableInfoAction:"/>
                 <relationship kind="action" name="doneEditMeasurableLogAction:"/>
                 <relationship kind="action" name="editMeasurableInfoAction:"/>
@@ -1878,8 +1883,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="action" name="logMeasurableAction:"/>
                 <relationship kind="action" name="shareMeasurableInfoAction:"/>
                 <relationship kind="action" name="shareMeasurableLogAction:"/>
-                <relationship kind="action" name="showMeasurableInfo"/>
-                <relationship kind="action" name="showMeasurableLog"/>
                 <relationship kind="outlet" name="barButtonItemChartLog" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="barButtonItemClearLog" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="barButtonItemCopyMeasurable" candidateClass="UIBarButtonItem"/>
@@ -1926,9 +1929,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="UserProfileViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UserProfileViewController.h"/>
