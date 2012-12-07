@@ -16,7 +16,7 @@
 
 @implementation MeasurableInfoEditViewController
 
-@synthesize measurable = _measurable;
+@synthesize layoutDelegate;
 
 - (void)loadView {
 
@@ -29,42 +29,10 @@
   
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-  [self updateView];
-  
-  [super viewWillAppear:animated];
-}
+#pragma mark - Measurable Layout View Controller
 
-- (void) reloadView {
-  
-  [self forceUpdateView];
-}
-
-- (void) forceUpdateView {
-  
-  self.requiresViewUpdate = YES;
-  [self updateView];
-  
-}
-
-- (void)setMeasurable:(id<Measurable>)measurable {
-  _measurable = measurable;
-  
-  [self reloadView];
-}
-
-- (id<Measurable>)measurable {
-  return _measurable;
-}
-
-- (void) updateView {
-  
-  if(self.requiresViewUpdate) {
-    
-    //Update the view
-    id<MeasurableViewUpdateDelegate> updateDelegate = [MeasurableHelper measurableInfoEditViewUpdateDelegateForMeasurable:self.measurable];
-    [updateDelegate updateViewInViewController:self withMeasurable: self.measurable withLayoutPosition: self.viewLayoutPosition];
-  }
+- (id<MeasurableViewLayoutDelegate>) layoutDelegate {
+  return [MeasurableHelper measurableInfoEditViewLayoutDelegateForMeasurable:self.measurable];
 }
 
 - (void) createBetterDirectionCell {

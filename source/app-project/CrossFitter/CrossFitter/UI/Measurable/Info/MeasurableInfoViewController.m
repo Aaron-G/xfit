@@ -10,7 +10,7 @@
 #import "MeasurableShareDelegate.h"
 #import "MeasurableInfoShareDelegate.h"
 #import "MeasurableHelper.h"
-#import "MeasurableViewUpdateDelegate.h"
+#import "MeasurableViewLayoutDelegate.h"
 #import "UIHelper.h"
 #import "AppViewControllerSegue.h"
 #import "MeasurableInfoEditViewController.h"
@@ -24,7 +24,7 @@
 
 @implementation MeasurableInfoViewController
 
-@synthesize measurable = _measurable;
+@synthesize layoutDelegate;
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
   self = [super initWithCoder:aDecoder];
@@ -35,47 +35,10 @@
   return self;
 }
 
--(void)viewDidLoad {
-  [super viewDidLoad];
-  
-  [self updateView];
-}
+#pragma mark - Measurable Layout View Controller
 
-- (void)setMeasurable:(id<Measurable>)measurable {
-  _measurable = measurable;
-
-  [self reloadView];
-}
-
-- (id<Measurable>)measurable {
-  return _measurable;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-  [self updateView];
-  
-  [super viewWillAppear:animated];
-}
-- (void) updateView {
-  
-  if(self.requiresViewUpdate) {
-    
-    //Update the view
-    id<MeasurableViewUpdateDelegate> updateDelegate = [MeasurableHelper measurableInfoViewUpdateDelegateForMeasurable:self.measurable];
-    [updateDelegate updateViewInViewController:self withMeasurable: self.measurable withLayoutPosition: self.viewLayoutPosition];
-  }
-}
-
-- (void) reloadView {
-  
-  [self forceUpdateView];
-}
-
-- (void) forceUpdateView {
-  
-  self.requiresViewUpdate = YES;
-  [self updateView];
-  
+- (id<MeasurableViewLayoutDelegate>) layoutDelegate {
+  return  [MeasurableHelper measurableInfoViewLayoutDelegateForMeasurable:self.measurable];
 }
 
 - (void) share {
@@ -94,7 +57,7 @@
     
     //Link the delegate for it
     self.measurableInfoEditViewController.delegate = [UIHelper measurableViewController];
-    self.measurableInfoEditViewController.viewLayoutPosition = self.viewLayoutPosition;
+    self.measurableInfoEditViewController.layoutPosition = self.layoutPosition;
     
     //Setup views
     toView = self.measurableInfoEditViewController.view;

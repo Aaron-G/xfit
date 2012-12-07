@@ -8,44 +8,53 @@
 
 #import "MeasurableViewController.h"
 #import "MeasurableDetailSwitchViewController.h"
-#import "MeasurableUpdateDelegate.h"
 #import "UIHelper.h"
 #import "MeasurableHelper.h"
+#import "MeasurableLayoutDelegate.h"
 
-@interface MeasurableViewController () {
-  
+@interface MeasurableViewController () {  
 }
-//CXB REVIEW THIS
-@property MeasurableUpdateDelegate* updateDelegate;
 
-- (IBAction)showMeasurableInfo;
-- (IBAction)showMeasurableLog;
+- (IBAction)displayMeasurableInfo;
+- (IBAction)displayMeasurableLog;
 
 @end
 
 @implementation MeasurableViewController
 
-@synthesize measurable = _measurable;
 @synthesize measurableDetailSwitchViewController = _measurableDetailSwitchViewController;
 @synthesize measurableTitleView = _measurableTitleView;
+
+@synthesize layoutDelegate = _layoutDelegate;
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
   
   self = [super initWithCoder:aDecoder];
   if(self) {
-    self.updateDelegate = [[MeasurableUpdateDelegate alloc] init];
+    _layoutDelegate = [[MeasurableLayoutDelegate alloc] init];
+    self.layoutPosition = CGPointMake(0, 0);
   }
   return self;
 }
 
+#pragma mark - Measurable Layout View Controller
+- (id<MeasurableViewLayoutDelegate>)layoutDelegate {
+  return _layoutDelegate;
+}
+
+- (void)setMeasurable:(id<Measurable>)measurable {
+  super.measurable = measurable;
+  
+  //Do this after the previous call so that the location for the components to be
+  //positioned is available to the Log and Info View Constrollers
+  self.measurableDetailSwitchViewController.measurable = self.measurable;
+}
+
 - (void)viewDidLoad {
   [super viewDidLoad];
-
-  //The first time around it can happen that we are not completely initialized yet
-  //Invoking the getter triggers the re-search" for this property
-  if(!_measurableDetailSwitchViewController) {    
-    self.measurableDetailSwitchViewController.measurableViewController = self;
-  }
+  
+  //Pas along the measurable when the view is first loaded
+  self.measurableDetailSwitchViewController.measurable = self.measurable;
   
   //Update the title view
   self.navigationItem.titleView = self.measurableTitleView;
@@ -57,13 +66,6 @@
 
   //Add the log button
   [self displayStandardButtons];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-  
-  [self updateView];
-
-  [super viewWillAppear:animated];
 }
 
 - (NSUInteger)supportedInterfaceOrientations {
@@ -80,21 +82,6 @@
   return _measurableTitleView;
 }
 
-- (id<Measurable>)measurable {
-  return _measurable;
-}
-
-- (void)setMeasurable:(id<Measurable>)measurable {
-  _measurable = measurable;
-  
-  self.requiresViewUpdate = YES;
-  [self updateView];
-  
-  //Do this after the previous call so that the location for the components to be
-  //positioned is available to the Log and Info View Constrollers
-  self.measurableDetailSwitchViewController.measurable = self.measurable;
-}
-
 - (MeasurableDetailSwitchViewController *)measurableDetailSwitchViewController {
   if(!_measurableDetailSwitchViewController) {
     for (UIViewController * viewController in self.childViewControllers) {
@@ -106,14 +93,6 @@
   return _measurableDetailSwitchViewController;
 }
 
-- (void) updateView {
-  
-  if(self.requiresViewUpdate) {
-    
-    //Update the view
-    [self.updateDelegate updateViewInViewController:self withMeasurable: self.measurable withLayoutPosition: CGPointMake(0, 0)];
-  }
-}
 
 - (IBAction)copyMeasurableAction:(id)sender {
 }
@@ -140,7 +119,7 @@
 //CLEAR MEASURABLE
 
 - (IBAction)clearEditMeasurableLogAction:(id)sender {
-  [self.measurableDetailSwitchViewController.logViewController clearLog];  
+  [self.measurableDetailSwitchViewController.logViewController clearLog];
 }
 
 //////////////////////////////////////////////////////////////////
@@ -207,11 +186,11 @@
   self.measurableDetailPageControl.hidden = NO;
 }
 
-- (IBAction)showMeasurableInfo {
-  [self.measurableDetailSwitchViewController showMeasurableInfo];
+- (IBAction)displayMeasurableInfo {
+  [self.measurableDetailSwitchViewController displayMeasurableInfo];
 }
-- (IBAction)showMeasurableLog {
-  [self.measurableDetailSwitchViewController showMeasurableLog];
+- (IBAction)displayMeasurableLog {
+  [self.measurableDetailSwitchViewController displayMeasurableLog];
 }
 
 -(void)didFinishCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable {

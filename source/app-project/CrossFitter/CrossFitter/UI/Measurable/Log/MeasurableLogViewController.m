@@ -44,29 +44,37 @@
 
 @implementation MeasurableLogViewController
 
-@synthesize measurable = _measurable;
+@synthesize layoutDelegate;
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
   self = [super initWithCoder:aDecoder];
   if (self) {
     // Custom initialization
     self.shareDelegate = [[MeasurableLogShareDelegate alloc]initWithViewController:self withMeasurableProvider:self];
+
     self.indexOfMeasurableDataEntryInAdditionalInfo = -1;
     self.indexOfAdditionalInfoRow = -1;
   }
   return self;
 }
 
--(void)viewDidLoad {
-  [super viewDidLoad];
-  
-  [self updateView];
+#pragma mark - Measurable Layout View Controller
+
+- (id<MeasurableViewLayoutDelegate>)layoutDelegate {
+  return [MeasurableHelper measurableLogViewLayoutDelegateForMeasurable:self.measurable];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-  [self updateView];
+- (void) reloadView {
   
-  [super viewWillAppear:animated];
+  self.measurableTableLogData = [NSMutableArray arrayWithArray: self.measurable.dataProvider.values];
+  
+  self.indexOfMeasurableDataEntryInAdditionalInfo = -1;
+  self.indexOfAdditionalInfoRow = -1;
+  
+  //Reload the data for this new measurable
+  [self.tableView reloadData];
+  
+  [super forceLayout];
 }
 
 #pragma mark - Table view data source
@@ -174,16 +182,19 @@
     
     //4- Update the adjacent most recent row (ensures the trend value is properly updated)
     //Do not need to update if this is the most recent value or if there are no more items in data array
-    //CXB TODO - replace this with MVCdelegate - MeasurableLogEditViewControllerDelegate and make MeasurableViewController the delegate. Make it update the log screen too 
     if(indexPath.item > 0 && self.measurableTableLogData.count > 0) {
       [self.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:[NSIndexPath indexPathForItem:indexPath.item - 1 inSection:indexPath.section]] withRowAnimation: NO];
     }
     
+    //If there are no more data on the table, simply revert back to non-editing mode
     if(self.measurableTableLogData.count == 0) {
       [[UIHelper measurableViewController] doneEditMeasurableLogAction:nil];
     }
+
+    //Enable the propagation of change by the MeasurableViewController
+    [[UIHelper measurableViewController].delegate didChangeMeasurable:self.measurable];
     
-    [self forceUpdateView];
+    [self forceLayout];
   }
 }
 
@@ -353,7 +364,7 @@
 
   [self.tableView endUpdates];
   
-  [self forceUpdateView];
+  [self forceLayout];
 }
 
 - (void) clearCurrentSelectionInABit {
@@ -400,15 +411,6 @@
   [self.tableView setEditing:editing animated:animated];
 }
 
-- (id<Measurable>)measurable {
-  return _measurable;
-}
-- (void)setMeasurable:(id<Measurable>)measurable {
-  _measurable = measurable;
-  
-  [self reloadView];
-}
-
 - (void) share {
   [self.shareDelegate shareFromToolBar:[UIHelper measurableViewController].toolbar];
 }
@@ -434,7 +436,7 @@
     
     [self notifyMeasurableViewControllerDelegate];
     
-    [self forceUpdateView];
+    [self forceLayout];
     
     /////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -450,16 +452,6 @@
   dispatch_async(dispatch_get_main_queue(), ^{
     [[UIHelper measurableViewController].delegate didChangeMeasurable:self.measurable];
   });  
-}
-
-- (void) updateView {
-  
-  if(self.requiresViewUpdate) {
-    
-    //Update view
-    id<MeasurableViewUpdateDelegate> updateDelegate = [MeasurableHelper measurableLogViewUpdateDelegateForMeasurable:self.measurable];
-    [updateDelegate updateViewInViewController:self withMeasurable: self.measurable withLayoutPosition: self.viewLayoutPosition];
-  }
 }
 
 
@@ -503,7 +495,7 @@
     //Re evaluate the state of the toolbar buttons
     [[UIHelper measurableViewController] doneEditMeasurableLogAction:nil];
     
-    [self forceUpdateView];
+    [self forceLayout];
   });
 }
 
@@ -525,23 +517,4 @@
   return index;
 }
 
-- (void) reloadView {
-
-  self.measurableTableLogData = [NSMutableArray arrayWithArray: self.measurable.dataProvider.values];
-  
-  self.indexOfMeasurableDataEntryInAdditionalInfo = -1;
-  self.indexOfAdditionalInfoRow = -1;
-  
-  //Reload the data for this new measurable
-  [self.tableView reloadData];
-  
-  [self forceUpdateView];
-}
-
-- (void) forceUpdateView {
-
-  self.requiresViewUpdate = YES;
-  [self updateView];
-
-}
 @end
