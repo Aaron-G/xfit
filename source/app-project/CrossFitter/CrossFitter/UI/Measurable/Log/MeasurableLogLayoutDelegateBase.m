@@ -1,22 +1,22 @@
 //
-//  MeasurableLogUpdateDelegateBase.m
+//  MeasurableLogLayoutDelegateBase.m
 //  CrossFitter
 //
 //  Created by Cleo Barretto on 11/20/12.
 //
 //
 
-#import "MeasurableLogUpdateDelegateBase.h"
+#import "MeasurableLogLayoutDelegateBase.h"
 #import "Measurable.h"
 #import "MeasurableLogViewController.h"
 #import "UIHelper.h"
 
-@implementation MeasurableLogUpdateDelegateBase
+@implementation MeasurableLogLayoutDelegateBase
 
 //Vertical spacing between UI component
 static CGFloat VERTICAL_LAYOUT_PADDING = 0;
 
-- (void) updateViewInViewController:(UIViewController*) viewController withMeasurable: (id<Measurable>) measurable withLayoutPosition:(CGPoint) startPosition {
+- (void) layoutViewInViewController:(UIViewController*) viewController withMeasurable: (id<Measurable>) measurable withLayoutPosition:(CGPoint) startPosition {
   
   if([[viewController class] isSubclassOfClass: [MeasurableLogViewController class]]) {
 
@@ -57,7 +57,7 @@ static CGFloat VERTICAL_LAYOUT_PADDING = 0;
         measurableLogViewController.messageTextView.alpha = 0;
       }
       
-      measurableLogViewController.requiresViewUpdate = NO;
+      measurableLogViewController.needsLayout = NO;
     }
     
   }
