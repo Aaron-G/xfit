@@ -42,7 +42,7 @@
                      nil];
   metric.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadataProvider.identifier withValues:values];
   [metrics setValue:metric forKey:metric.metadataProvider.identifier];
-  metric.dataProvider.sampleValue = [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 73]];
+  metric.dataProvider.sampleValue = [metric.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 6]];
   
   //Weight
   metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierWeight];
