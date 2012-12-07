@@ -18,13 +18,12 @@
 @interface MeasurableDetailSwitchViewController : UICollectionViewController
 
 @property id<Measurable> measurable;
-@property MeasurableViewController* measurableViewController;
 @property MeasurableInfoViewController* infoViewController;
 @property MeasurableLogViewController* logViewController;
 @property (readonly) NSArray* logToolbarItems;
 @property (readonly) NSArray* infoToolbarItems;
 
-- (void)showMeasurableInfo;
-- (void)showMeasurableLog;
+- (void)displayMeasurableInfo;
+- (void)displayMeasurableLog;
 
 @end

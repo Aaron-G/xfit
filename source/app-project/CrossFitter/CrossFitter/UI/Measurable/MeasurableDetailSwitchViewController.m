@@ -14,25 +14,19 @@
 }
 
 @property NSInteger currentViewControllerIndex;
+@property (readonly) MeasurableViewController* measurableViewController;
+
 @end
 
 @implementation MeasurableDetailSwitchViewController
 
 @synthesize measurable = _measurable;
-@synthesize measurableViewController = _measurableViewController;
 @synthesize logToolbarItems = _logToolbarItems;
 @synthesize infoToolbarItems = _infoToolbarItems;
 @synthesize currentViewControllerIndex = _currentViewControllerIndex;
 
--(void)setMeasurableViewController:(MeasurableViewController *)measurableViewController {
-  
-  _measurableViewController = measurableViewController;
-  
-  self.measurable = measurableViewController.measurable;
-}
-
 - (MeasurableViewController *)measurableViewController {
-  return _measurableViewController;
+  return [UIHelper measurableViewController];
 }
 
 - (void)setMeasurable:(id<Measurable>)measurable {
@@ -66,12 +60,6 @@
     self.currentViewControllerIndex = 0;    
   }
   return self;
-}
-
--(void)viewDidLoad
-{
-  [super viewDidLoad];
-  
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -208,11 +196,11 @@
   return _infoToolbarItems;
 }
 
-- (void)showMeasurableLog {
+- (void)displayMeasurableLog {
   [self scrollToViewControllerAtIndex:0 animated:YES];
 }
 
-- (void)showMeasurableInfo {
+- (void)displayMeasurableInfo {
   [self scrollToViewControllerAtIndex:1 animated:YES];
 }
 
