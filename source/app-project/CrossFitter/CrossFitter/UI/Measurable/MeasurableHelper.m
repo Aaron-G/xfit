@@ -11,12 +11,12 @@
 #import "UIHelper.h"
 #import "MeasurableDataEntryTableViewCell.h"
 #import "MeasurableType.h"
-#import "BodyMetricInfoUpdateDelegate.h"
+#import "BodyMetricInfoLayoutDelegate.h"
 #import "MeasurableDataEntryAdditionalInfoTableViewCell.h"
-#import "MeasurableViewUpdateDelegate.h"
-#import "MeasurableLogUpdateDelegateBase.h"
+#import "MeasurableViewLayoutDelegate.h"
+#import "MeasurableLogLayoutDelegateBase.h"
 #import "BodyMetricInfoEditViewController.h"
-#import "MeasurableInfoEditUpdateDelegateBase.h"
+#import "MeasurableInfoEditLayoutDelegateBase.h"
 
 @interface MeasurableHelper () {
 }
@@ -26,9 +26,9 @@
 @implementation MeasurableHelper
 
 static NSDateFormatter* _measurableDateFormat;
-static NSMutableDictionary* _measurableInfoViewUpdateDelegates;
-static id<MeasurableViewUpdateDelegate> _measurableInfoEditViewUpdateDelegate;
-static id<MeasurableViewUpdateDelegate> _measurableLogViewUpdateDelegate;
+static NSMutableDictionary* _measurableInfoViewLayoutDelegates;
+static id<MeasurableViewLayoutDelegate> _measurableInfoEditViewLayoutDelegate;
+static id<MeasurableViewLayoutDelegate> _measurableLogViewLayoutDelegate;
 static MeasurableDataEntryViewController* _measurableDataEntryViewController;
 
 + (UITableViewCell *)tableViewCellForMeasurable: (id <Measurable>) measurable inTableView: (UITableView *)tableView {
@@ -83,54 +83,54 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   return _measurableDateFormat;
 }
 
-+ (NSMutableDictionary*) measurableInfoUpdateDelegates {
-  if(!_measurableInfoViewUpdateDelegates) {
-    _measurableInfoViewUpdateDelegates = [NSMutableDictionary dictionary];
++ (NSMutableDictionary*) measurableInfoLayoutDelegates {
+  if(!_measurableInfoViewLayoutDelegates) {
+    _measurableInfoViewLayoutDelegates = [NSMutableDictionary dictionary];
   }
-  return _measurableInfoViewUpdateDelegates;
+  return _measurableInfoViewLayoutDelegates;
 }
 
-+ (id<MeasurableViewUpdateDelegate>) measurableInfoViewUpdateDelegateForMeasurable: (id<Measurable>) measurable {
++ (id<MeasurableViewLayoutDelegate>) measurableInfoViewLayoutDelegateForMeasurable: (id<Measurable>) measurable {
   
   MeasurableType* measurableType = measurable.metadataProvider.type;
   
-  id<MeasurableViewUpdateDelegate> measurableInfoUpdateDelegate = [[MeasurableHelper measurableInfoUpdateDelegates] objectForKey: measurableType.displayName];
+  id<MeasurableViewLayoutDelegate> measurableInfoLayoutDelegate = [[MeasurableHelper measurableInfoLayoutDelegates] objectForKey: measurableType.displayName];
   
-  if(!measurableInfoUpdateDelegate) {
+  if(!measurableInfoLayoutDelegate) {
     
     if(measurableType.identifier == MeasurableTypeIdentifierBodyMetric) {
-      measurableInfoUpdateDelegate  = [[BodyMetricInfoUpdateDelegate alloc] init];
+      measurableInfoLayoutDelegate  = [[BodyMetricInfoLayoutDelegate alloc] init];
     }
     
-    [[MeasurableHelper measurableInfoUpdateDelegates] setObject:measurableInfoUpdateDelegate forKey: measurableType.displayName];
+    [[MeasurableHelper measurableInfoLayoutDelegates] setObject:measurableInfoLayoutDelegate forKey: measurableType.displayName];
   }
   
-  return measurableInfoUpdateDelegate;  
+  return measurableInfoLayoutDelegate;  
 }
 
-+ (id<MeasurableViewUpdateDelegate>) measurableInfoEditViewUpdateDelegate {
-  if(!_measurableInfoEditViewUpdateDelegate) {
-    _measurableInfoEditViewUpdateDelegate = [[MeasurableInfoEditUpdateDelegateBase alloc] init];
++ (id<MeasurableViewLayoutDelegate>) measurableInfoEditViewLayoutDelegate {
+  if(!_measurableInfoEditViewLayoutDelegate) {
+    _measurableInfoEditViewLayoutDelegate = [[MeasurableInfoEditLayoutDelegateBase alloc] init];
 
   }
-  return _measurableInfoEditViewUpdateDelegate;
+  return _measurableInfoEditViewLayoutDelegate;
 }
 
-+ (id<MeasurableViewUpdateDelegate>) measurableInfoEditViewUpdateDelegateForMeasurable: (id<Measurable>) measurable {
++ (id<MeasurableViewLayoutDelegate>) measurableInfoEditViewLayoutDelegateForMeasurable: (id<Measurable>) measurable {
   //They all use the same logic - for now
-  return [MeasurableHelper measurableInfoEditViewUpdateDelegate];
+  return [MeasurableHelper measurableInfoEditViewLayoutDelegate];
 }
 
-+ (id<MeasurableViewUpdateDelegate>) measurableLogViewUpdateDelegate {
-  if(!_measurableLogViewUpdateDelegate) {
-    _measurableLogViewUpdateDelegate = [[MeasurableLogUpdateDelegateBase alloc] init];
++ (id<MeasurableViewLayoutDelegate>) measurableLogViewLayoutDelegate {
+  if(!_measurableLogViewLayoutDelegate) {
+    _measurableLogViewLayoutDelegate = [[MeasurableLogLayoutDelegateBase alloc] init];
   }
-  return _measurableLogViewUpdateDelegate;
+  return _measurableLogViewLayoutDelegate;
 }
 
-+ (id<MeasurableViewUpdateDelegate>) measurableLogViewUpdateDelegateForMeasurable: (id<Measurable>) measurable {
++ (id<MeasurableViewLayoutDelegate>) measurableLogViewLayoutDelegateForMeasurable: (id<Measurable>) measurable {
   //They all use the same logic - for now
-  return [MeasurableHelper measurableLogViewUpdateDelegate];
+  return [MeasurableHelper measurableLogViewLayoutDelegate];
 }
 
 + (MeasurableDataEntryViewController*) measurableDataEntryViewController {

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Measurable.h"
-#import "MeasurableViewUpdateDelegate.h"
+#import "MeasurableViewLayoutDelegate.h"
 #import "MeasurableDataEntryViewController.h"
 #import "MediaHelper.h"
 #import "MeasurableInfoEditViewController.h"
@@ -19,8 +19,8 @@
 
 + (UITableViewCell *)tableViewCellForMeasurableDataEntry: (MeasurableDataEntry*) measurableDataEntry ofMeasurable: (id <Measurable>) measurable inTableView: (UITableView *)tableView;
 
-+ (id<MeasurableViewUpdateDelegate>) measurableInfoViewUpdateDelegateForMeasurable: (id<Measurable>) measurable;
-+ (id<MeasurableViewUpdateDelegate>) measurableLogViewUpdateDelegateForMeasurable: (id<Measurable>) measurable;
++ (id<MeasurableViewLayoutDelegate>) measurableInfoViewLayoutDelegateForMeasurable: (id<Measurable>) measurable;
++ (id<MeasurableViewLayoutDelegate>) measurableLogViewLayoutDelegateForMeasurable: (id<Measurable>) measurable;
 
 + (MeasurableDataEntryViewController*) measurableDataEntryViewController;
 
@@ -32,6 +32,6 @@
 
 + (MeasurableInfoEditViewController*) measurableInfoEditViewControllerForMeasurable:(id<Measurable>)measurable;
 
-+ (id<MeasurableViewUpdateDelegate>) measurableInfoEditViewUpdateDelegateForMeasurable: (id<Measurable>) measurable;
++ (id<MeasurableViewLayoutDelegate>) measurableInfoEditViewLayoutDelegateForMeasurable: (id<Measurable>) measurable;
 
 @end
