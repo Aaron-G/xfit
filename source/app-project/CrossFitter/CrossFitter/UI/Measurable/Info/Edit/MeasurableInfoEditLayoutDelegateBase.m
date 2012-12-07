@@ -1,21 +1,21 @@
 //
-//  MeasurableInfoEditUpdateDelegateBase.m
+//  MeasurableInfoEditLayoutDelegateBase.m
 //  CrossFitter
 //
 //  Created by Cleo Barretto on 12/2/12.
 //
 //
 
-#import "MeasurableInfoEditUpdateDelegateBase.h"
+#import "MeasurableInfoEditLayoutDelegateBase.h"
 #import "MeasurableInfoEditViewController.h"
 #import "UIHelper.h"
 
 //Vertical spacing between UI component
 static CGFloat VERTICAL_LAYOUT_PADDING = 0;
 
-@implementation MeasurableInfoEditUpdateDelegateBase
+@implementation MeasurableInfoEditLayoutDelegateBase
 
-- (void) updateViewInViewController:(UIViewController*) viewController withMeasurable: (id<Measurable>) measurable withLayoutPosition:(CGPoint) startPosition {
+- (void) layoutViewInViewController:(UIViewController*) viewController withMeasurable: (id<Measurable>) measurable withLayoutPosition:(CGPoint) startPosition {
   
   if([[viewController class] isSubclassOfClass: [MeasurableInfoEditViewController class]]) {
     
