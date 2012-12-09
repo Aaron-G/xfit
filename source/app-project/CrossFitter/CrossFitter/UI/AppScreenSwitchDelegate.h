@@ -17,16 +17,20 @@
 @property (readonly) AppViewController * appViewController;
 @property (readonly) AppScreenIdentifier appScreen;
 @property BOOL displayBackButtonAsBack;
+@property BOOL initialized;
 
 //Initialization API
 - initWithViewController: (UIViewController*) viewController;
 
+
 //Screen component initialization API
+- (void)initialize;
 - (void)initToolbarItems;
 - (void)initNavigationItems;
 - (void)initTitle;
 
 //Screen switching API
+- (void)updateBars;
 - (void)updateNavigationBar;
 - (void)updateNavigationToolbar;
 - (void)updateMainView;

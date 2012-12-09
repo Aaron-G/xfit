@@ -180,8 +180,6 @@ typedef enum {
     //Update the state variable
     _displayedAppScreen = screen;
     
-    [screenSwitchDelegate updateNavigationBar];
-    [screenSwitchDelegate updateNavigationToolbar];
     [screenSwitchDelegate updateMainView];
 
     if(self.menuVisible && autoHide) {

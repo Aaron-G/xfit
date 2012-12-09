@@ -32,6 +32,15 @@
   return self;
 }
 
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  [self.appScreenSwitchDelegate initialize];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  [self.appScreenSwitchDelegate updateBars];
+}
 
 - (void)newMoveAction {
   NSLog(@"New Move");

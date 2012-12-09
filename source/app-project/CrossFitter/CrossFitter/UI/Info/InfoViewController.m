@@ -40,6 +40,37 @@
   return self;
 }
 
+//Localize the table cells
+- (void)viewDidLoad {
+  [super viewDidLoad];
+
+  [self.appScreenSwitchDelegate initialize];
+
+  //Info Group
+  self.aboutLabel.text = NSLocalizedString(@"info-cell-title-about", @"About");
+  self.versionLabel.text = [NSString stringWithFormat: NSLocalizedString(@"info-cell-title-version-format", @"Version"), [[App sharedInstance] appVersion]];
+  
+  //Share Group
+  self.facebookLabel.text = NSLocalizedString(@"info-cell-title-facebook", @"Facebook");
+  self.twitterLabel.text = NSLocalizedString(@"info-cell-title-twitter", @"Twitter");
+  self.messageLabel.text = NSLocalizedString(@"info-cell-title-message", @"Message");
+  self.emailLabel.text = NSLocalizedString(@"info-cell-title-email", @"Email");
+  
+  //Review Group
+  self.rateAppLabel.text = NSLocalizedString(@"info-cell-title-rateapp", @"Rate App");
+  
+  //Support Group
+  self.featureLabel.text = NSLocalizedString(@"info-cell-title-feature", @"Request Feature");
+  self.issueLabel.text = NSLocalizedString(@"info-cell-title-issue", @"Report Issue");
+  self.feedbackLabel.text = NSLocalizedString(@"info-cell-title-feedback", @"Feedback");
+  
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  [self.appScreenSwitchDelegate updateBars];
+}
+
 - (void) shareAppEmail {
   [self.appScreenShareDelegate displayEmailComposer];
 }
@@ -167,30 +198,6 @@
       [self reportIssue];
     }
   }
-}
-
-//Localize the table cells
-- (void)viewDidLoad {
-  [super viewDidLoad];
-  
-  //Info Group
-  self.aboutLabel.text = NSLocalizedString(@"info-cell-title-about", @"About");
-  self.versionLabel.text = [NSString stringWithFormat: NSLocalizedString(@"info-cell-title-version-format", @"Version"), [[App sharedInstance] appVersion]];
-
-  //Share Group
-  self.facebookLabel.text = NSLocalizedString(@"info-cell-title-facebook", @"Facebook");
-  self.twitterLabel.text = NSLocalizedString(@"info-cell-title-twitter", @"Twitter");
-  self.messageLabel.text = NSLocalizedString(@"info-cell-title-message", @"Message");
-  self.emailLabel.text = NSLocalizedString(@"info-cell-title-email", @"Email");
-
-  //Review Group
-  self.rateAppLabel.text = NSLocalizedString(@"info-cell-title-rateapp", @"Rate App");
-
-  //Support Group
-  self.featureLabel.text = NSLocalizedString(@"info-cell-title-feature", @"Request Feature");
-  self.issueLabel.text = NSLocalizedString(@"info-cell-title-issue", @"Report Issue");
-  self.feedbackLabel.text = NSLocalizedString(@"info-cell-title-feedback", @"Feedback");
-
 }
 
 //Localize the table section titles

@@ -32,6 +32,16 @@
   return self;
 }
 
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  [self.appScreenSwitchDelegate initialize];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  [self.appScreenSwitchDelegate updateBars];
+}
+
 - (void)newWorkoutAction
 {
   NSLog(@"New Workout");

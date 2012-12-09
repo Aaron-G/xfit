@@ -43,7 +43,15 @@
   [self.workoutButton setImage: [UIImage imageNamed:@"workout-screen-button"] forState:UIControlStateNormal];
   [self.myBodyButton setImage: [UIImage imageNamed:@"mybody-screen-button"] forState:UIControlStateNormal];
   [self.moveButton setImage: [UIImage imageNamed:@"move-screen-button"] forState:UIControlStateNormal];
+  
+  [self.appScreenSwitchDelegate initialize];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  [self.appScreenSwitchDelegate updateBars];
+}
+
 
 - (IBAction) displayPRWall {
   [self.appViewController displayPRWallScreen];

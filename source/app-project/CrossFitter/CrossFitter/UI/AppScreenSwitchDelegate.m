@@ -28,9 +28,7 @@
     _viewController = viewController;
     _appViewController = [UIHelper appViewController];
     
-    [self initTitle];
-    [self initToolbarItems];
-    [self initNavigationItems];
+    self.initialized = NO;
     
     //Register screen switch delegate
     [AppViewController addAppScreenSwitchDelegate:self forAppScreen: [self appScreen]];
@@ -42,6 +40,16 @@
   return self;
 }
 
+- (void) initialize {
+  
+  if(!self.initialized) {
+    [self initTitle];
+    [self initToolbarItems];
+    [self initNavigationItems];
+    self.initialized = YES;
+  }
+  
+}
 - (void)initToolbarItems {
   self.viewController.toolbarItems = nil;
 }
@@ -93,6 +101,10 @@
   
 }
 
+- (void)updateBars {
+  [self updateNavigationBar];
+  [self updateNavigationToolbar];
+}
 
 - (void)updateNavigationBar
 {

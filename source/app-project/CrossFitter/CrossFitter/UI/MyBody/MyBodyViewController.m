@@ -51,6 +51,13 @@
   [self.tableView registerNib: [UINib nibWithNibName:@"MyBodyUserProfileTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyBodyUserProfileTableViewCell"];
   
   [super viewDidLoad];
+  
+  [self.appScreenSwitchDelegate initialize];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  [self.appScreenSwitchDelegate updateBars];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
