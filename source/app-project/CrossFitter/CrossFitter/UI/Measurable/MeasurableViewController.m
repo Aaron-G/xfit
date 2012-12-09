@@ -62,7 +62,7 @@
   //Localize button labels
   self.barButtonItemLog.title = NSLocalizedString(@"log-label", @"Log");
   self.barButtonItemClearLog.title = NSLocalizedString(@"clear-label", @"Clear");
-  self.barButtonItemChartLog.title = NSLocalizedString(@"chart-label", @"Chart");
+  self.barButtonItemChartLog.image = [UIImage imageNamed: @"chart-bar-icon.png"];
 
   //Add the log button
   [self displayStandardButtons];
@@ -139,7 +139,9 @@
   [self displayStandardButtons];
   [self.toolbar setItems:toolbarItems animated:YES];
   
-  switchButton.hidden = NO;
+  //CXB NOTE
+  //Commented out now because not sure we want to have this
+  //switchButton.hidden = NO;
 
   [viewController setEditing:NO animated:YES];
 }
@@ -174,7 +176,9 @@
   
   self.measurableDetailSwitchViewController.collectionView.scrollEnabled = NO;
   
-  switchButton.hidden = YES;
+  //CXB NOTE
+  //Commented out now because not sure we want to have this
+  //switchButton.hidden = YES;
   
   [viewController setEditing:YES animated:YES];
 }
