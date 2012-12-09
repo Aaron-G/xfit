@@ -110,6 +110,11 @@
 		748FFB7416692DC100E4DD5E /* TimeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 748FFB7316692DC100E4DD5E /* TimeFormatter.m */; };
 		748FFB7E166937FA00E4DD5E /* MeterConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 748FFB7D166937FA00E4DD5E /* MeterConverter.m */; };
 		74947D8D160F8485008BC4E7 /* BodyMetricHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 74947D8C160F8485008BC4E7 /* BodyMetricHelper.m */; };
+		7497A627167251240009FDAC /* log.png in Resources */ = {isa = PBXBuildFile; fileRef = 7497A625167251240009FDAC /* log.png */; };
+		7497A62B1672513E0009FDAC /* screen-full.png in Resources */ = {isa = PBXBuildFile; fileRef = 7497A6281672513E0009FDAC /* screen-full.png */; };
+		7497A62C1672513E0009FDAC /* screen-restore.png in Resources */ = {isa = PBXBuildFile; fileRef = 7497A6291672513E0009FDAC /* screen-restore.png */; };
+		7497A62D1672513E0009FDAC /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 7497A62A1672513E0009FDAC /* settings.png */; };
+		7497A62F16739CD90009FDAC /* chart-bar-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7497A62E16739CD90009FDAC /* chart-bar-icon.png */; };
 		749A8704162C548900EFB7C1 /* MeasurableLogShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A8703162C548800EFB7C1 /* MeasurableLogShareDelegate.m */; };
 		749A8708162C596800EFB7C1 /* MeasurableInfoShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A8707162C596700EFB7C1 /* MeasurableInfoShareDelegate.m */; };
 		749A870D162CE72100EFB7C1 /* MeasurableShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A870C162CE72100EFB7C1 /* MeasurableShareDelegate.m */; };
@@ -192,8 +197,8 @@
 		7408404E15D1885B00A64D5B /* AppScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppScreen.h; path = UI/AppScreen.h; sourceTree = "<group>"; };
 		7408404F15D1B31E00A64D5B /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = App.h; path = App/App.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		7408405015D1B31E00A64D5B /* App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = App.m; path = App/App.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		740970351618032800D2D9B8 /* MeasurableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = MeasurableViewController.h; path = UI/MeasurableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		740970361618032900D2D9B8 /* MeasurableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MeasurableViewController.m; path = UI/MeasurableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		740970351618032800D2D9B8 /* MeasurableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = MeasurableViewController.h; path = UI/Measurable/MeasurableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		740970361618032900D2D9B8 /* MeasurableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MeasurableViewController.m; path = UI/Measurable/MeasurableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		740C364816442B1000152169 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/home-screen-app-menu.png"; sourceTree = "<group>"; };
 		740C364B16442B1500152169 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/info-screen-app-menu.png"; sourceTree = "<group>"; };
 		740C364E16442B1900152169 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/move-screen-app-menu.png"; sourceTree = "<group>"; };
@@ -327,8 +332,8 @@
 		7461191515BC8DF900BEEAE2 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuCell.m; path = UI/Menu/MenuCell.m; sourceTree = "<group>"; };
 		7465B170163AF357008D0AA7 /* MediaHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaHelper.h; path = UI/Helper/Media/MediaHelper.h; sourceTree = "<group>"; };
 		7465B171163AF357008D0AA7 /* MediaHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaHelper.m; path = UI/Helper/Media/MediaHelper.m; sourceTree = "<group>"; };
-		7465B185163B0D2C008D0AA7 /* better-value-direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "better-value-direction.png"; path = "CrossFitter/Resources/Images/App/better-value-direction.png"; sourceTree = SOURCE_ROOT; };
-		7465B187163B0D2C008D0AA7 /* worse-value-direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "worse-value-direction.png"; path = "CrossFitter/Resources/Images/App/worse-value-direction.png"; sourceTree = SOURCE_ROOT; };
+		7465B185163B0D2C008D0AA7 /* better-value-direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "better-value-direction.png"; path = "CrossFitter/Resources/Images/App/Measurable/better-value-direction.png"; sourceTree = SOURCE_ROOT; };
+		7465B187163B0D2C008D0AA7 /* worse-value-direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "worse-value-direction.png"; path = "CrossFitter/Resources/Images/App/Measurable/worse-value-direction.png"; sourceTree = SOURCE_ROOT; };
 		7465B1A8163B175C008D0AA7 /* default-user-profile-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-user-profile-image.png"; path = "CrossFitter/Resources/Images/Default/default-user-profile-image.png"; sourceTree = SOURCE_ROOT; };
 		747BC84315D80F4500AC2150 /* AppViewControllerSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppViewControllerSegue.h; path = UI/AppViewControllerSegue.h; sourceTree = "<group>"; };
 		747BC84415D80F4500AC2150 /* AppViewControllerSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppViewControllerSegue.m; path = UI/AppViewControllerSegue.m; sourceTree = "<group>"; };
@@ -353,6 +358,11 @@
 		748FFB7D166937FA00E4DD5E /* MeterConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeterConverter.m; path = App/Unit/Converter/MeterConverter.m; sourceTree = "<group>"; };
 		74947D8B160F8485008BC4E7 /* BodyMetricHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BodyMetricHelper.h; path = Model/Core/BodyMetricHelper.h; sourceTree = "<group>"; };
 		74947D8C160F8485008BC4E7 /* BodyMetricHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BodyMetricHelper.m; path = Model/Core/BodyMetricHelper.m; sourceTree = "<group>"; };
+		7497A625167251240009FDAC /* log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = log.png; path = CrossFitter/Resources/Images/App/Measurable/log.png; sourceTree = SOURCE_ROOT; };
+		7497A6281672513E0009FDAC /* screen-full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "screen-full.png"; path = "CrossFitter/Resources/Images/App/screen-full.png"; sourceTree = SOURCE_ROOT; };
+		7497A6291672513E0009FDAC /* screen-restore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "screen-restore.png"; path = "CrossFitter/Resources/Images/App/screen-restore.png"; sourceTree = SOURCE_ROOT; };
+		7497A62A1672513E0009FDAC /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = CrossFitter/Resources/Images/App/settings.png; sourceTree = SOURCE_ROOT; };
+		7497A62E16739CD90009FDAC /* chart-bar-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chart-bar-icon.png"; path = "CrossFitter/Resources/Images/App/Measurable/chart-bar-icon.png"; sourceTree = SOURCE_ROOT; };
 		749A8702162C548800EFB7C1 /* MeasurableLogShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = MeasurableLogShareDelegate.h; path = UI/Measurable/Log/MeasurableLogShareDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		749A8703162C548800EFB7C1 /* MeasurableLogShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableLogShareDelegate.m; path = UI/Measurable/Log/MeasurableLogShareDelegate.m; sourceTree = "<group>"; };
 		749A8706162C596700EFB7C1 /* MeasurableInfoShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = MeasurableInfoShareDelegate.h; path = UI/Measurable/Info/MeasurableInfoShareDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -430,7 +440,7 @@
 		74C42584165E079500F2BCEC /* MeasurableDataEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableDataEntryViewController.m; path = UI/Measurable/Log/MeasurableDataEntryViewController.m; sourceTree = "<group>"; };
 		74C42586165EE3A300F2BCEC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		74C42588165EED9D00F2BCEC /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
-		74C86AA916434563007C516B /* same-value-direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "same-value-direction.png"; path = "CrossFitter/Resources/Images/App/same-value-direction.png"; sourceTree = SOURCE_ROOT; };
+		74C86AA916434563007C516B /* same-value-direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "same-value-direction.png"; path = "CrossFitter/Resources/Images/App/Measurable/same-value-direction.png"; sourceTree = SOURCE_ROOT; };
 		74C8DBD81633228200F5AD66 /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = UserProfileViewController.h; path = UI/MyBody/UserProfileViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		74C8DBD91633228200F5AD66 /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = UserProfileViewController.m; path = UI/MyBody/UserProfileViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		74CA4E6D15D86AD600DA3F10 /* HomeScreenSwitchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = HomeScreenSwitchDelegate.h; path = UI/Home/HomeScreenSwitchDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -737,10 +747,11 @@
 		7465B173163B04CD008D0AA7 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				7497A6281672513E0009FDAC /* screen-full.png */,
+				7497A6291672513E0009FDAC /* screen-restore.png */,
+				7497A62A1672513E0009FDAC /* settings.png */,
+				7497A623167250F20009FDAC /* Measurable */,
 				74C0E66116443262000F6282 /* Home */,
-				74C86AA916434563007C516B /* same-value-direction.png */,
-				7465B185163B0D2C008D0AA7 /* better-value-direction.png */,
-				7465B187163B0D2C008D0AA7 /* worse-value-direction.png */,
 			);
 			name = App;
 			path = CrossFitter/Resources/Images/App;
@@ -862,6 +873,18 @@
 				745CD69D16694DA100D32890 /* PoodConverter.m */,
 			);
 			name = Converter;
+			sourceTree = "<group>";
+		};
+		7497A623167250F20009FDAC /* Measurable */ = {
+			isa = PBXGroup;
+			children = (
+				7497A62E16739CD90009FDAC /* chart-bar-icon.png */,
+				7497A625167251240009FDAC /* log.png */,
+				74C86AA916434563007C516B /* same-value-direction.png */,
+				7465B185163B0D2C008D0AA7 /* better-value-direction.png */,
+				7465B187163B0D2C008D0AA7 /* worse-value-direction.png */,
+			);
+			name = Measurable;
 			sourceTree = "<group>";
 		};
 		74A39824160D42D7003AD87B /* Core */ = {
@@ -1244,6 +1267,11 @@
 				745CD6C3166AEB2900D32890 /* LengthUnitTableViewCell.xib in Resources */,
 				745CD6C6166AEBFF00D32890 /* BetterDirectionTableViewCell.xib in Resources */,
 				74D96021166C760A006108FC /* menu-disclosure-arrow.png in Resources */,
+				7497A627167251240009FDAC /* log.png in Resources */,
+				7497A62B1672513E0009FDAC /* screen-full.png in Resources */,
+				7497A62C1672513E0009FDAC /* screen-restore.png in Resources */,
+				7497A62D1672513E0009FDAC /* settings.png in Resources */,
+				7497A62F16739CD90009FDAC /* chart-bar-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,17 +32,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.63529411764705879" green="0.62745098039215685" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="PEe-de-hUd">
-                            <size key="itemSize" width="64" height="60"/>
+                            <size key="itemSize" width="65" height="55"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MenuCell" id="6qY-Cj-N2q" customClass="MenuCell">
-                                <rect key="frame" x="0.0" y="0.0" width="64" height="60"/>
+                                <rect key="frame" x="0.0" y="2" width="65" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="64" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="65" height="55"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -95,17 +95,21 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <button contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="rCd-Sc-8p1" userLabel="Menu Disclosure Button">
+                                    <button contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="rCd-Sc-8p1" userLabel="Menu Disclosure Button">
                                         <rect key="frame" x="266" y="67" width="24" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" image="menu-disclosure-arrow.png">
                                             <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="showOrHideMenuAction:" destination="jpW-y1-rS3" eventType="touchUpInside" id="p1P-3o-LtF"/>
@@ -141,9 +145,9 @@
                                 <rect key="frame" x="0.0" y="-21" width="320" height="481"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="y7j-0e-pnv" userLabel="PRWall">
-                                <rect key="frame" x="14" y="47" width="143" height="95"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="y7j-0e-pnv" userLabel="PRWall">
+                                <rect key="frame" x="14" y="77" width="143" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
                                 </accessibility>
@@ -159,9 +163,9 @@
                                     <action selector="displayPRWall" destination="Lbo-kL-E5K" eventType="touchUpInside" id="dyg-m3-Iiu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uZ2-An-OyR" userLabel="MyBody">
-                                <rect key="frame" x="164" y="47" width="143" height="95"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uZ2-An-OyR" userLabel="MyBody">
+                                <rect key="frame" x="164" y="77" width="143" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
                                 </accessibility>
@@ -177,9 +181,9 @@
                                     <action selector="displayMyBody" destination="Lbo-kL-E5K" eventType="touchUpInside" id="hiX-aO-WF2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qMr-eC-n7x" userLabel="Workout">
-                                <rect key="frame" x="164" y="278" width="143" height="95"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qMr-eC-n7x" userLabel="Workout">
+                                <rect key="frame" x="164" y="308" width="143" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
                                 </accessibility>
@@ -195,9 +199,9 @@
                                     <action selector="displayWorkout" destination="Lbo-kL-E5K" eventType="touchUpInside" id="arP-3O-bTY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yHh-ns-c9q" userLabel="Move">
-                                <rect key="frame" x="14" y="278" width="143" height="95"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yHh-ns-c9q" userLabel="Move">
+                                <rect key="frame" x="14" y="308" width="143" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
                                 </accessibility>
@@ -213,9 +217,9 @@
                                     <action selector="displayMove" destination="Lbo-kL-E5K" eventType="touchUpInside" id="kia-iw-m9O"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ORD-wM-dEA" userLabel="WOD">
-                                <rect key="frame" x="91" y="162" width="143" height="94"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ORD-wM-dEA" userLabel="WOD">
+                                <rect key="frame" x="91" y="192" width="143" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
                                 </accessibility>
@@ -528,7 +532,7 @@
                                 <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </pageControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="tzT-jQ-Hhd" userLabel="Info Switch Button">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="tzT-jQ-Hhd" userLabel="Info Switch Button">
                                 <rect key="frame" x="292" y="344" width="18" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -543,7 +547,7 @@
                                     <action selector="displayMeasurableInfo" destination="LEZ-Nv-BEs" eventType="touchUpInside" id="waV-Ng-3EU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="S1p-9A-7OB" userLabel="Log Switch Button">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="S1p-9A-7OB" userLabel="Log Switch Button">
                                 <rect key="frame" x="10" y="344" width="18" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -589,37 +593,37 @@
                         <action selector="logMeasurableAction:" destination="LEZ-Nv-BEs" id="XcC-aK-ffg"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem systemItem="action" id="17w-9y-Tt0" userLabel="Bar Button Item - share info">
+                <barButtonItem style="plain" systemItem="action" id="17w-9y-Tt0" userLabel="Bar Button Item - share info">
                     <connections>
                         <action selector="shareMeasurableInfoAction:" destination="LEZ-Nv-BEs" id="fgm-Dr-G4C"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem title="Copy" id="Y6g-yT-8d4" userLabel="Bar Button Item - copy">
+                <barButtonItem title="copy" id="Y6g-yT-8d4" userLabel="Bar Button Item - copy">
                     <connections>
                         <action selector="copyMeasurableAction:" destination="LEZ-Nv-BEs" id="UAC-DO-SB4"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem systemItem="compose" id="dfg-l8-cEA" userLabel="Bar Button Item - edit info">
+                <barButtonItem style="plain" systemItem="compose" id="dfg-l8-cEA" userLabel="Bar Button Item - edit info">
                     <connections>
                         <action selector="editMeasurableInfoAction:" destination="LEZ-Nv-BEs" id="gbk-BZ-JsE"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem systemItem="action" id="esD-AN-yxw" userLabel="Bar Button Item - share log">
+                <barButtonItem style="plain" systemItem="action" id="esD-AN-yxw" userLabel="Bar Button Item - share log">
                     <connections>
                         <action selector="shareMeasurableLogAction:" destination="LEZ-Nv-BEs" id="A2d-y2-RzT"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem title="Chart" id="mcI-Qr-xb5" userLabel="Bar Button Item - chart">
+                <barButtonItem style="plain" id="mcI-Qr-xb5" userLabel="Bar Button Item - chart">
                     <connections>
                         <action selector="chartMeasurableAction:" destination="LEZ-Nv-BEs" id="psz-7Y-bxk"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem systemItem="compose" id="9th-gh-B4C" userLabel="Bar Button Item - edit log">
+                <barButtonItem style="plain" systemItem="compose" id="9th-gh-B4C" userLabel="Bar Button Item - edit log">
                     <connections>
                         <action selector="editMeasurableLogAction:" destination="LEZ-Nv-BEs" id="9Be-Nn-FV3"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem systemItem="done" id="oLL-Xq-c2K" userLabel="Bar Button Item - done log">
+                <barButtonItem style="done" systemItem="done" id="oLL-Xq-c2K" userLabel="Bar Button Item - done log">
                     <connections>
                         <action selector="doneEditMeasurableLogAction:" destination="LEZ-Nv-BEs" id="IyO-xR-evo"/>
                     </connections>
@@ -629,7 +633,7 @@
                         <action selector="clearEditMeasurableLogAction:" destination="LEZ-Nv-BEs" id="g26-gn-Iqc"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem systemItem="done" id="zuI-yX-7R9" userLabel="Bar Button Item - done info">
+                <barButtonItem style="done" systemItem="done" id="zuI-yX-7R9" userLabel="Bar Button Item - done info">
                     <connections>
                         <action selector="doneEditMeasurableInfoAction:" destination="LEZ-Nv-BEs" id="OXM-Or-5ma"/>
                     </connections>
@@ -645,7 +649,7 @@
             <objects>
                 <viewController storyboardIdentifier="PRWallViewController" id="VHk-OH-rro" customClass="PRWallViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CUy-eg-6zN">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="PR Wall" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4s2-c3-srO">
@@ -658,8 +662,52 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem systemItem="action" id="GnR-7P-t93" userLabel="Share">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="shareAction" destination="VHk-OH-rro" id="bfZ-k3-PW5"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="barButtonItemShare" destination="GnR-7P-t93" id="0c0-oD-PEd"/>
+                        <outlet property="screenFullButton" destination="30z-d8-P77" id="Ipc-Zr-E7S"/>
+                        <outlet property="screenRestoreButton" destination="OuU-Pb-Qjw" id="kP4-RO-uNV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mEF-XE-uOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OuU-Pb-Qjw" userLabel="Screen Restore">
+                    <rect key="frame" x="0.0" y="0.0" width="73" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" image="screen-restore.png">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="restoreScreenAction" destination="VHk-OH-rro" eventType="touchUpInside" id="Tw9-fD-57x"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="30z-d8-P77" userLabel="Screen Full">
+                    <rect key="frame" x="0.0" y="0.0" width="73" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" image="screen-full.png">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="fullScreenAction" destination="VHk-OH-rro" eventType="touchUpInside" id="dvx-Vg-FUe"/>
+                    </connections>
+                </button>
             </objects>
             <point key="canvasLocation" x="2461" y="-1812"/>
         </scene>
@@ -700,8 +748,28 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="barButtonItemLog" destination="nj9-9B-KBn" id="RPa-nZ-y06"/>
+                        <outlet property="barButtonItemNew" destination="Pef-44-Cg9" id="ErG-Vl-Pqe"/>
+                        <outlet property="barButtonItemSettings" destination="Rog-B8-Vtm" id="JvS-xL-uTe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPl-0o-fc7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Item" id="nj9-9B-KBn" userLabel="Log">
+                    <connections>
+                        <action selector="logWODAction" destination="UaW-bE-f2U" id="c5H-2c-A18"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Item" id="Pef-44-Cg9" userLabel="New">
+                    <connections>
+                        <action selector="newWODAction" destination="UaW-bE-f2U" id="DnY-RT-i0u"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem image="settings.png" style="plain" id="Rog-B8-Vtm" userLabel="Settings">
+                    <connections>
+                        <action selector="showOptionsAction" destination="UaW-bE-f2U" id="uDZ-o5-NyR"/>
+                    </connections>
+                </barButtonItem>
             </objects>
             <point key="canvasLocation" x="-1849" y="862"/>
         </scene>
@@ -1688,7 +1756,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     <resources>
         <image name="home-background.png" width="639" height="960"/>
         <image name="menu-disclosure-arrow.png" width="40" height="40"/>
-        <image name="menu-disclosure-bar.png" width="622" height="95"/>
+        <image name="menu-disclosure-bar.png" width="640" height="98"/>
+        <image name="screen-full.png" width="31" height="30"/>
+        <image name="screen-restore.png" width="31" height="30"/>
+        <image name="settings.png" width="30" height="30"/>
     </resources>
     <classes>
         <class className="AppNavigationController" superclassName="UINavigationController">
@@ -1917,6 +1988,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="PRWallViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PRWallViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="fullScreenAction"/>
+                <relationship kind="action" name="restoreScreenAction"/>
+                <relationship kind="action" name="shareAction"/>
+                <relationship kind="outlet" name="barButtonItemShare" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="screenFullButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="screenRestoreButton" candidateClass="UIButton"/>
+            </relationships>
         </class>
         <class className="UICollectionReusableView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
@@ -1951,6 +2030,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="WODViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WODViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logWODAction"/>
+                <relationship kind="action" name="newWODAction"/>
+                <relationship kind="action" name="showOptionsAction"/>
+                <relationship kind="outlet" name="barButtonItemLog" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="barButtonItemNew" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="barButtonItemSettings" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
         <class className="WorkoutViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WorkoutViewController.h"/>
