@@ -23,6 +23,7 @@
 @property MeasurableType* type;
 
 @property BOOL editable;
+@property BOOL copyable;
 
 @property Unit* unit;
 @property MeasurableValueTrendBetterDirection valueTrendBetterDirection;

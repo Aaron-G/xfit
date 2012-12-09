@@ -312,5 +312,8 @@
 - (BOOL)editable {
   return YES;
 }
+- (BOOL)copyable {
+  return NO;
+}
 
 @end

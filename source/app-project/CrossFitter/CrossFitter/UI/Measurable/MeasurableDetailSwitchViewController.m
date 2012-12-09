@@ -176,22 +176,37 @@
   
   if(!_infoToolbarItems) {
   
-    if(self.measurable.metadataProvider.editable) {
-    _infoToolbarItems = [NSArray arrayWithObjects:
-                        self.measurableViewController.barButtonItemShareInfo,
-                        self.measurableViewController.barButtonItemSpacerOne,
-                        self.measurableViewController.barButtonItemCopyMeasurable,
-                        self.measurableViewController.barButtonItemSpacerTwo,
-                        self.measurableViewController.barButtonItemEditInfo,
-                        nil];
-    } else {
-      _infoToolbarItems = [NSArray arrayWithObjects:
-                           self.measurableViewController.barButtonItemShareInfo,
-                           self.measurableViewController.barButtonItemSpacerOne,
-                           self.measurableViewController.barButtonItemSpacerTwo,
-                           nil];
-
+    NSMutableArray* toolBarItems = [NSMutableArray array];
+    
+    [toolBarItems addObject:self.measurableViewController.barButtonItemShareInfo];
+    [toolBarItems addObject:self.measurableViewController.barButtonItemSpacerOne];
+    
+    if(self.measurable.metadataProvider.copyable) {
+      [toolBarItems addObject:self.measurableViewController.barButtonItemCopyMeasurable];
+      [toolBarItems addObject:self.measurableViewController.barButtonItemSpacerTwo];
     }
+    if(self.measurable.metadataProvider.editable) {
+      [toolBarItems addObject:self.measurableViewController.barButtonItemEditInfo];
+    }
+    
+    _infoToolbarItems = toolBarItems;
+    
+//    if(self.measurable.metadataProvider.editable) {
+//    _infoToolbarItems = [NSArray arrayWithObjects:
+//                        self.measurableViewController.barButtonItemShareInfo,
+//                        self.measurableViewController.barButtonItemSpacerOne,
+//                        self.measurableViewController.barButtonItemCopyMeasurable,
+//                        self.measurableViewController.barButtonItemSpacerTwo,
+//                        self.measurableViewController.barButtonItemEditInfo,
+//                        nil];
+//    } else {
+//      _infoToolbarItems = [NSArray arrayWithObjects:
+//                           self.measurableViewController.barButtonItemShareInfo,
+//                           self.measurableViewController.barButtonItemSpacerOne,
+//                           self.measurableViewController.barButtonItemSpacerTwo,
+//                           nil];
+//
+//    }
   }
   return _infoToolbarItems;
 }
