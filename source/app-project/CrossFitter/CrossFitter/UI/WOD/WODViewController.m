@@ -17,6 +17,10 @@
 
 @property AppViewController* appViewController;
 
+- (IBAction)showOptionsAction;
+- (IBAction)newWODAction;
+- (IBAction)logWODAction;
+
 @end
 
 @implementation WODViewController
@@ -32,15 +36,28 @@
   return self;
 }
 
-- (void)newWODAction {
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  self.barButtonItemLog.title = NSLocalizedString(@"log-label", @"Log");
+  self.barButtonItemNew.title = NSLocalizedString(@"new-label", @"New");
+  
+  [self.appScreenSwitchDelegate initialize];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  [self.appScreenSwitchDelegate updateBars];
+}
+
+- (IBAction)newWODAction {
   NSLog(@"New WOD");
 }
 
-- (void)logWODAction {
+- (IBAction)logWODAction {
   NSLog(@"Log WOD");
 }
 
-- (void)showOptionsAction {
+- (IBAction)showOptionsAction {
   NSLog(@"Show options WOD");
 }
 

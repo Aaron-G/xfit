@@ -7,6 +7,7 @@
 //
 
 #import "PRWallScreenSwitchDelegate.h"
+#import "PRWallViewController.h"
 
 @implementation PRWallScreenSwitchDelegate
 
@@ -19,13 +20,10 @@
 
 - (void) initNavigationItems
 {
-  self.viewController.navigationItem.leftBarButtonItem =
+  PRWallViewController* prwallViewController = (PRWallViewController*)self.viewController;
   
-  [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self.viewController action:@selector(showFullScreenPRWallAction)];
-  
-  self.viewController.navigationItem.rightBarButtonItem =
-  
-  [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self.viewController action:@selector(sharePRWallAction)];
+  prwallViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView: prwallViewController.screenFullButton];
+  prwallViewController.navigationItem.rightBarButtonItem = prwallViewController.barButtonItemShare;
 }
 
 - (void) initToolbarItems
@@ -35,7 +33,7 @@
 
 - (void) initTitle
 {
-  self.viewController.title = NSLocalizedString(@"prwall-screen-title", @"The title of the PR Wall screen");
+  self.viewController.title = NSLocalizedString(@"prwall-screen-title", @"PR Wall");
 }
 
 

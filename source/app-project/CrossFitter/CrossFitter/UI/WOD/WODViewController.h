@@ -11,4 +11,9 @@
 
 @property AppScreenSwitchDelegate* appScreenSwitchDelegate;
 
+@property IBOutlet UIBarButtonItem* barButtonItemSettings;
+@property IBOutlet UIBarButtonItem* barButtonItemLog;
+@property IBOutlet UIBarButtonItem* barButtonItemNew;
+
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "WODScreenSwitchDelegate.h"
+#import "WODViewController.h"
 
 @implementation WODScreenSwitchDelegate
 
@@ -16,28 +17,23 @@
 
 - (void) initNavigationItems
 {
-  self.viewController.navigationItem.leftBarButtonItem =
+  WODViewController* wodViewController = ((WODViewController*)self.viewController);
   
-  [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"new-label", @"The label for New")
-                                   style:UIBarButtonItemStylePlain target:self.viewController action:@selector(newWODAction)];
-  
-  self.viewController.navigationItem.rightBarButtonItem =
-  [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"log-label", @"The label for Log")
-                                   style:UIBarButtonItemStylePlain target:self.viewController action:@selector(logWODAction)];
+  self.viewController.navigationItem.leftBarButtonItem = wodViewController.barButtonItemNew;
+  self.viewController.navigationItem.rightBarButtonItem = wodViewController.barButtonItemLog;
 }
 
 - (void) initToolbarItems
 {
-  UIBarButtonItem* spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-  
-  UIBarButtonItem* options = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPageCurl target:self.viewController action:@selector(showOptionsAction)];
-  
-  self.viewController.toolbarItems = [NSArray arrayWithObjects:spacer, options, nil];
+  self.viewController.toolbarItems = [NSArray arrayWithObjects:
+                                      [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                                      ((WODViewController*)self.viewController).barButtonItemSettings,
+                                      nil];
 }
 
 - (void) initTitle
 {
-  self.viewController.title = NSLocalizedString(@"wod-screen-title", @"The title of the WOD screen");
+  self.viewController.title = NSLocalizedString(@"wod-screen-title", @"WODs");
 }
 
 @end

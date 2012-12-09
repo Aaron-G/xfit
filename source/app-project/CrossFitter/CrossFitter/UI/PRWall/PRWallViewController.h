@@ -10,5 +10,8 @@
 @interface PRWallViewController : UIViewController <UIActionSheetDelegate>
 
 @property AppScreenSwitchDelegate* appScreenSwitchDelegate;
+@property IBOutlet UIButton* screenFullButton;
+@property IBOutlet UIButton* screenRestoreButton;
+@property IBOutlet UIBarButtonItem* barButtonItemShare;
 
 @end
