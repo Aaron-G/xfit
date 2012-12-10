@@ -30,16 +30,18 @@
       CGFloat newYLocation = (measurableViewController.nameLabel.frame.origin.y + measurableViewController.nameLabel.frame.size.height);
       
       //Reduce the space between the name and the metadata - too much white space
-      newYLocation-=5;
-      
-      //Adjust the height of the metadata text field as it can vary considerably
-      newYLocation = [UIHelper moveToYLocation:newYLocation
-                               reshapeWithSize:CGSizeMake(measurableViewController.metadataTextView.frame.size.width, measurableViewController.metadataTextView.contentSize.height)
-                                        orHide:(measurable.metadataProvider.metadataFull == nil)
-                                          view:measurableViewController.metadataTextView
-                      //Reduce the space between the metadata and the rest of
-                      //the content - too much white space
-                           withVerticalSpacing:-10];
+      if(measurable.metadataProvider.metadataFull != nil) {
+        newYLocation-=8;
+        
+        //Adjust the height of the metadata text field as it can vary considerably
+        newYLocation = [UIHelper moveToYLocation:newYLocation
+                                 reshapeWithSize:CGSizeMake(measurableViewController.metadataTextView.frame.size.width, measurableViewController.metadataTextView.contentSize.height)
+                                          orHide:(measurable.metadataProvider.metadataFull == nil)
+                                            view:measurableViewController.metadataTextView
+                        //Reduce the space between the metadata and the rest of
+                        //the content - too much white space
+                             withVerticalSpacing:-5];
+      }
       
       measurableViewController.needsLayout = NO;
       

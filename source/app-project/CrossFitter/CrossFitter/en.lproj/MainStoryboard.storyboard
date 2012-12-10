@@ -428,11 +428,11 @@
                                         <rect key="frame" x="0.0" y="543" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Feedback" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fDo-Lz-0Pc">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -642,7 +642,7 @@
                 <barButtonItem style="plain" systemItem="flexibleSpace" id="GDO-M4-rjS" userLabel="Bar Button Item - spacer 2"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LpE-IZ-oel" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2437" y="2373"/>
+            <point key="canvasLocation" x="1998" y="2463"/>
         </scene>
         <!--Wall View Controller-->
         <scene sceneID="QPU-kL-KIr">
@@ -1214,7 +1214,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="MeasurableViewControllerCollectionViewCell_StoryBoard" id="MJK-Rd-eGA">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="392"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="392"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="392"/>
@@ -1651,7 +1651,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <viewController storyboardIdentifier="MeasurableInfoViewController" id="A0L-Vl-GcV" customClass="MeasurableInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XdL-va-cem">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="akS-uh-BEo" userLabel="Divider">
                                 <rect key="frame" x="30" y="31" width="260" height="2"/>
@@ -1682,7 +1682,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZL-VS-p8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1905" y="3477"/>
+            <point key="canvasLocation" x="1905" y="3372"/>
         </scene>
         <!--Body Metric Info Edit View Controller-->
         <scene sceneID="NgS-rT-sO7">

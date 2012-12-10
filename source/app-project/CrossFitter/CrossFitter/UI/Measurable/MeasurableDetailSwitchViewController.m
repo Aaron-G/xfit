@@ -63,6 +63,14 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+
+  //////////////////////////////////////////////////////////////////////////////
+  //IMPL NOTE
+  //For some reason hard coding the height here ensures the info and log
+  //screens are appropriately fitted on the window when we run the app
+  //in the various device configurations.
+  self.collectionView.frame = CGRectMake(self.collectionView.frame.origin.x, self.collectionView.frame.origin.y, self.collectionView.frame.size.width, 392) ;
+  //////////////////////////////////////////////////////////////////////////////
   
   [self updateUIControlsToIndex:self.currentViewControllerIndex];
   
@@ -191,22 +199,6 @@
     
     _infoToolbarItems = toolBarItems;
     
-//    if(self.measurable.metadataProvider.editable) {
-//    _infoToolbarItems = [NSArray arrayWithObjects:
-//                        self.measurableViewController.barButtonItemShareInfo,
-//                        self.measurableViewController.barButtonItemSpacerOne,
-//                        self.measurableViewController.barButtonItemCopyMeasurable,
-//                        self.measurableViewController.barButtonItemSpacerTwo,
-//                        self.measurableViewController.barButtonItemEditInfo,
-//                        nil];
-//    } else {
-//      _infoToolbarItems = [NSArray arrayWithObjects:
-//                           self.measurableViewController.barButtonItemShareInfo,
-//                           self.measurableViewController.barButtonItemSpacerOne,
-//                           self.measurableViewController.barButtonItemSpacerTwo,
-//                           nil];
-//
-//    }
   }
   return _infoToolbarItems;
 }
