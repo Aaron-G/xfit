@@ -175,7 +175,9 @@ static App *sharedInstance = nil;
 }
 
 - (NSString*) appVersion {
-  return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+  return [NSString stringWithFormat:@"%@ (b%@)",
+          [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"],
+          [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
 }
 
 - (NSString*) appSupportEmail {
