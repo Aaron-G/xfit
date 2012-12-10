@@ -123,6 +123,8 @@
 		74A3982D160D4A04003AD87B /* PoundFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A3982C160D4A04003AD87B /* PoundFormatter.m */; };
 		74A64ED01655DB410011DA6D /* MeasurableDataEntryMediaViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A64ECF1655DB410011DA6D /* MeasurableDataEntryMediaViewDelegate.m */; };
 		74A64ED516569EBF0011DA6D /* MeasurableDataEntryMediaCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A64ED416569EBF0011DA6D /* MeasurableDataEntryMediaCollectionViewCell.m */; };
+		74AA7B551675AB9D007844C5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 74AA7B541675AB9D007844C5 /* Icon.png */; };
+		74AA7B571675ABA5007844C5 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74AA7B561675ABA5007844C5 /* Icon@2x.png */; };
 		74AF602016694BE7002C8848 /* DefaultUnitSystemConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AF601F16694BE7002C8848 /* DefaultUnitSystemConverter.m */; };
 		74B3165615DDD8B4003D5B09 /* MailAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B3165315DDD8B4003D5B09 /* MailAttachment.m */; };
 		74B3165715DDD8B4003D5B09 /* MailHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B3165515DDD8B4003D5B09 /* MailHelper.m */; };
@@ -169,6 +171,9 @@
 		74D2527515D56D5A00845160 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D2527415D56D5A00845160 /* AppConstants.m */; };
 		74D9601F166BD7F0006108FC /* MeasurableInfoEditLayoutDelegateBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D9601E166BD7F0006108FC /* MeasurableInfoEditLayoutDelegateBase.m */; };
 		74D96021166C760A006108FC /* menu-disclosure-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D96020166C760A006108FC /* menu-disclosure-arrow.png */; };
+		74DB8E44167588DB007D5757 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 74DB8E43167588DB007D5757 /* Default.png */; };
+		74DB8E4B16758AE8007D5757 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74DB8E4916758AE8007D5757 /* Default-568h@2x.png */; };
+		74DB8E4C16758AE8007D5757 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74DB8E4A16758AE8007D5757 /* Default@2x.png */; };
 		74E2422C16231C25004C76A4 /* MeasurableDataEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E2422B16231C25004C76A4 /* MeasurableDataEntryTableViewCell.m */; };
 		74E9D5F015BB74AF00B005B3 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E9D5EF15BB74AF00B005B3 /* MenuViewController.m */; };
 		74EF1E7315D1C58600F96131 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74EF1E7115D1C58600F96131 /* Localizable.strings */; };
@@ -379,6 +384,8 @@
 		74A64ECF1655DB410011DA6D /* MeasurableDataEntryMediaViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableDataEntryMediaViewDelegate.m; path = UI/Measurable/Log/MeasurableDataEntryMediaViewDelegate.m; sourceTree = "<group>"; };
 		74A64ED316569EBF0011DA6D /* MeasurableDataEntryMediaCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableDataEntryMediaCollectionViewCell.h; path = UI/Measurable/Log/MeasurableDataEntryMediaCollectionViewCell.h; sourceTree = "<group>"; };
 		74A64ED416569EBF0011DA6D /* MeasurableDataEntryMediaCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableDataEntryMediaCollectionViewCell.m; path = UI/Measurable/Log/MeasurableDataEntryMediaCollectionViewCell.m; sourceTree = "<group>"; };
+		74AA7B541675AB9D007844C5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = CrossFitter/Resources/Images/App/Icon.png; sourceTree = SOURCE_ROOT; };
+		74AA7B561675ABA5007844C5 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "CrossFitter/Resources/Images/App/Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		74AF601E16694BE7002C8848 /* DefaultUnitSystemConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultUnitSystemConverter.h; path = App/Unit/Converter/DefaultUnitSystemConverter.h; sourceTree = "<group>"; };
 		74AF601F16694BE7002C8848 /* DefaultUnitSystemConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultUnitSystemConverter.m; path = App/Unit/Converter/DefaultUnitSystemConverter.m; sourceTree = "<group>"; };
 		74B3165215DDD8B4003D5B09 /* MailAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MailAttachment.h; path = UI/Helper/Mail/MailAttachment.h; sourceTree = "<group>"; };
@@ -463,6 +470,9 @@
 		74D9601E166BD7F0006108FC /* MeasurableInfoEditLayoutDelegateBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MeasurableInfoEditLayoutDelegateBase.m; path = UI/Measurable/Info/Edit/MeasurableInfoEditLayoutDelegateBase.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		74D96020166C760A006108FC /* menu-disclosure-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-disclosure-arrow.png"; path = "CrossFitter/Resources/Images/App/Menu/menu-disclosure-arrow.png"; sourceTree = SOURCE_ROOT; };
 		74D96024166D1057006108FC /* MeasurableInfoLayoutDelegateBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableInfoLayoutDelegateBase.h; path = UI/Measurable/Info/MeasurableInfoLayoutDelegateBase.h; sourceTree = "<group>"; };
+		74DB8E43167588DB007D5757 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = CrossFitter/Resources/Images/App/Launch/Default.png; sourceTree = SOURCE_ROOT; };
+		74DB8E4916758AE8007D5757 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "CrossFitter/Resources/Images/App/Launch/Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
+		74DB8E4A16758AE8007D5757 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "CrossFitter/Resources/Images/App/Launch/Default@2x.png"; sourceTree = SOURCE_ROOT; };
 		74E2422A16231C25004C76A4 /* MeasurableDataEntryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableDataEntryTableViewCell.h; path = UI/Measurable/Log/MeasurableDataEntryTableViewCell.h; sourceTree = "<group>"; };
 		74E2422B16231C25004C76A4 /* MeasurableDataEntryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableDataEntryTableViewCell.m; path = UI/Measurable/Log/MeasurableDataEntryTableViewCell.m; sourceTree = "<group>"; };
 		74E9D5EE15BB74AF00B005B3 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = UI/Menu/MenuViewController.h; sourceTree = "<group>"; };
@@ -747,9 +757,12 @@
 		7465B173163B04CD008D0AA7 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				74AA7B541675AB9D007844C5 /* Icon.png */,
+				74AA7B561675ABA5007844C5 /* Icon@2x.png */,
 				7497A6281672513E0009FDAC /* screen-full.png */,
 				7497A6291672513E0009FDAC /* screen-restore.png */,
 				7497A62A1672513E0009FDAC /* settings.png */,
+				74DB8E401675889A007D5757 /* Launch */,
 				7497A623167250F20009FDAC /* Measurable */,
 				74C0E66116443262000F6282 /* Home */,
 			);
@@ -1075,6 +1088,16 @@
 			name = Helper;
 			sourceTree = "<group>";
 		};
+		74DB8E401675889A007D5757 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				74DB8E4916758AE8007D5757 /* Default-568h@2x.png */,
+				74DB8E4A16758AE8007D5757 /* Default@2x.png */,
+				74DB8E43167588DB007D5757 /* Default.png */,
+			);
+			name = Launch;
+			sourceTree = "<group>";
+		};
 		74E9D5F215BB763900B005B3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -1272,6 +1295,11 @@
 				7497A62C1672513E0009FDAC /* screen-restore.png in Resources */,
 				7497A62D1672513E0009FDAC /* settings.png in Resources */,
 				7497A62F16739CD90009FDAC /* chart-bar-icon.png in Resources */,
+				74DB8E44167588DB007D5757 /* Default.png in Resources */,
+				74DB8E4B16758AE8007D5757 /* Default-568h@2x.png in Resources */,
+				74DB8E4C16758AE8007D5757 /* Default@2x.png in Resources */,
+				74AA7B551675AB9D007844C5 /* Icon.png in Resources */,
+				74AA7B571675ABA5007844C5 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
