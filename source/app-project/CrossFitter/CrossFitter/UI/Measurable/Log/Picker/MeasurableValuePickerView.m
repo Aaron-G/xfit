@@ -38,9 +38,8 @@
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
-  UILabel* valueLabel = (view) ? (UILabel*)view : [[UILabel alloc]init];
+  UILabel* valueLabel = (view) ? (UILabel*)view : [self labelForRow];
   valueLabel.text = [NSString stringWithFormat:@"%d", row];
-  valueLabel.font = [UIFont boldSystemFontOfSize:20];
   return valueLabel;
 }
 
@@ -57,11 +56,10 @@
   return 0;
 }
 
-
 ///////////////////////////////////////////////////////////////////////
 //Subclass methods
 ///////////////////////////////////////////////////////////////////////
-- (UILabel*) createLabelForPickerWithText:(NSString*) text andFrame:(CGRect) frame {
+- (UILabel*) labelForPickerWithText:(NSString*) text andFrame:(CGRect) frame {
   UILabel *label = [[UILabel alloc] initWithFrame:frame];
   label.textAlignment = kCTLeftTextAlignment;
   label.text = text;
@@ -71,6 +69,12 @@
   label.shadowOffset = CGSizeMake (0,1);
   [self addSubview:label];
   [self bringSubviewToFront:label];
+  return label;
+}
+
+- (UILabel*) labelForRow {
+  UILabel* label = [[UILabel alloc]init];
+  label.font = [UIFont boldSystemFontOfSize:20];
   return label;
 }
 

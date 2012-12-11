@@ -25,7 +25,7 @@
 
 @property IBOutlet id<MeasurableValuePickerViewDelegate> measurableValuePickerViewDelegate;
 
-- (UILabel*) createLabelForPickerWithText:(NSString*) text andFrame:(CGRect) frame;
-
+- (UILabel*) labelForPickerWithText:(NSString*) text andFrame:(CGRect) frame;
+- (UILabel*) labelForRow;
 @end
 
