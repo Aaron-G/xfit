@@ -62,11 +62,6 @@ static NSInteger PICKER_WIDTH = 100;
   self.feetValue = localValue.integerValue;
   self.inchesValue = (localValue.floatValue - self.feetValue) * 12;
   
-  NSLog(@"value %f", localValue.floatValue);
-  NSLog(@"inches-f %f", localValue.floatValue - self.feetValue);
-  NSLog(@"inches-i %i", self.inchesValue);
-  
-  
   //Update the display
   [self selectRow:self.feetValue inComponent:0 animated:NO];
   [self selectRow:self.inchesValue inComponent:1 animated:NO];
