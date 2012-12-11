@@ -39,7 +39,7 @@ static NSInteger PICKER_WIDTH = 100;
     NSInteger horizontalOffset = 85;
     
     for (int i = 0; i < labels.count; i++) {
-      [super createLabelForPickerWithText: [labels objectAtIndex:i]  andFrame:CGRectMake( (PICKER_WIDTH * i) + horizontalOffset + 2, 94, 60, 30)];
+      [super labelForPickerWithText: [labels objectAtIndex:i]  andFrame:CGRectMake( (PICKER_WIDTH * i) + horizontalOffset + 2, 94, 60, 30)];
     }
     
     self.labelsInitialized = YES;
@@ -48,9 +48,10 @@ static NSInteger PICKER_WIDTH = 100;
 
 - (NSNumber *)value {
   
-  NSNumber* value = [NSNumber numberWithFloat: self.feetValue + ((CGFloat)self.inchesValue)/12];
+  NSNumber* valueFromFeet = [[Unit unitForUnitIdentifier:UnitIdentifierFoot].unitSystemConverter convertToSystemValue:[NSNumber numberWithInt:self.feetValue]];
+  NSNumber* valueFromInch = [[Unit unitForUnitIdentifier:UnitIdentifierInch].unitSystemConverter convertToSystemValue:[NSNumber numberWithInt:self.inchesValue]];
   
-  return [[Unit unitForUnitIdentifier:UnitIdentifierFoot].unitSystemConverter convertToSystemValue: value];
+  return [NSNumber numberWithFloat: (valueFromFeet.floatValue + valueFromInch.floatValue)];
 }
 
 - (void)setValue:(NSNumber *)value {
@@ -60,6 +61,11 @@ static NSInteger PICKER_WIDTH = 100;
   //Update local variables
   self.feetValue = localValue.integerValue;
   self.inchesValue = (localValue.floatValue - self.feetValue) * 12;
+  
+  NSLog(@"value %f", localValue.floatValue);
+  NSLog(@"inches-f %f", localValue.floatValue - self.feetValue);
+  NSLog(@"inches-i %i", self.inchesValue);
+  
   
   //Update the display
   [self selectRow:self.feetValue inComponent:0 animated:NO];

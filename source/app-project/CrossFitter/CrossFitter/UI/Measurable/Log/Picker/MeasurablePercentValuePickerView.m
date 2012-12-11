@@ -16,7 +16,7 @@
 
   //Update local variables
   self.numberValue = localValue.intValue;
-  self.decimalValue = (localValue.floatValue - self.numberValue) * 100;
+  self.decimalValue = round((localValue.floatValue - self.numberValue) * 100);
   
   //Update the display
   [self selectRow:self.numberValue inComponent:0 animated:NO];
@@ -28,7 +28,7 @@
 ///////////////////////////////////////////////////////////////////////
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
-  UILabel* valueLabel = (view) ? (UILabel*)view : [[UILabel alloc]init];
+  UILabel* valueLabel = (view) ? (UILabel*)view : [super labelForRow];
   valueLabel.text = [NSString stringWithFormat:@"%d", row];
   return valueLabel;
 }
