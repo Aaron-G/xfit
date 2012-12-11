@@ -14,7 +14,7 @@
   
   if(self) {
     self.suffixString = NSLocalizedString(@"yard-suffix", @"yd");
-    self.unit = [Unit unitForUnitIdentifier:UnitIdentifierMile];
+    self.unit = [Unit unitForUnitIdentifier:UnitIdentifierYard];
   }
   
   return self;
