@@ -31,15 +31,6 @@
 //Index of the row that has the Additional Info
 @property NSInteger indexOfAdditionalInfoRow;
 
-//IMPL NOTE
-//In order for us to compute the height of a cell from heightForRowAtIndexPath, we
-//create a cell before the cell is asked for, compute the height, and then use this
-//same cell in the subsequent cellForRowAtIndexPath call.
-//
-//Once this 2 call sequence (heightForRowAtIndexPath and cellForRowAtIndexPath) has
-//completed we reset this variable.
-@property MeasurableDataEntryAdditionalInfoTableViewCell* additionalInfoTableViewCell;
-
 @end
 
 @implementation MeasurableLogViewController
@@ -97,12 +88,8 @@
     //This is the additional info row
     if(indexPath.item == self.indexOfAdditionalInfoRow) {
 
-      UITableViewCell* tableViewCell = self.additionalInfoTableViewCell;
-      
-      self.additionalInfoTableViewCell.measurableDataEntry = dataEntry;
-
-      //Reset it
-      self.additionalInfoTableViewCell = nil;
+      MeasurableDataEntryAdditionalInfoTableViewCell* tableViewCell = [self tableView:tableView additionalInfoCellForRowAtIndexPath:indexPath];
+      tableViewCell.measurableDataEntry = dataEntry;
       
       //Return it
       return tableViewCell;
@@ -118,27 +105,28 @@
   return nil;
 }
 
+- (MeasurableDataEntryAdditionalInfoTableViewCell *)tableView:(UITableView *)tableView additionalInfoCellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  
+  //Get the target MeasurableDataEntry
+  MeasurableDataEntry* dataEntry = [self.measurableTableLogData objectAtIndex:indexPath.item];
+  
+  //Create a new cell for it
+  MeasurableDataEntryAdditionalInfoTableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"MeasurableDataEntryAdditionalInfoTableViewCell"];
+  
+  //This call not only sets the business data on the cell, but also auto computes the minimum height
+  cell.measurableDataEntry = dataEntry;
+  
+  //Return the cell
+  return cell;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
   if(indexPath.item < self.measurableTableLogData.count) {
-  
     
-    //Height of MeasurableDataEntryAdditionalInfoTableViewCell
-    if(indexPath.item == self.indexOfAdditionalInfoRow && !self.additionalInfoTableViewCell) {
-  
-      //Get the target MeasurableDataEntry
-      MeasurableDataEntry* dataEntry = [self.measurableTableLogData objectAtIndex:indexPath.item];
-      
-      //Create a new for it
-      self.additionalInfoTableViewCell = [self.tableView dequeueReusableCellWithIdentifier:@"MeasurableDataEntryAdditionalInfoTableViewCell"];
-      
-      //This call not only sets the business data on the cell, but also auto computes the minimum height
-      self.additionalInfoTableViewCell.measurableDataEntry = dataEntry;
-      
-      //Return the minimum height
-      return self.additionalInfoTableViewCell.minimumHeight;
+    if(indexPath.item == self.indexOfAdditionalInfoRow) {
+      return [self tableView:tableView additionalInfoCellForRowAtIndexPath:indexPath].minimumHeight;
     }
-    
     //Height of MeasurableDataEntryTableViewCell
     else {
       return MeasurableDataEntryTableViewCellHeight;
@@ -370,6 +358,15 @@
 - (void) clearCurrentSelectionInABit {
   [UIHelper clearSelectionInTableView:self.tableView afterDelay:0.1];
 }
+
+//- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+//  
+//  if(indexPath.item == self.indexOfMeasurableDataEntryInAdditionalInfo) {
+//    [self removeAdditionalInfoRow];
+//  }
+//}
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+
 
 - (void) removeAdditionalInfoRow {
 
