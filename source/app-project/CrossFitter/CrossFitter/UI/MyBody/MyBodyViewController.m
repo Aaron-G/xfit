@@ -263,6 +263,10 @@
       [appViewControllerSegue perform];
     }
   }
+
+  //Hide it after a bit
+  [self clearCurrentSelectionInABit];
+
 }
 
 - (void)shareMyBodyAction {
@@ -286,6 +290,10 @@
     [self.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:indexPath] withRowAnimation: NO];
   }
   
+}
+
+- (void) clearCurrentSelectionInABit {
+  [UIHelper clearSelectionInTableView:self.tableView afterDelay:0.1];
 }
 
 @end
