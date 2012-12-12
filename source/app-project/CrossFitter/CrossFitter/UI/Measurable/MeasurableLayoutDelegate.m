@@ -46,7 +46,7 @@
       measurableViewController.needsLayout = NO;
       
       //3- Update the Info and Log VCs so that they know where to layout their view
-      CGPoint newStartPosition = CGPointMake(startPosition.x, newYLocation);
+      CGPoint newStartPosition = CGPointMake(startPosition.x, newYLocation+5);
       
       measurableViewController.measurableDetailSwitchViewController.infoViewController.layoutPosition = newStartPosition;
       measurableViewController.measurableDetailSwitchViewController.logViewController.layoutPosition = newStartPosition;
