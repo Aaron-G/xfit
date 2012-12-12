@@ -36,6 +36,8 @@
 
 @property IBOutlet UIDatePicker* dateDatePicker;
 
+@property IBOutlet UILabel* titleLabel;
+
 //Value Edit Pickers
 @property IBOutlet MeasurableNumberValuePickerView* valueTypeNumberPickerView;
 @property IBOutlet MeasurableNumberWithDecimalValuePickerView* valueTypeNumberWithDecimalPickerView;

@@ -1214,7 +1214,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="MeasurableViewControllerCollectionViewCell_StoryBoard" id="MJK-Rd-eGA">
-                                <rect key="frame" x="0.0" y="44" width="320" height="392"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="392"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="392"/>
@@ -1556,6 +1556,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="dateDatePicker" destination="yqz-L8-gFG" id="zB2-vS-ZvO"/>
                         <outlet property="doneBarButtonItem" destination="Sea-yJ-Hyg" id="CyR-jH-6Sk"/>
                         <outlet property="editToolbar" destination="9fz-t0-cco" id="zQg-yF-iEe"/>
+                        <outlet property="titleLabel" destination="Rwi-eW-Umb" id="Khy-CD-sd6"/>
                         <outlet property="valueTypeFootInchPickerView" destination="uhg-tW-tuh" id="anX-yO-S8z"/>
                         <outlet property="valueTypeNumberPickerView" destination="3Ps-uh-adF" id="FIl-PX-ShN"/>
                         <outlet property="valueTypeNumberWithDecimalPickerView" destination="PfF-l4-zob" id="Quw-WF-2rI"/>
@@ -1641,6 +1642,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="measurableValuePickerViewDelegate" destination="QHR-bw-TUg" id="2dw-cF-TvF"/>
                     </connections>
                 </pickerView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="Rwi-eW-Umb" userLabel="Titile">
+                    <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="141-oa-zyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3607" y="3510"/>
@@ -1882,6 +1890,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="dateDatePicker" candidateClass="UIDatePicker"/>
                 <relationship kind="outlet" name="doneBarButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="editToolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="valueTypeFootInchPickerView" candidateClass="MeasurableFootInchValuePickerView"/>
                 <relationship kind="outlet" name="valueTypeNumberPickerView" candidateClass="MeasurableNumberValuePickerView"/>
                 <relationship kind="outlet" name="valueTypeNumberWithDecimalPickerView" candidateClass="MeasurableNumberWithDecimalValuePickerView"/>

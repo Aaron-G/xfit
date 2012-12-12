@@ -94,6 +94,9 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
   self.navigationItem.hidesBackButton = YES;
   self.navigationItem.rightBarButtonItem = self.doneBarButtonItem;
   
+  //Link up the custom title view
+  self.navigationItem.titleView = self.titleLabel;
+  
   /////////////////////////////////////////////////////////////////
   //Customize the Date Picker Control
   /////////////////////////////////////////////////////////////////
@@ -123,7 +126,10 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
   
 }
 
-//kMediaTypeVideo
+- (void)setTitle:(NSString *)title {
+  [super setTitle:title];
+  self.titleLabel.text = title;
+}
 
 -(void)viewWillAppear:(BOOL)animated {
   
