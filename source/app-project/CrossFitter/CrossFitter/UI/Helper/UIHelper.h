@@ -45,5 +45,7 @@
 
 + (void)applyFontToSegmentedControl:(UISegmentedControl*) segmentedControl;
 
++ (void) clearSelectionInTableView:(UITableView*) tableView afterDelay:(CGFloat) delay;
+
 @end
  

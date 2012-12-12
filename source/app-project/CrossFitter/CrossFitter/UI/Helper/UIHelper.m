@@ -160,4 +160,16 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   [segmentedControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
 }
 
++ (void) clearSelectionInTableView:(UITableView*) tableView afterDelay:(CGFloat) delay {
+  
+  dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delay * NSEC_PER_SEC);
+  dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    NSIndexPath *indexPath = [tableView indexPathForSelectedRow];
+    if(indexPath != nil) {
+      [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+  });
+}
+
+
 @end

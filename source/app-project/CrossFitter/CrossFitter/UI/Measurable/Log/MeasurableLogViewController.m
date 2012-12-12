@@ -368,16 +368,9 @@
 }
 
 - (void) clearCurrentSelectionInABit {
-  
-  int64_t delayInSeconds = 0.5;
-  dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-  dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    if(indexPath != nil) {
-      [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    }
-  });
+  [UIHelper clearSelectionInTableView:self.tableView afterDelay:0.1];
 }
+
 - (void) removeAdditionalInfoRow {
 
   if(self.indexOfAdditionalInfoRow > 0) {
