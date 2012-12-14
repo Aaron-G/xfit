@@ -359,15 +359,6 @@
   [UIHelper clearSelectionInTableView:self.tableView afterDelay:0.1];
 }
 
-//- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-//  
-//  if(indexPath.item == self.indexOfMeasurableDataEntryInAdditionalInfo) {
-//    [self removeAdditionalInfoRow];
-//  }
-//}
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-
-
 - (void) removeAdditionalInfoRow {
 
   if(self.indexOfAdditionalInfoRow > 0) {
