@@ -10,4 +10,6 @@
 
 @implementation MeasurableDataEntryEditValueTableViewCell
 
+const NSInteger MeasurableDataEntryEditValueTableViewCellHeight = 50;
+
 @end

@@ -10,6 +10,8 @@
 
 @interface MeasurableDataEntryEditValueTableViewCell : UITableViewCell
 
+extern const NSInteger MeasurableDataEntryEditMediaTableViewCellHeight;
+
 @property IBOutlet UITextField* valueTextField;
 
 @end

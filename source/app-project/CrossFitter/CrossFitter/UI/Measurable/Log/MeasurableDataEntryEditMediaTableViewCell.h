@@ -11,7 +11,7 @@
 
 @interface MeasurableDataEntryEditMediaTableViewCell : UITableViewCell
 
-extern const NSInteger MeasurableDataEntryEditMediaTableViewCellHeight;
+extern const NSInteger MeasurableDataEntryEditValueTableViewCellHeight;
 
 @property IBOutlet UIImageView* mediaImageView;
 

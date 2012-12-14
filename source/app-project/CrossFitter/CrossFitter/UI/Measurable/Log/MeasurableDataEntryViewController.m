@@ -240,7 +240,7 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
   
   if(section == VALUE_SECTION) {
-    return @"Your result";
+    return nil;
   } else if (section == DATE_SECTION) {
     return NSLocalizedString(@"measurable-data-entry-date-section-title", @"When");
   } else if (section == COMMENT_SECTION) {
@@ -256,7 +256,9 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   
-  if (indexPath.section == COMMENT_SECTION && indexPath.item == 0) {
+  if(indexPath.section == VALUE_SECTION && indexPath.item == 0) {
+    return MeasurableDataEntryEditValueTableViewCellHeight;
+  } else if (indexPath.section == COMMENT_SECTION && indexPath.item == 0) {
     return MeasurableDataEntryEditCommentTableViewCellHeight;
   } else if ((indexPath.section == IMAGES_SECTION || indexPath.section == VIDEOS_SECTION) && indexPath.item > 0) {
     return MeasurableDataEntryEditMediaTableViewCellHeight;
