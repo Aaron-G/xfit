@@ -13,4 +13,6 @@
  */
 @interface AppViewControllerSegue : UIStoryboardSegue
 
+@property BOOL modal;
+
 @end
