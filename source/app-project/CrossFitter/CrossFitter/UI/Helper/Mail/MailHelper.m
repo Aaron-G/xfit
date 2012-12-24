@@ -25,8 +25,11 @@ static MailHelper *sharedInstance = nil;
 
 
 #pragma MFMaileComposeViewControllerDelegate
-
 - (void)displayEmailComposerWithEmailInfo: (NSDictionary*) emailInfo {
+  [self displayEmailComposerWithEmailInfo:emailInfo inViewController:[UIHelper appViewController].navigationController.topViewController];
+}
+
+- (void)displayEmailComposerWithEmailInfo: (NSDictionary*) emailInfo inViewController:(UIViewController*) viewController {
   
   if ([MFMailComposeViewController canSendMail]) {
     
@@ -80,7 +83,7 @@ static MailHelper *sharedInstance = nil;
     }
     
     //Display email composer
-    [[UIHelper appViewController].navigationController.topViewController presentViewController:mailer animated:YES completion:nil];
+    [viewController presentViewController:mailer animated:YES completion:nil];
     
   } else {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"cannot-share-title", @"Cannot Share")

@@ -50,5 +50,6 @@ extern NSString* MailerHelperEmailBCCKey;
 //Returns the shared instance of this MailHelper.
 + (MailHelper*) sharedInstance;
 
+- (void)displayEmailComposerWithEmailInfo: (NSDictionary*) emailInfo inViewController:(UIViewController*) viewController;
 
 @end
