@@ -47,5 +47,7 @@
 
 + (void) clearSelectionInTableView:(UITableView*) tableView afterDelay:(CGFloat) delay;
 
++ (void) showViewController:(UIViewController*) viewController asModal:(BOOL)modal withTransitionTitle:(NSString*) transitionTitle;
+
 @end
  

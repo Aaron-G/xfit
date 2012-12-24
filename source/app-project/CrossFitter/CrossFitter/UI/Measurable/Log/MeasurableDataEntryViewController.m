@@ -423,12 +423,7 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
   self.doneBarButtonItem.enabled = (measurableDataEntry.value != nil);
 
   //Show this VC
-  AppViewControllerSegue* appViewControllerSegue =
-  [[AppViewControllerSegue alloc] initWithIdentifier:@"To Measurable Data Entry Edit"
-                                              source: [[UIHelper appViewController] navigationController].topViewController
-                                         destination:self];
-  [appViewControllerSegue perform];
-  
+  [UIHelper showViewController:self asModal:NO withTransitionTitle:@"To Measurable Data Entry Edit"];
 }
 
 -(void)setMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable {

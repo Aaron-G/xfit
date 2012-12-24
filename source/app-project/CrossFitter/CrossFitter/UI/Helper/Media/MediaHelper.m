@@ -10,6 +10,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "AppConstants.h"
 #import "UIHelper.h"
+#import "AppViewControllerSegue.h"
 
 @interface MediaHelper ()
 
@@ -235,10 +236,11 @@ typedef enum {
 }
 
 + (void) displayImageFullScreen:(NSString*) image {
+  
   ImageDisplayViewController* imageDisplayViewController = [UIHelper imageDisplayViewController];
   imageDisplayViewController.image = [UIImage imageWithContentsOfFile:image];
 
-  [[[UIHelper appViewController] navigationController] presentViewController:imageDisplayViewController animated:YES completion:nil];
+  [UIHelper showViewController:imageDisplayViewController asModal:YES withTransitionTitle:@"To Image Display"];
 }
 
 + (void) displayVideoFullScreen:(NSString*) video {
@@ -250,8 +252,8 @@ typedef enum {
   
   moviePlayerController.moviePlayer.movieSourceType = MPMovieSourceTypeFile;
   [moviePlayerController.moviePlayer prepareToPlay];
-  
-  [[[UIHelper appViewController] navigationController].topViewController presentMoviePlayerViewControllerAnimated:moviePlayerController];
+
+  [UIHelper showViewController:moviePlayerController asModal:YES withTransitionTitle:@"To Video Display"];
 }
 
 @end

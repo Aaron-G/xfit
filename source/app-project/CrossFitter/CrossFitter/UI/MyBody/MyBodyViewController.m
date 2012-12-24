@@ -237,13 +237,7 @@
     UserProfileViewController* userProfileViewController = [UIHelper userProfileViewController];
     userProfileViewController.myBodyViewController = self;
     
-    AppViewControllerSegue* appViewControllerSegue =
-    [[AppViewControllerSegue alloc] initWithIdentifier:@"My Body to User Profile"
-                                                source:self
-                                           destination:userProfileViewController];
-    
-    [appViewControllerSegue perform];
-    
+    [UIHelper showViewController:userProfileViewController asModal:NO withTransitionTitle:@"My Body to User Profile"];    
   } else {
     NSString* metricIdentifier = [self metricIdentifierIndexPath:indexPath];
     
@@ -254,13 +248,8 @@
       MeasurableViewController* measurableViewController = [UIHelper measurableViewController];
       measurableViewController.measurable = metric;
       measurableViewController.delegate = self;
-            
-      AppViewControllerSegue* appViewControllerSegue =
-      [[AppViewControllerSegue alloc] initWithIdentifier:@"My Body to Body Metric"
-                                                  source:self
-                                             destination:measurableViewController];
       
-      [appViewControllerSegue perform];
+      [UIHelper showViewController:measurableViewController asModal:NO withTransitionTitle:@"My Body to Body Metric"];
     }
   }
 

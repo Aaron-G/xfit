@@ -171,5 +171,14 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   });
 }
 
++ (void) showViewController:(UIViewController*) viewController asModal:(BOOL)modal withTransitionTitle:(NSString*) transitionTitle {
+  
+  AppViewControllerSegue* appViewControllerSegue =
+  [[AppViewControllerSegue alloc] initWithIdentifier: transitionTitle
+                                              source: [[UIHelper appViewController] navigationController].topViewController
+                                         destination: viewController];
+  appViewControllerSegue.modal = modal;
+  [appViewControllerSegue perform];
 
+}
 @end
