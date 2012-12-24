@@ -12,6 +12,7 @@
 #import "MeasurableDataEntryViewController.h"
 #import "MediaHelper.h"
 #import "MeasurableInfoEditViewController.h"
+#import "MeasurableChartViewController.h"
 
 @interface MeasurableHelper : NSObject
 
@@ -33,5 +34,7 @@
 + (MeasurableInfoEditViewController*) measurableInfoEditViewControllerForMeasurable:(id<Measurable>)measurable;
 
 + (id<MeasurableViewLayoutDelegate>) measurableInfoEditViewLayoutDelegateForMeasurable: (id<Measurable>) measurable;
+
++ (MeasurableChartViewController*) measurableChartViewController;
 
 @end

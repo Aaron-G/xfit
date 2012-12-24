@@ -71,7 +71,6 @@ static App *sharedInstance = nil;
   //For now hard code the start screen at the the home screen
   [[self appViewController] displayScreenForStartUp:AppScreenIdentifierHome];
   
-  
   //CXB_TODO - uncomment this once stable
   //If first time - initialize model
   //if(appRunCount == 0) {
@@ -79,7 +78,10 @@ static App *sharedInstance = nil;
   
     [self initDirectoryStructure];
   //}
-  
+
+  //Ensure the device is firing these events
+  [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+
   _started = YES;
 }
 

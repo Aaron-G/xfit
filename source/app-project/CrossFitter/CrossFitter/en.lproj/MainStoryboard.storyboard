@@ -642,7 +642,7 @@
                 <barButtonItem style="plain" systemItem="flexibleSpace" id="GDO-M4-rjS" userLabel="Bar Button Item - spacer 2"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LpE-IZ-oel" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1998" y="2463"/>
+            <point key="canvasLocation" x="2702" y="2407"/>
         </scene>
         <!--Wall View Controller-->
         <scene sceneID="QPU-kL-KIr">
@@ -1198,14 +1198,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-1240" y="2435"/>
         </scene>
-        <!--Measurable Detail Switch View Controller-->
+        <!--Measurable Screen Collection View Controller-->
         <scene sceneID="Atb-Fp-Gbi">
             <objects>
-                <collectionViewController storyboardIdentifier="MeasurableDetailSwitchViewController" autoresizesArchivedViewToFullSize="NO" id="I72-Dh-cAW" customClass="MeasurableDetailSwitchViewController" sceneMemberID="viewController">
-                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="MpW-5v-Jrx">
+                <collectionViewController storyboardIdentifier="MeasurableScreenCollectionViewController" autoresizesArchivedViewToFullSize="NO" id="I72-Dh-cAW" customClass="MeasurableScreenCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="MpW-5v-Jrx" customClass="MeasurableScreenCollectionView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="392"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="upn-aq-Xue">
                             <size key="itemSize" width="320" height="392"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -1231,7 +1231,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dDi-dS-Pay" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2437" y="2947"/>
+            <point key="canvasLocation" x="3641" y="2451"/>
         </scene>
         <!--Measurable Log View Controller-->
         <scene sceneID="gnT-Fj-gCO">
@@ -1410,7 +1410,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0a0-VG-F2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3607" y="4078"/>
+            <point key="canvasLocation" x="3169" y="3019"/>
         </scene>
         <!--Measurable Data Entry View Controller-->
         <scene sceneID="rKs-gL-FXQ">
@@ -1651,7 +1651,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </label>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="141-oa-zyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3607" y="3510"/>
+            <point key="canvasLocation" x="3169" y="3681"/>
         </scene>
         <!--Measurable Info View Controller-->
         <scene sceneID="b0h-RM-J5G">
@@ -1690,7 +1690,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZL-VS-p8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1905" y="3372"/>
+            <point key="canvasLocation" x="3647" y="3019"/>
         </scene>
         <!--Body Metric Info Edit View Controller-->
         <scene sceneID="NgS-rT-sO7">
@@ -1718,7 +1718,65 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M49-fA-tID" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1905" y="4052"/>
+            <point key="canvasLocation" x="3647" y="3681"/>
+        </scene>
+        <!--Measurable Chart View Controller-->
+        <scene sceneID="FfG-kQ-Tnk">
+            <objects>
+                <viewController storyboardIdentifier="MeasurableChartViewController" modalTransitionStyle="crossDissolve" id="MpV-Sb-Lo4" customClass="MeasurableChartViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3T1-Bu-feu">
+                        <rect key="frame" x="0.0" y="20" width="480" height="300"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="olN-yM-rdX" customClass="CPTGraphHostingView">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="300"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" id="kHl-J0-LCQ">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="OUf-iF-k4L">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="Ogn-Th-k4j">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3XV-Ox-mWO">
+                                                <rect key="frame" x="5" y="5" width="106" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" image="screen-restore.png">
+                                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="hide:" destination="MpV-Sb-Lo4" eventType="touchUpInside" id="XIn-QN-BO2"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="fOb-oq-RTG">
+                                            <connections>
+                                                <action selector="share" destination="MpV-Sb-Lo4" id="oSn-pS-SQl"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="graphView" destination="olN-yM-rdX" id="ReY-kF-eu7"/>
+                        <outlet property="navigationBar" destination="kHl-J0-LCQ" id="buw-Vj-X58"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8QE-XO-2C7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4100" y="3019"/>
         </scene>
         <!--Image Display View Controller-->
         <scene sceneID="iv2-Pb-O7B">
@@ -1751,7 +1809,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="doneBarButtonItem" destination="8yF-Ao-Phu" id="Jt6-Jo-olZ"/>
                         <outlet property="imageView" destination="01f-4V-BUN" id="N70-So-eUe"/>
                         <outlet property="navigationBar" destination="5SH-OL-KY8" id="EeY-YI-1Um"/>
                     </connections>
@@ -1786,6 +1843,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="BodyMetricInfoEditViewController" superclassName="MeasurableInfoEditViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BodyMetricInfoEditViewController.h"/>
         </class>
+        <class className="CPTGraphHostingView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CPTGraphHostingView.h"/>
+        </class>
         <class className="HomeViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
             <relationships>
@@ -1805,7 +1865,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageDisplayViewController.h"/>
             <relationships>
                 <relationship kind="action" name="hide:"/>
-                <relationship kind="outlet" name="doneBarButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
             </relationships>
@@ -1823,6 +1882,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="rateAppLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="twitterLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="versionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MeasurableChartViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableChartViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="hide:"/>
+                <relationship kind="action" name="share"/>
+                <relationship kind="outlet" name="graphView" candidateClass="CPTGraphHostingView"/>
+                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
             </relationships>
         </class>
         <class className="MeasurableDataEntryAddMediaTableViewCell" superclassName="UITableViewCell">
@@ -1898,9 +1966,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="valueTypeTimePickerView" candidateClass="MeasurableTimeValuePickerView"/>
             </relationships>
         </class>
-        <class className="MeasurableDetailSwitchViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableDetailSwitchViewController.h"/>
-        </class>
         <class className="MeasurableFootInchValuePickerView" superclassName="MeasurableValuePickerView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableFootInchValuePickerView.h"/>
         </class>
@@ -1938,6 +2003,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="MeasurablePercentValuePickerView" superclassName="MeasurableNumberWithDecimalValuePickerView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurablePercentValuePickerView.h"/>
+        </class>
+        <class className="MeasurableScreenCollectionView" superclassName="UICollectionView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableScreenCollectionView.h"/>
+        </class>
+        <class className="MeasurableScreenCollectionViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableScreenCollectionViewController.h"/>
         </class>
         <class className="MeasurableTimeValuePickerView" superclassName="MeasurableValuePickerView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableTimeValuePickerView.h"/>

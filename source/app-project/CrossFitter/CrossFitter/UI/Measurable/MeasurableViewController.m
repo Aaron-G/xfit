@@ -7,10 +7,11 @@
 //
 
 #import "MeasurableViewController.h"
-#import "MeasurableDetailSwitchViewController.h"
+#import "MeasurableScreenCollectionViewController.h"
 #import "UIHelper.h"
 #import "MeasurableHelper.h"
 #import "MeasurableLayoutDelegate.h"
+#import "MeasurableChartViewController.h"
 
 @interface MeasurableViewController () {  
 }
@@ -22,7 +23,7 @@
 
 @implementation MeasurableViewController
 
-@synthesize measurableDetailSwitchViewController = _measurableDetailSwitchViewController;
+@synthesize measurableScreenCollectionViewController = _measurableScreenCollectionViewController;
 @synthesize measurableTitleView = _measurableTitleView;
 
 @synthesize layoutDelegate = _layoutDelegate;
@@ -47,14 +48,14 @@
   
   //Do this after the previous call so that the location for the components to be
   //positioned is available to the Log and Info View Constrollers
-  self.measurableDetailSwitchViewController.measurable = self.measurable;
+  self.measurableScreenCollectionViewController.measurable = self.measurable;
 }
 
 - (void)viewDidLoad {
   [super viewDidLoad];
   
   //Pas along the measurable when the view is first loaded
-  self.measurableDetailSwitchViewController.measurable = self.measurable;
+  self.measurableScreenCollectionViewController.measurable = self.measurable;
   
   //Update the title view
   self.navigationItem.titleView = self.measurableTitleView;
@@ -66,6 +67,10 @@
 
   //Add the log button
   [self displayStandardButtons];
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+  return UIInterfaceOrientationPortrait;
 }
 
 - (NSUInteger)supportedInterfaceOrientations {
@@ -82,15 +87,29 @@
   return _measurableTitleView;
 }
 
-- (MeasurableDetailSwitchViewController *)measurableDetailSwitchViewController {
-  if(!_measurableDetailSwitchViewController) {
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+  
+  //We need to propagate this so that the measurable screens can properly prepare and cleanup things when being hidden/shown
+  [self.measurableScreenCollectionViewController.displayedMeasurableScreen viewDidAppear:animated];
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+  [super viewDidDisappear:animated];
+
+  //We need to propagate this so that the measurable screens can properly prepare and cleanup things when being hidden/shown
+  [self.measurableScreenCollectionViewController.displayedMeasurableScreen viewDidDisappear:animated];
+}
+
+- (MeasurableScreenCollectionViewController *)measurableScreenCollectionViewController {
+  if(!_measurableScreenCollectionViewController) {
     for (UIViewController * viewController in self.childViewControllers) {
-      if([viewController isKindOfClass: [MeasurableDetailSwitchViewController class]]) {
-        _measurableDetailSwitchViewController = (MeasurableDetailSwitchViewController*)viewController;
+      if([viewController isKindOfClass: [MeasurableScreenCollectionViewController class]]) {
+        _measurableScreenCollectionViewController = (MeasurableScreenCollectionViewController*)viewController;
       }
     }
   }
-  return _measurableDetailSwitchViewController;
+  return _measurableScreenCollectionViewController;
 }
 
 
@@ -105,37 +124,41 @@
 
 - (IBAction)chartMeasurableAction:(id)sender {
   
+  if(self.barButtonItemChartLog.enabled && !self.editing) {
+    MeasurableChartViewController* measurableChartViewController = [MeasurableHelper measurableChartViewController];
+    [measurableChartViewController displayChartForMeasurable:self.measurable];
+  }
 }
 
 - (void)shareMeasurableInfoAction:(id)sender {
-  [self.measurableDetailSwitchViewController.infoViewController share];
+  [self.measurableScreenCollectionViewController.infoViewController share];
 }
 
 - (void)shareMeasurableLogAction:(id)sender {
-  [self.measurableDetailSwitchViewController.logViewController share];
+  [self.measurableScreenCollectionViewController.logViewController share];
 }
 
 //////////////////////////////////////////////////////////////////
 //CLEAR MEASURABLE
 
 - (IBAction)clearEditMeasurableLogAction:(id)sender {
-  [self.measurableDetailSwitchViewController.logViewController clearLog];
+  [self.measurableScreenCollectionViewController.logViewController clearLog];
 }
 
 //////////////////////////////////////////////////////////////////
 //DONE MEASURABLE
 
 - (IBAction)doneEditMeasurableInfoAction:(id)sender {
-  [self doneEditMeasurableAction:self.measurableDetailSwitchViewController.infoViewController toolbarItems:self.measurableDetailSwitchViewController.infoToolbarItems switchButton:self.buttonSwitchToLog];
+  [self doneEditMeasurableAction:self.measurableScreenCollectionViewController.infoViewController toolbarItems:self.measurableScreenCollectionViewController.infoToolbarItems switchButton:self.buttonSwitchToLog];
 }
 
 - (IBAction)doneEditMeasurableLogAction:(id)sender {
-  [self doneEditMeasurableAction:self.measurableDetailSwitchViewController.logViewController toolbarItems:self.measurableDetailSwitchViewController.logToolbarItems switchButton:self.buttonSwitchToInfo];
+  [self doneEditMeasurableAction:self.measurableScreenCollectionViewController.logViewController toolbarItems:self.measurableScreenCollectionViewController.logToolbarItems switchButton:self.buttonSwitchToInfo];
 }
 
 - (void)doneEditMeasurableAction: (UIViewController*) viewController toolbarItems: (NSArray*) toolbarItems switchButton:(UIButton*) switchButton {
   
-  self.measurableDetailSwitchViewController.collectionView.scrollEnabled = YES;
+  self.measurableScreenCollectionViewController.collectionView.scrollEnabled = YES;
   [self displayStandardButtons];
   [self.toolbar setItems:toolbarItems animated:YES];
   
@@ -144,15 +167,18 @@
   //switchButton.hidden = NO;
 
   [viewController setEditing:NO animated:YES];
+
+  //Track it locally
+  self.editing = NO;
 }
 //////////////////////////////////////////////////////////////////
 //EDIT MEASURABLE
 - (void)editMeasurableInfoAction:(id)sender {
-  [self editMeasurableAction:self.measurableDetailSwitchViewController.infoViewController doneButton: self.barButtonItemDoneInfo switchButton:self.buttonSwitchToLog];
+  [self editMeasurableAction:self.measurableScreenCollectionViewController.infoViewController doneButton: self.barButtonItemDoneInfo switchButton:self.buttonSwitchToLog];
 }
 
 - (void)editMeasurableLogAction:(id)sender {
-  [self editMeasurableAction:self.measurableDetailSwitchViewController.logViewController doneButton: self.barButtonItemDoneLog switchButton:self.buttonSwitchToInfo];
+  [self editMeasurableAction:self.measurableScreenCollectionViewController.logViewController doneButton: self.barButtonItemDoneLog switchButton:self.buttonSwitchToInfo];
   
   if(self.measurable.dataProvider.values.count > 0) {
     self.barButtonItemClearLog.enabled = YES;
@@ -174,13 +200,16 @@
   
   self.measurableDetailPageControl.hidden = YES;
   
-  self.measurableDetailSwitchViewController.collectionView.scrollEnabled = NO;
+  self.measurableScreenCollectionViewController.collectionView.scrollEnabled = NO;
   
   //CXB NOTE
   //Commented out now because not sure we want to have this
   //switchButton.hidden = YES;
   
   [viewController setEditing:YES animated:YES];
+  
+  //Track it locally
+  self.editing = YES;
 }
 
 - (void)displayStandardButtons {
@@ -191,14 +220,14 @@
 }
 
 - (IBAction)displayMeasurableInfo {
-  [self.measurableDetailSwitchViewController displayMeasurableInfo];
+  [self.measurableScreenCollectionViewController displayMeasurableInfo];
 }
 - (IBAction)displayMeasurableLog {
-  [self.measurableDetailSwitchViewController displayMeasurableLog];
+  [self.measurableScreenCollectionViewController displayMeasurableLog];
 }
 
 -(void)didFinishCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable {
-  [self.measurableDetailSwitchViewController.logViewController logMeasurableDataEntry:measurableDataEntry];
+  [self.measurableScreenCollectionViewController.logViewController logMeasurableDataEntry:measurableDataEntry];
 
   //Update the MeasurableViewControllerDelegate
   [self.delegate didChangeMeasurable:self.measurable];
@@ -210,10 +239,10 @@
 - (void)didEditMeasurableInfoForMeasurable:(id<Measurable>)measurable {
 
   //Update the info VC
-  [self.measurableDetailSwitchViewController.infoViewController reloadView];
+  [self.measurableScreenCollectionViewController.infoViewController reloadView];
 
   //Update the log VC
-  [self.measurableDetailSwitchViewController.logViewController reloadView];
+  [self.measurableScreenCollectionViewController.logViewController reloadView];
   
   //Update the MeasurableViewControllerDelegate
   [self.delegate didChangeMeasurable:self.measurable];

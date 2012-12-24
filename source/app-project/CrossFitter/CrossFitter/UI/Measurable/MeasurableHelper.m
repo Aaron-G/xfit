@@ -30,6 +30,8 @@ static NSMutableDictionary* _measurableInfoViewLayoutDelegates;
 static id<MeasurableViewLayoutDelegate> _measurableInfoEditViewLayoutDelegate;
 static id<MeasurableViewLayoutDelegate> _measurableLogViewLayoutDelegate;
 static MeasurableDataEntryViewController* _measurableDataEntryViewController;
+static MeasurableChartViewController* _measurableChartViewController;
+
 
 + (UITableViewCell *)tableViewCellForMeasurable: (id <Measurable>) measurable inTableView: (UITableView *)tableView {
 
@@ -190,6 +192,13 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   }
 
   return measurableInfoEditViewController;
+}
+
++ (MeasurableChartViewController*) measurableChartViewController {
+  if(!_measurableChartViewController) {
+    _measurableChartViewController = (MeasurableChartViewController*)[UIHelper viewControllerWithViewStoryboardIdentifier:@"MeasurableChartViewController"];
+  }
+  return _measurableChartViewController;
 }
 
 @end

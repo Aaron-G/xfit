@@ -31,6 +31,8 @@
 //Index of the row that has the Additional Info
 @property NSInteger indexOfAdditionalInfoRow;
 
+@property BOOL listeningToDeviceOrientation;
+
 @end
 
 @implementation MeasurableLogViewController
@@ -45,8 +47,51 @@
 
     self.indexOfMeasurableDataEntryInAdditionalInfo = -1;
     self.indexOfAdditionalInfoRow = -1;
+    self.listeningToDeviceOrientation = NO;
   }
   return self;
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+  
+  if(!self.listeningToDeviceOrientation) {
+    [self startListeningToDeviceOrientation];
+  }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+  [super viewDidDisappear:animated];
+  
+  if(self.listeningToDeviceOrientation) {
+    [self stopListeningToDeviceOrientation];
+  }
+}
+
+- (void) startListeningToDeviceOrientation {
+    
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(orientationChanged:)
+                                               name:UIDeviceOrientationDidChangeNotification
+                                             object:nil];
+  self.listeningToDeviceOrientation = YES;
+}
+
+- (void) stopListeningToDeviceOrientation {
+
+  [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                  name:UIDeviceOrientationDidChangeNotification
+                                                object:nil];
+  self.listeningToDeviceOrientation = NO;
+}
+
+- (void)orientationChanged:(NSNotification *)notification {
+  
+  UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
+  
+  if (UIDeviceOrientationIsLandscape(deviceOrientation)) {
+    [[UIHelper measurableViewController] chartMeasurableAction:nil];
+  }
 }
 
 #pragma mark - Measurable Layout View Controller

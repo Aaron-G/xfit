@@ -192,6 +192,7 @@
 //Measurable
 "measurable-detail-info-title" = "Info";
 "measurable-detail-log-title" = "Log";
+"measurable-detail-chart-title" = "Chart";
 
 "measurable-clear-log-title" = "Clear Log?";
 "measurable-clear-log-message" = "This will delete all the entries in your log permanently";
@@ -228,3 +229,7 @@
 "seconds-label" = "secs";
 "feet-label" = "feet";
 "inches-label" = "inches";
+
+//////////////////////////////
+//Measurable Chart
+"chart-measurable-date-format" = "MM/dd";
