@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MeasurableDetailSwitchViewController.h"
+#import "MeasurableScreenCollectionViewController.h"
 #import "MeasurableTitleView.h"
 #import "MeasurableDataEntryViewController.h"
 #import "MeasurableInfoEditViewController.h"
 #import "MeasurableViewControllerDelegate.h"
 #import "MeasurableLayoutViewController.h"
 
-@class MeasurableDetailSwitchViewController;
+@class MeasurableScreenCollectionViewController;
 @class MeasurableViewControllerDelegate;
 
 @interface MeasurableViewController : MeasurableLayoutViewController <MeasurableDataEntryDelegate, MeasurableInfoEditViewControllerDelegate>
@@ -45,7 +45,7 @@
 @property IBOutlet UIButton* buttonSwitchToInfo;
 @property IBOutlet UIButton* buttonSwitchToLog;
 
-@property (readonly) MeasurableDetailSwitchViewController* measurableDetailSwitchViewController;
+@property (readonly) MeasurableScreenCollectionViewController* measurableScreenCollectionViewController;
 
 @property IBOutlet UIPageControl* measurableDetailPageControl;
 @property (readonly) MeasurableTitleView* measurableTitleView;

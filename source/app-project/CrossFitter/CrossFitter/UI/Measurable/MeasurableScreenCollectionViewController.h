@@ -1,5 +1,5 @@
 //
-//  MeasurableDetailSwitchViewController.h
+//  MeasurableScreenCollectionViewController.h
 //  CrossFitter
 //
 //  Created by Cleo Barretto on 9/30/12.
@@ -15,7 +15,7 @@
 
 @class MeasurableViewController;
 
-@interface MeasurableDetailSwitchViewController : UICollectionViewController
+@interface MeasurableScreenCollectionViewController : UICollectionViewController
 
 @property id<Measurable> measurable;
 @property MeasurableInfoViewController* infoViewController;
@@ -25,5 +25,6 @@
 
 - (void)displayMeasurableInfo;
 - (void)displayMeasurableLog;
+- (UIViewController*) displayedMeasurableScreen;
 
 @end

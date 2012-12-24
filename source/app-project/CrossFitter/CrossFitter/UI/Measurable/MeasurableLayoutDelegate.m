@@ -48,8 +48,8 @@
       //3- Update the Info and Log VCs so that they know where to layout their view
       CGPoint newStartPosition = CGPointMake(startPosition.x, newYLocation+5);
       
-      measurableViewController.measurableDetailSwitchViewController.infoViewController.layoutPosition = newStartPosition;
-      measurableViewController.measurableDetailSwitchViewController.logViewController.layoutPosition = newStartPosition;
+      measurableViewController.measurableScreenCollectionViewController.infoViewController.layoutPosition = newStartPosition;
+      measurableViewController.measurableScreenCollectionViewController.logViewController.layoutPosition = newStartPosition;
     }
   }
 }

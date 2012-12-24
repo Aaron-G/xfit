@@ -1,15 +1,15 @@
 //
-//  MeasurableDetailSwitchViewController.m
+//  MeasurableScreenCollectionViewController.m
 //  CrossFitter
 //
 //  Created by Cleo Barretto on 9/30/12.
 //
 //
 
-#import "MeasurableDetailSwitchViewController.h"
+#import "MeasurableScreenCollectionViewController.h"
 #import "UIHelper.h"
 
-@interface MeasurableDetailSwitchViewController () {
+@interface MeasurableScreenCollectionViewController () {
   
 }
 
@@ -18,13 +18,25 @@
 
 @end
 
-@implementation MeasurableDetailSwitchViewController
+@implementation MeasurableScreenCollectionViewController
+
+const NSInteger MEASURABLE_LOG_SCREEN_INDEX = 0;
+const NSInteger MEASURABLE_INFO_SCREEN_INDEX = 1;
 
 @synthesize measurable = _measurable;
 @synthesize logToolbarItems = _logToolbarItems;
 @synthesize infoToolbarItems = _infoToolbarItems;
 @synthesize currentViewControllerIndex = _currentViewControllerIndex;
 
+- (UIViewController *)displayedMeasurableScreen {
+  
+  if(self.currentViewControllerIndex == MEASURABLE_LOG_SCREEN_INDEX) {
+    return self.logViewController;
+  } else if(self.currentViewControllerIndex == MEASURABLE_INFO_SCREEN_INDEX) {
+    return self.infoViewController;
+  }
+  return nil;
+}
 - (MeasurableViewController *)measurableViewController {
   return [UIHelper measurableViewController];
 }
@@ -57,25 +69,16 @@
   if(self) {
     self.infoViewController = (MeasurableInfoViewController*)[UIHelper viewControllerWithViewStoryboardIdentifier:@"MeasurableInfoViewController"];
     self.logViewController = (MeasurableLogViewController*)[UIHelper viewControllerWithViewStoryboardIdentifier:@"MeasurableLogViewController"];
-    self.currentViewControllerIndex = 0;    
+    self.currentViewControllerIndex = MEASURABLE_LOG_SCREEN_INDEX;    
   }
   return self;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-
-  //////////////////////////////////////////////////////////////////////////////
-  //IMPL NOTE
-  //For some reason hard coding the height here ensures the info and log
-  //screens are appropriately fitted on the window when we run the app
-  //in the various device configurations.
-  self.collectionView.frame = CGRectMake(self.collectionView.frame.origin.x, self.collectionView.frame.origin.y, self.collectionView.frame.size.width, 392) ;
-  //////////////////////////////////////////////////////////////////////////////
   
   [self updateUIControlsToIndex:self.currentViewControllerIndex];
   
   [super viewWillAppear:animated];
-  
 }
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section
 {
@@ -99,9 +102,9 @@
   
   //Add appropriate sub view
   UIView* view = nil;
-  if(indexPath.item == 0) {
+  if(indexPath.item == MEASURABLE_LOG_SCREEN_INDEX) {
     view = self.logViewController.view;
-  } else if(indexPath.item == 1) {
+  } else if(indexPath.item == MEASURABLE_INFO_SCREEN_INDEX) {
     view = self.infoViewController.view;
   }
   
@@ -114,11 +117,24 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
   
-  NSInteger viewIndex = (scrollView.contentOffset.x < scrollView.bounds.size.width/2) ? 0 : 1;
+  NSInteger viewIndex = (scrollView.contentOffset.x < scrollView.bounds.size.width/2) ? MEASURABLE_LOG_SCREEN_INDEX : MEASURABLE_INFO_SCREEN_INDEX;
   
   if(viewIndex != _currentViewControllerIndex) {
-    //Update the UI controls 
+
+    //Update the UI controls
     [self updateUIControlsToIndex:viewIndex];
+
+    //Give the detail screen a chance to prepare to show/hide
+    //
+    //IMPL NOTE
+    //Right now only the log screen needs this "heads up"
+    //
+    if(viewIndex == MEASURABLE_LOG_SCREEN_INDEX) {
+      [self.logViewController viewDidAppear:NO];
+    } else if (viewIndex == MEASURABLE_INFO_SCREEN_INDEX) {
+      [self.logViewController viewDidDisappear:NO];
+    }
+    
   }
 }
 
@@ -126,7 +142,7 @@
 - (void) updateUIControlsToIndex:(NSInteger)viewIndex {
   
   //If we are editing, do not mess with the UI controls
-  if((viewIndex == 0 && self.logViewController.editing) || (viewIndex == 1 && self.infoViewController.editing)) {
+  if((viewIndex == MEASURABLE_LOG_SCREEN_INDEX && self.logViewController.editing) || (viewIndex == MEASURABLE_INFO_SCREEN_INDEX && self.infoViewController.editing)) {
     return;
   }
     
@@ -137,9 +153,9 @@
   NSArray* toolbarItems = nil;
   
   //Update the toolbar buttons
-  if(viewIndex == 0) {
+  if(viewIndex == MEASURABLE_LOG_SCREEN_INDEX) {
     toolbarItems = [self logToolbarItems];
-  } else if(viewIndex == 1) {
+  } else if(viewIndex == MEASURABLE_INFO_SCREEN_INDEX) {
     toolbarItems = [self infoToolbarItems];
   }
   
@@ -204,11 +220,11 @@
 }
 
 - (void)displayMeasurableLog {
-  [self scrollToViewControllerAtIndex:0 animated:YES];
+  [self scrollToViewControllerAtIndex:MEASURABLE_LOG_SCREEN_INDEX animated:YES];
 }
 
 - (void)displayMeasurableInfo {
-  [self scrollToViewControllerAtIndex:1 animated:YES];
+  [self scrollToViewControllerAtIndex:MEASURABLE_INFO_SCREEN_INDEX animated:YES];
 }
 
 
