@@ -8,8 +8,11 @@
 
 #import "ImageDisplayViewController.h"
 #import "UIHelper.h"
+#import "NavigationBarAutoHideSupport.h"
 
 @interface ImageDisplayViewController ()
+
+@property NavigationBarAutoHideSupport* navigationBarAutoHideSupport;
 
 @end
 
@@ -20,19 +23,14 @@
   [super viewDidLoad];
   
   self.imageView.image = self.image;
-
-  UITapGestureRecognizer* showNavigationBarGestureRecognizer =
-    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showNavigationBar)];
-  showNavigationBarGestureRecognizer.numberOfTapsRequired = 1;
-  showNavigationBarGestureRecognizer.numberOfTouchesRequired = 1;
-  showNavigationBarGestureRecognizer.cancelsTouchesInView = NO;
- 
-  [self.imageView addGestureRecognizer:showNavigationBarGestureRecognizer];
   
+  //Install the auto hide navigation support
+  self.navigationBarAutoHideSupport = [[NavigationBarAutoHideSupport alloc] init];
+  [self.navigationBarAutoHideSupport installSupportOnViewController:self withNavigationBar:self.navigationBar];
 }
+
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
-  [self showNavigationBar:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -40,38 +38,6 @@
 }
 - (NSUInteger)supportedInterfaceOrientations {
   return [UIHelper supportedInterfaceOrientationsWithLandscape];
-}
-
-- (void) updateToolbarVisibility:(BOOL) visible when:(CGFloat) when {
-  
-  UIViewAnimationOptions animationOptions = (visible) ? UIViewAnimationOptionCurveEaseIn : UIViewAnimationOptionCurveEaseOut;
-
-  [UIView animateWithDuration: 0.3
-                        delay: when
-                      options: animationOptions
-                   animations:^{
-                     self.navigationBar.alpha = (visible) ? 1 : 0;
-                   }
-                   completion: ^(BOOL finished){
-                     
-                     //If displaying the toobar, hide it after a bit
-                     if(visible) {
-                       
-                       int64_t delayInSeconds = 2.0;
-                       dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-                       dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                         [self updateToolbarVisibility:NO when:0];
-                       });
-                     }
-                   }];
-}
-
-- (void) showNavigationBar:(BOOL) show {
-  self.navigationBar.alpha = (show) ? 1 : 0;
-}
-
-- (void) showNavigationBar {
-  [self updateToolbarVisibility:YES when:0];
 }
 
 - (IBAction) hide:(id)sender {

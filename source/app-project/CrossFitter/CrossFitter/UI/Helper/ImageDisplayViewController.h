@@ -11,7 +11,6 @@
 @interface ImageDisplayViewController : UIViewController <UIGestureRecognizerDelegate>
 
 @property IBOutlet UINavigationBar* navigationBar;
-@property IBOutlet UIBarButtonItem* doneBarButtonItem;
 @property IBOutlet UIImageView* imageView;
 @property UIImage* image;
 
