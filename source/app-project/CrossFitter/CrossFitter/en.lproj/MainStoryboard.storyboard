@@ -663,7 +663,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem systemItem="action" id="GnR-7P-t93" userLabel="Share">
+                        <barButtonItem style="plain" systemItem="action" id="GnR-7P-t93" userLabel="Share">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="shareAction" destination="VHk-OH-rro" id="bfZ-k3-PW5"/>
@@ -679,7 +679,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mEF-XE-uOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OuU-Pb-Qjw" userLabel="Screen Restore">
-                    <rect key="frame" x="0.0" y="0.0" width="73" height="44"/>
+                    <rect key="frame" x="0.0" y="13" width="31" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" image="screen-restore.png">
@@ -694,7 +694,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="30z-d8-P77" userLabel="Screen Full">
-                    <rect key="frame" x="0.0" y="0.0" width="73" height="44"/>
+                    <rect key="frame" x="0.0" y="13" width="31" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" image="screen-full.png">
@@ -1739,9 +1739,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem id="OUf-iF-k4L">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="Ogn-Th-k4j">
+                                        <barButtonItem key="leftBarButtonItem" width="31" style="done" id="Ogn-Th-k4j">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3XV-Ox-mWO">
-                                                <rect key="frame" x="5" y="5" width="106" height="33"/>
+                                                <rect key="frame" x="5" y="6" width="31" height="31"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" image="screen-restore.png">
@@ -1756,7 +1756,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 </connections>
                                             </button>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="fOb-oq-RTG">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="fOb-oq-RTG">
                                             <connections>
                                                 <action selector="share" destination="MpV-Sb-Lo4" id="oSn-pS-SQl"/>
                                             </connections>
@@ -1822,8 +1822,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="home-background.png" width="639" height="960"/>
         <image name="menu-disclosure-arrow.png" width="40" height="40"/>
         <image name="menu-disclosure-bar.png" width="640" height="98"/>
-        <image name="screen-full.png" width="31" height="30"/>
-        <image name="screen-restore.png" width="31" height="30"/>
+        <image name="screen-full.png" width="31" height="31"/>
+        <image name="screen-restore.png" width="31" height="31"/>
         <image name="settings.png" width="30" height="30"/>
     </resources>
     <classes>
