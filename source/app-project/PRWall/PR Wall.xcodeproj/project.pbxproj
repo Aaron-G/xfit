@@ -243,7 +243,7 @@
 		741BBC6515B7C2E300660BE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		741BBC6F15B7C2E300660BE6 /* PR Wall Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PR Wall Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		741BBC7015B7C2E300660BE6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		741BBC7815B7C2E300660BE6 /* PR WallTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "PR WallTests-Info.plist"; path = "PRWallTests/PR WallTests-Info.plist"; sourceTree = "<group>"; };
+		741BBC7815B7C2E300660BE6 /* PR WallTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PR WallTests-Info.plist"; sourceTree = "<group>"; };
 		741BBC7A15B7C2E300660BE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		741BBC8915B7C67E00660BE6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		74220BA91610B00500E58D1C /* FootFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FootFormatter.h; path = UI/Helper/Formatter/Unit/FootFormatter.h; sourceTree = "<group>"; };
@@ -563,8 +563,8 @@
 		74E2422B16231C25004C76A4 /* MeasurableDataEntryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableDataEntryTableViewCell.m; path = UI/Measurable/Log/MeasurableDataEntryTableViewCell.m; sourceTree = "<group>"; };
 		74E9D5EE15BB74AF00B005B3 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = UI/Menu/MenuViewController.h; sourceTree = "<group>"; };
 		74E9D5EF15BB74AF00B005B3 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = UI/Menu/MenuViewController.m; sourceTree = "<group>"; };
-		74ECC0FB1688525500715D7B /* PRWallTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRWallTests.h; path = PRWallTests/PRWallTests.h; sourceTree = "<group>"; };
-		74ECC0FC1688525500715D7B /* PRWallTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRWallTests.m; path = PRWallTests/PRWallTests.m; sourceTree = "<group>"; };
+		74ECC0FB1688525500715D7B /* PRWallTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRWallTests.h; sourceTree = "<group>"; };
+		74ECC0FC1688525500715D7B /* PRWallTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRWallTests.m; sourceTree = "<group>"; };
 		74EF1E7215D1C58600F96131 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		74EF1E7915D1E6C400F96131 /* PRWallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRWallViewController.h; path = UI/PRWall/PRWallViewController.h; sourceTree = "<group>"; };
 		74EF1E7A15D1E6C400F96131 /* PRWallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PRWallViewController.m; path = UI/PRWall/PRWallViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -1817,7 +1817,6 @@
 				741BBC7A15B7C2E300660BE6 /* en */,
 			);
 			name = InfoPlist.strings;
-			path = PRWallTests;
 			sourceTree = "<group>";
 		};
 		74EF1E7115D1C58600F96131 /* Localizable.strings */ = {
@@ -1921,7 +1920,7 @@
 		741BBC8515B7C2E300660BE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PRWall.app/PRWall";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PR Wall.app/PR Wall";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -1938,7 +1937,7 @@
 		741BBC8615B7C2E300660BE6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PRWall.app/PRWall";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PR Wall.app/PR Wall";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
