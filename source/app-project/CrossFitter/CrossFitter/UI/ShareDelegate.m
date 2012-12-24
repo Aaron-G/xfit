@@ -22,7 +22,7 @@
   if(self) {
     
     //Initialize
-    _appViewController = [UIHelper appViewController];
+    self.viewController = [UIHelper appViewController];
 
   }
   
@@ -40,7 +40,7 @@
 
 - (void)showActionSheetWithTitlePart:(NSString*) titlePart {
   UIActionSheet *actionSheet = [self actionSheetWithTitlePart:titlePart];
-  [actionSheet showInView:self.appViewController.view];
+  [actionSheet showInView:self.viewController.view];
 }
 
 - (void)showActionSheetWithTitlePart:(NSString*) titlePart fromToolBar: (UIToolbar*) toolbar {
@@ -109,7 +109,7 @@
     controller.body = bodyOfMessage;
     controller.recipients = nil;
     controller.messageComposeDelegate = self;
-    [self.appViewController presentViewController:controller animated:YES completion:nil];
+    [self.viewController presentViewController:controller animated:YES completion:nil];
   } else {
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"cannot-share-title", @"Cannot Share")
@@ -127,7 +127,7 @@
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
   
-  [self.appViewController dismissViewControllerAnimated:YES completion:nil];
+  [self.viewController dismissViewControllerAnimated:YES completion:nil];
   
   //CXB REVIEW_AND_IMPL
   if (result == MessageComposeResultCancelled) {
@@ -159,8 +159,11 @@
 
     [emailInfo setValue:[NSArray arrayWithObject:attachment] forKey:MailerHelperEmailAttachmentstKey];
   }
-  
-  [[MailHelper sharedInstance ] displayEmailComposerWithEmailInfo:emailInfo];
+  if(self.modalScreenDisplayed) {
+    [[MailHelper sharedInstance ] displayEmailComposerWithEmailInfo:emailInfo inViewController:self.viewController];
+  } else {
+    [[MailHelper sharedInstance ] displayEmailComposerWithEmailInfo:emailInfo];
+  }
 }
 
 
@@ -180,7 +183,7 @@
   }
   
   // Remove the mail view
-  [self.appViewController dismissViewControllerAnimated:YES completion:nil];
+  [self.viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 //Subclass method - no operation implementation
@@ -239,7 +242,7 @@
     [slComposerSheet addImage:image];
     [slComposerSheet addURL:url];
     
-    [self.appViewController presentViewController:slComposerSheet animated:YES completion:nil];
+    [self.viewController presentViewController:slComposerSheet animated:YES completion:nil];
   } else {
     [UIHelper showMessage: [NSString stringWithFormat:NSLocalizedString(@"share-service-not-available-message-format", @""), serviceName] withTitle:NSLocalizedString(@"cannot-share-title", @"Cannot Share")];
   }

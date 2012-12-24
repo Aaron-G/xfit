@@ -14,7 +14,9 @@
 
 @interface ShareDelegate : NSObject <UIActionSheetDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate>
 
-@property (readonly) AppViewController * appViewController;
+@property UIViewController * viewController;
+
+@property BOOL modalScreenDisplayed;
 
 //ActionSheet
 - (void)showActionSheetWithTitlePart:(NSString*) titlePart;

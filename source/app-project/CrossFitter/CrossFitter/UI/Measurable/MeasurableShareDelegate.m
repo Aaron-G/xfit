@@ -14,6 +14,7 @@
   self = [super init];
   
   if(self) {
+    self.viewController = viewController;
     self.measurableProvider = measurableProvider;
   }
   return self;
