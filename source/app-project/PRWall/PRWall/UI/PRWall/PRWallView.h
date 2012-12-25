@@ -22,7 +22,7 @@
  It will need to recompute itself during:
  - Orientation change
  - Content is added or removed from it (PRWall setting is
- changed for a given workout/move)
+ changed for a given workout/exercise)
  
  It may contain 1 sub view that contains the text. This subview can provide easy access to the hight requirements that the main view can use to compute itself.
  */

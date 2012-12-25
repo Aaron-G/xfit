@@ -30,7 +30,7 @@
 - (void) displayPRWallScreen;
 - (void) displayWODScreen;
 - (void) displayWorkoutScreen;
-- (void) displayMoveScreen;
+- (void) displayExerciseScreen;
 - (void) displayMyBodyScreen;
 - (void) displayInfoScreen;
 

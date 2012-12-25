@@ -10,7 +10,7 @@
 
 typedef enum {
   MediaHelperPurposeBodyMetric,
-  MediaHelperPurposeMove,
+  MediaHelperPurposeExercise,
   MediaHelperPurposeUserProfile,
   MediaHelperPurposeWorkout,
   MediaHelperPurposeWOD

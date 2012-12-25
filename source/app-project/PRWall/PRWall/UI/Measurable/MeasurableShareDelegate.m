@@ -45,12 +45,12 @@
 }
 
 - (NSData *)emailAttachmentData {
-  UIImage *myImage = [UIImage imageNamed:@"move.png"];
+  UIImage *myImage = [UIImage imageNamed:@"exercise.png"];
   return UIImagePNGRepresentation(myImage);
 }
 
 - (NSString *)emailAttachmentFileName {
-  return @"move";
+  return @"exercise";
 }
 
 @end

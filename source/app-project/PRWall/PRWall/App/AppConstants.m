@@ -25,12 +25,12 @@ const NSString* UserVideosThumbnailImageNameSuffix = @"-thumbnail.png";
 const NSString* UserProfileImageName = @"user-profile-image";
 const NSString* UserProfileDefaultImageName = @"default-user-profile-image.png";
 
-const NSString* MoveImageNamePreffix = @"move-image-";
+const NSString* ExerciseImageNamePreffix = @"exercise-image-";
 const NSString* WorkoutImageNamePreffix = @"workout-image-";
 const NSString* WODImageNamePreffix = @"wod-image-";
 const NSString* BodyMetricImageNamePreffix = @"bodymetric-image-";
 
-const NSString* MoveVideoNamePreffix = @"move-video-";
+const NSString* ExerciseVideoNamePreffix = @"exercise-video-";
 const NSString* WorkoutVideoNamePreffix = @"workout-video-";
 const NSString* WODVideoNamePreffix = @"wod-video-";
 const NSString* BodyMetricVideoNamePreffix = @"bodymetric-video-";

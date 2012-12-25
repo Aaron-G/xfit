@@ -26,7 +26,7 @@
   } else if(screenIndex == 3) {
     return AppScreenIdentifierWorkout;
   } else if(screenIndex == 4) {
-    return AppScreenIdentifierMove;
+    return AppScreenIdentifierExercise;
   } else if(screenIndex == 5) {
     return AppScreenIdentifierMyBody;
   } else if(screenIndex == 6) {
@@ -46,8 +46,8 @@
     return @"WOD";
   } else if(appScreen == AppScreenIdentifierWorkout) {
     return @"Workout";
-  } else if(appScreen == AppScreenIdentifierMove) {
-    return @"Move";
+  } else if(appScreen == AppScreenIdentifierExercise) {
+    return @"Exercise";
   } else if(appScreen == AppScreenIdentifierMyBody) {
     return @"MyBody";
   } else if(appScreen == AppScreenIdentifierInfo) {

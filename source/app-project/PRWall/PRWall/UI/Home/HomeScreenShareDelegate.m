@@ -37,7 +37,7 @@
 }
 
 - (NSString *)emailAttachmentFileName {
-  return @"move";
+  return @"exercise";
 }
 
 - (UIImage *)twitterImage {

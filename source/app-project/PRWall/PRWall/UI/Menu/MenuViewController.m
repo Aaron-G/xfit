@@ -19,7 +19,7 @@
 @property NSString *prwallImageName;
 @property NSString *wodImageName;
 @property NSString *workoutImageName;
-@property NSString *moveImageName;
+@property NSString *exerciseImageName;
 @property NSString *mybodyImageName;
 @property NSString *infoImageName;
 
@@ -36,7 +36,7 @@
     self.prwallImageName = @"prwall-screen-app-menu.png";
     self.wodImageName = @"wod-screen-app-menu.png";
     self.workoutImageName = @"workout-screen-app-menu.png";
-    self.moveImageName = @"move-screen-app-menu.png";
+    self.exerciseImageName = @"exercise-screen-app-menu.png";
     self.mybodyImageName = @"mybody-screen-app-menu.png";
     self.infoImageName = @"info-screen-app-menu.png";
   }
@@ -81,9 +81,9 @@
   } else if(screenIdentifier == AppScreenIdentifierWorkout) {
     imageName = self.workoutImageName;
     action = @selector(displayWorkout);
-  } else if(screenIdentifier == AppScreenIdentifierMove) {
-    imageName = self.moveImageName;
-    action = @selector(displayMove);
+  } else if(screenIdentifier == AppScreenIdentifierExercise) {
+    imageName = self.exerciseImageName;
+    action = @selector(displayExercise);
   } else if(screenIdentifier == AppScreenIdentifierMyBody) {
     imageName = self.mybodyImageName;
     action = @selector(displayMyBody);
@@ -127,8 +127,8 @@
   [self displayAppScreen: AppScreenIdentifierWOD];
 }
 
-- (void) displayMove {
-  [self displayAppScreen: AppScreenIdentifierMove];
+- (void) displayExercise {
+  [self displayAppScreen: AppScreenIdentifierExercise];
 }
 
 - (void) displayInfo {

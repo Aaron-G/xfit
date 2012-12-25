@@ -27,12 +27,12 @@ extern NSString* UserVideosThumbnailImageNameSuffix;
 extern NSString* UserProfileImageName;
 extern NSString* UserProfileDefaultImageName;
 
-extern NSString* MoveImageNamePreffix;
+extern NSString* ExerciseImageNamePreffix;
 extern NSString* WorkoutImageNamePreffix;
 extern NSString* WODImageNamePreffix;
 extern NSString* BodyMetricImageNamePreffix;
 
-extern NSString* MoveVideoNamePreffix;
+extern NSString* ExerciseVideoNamePreffix;
 extern NSString* WorkoutVideoNamePreffix;
 extern NSString* WODVideoNamePreffix;
 extern NSString* BodyMetricVideoNamePreffix;

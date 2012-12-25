@@ -10,7 +10,7 @@
 
 typedef enum {
   MeasurableTypeIdentifierBodyMetric,
-  MeasurableTypeIdentifierMove,
+  MeasurableTypeIdentifierExercise,
   MeasurableTypeIdentifierWorkout,
   MeasurableTypeIdentifierWOD
 } MeasurableTypeIdentifier;

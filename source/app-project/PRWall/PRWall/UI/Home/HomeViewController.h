@@ -16,13 +16,13 @@
 @property IBOutlet UIButton* prWallButton;
 @property IBOutlet UIButton* wodButton;
 @property IBOutlet UIButton* myBodyButton;
-@property IBOutlet UIButton* moveButton;
+@property IBOutlet UIButton* exerciseButton;
 @property IBOutlet UIButton* workoutButton;
 
 - (IBAction) displayPRWall;
 - (IBAction) displayMyBody;
 - (IBAction) displayWorkout;
 - (IBAction) displayWOD;
-- (IBAction) displayMove;
+- (IBAction) displayExercise;
 
 @end

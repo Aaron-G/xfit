@@ -42,7 +42,7 @@
   [self.wodButton setImage: [UIImage imageNamed:@"wod-screen-button"] forState:UIControlStateNormal];
   [self.workoutButton setImage: [UIImage imageNamed:@"workout-screen-button"] forState:UIControlStateNormal];
   [self.myBodyButton setImage: [UIImage imageNamed:@"mybody-screen-button"] forState:UIControlStateNormal];
-  [self.moveButton setImage: [UIImage imageNamed:@"move-screen-button"] forState:UIControlStateNormal];
+  [self.exerciseButton setImage: [UIImage imageNamed:@"exercise-screen-button"] forState:UIControlStateNormal];
   
   [self.appScreenSwitchDelegate initialize];
 }
@@ -69,8 +69,8 @@
   [self.appViewController displayWODScreen];
 }
 
-- (IBAction) displayMove {
-  [self.appViewController displayMoveScreen];
+- (IBAction) displayExercise {
+  [self.appViewController displayExerciseScreen];
 }
 
 - (void)shareAppAction {

@@ -12,7 +12,7 @@
 #import "PRWallViewController.h"
 #import "WODViewController.h"
 #import "WorkoutViewController.h"
-#import "MoveViewController.h"
+#import "ExerciseViewController.h"
 #import "MyBodyViewController.h"
 #import "InfoViewController.h"
 #import "AppConstants.h"
@@ -215,8 +215,8 @@ typedef enum {
   [self displayScreen:AppScreenIdentifierWOD];
 }
 
-- (void) displayMoveScreen {
-  [self displayScreen:AppScreenIdentifierMove];
+- (void) displayExerciseScreen {
+  [self displayScreen:AppScreenIdentifierExercise];
 }
 
 - (void) displayHomeScreen {
@@ -337,8 +337,8 @@ typedef enum {
       viewControllerId = @"WODViewController";
     } else if(AppScreenIdentifierWorkout == screenIdentifier) {
       viewControllerId = @"WorkoutViewController";
-    } else if(AppScreenIdentifierMove == screenIdentifier) {
-      viewControllerId = @"MoveViewController";
+    } else if(AppScreenIdentifierExercise == screenIdentifier) {
+      viewControllerId = @"ExerciseViewController";
     } else if(AppScreenIdentifierMyBody == screenIdentifier) {
       viewControllerId = @"MyBodyViewController";
     } else if(AppScreenIdentifierInfo == screenIdentifier) {

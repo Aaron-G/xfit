@@ -30,8 +30,8 @@ static NSMutableDictionary* _measurableTypes;
     
     if(identifier == MeasurableTypeIdentifierBodyMetric) {
       displayName = NSLocalizedString(@"body-metric-display-name", @"Body Metric");
-    } else if(identifier == MeasurableTypeIdentifierMove) {
-      displayName = NSLocalizedString(@"move-display-name", @"Move");
+    } else if(identifier == MeasurableTypeIdentifierExercise) {
+      displayName = NSLocalizedString(@"exercise-display-name", @"Exercise");
     } else if(identifier == MeasurableTypeIdentifierWOD) {
       displayName = NSLocalizedString(@"wod-display-name", @"WOD");
     } else if(identifier == MeasurableTypeIdentifierWorkout) {

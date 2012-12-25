@@ -12,7 +12,7 @@
 typedef enum {
   AppScreenIdentifierInfo,
   AppScreenIdentifierHome,
-  AppScreenIdentifierMove,
+  AppScreenIdentifierExercise,
   AppScreenIdentifierMyBody,
   AppScreenIdentifierPRWall,
   AppScreenIdentifierWorkout,

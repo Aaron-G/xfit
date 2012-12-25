@@ -157,8 +157,8 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   
   if(MeasurableTypeIdentifierBodyMetric == typeIdentifier) {
     return MediaHelperPurposeBodyMetric;
-  } else if(MeasurableTypeIdentifierMove == typeIdentifier) {
-    return MediaHelperPurposeMove;
+  } else if(MeasurableTypeIdentifierExercise == typeIdentifier) {
+    return MediaHelperPurposeExercise;
   } else if(MeasurableTypeIdentifierWorkout == typeIdentifier) {
     return MediaHelperPurposeWorkout;
   } else if(MeasurableTypeIdentifierWOD == typeIdentifier) {
@@ -176,7 +176,7 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   
   if(MeasurableTypeIdentifierBodyMetric == typeIdentifier) {
     viewControllerName = @"BodyMetricInfoEditViewController";    
-  } else if(MeasurableTypeIdentifierMove == typeIdentifier) {
+  } else if(MeasurableTypeIdentifierExercise == typeIdentifier) {
     
   } else if(MeasurableTypeIdentifierWorkout == typeIdentifier) {
     

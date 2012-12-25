@@ -19,7 +19,7 @@
 //Share App
 "share-app" = "App";
 "share-app-email-subject" = "Sweet CrossFit App: PR Wall";
-"share-app-email-text" = "Checkout this sweet CrossFit app: <br>\n<a href=\"https://itunes.apple.com/us/app/pr-wall/id589708320?ls=1&mt=8\">PR Wall App</a><p>\n\nIt has a PR Wall, WODs, Workouts and Moves. Plus you can track your body progress on it.<p>\n\nIt is pretty simple to use too and it has charts for all these things.";
+"share-app-email-text" = "Checkout this sweet CrossFit app: <br>\n<a href=\"https://itunes.apple.com/us/app/pr-wall/id589708320?ls=1&mt=8\">PR Wall App</a><p>\n\nIt has a PR Wall, WODs, Workouts and Exercises. Plus you can track your body progress on it.<p>\n\nIt is pretty simple to use too and it has charts for all these things.";
 
 //Share
 "share-title" = "Share %@";
@@ -37,7 +37,7 @@
 //////////////////////////////
 //Core
 "body-metric-display-name" = "Body Metric";
-"move-display-name" = "Move";
+"exercise-display-name" = "Exercise";
 "wod-display-name" = "WOD";
 "workout-display-name" = "Workout";
 
@@ -46,10 +46,10 @@
 "home-screen-title" = "PR Wall";
 
 "share-app-email-subject" = "CrossFit App: PR Wall";
-"share-app-email-text" = "Checkout this sweet CrossFit app: <br>\n<a href=\"https://itunes.apple.com/us/app/pr-wall/id589708320?ls=1&mt=8\">PR Wall App</a><p>\n\nIt has a PR Wall, WODs, Workouts and Moves. Plus you can track your body progress on it.<p>\n\nIt is pretty simple to use too and it has charts for all these things.";
+"share-app-email-text" = "Checkout this sweet CrossFit app: <br>\n<a href=\"https://itunes.apple.com/us/app/pr-wall/id589708320?ls=1&mt=8\">PR Wall App</a><p>\n\nIt has a PR Wall, WODs, Workouts and Exercises. Plus you can track your body progress on it.<p>\n\nIt is pretty simple to use too and it has charts for all these things.";
 "share-app-text-message-text" = "Check out this CrossFit app: PR Wall https://itunes.apple.com/us/app/pr-wall/id589708320?ls=1&mt=8";
-"share-app-facebook-text" = "Checkout this sweet CrossFit app. It has a PR Wall, WODs, Workouts and Moves. Plus you can track your body progress on it.\n\nIt is pretty simple to use too and it has charts for all these things.";
-"share-app-twitter-text" = "Sweet CrossFit app with PR Wall, WODs, Workouts, Moves, charts...";
+"share-app-facebook-text" = "Checkout this sweet CrossFit app. It has a PR Wall, WODs, Workouts and Exercises. Plus you can track your body progress on it.\n\nIt is pretty simple to use too and it has charts for all these things.";
+"share-app-twitter-text" = "Sweet CrossFit app with PR Wall, WODs, Workouts, Exercises, charts...";
 
 //////////////////////////////
 //PR Wall Screen
@@ -69,8 +69,8 @@
 "workout-screen-title" = "Workouts";
 
 //////////////////////////////
-//Move Screen
-"move-screen-title" = "Moves";
+//Exercise Screen
+"exercise-screen-title" = "Exercises";
 
 //////////////////////////////
 //My Body Screen

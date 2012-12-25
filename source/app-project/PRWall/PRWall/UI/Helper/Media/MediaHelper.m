@@ -17,12 +17,12 @@
 @end
 
 NSString* BodyMetricImageCountKey = @"bodyMetricImageCount";
-NSString* MoveImageCountKey = @"moveImageCount";
+NSString* ExerciseImageCountKey = @"exerciseImageCount";
 NSString* WorkoutImageCountKey = @"workoutImageCount";
 NSString* WODImageCountKey = @"wodImageCount";
 
 NSString* BodyMetricVideoCountKey = @"bodyMetricVideoCount";
-NSString* MoveVideoCountKey = @"moveVideoCount";
+NSString* ExerciseVideoCountKey = @"exerciseVideoCount";
 NSString* WorkoutVideoCountKey = @"workoutVideoCount";
 NSString* WODVideoCountKey = @"wodVideoCount";
 
@@ -55,16 +55,16 @@ typedef enum {
       mediaName = UserProfileImageName;
     }
     
-  } else if (MediaHelperPurposeMove == purpose) {
+  } else if (MediaHelperPurposeExercise == purpose) {
     
     if(MediaHelperMediaTypeImage == mediaType) {
       directoryPath = UserImagesContentDirectory;
-      mediaName = MoveImageNamePreffix;
-      mediaCountKey = MoveImageCountKey;
+      mediaName = ExerciseImageNamePreffix;
+      mediaCountKey = ExerciseImageCountKey;
     } else if (MediaHelperMediaTypeVideo == mediaType) {
       directoryPath = UserVideosContentDirectory;
-      mediaName = MoveVideoNamePreffix;
-      mediaCountKey = MoveVideoCountKey;
+      mediaName = ExerciseVideoNamePreffix;
+      mediaCountKey = ExerciseVideoCountKey;
     }
     
   } else if (MediaHelperPurposeWOD == purpose) {
