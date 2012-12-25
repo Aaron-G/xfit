@@ -6,9 +6,17 @@
 //
 //
 
-#import "ExerciseMetadataProvider.h"
+#import "MeasurableMetadataProvider.h"
 
-@interface WorkoutMetadataProvider : ExerciseMetadataProvider
+@interface WorkoutMetadataProvider : MeasurableMetadataProvider
+
+/////////////////////////////////
+//CXB - REVIEW - SAME AS EXERCISE, TRY TO REUSE
+/////////////////////////////////
+@property BOOL favorite;
+@property NSArray* tags;
+@property BOOL prwall;
+/////////////////////////////////
 
 @property BOOL team;
 

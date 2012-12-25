@@ -9,8 +9,19 @@
 #import "ModelFactory.h"
 #import "BodyMetric.h"
 #import "AppConstants.h"
+#import "Exercise.h"
+
+
+@interface ModelFactory () {
+}
+
+@end
 
 @implementation ModelFactory
+
+//////////////////////////////////////////////////////////////////////////
+//USER PROFILE
+//////////////////////////////////////////////////////////////////////////
 
 + (UserProfile*) createDefaultUserProfile {
   
@@ -28,6 +39,10 @@
 
   return profile;
 }
+
+//////////////////////////////////////////////////////////////////////////
+//BODY METRICS
+//////////////////////////////////////////////////////////////////////////
 
 + (NSDictionary*) createDefaultBodyMetrics {
   
@@ -176,7 +191,64 @@
   return metrics;
 }
 
+//////////////////////////////////////////////////////////////////////////
+//MOVES
+//////////////////////////////////////////////////////////////////////////
++ (NSDictionary*) createDefaultExercises {
+  
+  NSMutableDictionary* exercises =  [NSMutableDictionary dictionary];
+  
+//  //Run - 200 meters
+//  Exercise* exercise = [[Exercise alloc]initWithIdentifier: @"run-200"];
+//  NSArray* values = [NSArray arrayWithObjects:
+//                     [exercise.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 29]],
+//                     nil];
+//  exercise.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: exercise.metadataProvider.identifier withValues:values];
+//  [exercises setValue:exercise forKey:exercise.metadataProvider.identifier];
+//  exercise.dataProvider.sampleValue = [exercise.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 50]];
+//
+//  //Deadlift
+//  exercise = [[Exercise alloc]initWithIdentifier: @"deadlift"];
+//  values = [NSArray arrayWithObjects:
+//            [exercise.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 350]],
+//            nil];
+//  exercise.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: exercise.metadataProvider.identifier withValues:values];
+//  [exercises setValue:exercise forKey:exercise.metadataProvider.identifier];
+//  exercise.dataProvider.sampleValue = [exercise.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 250]];
+//
+//  //Kettle Bell Swing
+//  exercise = [[Exercise alloc]initWithIdentifier: @"kettle-bell-swing"];
+//  values = [NSArray arrayWithObjects:
+//            [exercise.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 35]],
+//            nil];
+//  exercise.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: exercise.metadataProvider.identifier withValues:values];
+//  [exercises setValue:exercise forKey:exercise.metadataProvider.identifier];
+//  exercise.dataProvider.sampleValue = [exercise.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 35]];
+//
+//  //CrossFit Push Up
+//  exercise = [[Exercise alloc]initWithIdentifier: @"crossfit-pushup"];
+//  values = [NSArray arrayWithObjects:
+//            [exercise.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 350]],
+//            nil];
+//  exercise.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: exercise.metadataProvider.identifier withValues:values];
+//  [exercises setValue:exercise forKey:exercise.metadataProvider.identifier];
+//  exercise.dataProvider.sampleValue = [exercise.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 250]];
+//
+//  //Double Under
+//  exercise = [[Exercise alloc]initWithIdentifier: @"double-under"];
+//  values = [NSArray arrayWithObjects:
+//            [exercise.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 350]],
+//            nil];
+//  exercise.dataProvider.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: exercise.metadataProvider.identifier withValues:values];
+//  [exercises setValue:exercise forKey:exercise.metadataProvider.identifier];
+//  exercise.dataProvider.sampleValue = [exercise.metadataProvider.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 250]];
+  
+  return exercises;
+}
 
+//////////////////////////////////////////////////////////////////////////
+//SHARED
+//////////////////////////////////////////////////////////////////////////
 + (NSArray*) sampleMeasurableDataEntryForMeasurableId: (NSString*) measurableId withValues: (NSArray*) values {
 
   NSMutableArray* dataEntries = [NSMutableArray arrayWithCapacity:values.count];
@@ -199,5 +271,6 @@
 
   return dataEntries;
 }
+
 
 @end

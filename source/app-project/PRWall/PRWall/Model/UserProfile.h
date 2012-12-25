@@ -24,6 +24,7 @@ typedef enum {
 @property NSString* image;
 
 @property NSDictionary* metrics;
+@property NSDictionary* exercises;
 
 //This is computed
 @property (readonly) NSString* age;

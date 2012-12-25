@@ -123,7 +123,9 @@ static App *sharedInstance = nil;
   NSDictionary* metrics = [ModelFactory createDefaultBodyMetrics];
   _userProfile.metrics = metrics;
   
-  //Moves
+  //Exercises
+  NSDictionary* exercises = [ModelFactory createDefaultExercises];
+  _userProfile.exercises = exercises;
   
   //Workouts
   

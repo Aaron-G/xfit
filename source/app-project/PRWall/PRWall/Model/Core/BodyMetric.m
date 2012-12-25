@@ -27,10 +27,6 @@ MeasurableIdentifier BodyMetricIdentifierBodyMassIndex = @"BodyMetricIdentifierB
 MeasurableIdentifier BodyMetricIdentifierBodyFat = @"BodyMetricIdentifierBodyFat";
 MeasurableIdentifier BodyMetricIdentifierInvalid = @"BodyMetricIdentifierInvalid";
 
-- (MeasurableDataProvider*) createDataProviderWithIdentifier:(MeasurableIdentifier) identifier {
-  return [[MeasurableDataProvider alloc] initWithMeasurableIdentifier: identifier];
-}
-
 - (MeasurableMetadataProvider*) createMetadataProviderWithIdentifier:(MeasurableIdentifier) identifier {
   return [[BodyMetricMetadataProvider alloc] initWithMeasurableIdentifier:identifier];
 }

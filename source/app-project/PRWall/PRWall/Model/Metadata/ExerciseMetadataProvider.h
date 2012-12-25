@@ -10,11 +10,11 @@
 
 @interface ExerciseMetadataProvider : MeasurableMetadataProvider
 
-//Workout, WOD, Move
+//Workout, WOD, Exercise
 @property BOOL favorite;
 @property NSArray* tags;
 
-//Workout, Move
+//Workout, Exercise
 @property BOOL prwall;
 
 @end

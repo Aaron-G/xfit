@@ -32,8 +32,9 @@
 
 
 - (MeasurableDataProvider*) createDataProviderWithIdentifier:(MeasurableIdentifier) identifier {
-  return [[MeasurableDataProvider alloc] init];
+  return [[MeasurableDataProvider alloc] initWithMeasurableIdentifier: identifier];
 }
+
 - (MeasurableMetadataProvider*) createMetadataProviderWithIdentifier:(MeasurableIdentifier) identifier {
   return [[MeasurableMetadataProvider alloc] initWithMeasurableIdentifier:identifier];
 }

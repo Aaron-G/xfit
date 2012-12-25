@@ -13,5 +13,6 @@
 
 + (UserProfile*) createDefaultUserProfile;
 + (NSDictionary*) createDefaultBodyMetrics;
++ (NSDictionary*) createDefaultExercises;
 
 @end
