@@ -215,9 +215,12 @@ typedef enum {
     NSDictionary* properties = [[NSFileManager defaultManager] attributesOfItemAtPath:video.path error:&error];
     NSNumber* size = [properties objectForKey: NSFileSize];
     NSNumber* freeSpace = [fileSystemProperties objectForKey:NSFileSystemFreeSize];
-    //NSLog(@"%@ - %@", size, video.path);
+    //NSLog(@"space- %f size- %f file- %@", freeSpace.doubleValue, size.doubleValue, video.path);
     
-    return (freeSpace.intValue >= size.intValue);
+    //IMPL NOTE
+    //This needs to be the double value otherwise the int overflows
+    //and we get negative numbers for valid sizes
+    return (freeSpace.doubleValue >= size.doubleValue);
   } else {
     return NO;
   }
