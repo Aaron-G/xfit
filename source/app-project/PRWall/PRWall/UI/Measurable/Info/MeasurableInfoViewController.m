@@ -19,7 +19,7 @@
 
 @property MeasurableShareDelegate* shareDelegate;
 @property MeasurableInfoEditViewController* measurableInfoEditViewController;
-
+@property MediaCollectionViewDelegate* mediaCollectionViewDelegate;
 @end
 
 @implementation MeasurableInfoViewController
@@ -31,14 +31,23 @@
   if (self) {
     // Custom initialization
     self.shareDelegate = [[MeasurableInfoShareDelegate alloc]initWithViewController:self withMeasurableProvider:self];
+    self.mediaCollectionViewDelegate = [[MediaCollectionViewDelegate alloc] init];
+    self.mediaCollectionViewDelegate.mediaProvider = self;
   }
   return self;
+}
+
+- (void)reloadView {
+  
+  [super reloadView];
+
+  [self.mediaView reloadData];
 }
 
 #pragma mark - Measurable Layout View Controller
 
 - (id<MeasurableViewLayoutDelegate>) layoutDelegate {
-  return  [MeasurableHelper measurableInfoViewLayoutDelegateForMeasurable:self.measurable];
+  return [MeasurableHelper measurableInfoViewLayoutDelegateForMeasurable:self.measurable];
 }
 
 - (void) share {
@@ -80,6 +89,29 @@
                     completion:nil];
   }
   
+}
+
+//////////////////////////////////////////////////////////////////////
+//UICollectionViewDelegate
+//////////////////////////////////////////////////////////////////////
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
+  return [self.mediaCollectionViewDelegate collectionView:view numberOfItemsInSection:section];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+  return [self.mediaCollectionViewDelegate collectionView:cv cellForItemAtIndexPath:indexPath];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+  [self.mediaCollectionViewDelegate collectionView:collectionView didSelectItemAtIndexPath:indexPath];
+}
+
+- (NSArray*)images {
+  return self.measurable.metadataProvider.images;
+}
+
+- (NSArray*)videos {
+  return self.measurable.metadataProvider.videos;
 }
 
 @end

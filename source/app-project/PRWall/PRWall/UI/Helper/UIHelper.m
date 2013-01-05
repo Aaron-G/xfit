@@ -10,6 +10,7 @@
 #import "App.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "AppViewControllerSegue.h"
+#import "ExerciseMoreInfo.h"
 
 @implementation UIHelper
 
@@ -18,10 +19,10 @@ static NSDateFormatter* _appDateFormat;
 + (void) adjustImage: (UIButton*) buttonWithImage forMeasurable: (id <Measurable>) measurable {
   [UIHelper adjustImage: buttonWithImage
 withMeasurableValueTrend: measurable.dataProvider.valueTrend
-withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendBetterDirection];
+withMeasurableValueGoal: measurable.metadataProvider.valueGoal];
 }
 
-+ (void) adjustImage: (UIButton*) buttonWithImage withMeasurableValueTrend: (MeasurableValueTrend) measurableValueTrend withMeasurableValueTrendBetterDirection: (MeasurableValueTrendBetterDirection) valueTrendBetterDirection {
++ (void) adjustImage: (UIButton*) buttonWithImage withMeasurableValueTrend: (MeasurableValueTrend) measurableValueTrend withMeasurableValueGoal: (MeasurableValueGoal) valueGoal {
   
   CGAffineTransform transform = CGAffineTransformIdentity;
   
@@ -35,11 +36,11 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
     MeasurableValueTrend valueTrend = measurableValueTrend;
     
     [buttonWithImage setImage:[UIHelper imageForValueTrend:valueTrend
-                             withValueTrendBetterDirection:valueTrendBetterDirection]
+                             withValueGoal:valueGoal]
                      forState:UIControlStateNormal];
     
     //Rotate the image appropriately to indicate proper
-    //direction based on Metric "better trend properties"
+    //direction based on Metric goal
     if(valueTrend != MeasurableValueTrendSame) {
       
       CGFloat imageRotationAngle;
@@ -55,23 +56,23 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   buttonWithImage.transform = transform;
 }
 
-+ (UIImage*) imageForValueTrend: (MeasurableValueTrend) valueTrend withValueTrendBetterDirection: (MeasurableValueTrendBetterDirection) valueTrendBetterDirection {
++ (UIImage*) imageForValueTrend: (MeasurableValueTrend) valueTrend withValueGoal: (MeasurableValueGoal) valueGoal {
   
   NSString* imageName = nil;
   
   //The user is not interested in tracking this
-  if(valueTrendBetterDirection == MeasurableValueTrendBetterDirectionNone) {
+  if(valueGoal == MeasurableValueGoalNone) {
     return nil;
   }
   
-  if((valueTrend == MeasurableValueTrendUp && valueTrendBetterDirection == MeasurableValueTrendBetterDirectionUp) ||
-     (valueTrend == MeasurableValueTrendDown && valueTrendBetterDirection == MeasurableValueTrendBetterDirectionDown)) {
-    imageName = @"better-value-direction";
-  } else if((valueTrend == MeasurableValueTrendUp && valueTrendBetterDirection == MeasurableValueTrendBetterDirectionDown) ||
-            (valueTrend == MeasurableValueTrendDown && valueTrendBetterDirection == MeasurableValueTrendBetterDirectionUp)) {
-    imageName = @"worse-value-direction";
+  if((valueTrend == MeasurableValueTrendUp && valueGoal == MeasurableValueGoalMore) ||
+     (valueTrend == MeasurableValueTrendDown && valueGoal == MeasurableValueGoalLess)) {
+    imageName = @"goal-towards-icon";
+  } else if((valueTrend == MeasurableValueTrendUp && valueGoal == MeasurableValueGoalLess) ||
+            (valueTrend == MeasurableValueTrendDown && valueGoal == MeasurableValueGoalMore)) {
+    imageName = @"goal-against-icon";
   } else if(valueTrend == MeasurableValueTrendSame) {
-    imageName = @"same-value-direction";
+    imageName = @"goal-no-change-icon";
   }
   
   if(imageName) {
@@ -181,4 +182,31 @@ withMeasurableValueTrendBetterDirection: measurable.metadataProvider.valueTrendB
   [appViewControllerSegue perform];
 
 }
+
++ (NSString*) generalNameForUnitType: (UnitType) type {
+  
+  if(type == UnitTypeLength) {
+    return NSLocalizedString(@"unit-general-length-title", @"How far");
+  } else if(type == UnitTypeMass) {
+    return NSLocalizedString(@"unit-general-weight-title", @"How heavy");
+  } else if(type == UnitTypeTime) {
+    return NSLocalizedString(@"unit-general-time-title", @"How much time");
+  } else  {
+    return NSLocalizedString(@"unit-general-no-unit-title", @"How many");
+  } 
+}
+
++ (NSString*) stringForExerciseMoreInfos:(NSDictionary*) moreInfos withSeparator:(NSString*) separator {
+
+  NSArray* moreInfoKeys = moreInfos.keyEnumerator.allObjects;
+  NSMutableArray* moreInfoStrings = [NSMutableArray arrayWithCapacity:moreInfoKeys.count];
+  
+  for (id moreInfoKey in moreInfoKeys) {
+    ExerciseMoreInfo* moreInfo = [moreInfos objectForKey:moreInfoKey];
+    [moreInfoStrings addObject: [moreInfo.unit.valueFormatter formatValue:moreInfo.value]];
+  }
+  
+  return [moreInfoStrings componentsJoinedByString:separator];
+}
+
 @end

@@ -8,10 +8,11 @@
 
 #import "MeasurableDataEntryAdditionalInfoTableViewCell.h"
 #import "UIHelper.h"
+#import "MediaCollectionViewDelegate.h"
 
-@interface MeasurableDataEntryAdditionalInfoTableViewCell ()
+@interface MeasurableDataEntryAdditionalInfoTableViewCell () <MediaCollectionViewDelegateMediaProvider>
 
-@property (readonly) MeasurableDataEntryMediaViewDelegate* measurableDataEntryMediaViewDelegate;
+@property MediaCollectionViewDelegate* mediaCollectionViewDelegate;
 
 @end
 
@@ -21,29 +22,27 @@ static NSInteger VERTICAL_PADDING_FROM_CELL_BORDER = 10;
 static NSInteger VERTICAL_LAYOUT_PADDING = 5;
 static NSInteger MEDIA_TABLE_CELL_HEIGHT = 75;
 
-
 @synthesize measurableDataEntry = _measurableDataEntry;
-@synthesize measurableDataEntryMediaViewDelegate = _measurableDataEntryMediaViewDelegate;
 
+-(id)initWithCoder:(NSCoder *)aDecoder {
+  self = [super initWithCoder:aDecoder];
+  
+  if(self) {
+    self.mediaCollectionViewDelegate = [[MediaCollectionViewDelegate alloc] init];
+    self.mediaCollectionViewDelegate.mediaProvider = self;
+  }
+  
+  return self;
+}
 
 - (void)setMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry {
   _measurableDataEntry = measurableDataEntry;
-  
-  //Update the Media View delegate
-  self.measurableDataEntryMediaViewDelegate.measurableDataEntry = self.measurableDataEntry;
   
   [self updateCell];
 }
 
 - (MeasurableDataEntry *)measurableDataEntry {
   return _measurableDataEntry;
-}
-
-- (MeasurableDataEntryMediaViewDelegate *)measurableDataEntryMediaViewDelegate {
-  if(!_measurableDataEntryMediaViewDelegate) {
-    _measurableDataEntryMediaViewDelegate =  [[MeasurableDataEntryMediaViewDelegate alloc]init];
-  }
-  return  _measurableDataEntryMediaViewDelegate;
 }
 
 - (void) updateCell {
@@ -121,11 +120,23 @@ static NSInteger MEDIA_TABLE_CELL_HEIGHT = 75;
 //UICollectionViewDelegate
 //////////////////////////////////////////////////////////////////////
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-  return [self.measurableDataEntryMediaViewDelegate collectionView:view numberOfItemsInSection:section];
+  return [self.mediaCollectionViewDelegate collectionView:view numberOfItemsInSection:section];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.measurableDataEntryMediaViewDelegate collectionView:cv cellForItemAtIndexPath:indexPath];
+  return [self.mediaCollectionViewDelegate collectionView:cv cellForItemAtIndexPath:indexPath];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+  [self.mediaCollectionViewDelegate collectionView:collectionView didSelectItemAtIndexPath:indexPath];
+}
+
+- (NSArray*)images {
+  return self.measurableDataEntry.images;
+}
+
+- (NSArray*)videos {
+  return self.measurableDataEntry.videos;
 }
 
 @end

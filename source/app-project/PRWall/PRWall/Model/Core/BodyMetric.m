@@ -7,7 +7,6 @@
 //
 
 #import "BodyMetric.h"
-#import "BodyMetricHelper.h"
 #import "BodyMetricMetadataProvider.h"
 
 @implementation BodyMetric

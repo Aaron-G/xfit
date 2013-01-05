@@ -15,19 +15,17 @@
 #import "MeasurablePercentValuePickerView.h"
 #import "MeasurableTimeValuePickerView.h"
 #import "MeasurableFootInchValuePickerView.h"
-#import "VideoThumbnailGenerator.h"
 
-//Define it before the clas definition as it is reference below
+//Define it before the class definition as it is reference below
 @protocol MeasurableDataEntryDelegate <NSObject>
 
-@optional
 -(void)didFinishCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable;
 -(void)didCancelCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable;
 -(void)didFinishEditingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable;
 
 @end
 
-@interface MeasurableDataEntryViewController : UITableViewController <UITextViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MeasurableValuePickerViewDelegate, VideoThumbnailGeneratorDelegate>
+@interface MeasurableDataEntryViewController : UITableViewController <UITextViewDelegate, UITextFieldDelegate, MeasurableValuePickerViewDelegate>
 
 @property IBOutlet UIBarButtonItem* doneBarButtonItem;
 @property IBOutlet UIBarButtonItem* cancelBarButtonItem;

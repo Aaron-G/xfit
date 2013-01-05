@@ -11,12 +11,11 @@
 
 @implementation BodyMetricMetadataProvider
 
-@synthesize valueTrendBetterDirection = _valueTrendBetterDirection;
+@synthesize valueGoal = _valueGoal;
 @synthesize unit = _unit;
 @synthesize name = _name;
 @synthesize description = _description;
 @synthesize metadataShort = _metadataShort;
-@synthesize metadataFull = _metadataFull;
 @synthesize valueType = _valueType;
 
 - (id)initWithMeasurableIdentifier:(MeasurableIdentifier) identifier {
@@ -24,18 +23,18 @@
   
   if (self) {
     self.type = [MeasurableType measurableTypeWithMeasurableTypeIdentifier:MeasurableTypeIdentifierBodyMetric];
-    self.valueTrendBetterDirection = -1;
+    self.valueGoal = -1;
     self.valueType = -1;
   }
   return self;
 }
 
-- (MeasurableValueTrendBetterDirection)valueTrendBetterDirection {
+- (MeasurableValueGoal)valueGoal {
   
-  if(_valueTrendBetterDirection == -1) {
+  if(_valueGoal == -1) {
     
   //Arbitrary default value
-    MeasurableValueTrendBetterDirection trendBetterDirection = MeasurableValueTrendBetterDirectionUp;
+    MeasurableValueGoal valueGoal = MeasurableValueGoalMore;
   
   if([BodyMetricIdentifierHeight isEqualToString: self.identifier] ||
      [BodyMetricIdentifierChest isEqualToString: self.identifier] ||
@@ -46,7 +45,7 @@
      [BodyMetricIdentifierCalfLeft isEqualToString: self.identifier] ||
      [BodyMetricIdentifierCalfRight isEqualToString: self.identifier]) {
     
-    trendBetterDirection = MeasurableValueTrendBetterDirectionUp;
+    valueGoal = MeasurableValueGoalMore;
     
   } else if([BodyMetricIdentifierWeight isEqualToString: self.identifier] ||
             [BodyMetricIdentifierWaist isEqualToString: self.identifier] ||
@@ -54,25 +53,23 @@
             [BodyMetricIdentifierBodyMassIndex isEqualToString: self.identifier] ||
             [BodyMetricIdentifierBodyFat isEqualToString: self.identifier] ){
     
-    trendBetterDirection = MeasurableValueTrendBetterDirectionDown;
+    valueGoal = MeasurableValueGoalLess;
     
   }
   
-  _valueTrendBetterDirection = trendBetterDirection;
+  _valueGoal = valueGoal;
     
   }
   
-  return _valueTrendBetterDirection;
+  return _valueGoal;
 }
 
-- (void)setValueTrendBetterDirection:(MeasurableValueTrendBetterDirection)valueTrendBetterDirection {
-  _valueTrendBetterDirection = valueTrendBetterDirection;
+- (void)setValueGoal:(MeasurableValueGoal)valueGoal {
+  _valueGoal = valueGoal;
 }
 
 - (Unit *)unit {
 
-  //For now this is hardcoded. We need to provide
-  //a settings screen
   if(!_unit) {
     
     Unit * unit = nil;
@@ -228,42 +225,7 @@
 }
 
 - (NSString *) metadataFull {
-  
-  if(!_metadataFull) {
-    
-    NSString* metadataFull = nil;
-    
-    if([BodyMetricIdentifierHeight isEqualToString: self.identifier]) {
-      metadataFull = nil;
-    } else if([BodyMetricIdentifierWeight isEqualToString: self.identifier]) {
-      metadataFull = nil;
-    } else if([BodyMetricIdentifierChest isEqualToString: self.identifier]) {
-      metadataFull = nil;
-    } else if([BodyMetricIdentifierWaist isEqualToString: self.identifier]) {
-      metadataFull = nil;
-    } else if([BodyMetricIdentifierHip isEqualToString: self.identifier]) {
-      metadataFull = nil;
-    } else if([BodyMetricIdentifierBiceptsLeft isEqualToString: self.identifier]) {
-      metadataFull = @"Left";
-    } else if([BodyMetricIdentifierBiceptsRight isEqualToString: self.identifier]) {
-      metadataFull = @"Right";
-    } else if([BodyMetricIdentifierThighLeft isEqualToString: self.identifier]) {
-      metadataFull = @"Left";
-    } else if([BodyMetricIdentifierThighRight isEqualToString: self.identifier]) {
-      metadataFull = @"Right";
-    } else if([BodyMetricIdentifierCalfLeft isEqualToString: self.identifier]) {
-      metadataFull = @"Left";
-    } else if([BodyMetricIdentifierCalfRight isEqualToString: self.identifier]) {
-      metadataFull = @"Right";
-    } else if([BodyMetricIdentifierBodyMassIndex isEqualToString: self.identifier]) {
-      metadataFull = nil;
-    } else if([BodyMetricIdentifierBodyFat isEqualToString: self.identifier]) {
-      metadataFull = nil;
-    }
-    _metadataFull = metadataFull;
-  }
-  
-  return _metadataFull;
+  return self.metadataShort;
 }
 
 - (MeasurableValueType)valueType {

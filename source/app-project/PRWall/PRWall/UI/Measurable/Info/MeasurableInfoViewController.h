@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "MeasurableLayoutViewController.h"
+#import "MediaCollectionViewDelegate.h"
 
-@interface MeasurableInfoViewController : MeasurableLayoutViewController
+@interface MeasurableInfoViewController : MeasurableLayoutViewController <MediaCollectionViewDelegateMediaProvider>
 
 @property IBOutlet UITextView* descriptionTextView;
 @property IBOutlet UIButton* dividerButton;
+@property IBOutlet UIButton* favoriteButton;
+@property IBOutlet UICollectionView* mediaView;
 
 - (void) share;
 

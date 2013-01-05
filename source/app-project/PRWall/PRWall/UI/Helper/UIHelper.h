@@ -15,7 +15,7 @@
 
 @interface UIHelper : NSObject
 
-+ (void) adjustImage: (UIButton*) buttonWithImage withMeasurableValueTrend: (MeasurableValueTrend) measurableValueTrend withMeasurableValueTrendBetterDirection: (MeasurableValueTrendBetterDirection) valueTrendBetterDirection;
++ (void) adjustImage: (UIButton*) buttonWithImage withMeasurableValueTrend: (MeasurableValueTrend) measurableValueTrend withMeasurableValueGoal: (MeasurableValueGoal) valueGoal;
 
 + (void) adjustImage: (UIButton*) buttonWithImage forMeasurable: (id <Measurable>) measurable;
 
@@ -49,5 +49,8 @@
 
 + (void) showViewController:(UIViewController*) viewController asModal:(BOOL)modal withTransitionTitle:(NSString*) transitionTitle;
 
++ (NSString*) generalNameForUnitType: (UnitType) type;
+
++ (NSString*) stringForExerciseMoreInfos:(NSDictionary*) moreInfos withSeparator:(NSString*) separator;
+
 @end
- 

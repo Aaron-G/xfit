@@ -13,7 +13,7 @@
 
 @protocol MeasurableValuePickerViewDelegate <NSObject>
 
-@property (readonly) id<Measurable> measurable;
+@property (readonly) Unit* unit;
 
 -(void)valueSelectionChangedInMeasurableValuePickerView:(MeasurableValuePickerView*) measurableValuePickerView;
 

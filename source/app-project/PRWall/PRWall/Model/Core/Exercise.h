@@ -8,6 +8,11 @@
 
 #import "MeasurableImpl.h"
 
-@interface Exercise : MeasurableImpl
+@interface Exercise : MeasurableImpl <NSCopying>
+
+extern const MeasurableMoreInfoIdentifier ExerciseMoreInfoTime;
+extern const MeasurableMoreInfoIdentifier ExerciseMoreInfoMass;
+extern const MeasurableMoreInfoIdentifier ExerciseMoreInfoLength;
+extern const MeasurableMoreInfoIdentifier ExerciseMoreInfoGeneral;
 
 @end

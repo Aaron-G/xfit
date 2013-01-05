@@ -18,5 +18,6 @@
 //Subclasses
 - (MeasurableDataProvider*) createDataProviderWithIdentifier:(MeasurableIdentifier) identifier;
 - (MeasurableMetadataProvider*) createMetadataProviderWithIdentifier:(MeasurableIdentifier) identifier;
++ (void) assignUserPriviligesToMeasurable:(id<Measurable>) measurable;
 
 @end

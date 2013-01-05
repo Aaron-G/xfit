@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BodyMetric.h"
 #import "MeasurableInfoEditViewController.h"
 
 @interface BodyMetricInfoEditViewController : MeasurableInfoEditViewController
+
+- (IBAction) changeMassUnit:(id)sender;
+- (IBAction) changeLengthUnit:(id)sender;
+- (IBAction) changeMeasurableValueGoal:(id)sender;
 
 @end

@@ -6,8 +6,9 @@
 //
 //
 #import "AppScreenSwitchDelegate.h"
+#import "MeasurableViewControllerDelegate.h"
 
-@interface ExerciseViewController : UIViewController
+@interface ExerciseViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MeasurableViewControllerDelegate>
 
 @property AppScreenSwitchDelegate* appScreenSwitchDelegate;
 

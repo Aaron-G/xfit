@@ -23,10 +23,10 @@ typedef enum {
 @property UserProfileSex sex;
 @property NSString* image;
 
-@property NSDictionary* metrics;
-@property NSDictionary* exercises;
+@property NSMutableDictionary* metrics;
+@property NSMutableDictionary* exercises;
 
-//This is computed
+//Computed properties
 @property (readonly) NSString* age;
 
 @end

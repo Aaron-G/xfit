@@ -13,6 +13,12 @@
 #import "MediaHelper.h"
 #import "MeasurableInfoEditViewController.h"
 #import "MeasurableChartViewController.h"
+#import "MeasurablePickerContainerViewController.h"
+
+typedef enum {
+  MeasurableSortCriterionName,
+  MeasurableSortCriterionDate
+} MeasurableSortCriterion;
 
 @interface MeasurableHelper : NSObject
 
@@ -32,9 +38,37 @@
 + (MediaHelperPurpose) mediaHelperPurposeForMeasurable:(id<Measurable>)measurable;
 
 + (MeasurableInfoEditViewController*) measurableInfoEditViewControllerForMeasurable:(id<Measurable>)measurable;
++ (MeasurableInfoEditViewController*) measurableInfoEditViewControllerForMeasurableTypeIdentifier:(MeasurableTypeIdentifier)typeIdentifier;
 
 + (id<MeasurableViewLayoutDelegate>) measurableInfoEditViewLayoutDelegateForMeasurable: (id<Measurable>) measurable;
 
 + (MeasurableChartViewController*) measurableChartViewController;
+
++ (NSInteger) indexOfMeasurableWithMeasurableIndetifier:(MeasurableIdentifier) identifier inMeasurableArray:(NSArray*) measurableArray;
+
++ (UITableViewCell*) tableViewCellForMeasurableValueGoalInTableView: (UITableView *)tableView;
++ (UITableViewCell*) tableViewCellForMassUnitInTableView: (UITableView *)tableView;
++ (UITableViewCell*) tableViewCellForLengthUnitInTableView: (UITableView *)tableView;
+
++ (NSInteger) segmentedControlIndexForMeasurableValueGoal:(MeasurableValueGoal) measurableValueGoal;
++ (NSInteger) segmentedControlIndexForLengthUnit:(Unit*) unit;
++ (NSInteger) segmentedControlIndexForMassUnit:(Unit*) unit;
+
++ (UnitIdentifier) lengthUnitForSegmentedControlIndex:(NSInteger) index;
++ (MeasurableValueGoal) measurableValueGoalForSegmentedControlIndex:(NSInteger) index;
++ (UnitIdentifier) massUnitForSegmentedControlIndex:(NSInteger) index;
+
++ (void) configureSegmentedControlForLengthUnit: (UISegmentedControl *)segmentedControl;
++ (void) configureSegmentedControlForMassUnit: (UISegmentedControl *)segmentedControl;
+
++ (void) updateDataStructureForNewMeasurable:(id<Measurable>) measurable;
+
++ (NSArray*) measurablesWithData:(NSArray*) measurables;
+
++ (MeasurablePickerContainerViewController*) measurablePickerContainerViewController;
+
++ (NSInteger) indexForMeasurableDataEntry:(MeasurableDataEntry*)measurableDataEntry inMeasurable:(id<Measurable>)measurable;
+
++ (NSArray*) sortMeasurables:(NSArray*) measurables byMeasurableSortCriterion:(MeasurableSortCriterion) sortCriterion;
 
 @end

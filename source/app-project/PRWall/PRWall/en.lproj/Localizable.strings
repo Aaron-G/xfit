@@ -1,6 +1,8 @@
 //////////////////////////////
 //General
 "ok-label" = "OK";
+"yes-label" = "Yes";
+"no-label" = "No";
 "cancel-label" = "Cancel";
 "new-label" = "New";
 "log-label" = "Log";
@@ -13,8 +15,22 @@
 "app-date-format" = "MM/dd/yyyy";
 "no-space-in-device-message" = "Your device does not have enough space.";
 "unexpected-problem-message" = "There was an unexpected problem. If the problem persists, please contact us.";
-"no-image-support-message" = "Your device does not support images.";
-"no-video-support-message" = "Your device does not support videos.";
+
+"minor-separator" = "・";
+"major-separator" = " - ";
+"value-separator" = ", ";
+
+"favorite-label" = "Favorite";
+"recent-label" = "Recent";
+"tags-label" = "Tags";
+"prwall-label" = "PR Wall";
+
+"goal-label" = "Goal";
+"unit-label" = "Unit";
+
+//Sort
+"sort-by-name-label" = "Name";
+"sort-by-date-label" = "Date";
 
 //Share App
 "share-app" = "App";
@@ -34,12 +50,28 @@
 "no-email-support-message" = "Your device cannot send emails. Try another sharing option.";
 "no-text-message-support-message" = "Your device cannot send text messages. Try another sharing option.";
 
+//Media
+"images-label" = "Pictures";
+"videos-label" = "Videos";
+
+"no-image-support-message" = "Your device does not support images.";
+"no-video-support-message" = "Your device does not support videos.";
+"add-video-label" = "Add Video";
+"add-picture-label" = "Add Picture";
+
+"cannot-add-picture-title" = "Cannot Add Picture";
+"cannot-add-video-title" = "Cannot Add Video";
+
 //////////////////////////////
 //Core
 "body-metric-display-name" = "Body Metric";
+"body-metric-display-name-plural" = "Body Metrics";
 "exercise-display-name" = "Exercise";
+"exercise-display-name-plural" = "Exercises";
 "wod-display-name" = "WOD";
+"wod-display-name-plural" = "WODs";
 "workout-display-name" = "Workout";
+"workout-display-name-plural" = "Workouts";
 
 //////////////////////////////
 //Home Screen
@@ -158,7 +190,6 @@
 "calf-right-metric-label" = "Calf";
 "calf-right-metric-description" = "Measure the circumference of the fullest part of your calf. Wrap the tape measure around your calf from front to back and then around to the front";
 
-
 //////////////////////////////
 //User Profile Screen
 "user-profile-screen-title" = "My Profile";
@@ -197,39 +228,86 @@
 "measurable-clear-log-title" = "Clear Log?";
 "measurable-clear-log-message" = "This will delete all the entries in your log permanently";
 
+"measurable-edit-info-title-format" = "Edit Info";
+"measurable-edit-log-title-format" = "Edit Log";
+
+"measurable-name-copy-format" = "%@ Copy";
+
 //////////////////////////////
 //Measurable Data Entry
 "measurable-data-entry-date-section-title" = "When";
 "measurable-data-entry-comment-section-title" = "Comment";
-"measurable-data-entry-images-section-title" = "Pictures";
-"measurable-data-entry-videos-section-title" = "Videos";
-
-"measurable-data-entry-add-video-label" = "Add Video";
-"measurable-data-entry-add-picture-label" = "Add Picture";
 
 "measurable-data-entry-screen-log-title-format" = "Log %@";
-"measurable-data-entry-screen-edit-title-format" = "Edit %@";
+"measurable-data-entry-screen-edit-title-format" = "Edit Log Entry";
 
-"measurable-data-entry-cannot-add-picture-title" = "Cannot Add Picture";
-"measurable-data-entry-cannot-add-video-title" = "Cannot Add Video";
+
 
 //////////////////////////////
-//Measurable Data Entry Edit
-"better-direction-more-label" = "more";
-"better-direction-less-label" = "less";
-"better-direction-none-label" = "none";
-
-"better-direction-title" = "Your goal";
-"unit-title" = "Unit";
+//Goal Edit
+"goal-more-label" = "more";
+"goal-less-label" = "less";
+"goal-none-label" = "no goal";
 
 //////////////////////////////
 //Measurable Data Entry Value Pickers
 "hours-label" = "hours";
 "minutes-label" = "mins";
 "seconds-label" = "secs";
+"hour-short-label" = "hr";
+"minute-short-label" = "min";
+"second-short-label" = "sec";
 "feet-label" = "feet";
 "inches-label" = "inches";
 
 //////////////////////////////
 //Measurable Chart
 "chart-measurable-date-format" = "MM/dd";
+
+//////////////////////////////
+//Measurable Edit
+"measurable-edit-name-placeholder-format" = "%@ name";
+
+//////////////////////////////
+//Exercise Edit
+"exercise-edit-kind-label" = "What kind";
+"exercise-edit-more-info-label" = "More Info";
+
+//////////////////////////////
+//Unit Edit
+"unit-edit-title" = "How to track";
+"unit-general-length-title" = "How far";
+"unit-general-weight-title" = "How heavy";
+"unit-general-time-title" = "How much time";
+"unit-general-no-unit-title" = "How many";
+
+//////////////////////////////
+//Activity Tags Edit Screen
+"activity-tags-edit-new-placeholder" = "new tag";
+
+"activity-tags-edit-delete-title" = "Delete Tag";
+"activity-tags-edit-delete-message" = "This tag will be deleted permanently from all workouts and exercises that use it.";
+
+//////////////////////////////
+//Measurable Create
+"measurable-new-title-format" = "New %@";
+"measurable-new-cancel-alert-title-format" = "Discard %@";
+"measurable-new-cancel-alert-message-format" = "Do you want to cancel creating this new %@?";
+
+//////////////////////////////
+//Measurable Delete
+"measurable-delete-label-format" = "Delete %@";
+"measurable-delete-message-format" = "This %@ and all its log data will be permanently deleted. Are you sure you want to delete it?";
+
+//////////////////////////////
+//Measurable Picker Screen
+"measurable-picker-user-label-format" = "My %@";
+"measurable-picker-all-label-format" = "All %@";
+
+"measurable-picker-favorite-empty-message-format" = "There are no %@ marked as Favorite";
+"measurable-picker-recent-empty-message-format" = "There are no %@ logged in the last 2 weeks";
+"measurable-picker-user-empty-message-format" = "There are no %@ created by you";
+
+//////////////////////////////
+//Measurable Logger Screen
+"logger-screen-title-format" = "Log %@";

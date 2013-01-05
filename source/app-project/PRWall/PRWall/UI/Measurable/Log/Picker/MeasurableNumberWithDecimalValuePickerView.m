@@ -15,13 +15,13 @@
 @implementation MeasurableNumberWithDecimalValuePickerView
 
 - (NSNumber *)value {  
-  return [self.measurableValuePickerViewDelegate.measurable.metadataProvider.unit.unitSystemConverter convertToSystemValue:
+  return [self.measurableValuePickerViewDelegate.unit.unitSystemConverter convertToSystemValue:
           [NSNumber numberWithFloat:(self.numberValue + ((CGFloat)self.decimalValue)/100)]];
 }
 
 - (void)setValue:(NSNumber *)value {
 
-  NSNumber* localValue = [self.measurableValuePickerViewDelegate.measurable.metadataProvider.unit.unitSystemConverter convertFromSystemValue:value];
+  NSNumber* localValue = [self.measurableValuePickerViewDelegate.unit.unitSystemConverter convertFromSystemValue:value];
 
   //Update local variables
   self.numberValue = localValue.intValue;

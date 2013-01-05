@@ -252,7 +252,7 @@
 - (void)didFinishEditingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable:(id<Measurable>)measurable {
   
   NSInteger currentIndex = [self.measurable.dataProvider.values indexOfObject:measurableDataEntry];  
-  NSInteger newIndex = [self findIndexForMeasurableDataEntry:measurableDataEntry];
+  NSInteger newIndex = [MeasurableHelper indexForMeasurableDataEntry:measurableDataEntry inMeasurable:measurable];
 
   if(newIndex != currentIndex) {
     
@@ -290,6 +290,12 @@
 
   //Ensure the Measurable representation is notified of change
   [self notifyMeasurableViewControllerDelegate];
+}
+
+- (void)didCancelCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable:(id<Measurable>)measurable {
+}
+
+- (void)didFinishCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable:(id<Measurable>)measurable {
 }
 
 - (void) showOrHideMeasurableDataEntryAdditionalInfoAtIndexPath:(NSIndexPath *)indexPath {
@@ -480,11 +486,10 @@
   });  
 }
 
-
 - (void) logMeasurableDataEntry:(MeasurableDataEntry*)measurableDataEntry {
   
   //Find the correct index based on the date
-  NSInteger indexToInsert = [self findIndexForMeasurableDataEntry:measurableDataEntry];
+  NSInteger indexToInsert = [MeasurableHelper indexForMeasurableDataEntry:measurableDataEntry inMeasurable:self.measurable];
   
   NSIndexPath* indexPathToInsert = [NSIndexPath indexPathForRow: indexToInsert inSection:0];
   
@@ -510,7 +515,7 @@
     
     //4- Delete the removed row
     NSArray* indexPathsToInsert = [NSArray arrayWithObjects: indexPathToInsert, nil];
-    [self.tableView insertRowsAtIndexPaths: indexPathsToInsert withRowAnimation: NO];
+    [self.tableView insertRowsAtIndexPaths: indexPathsToInsert withRowAnimation: UITableViewRowAnimationNone];
 
     //5- Update the adjacent most recent row (ensures the trend value is properly updated)
     //Do not need to update if this is the most recent value or if there are no more items in data array
@@ -523,24 +528,6 @@
     
     [self forceLayout];
   });
-}
-
-- (NSInteger) findIndexForMeasurableDataEntry:(MeasurableDataEntry*)measurableDataEntry {
-  
-  NSInteger index = 0;
-  for (MeasurableDataEntry* curMeasurableDataEntry in self.measurable.dataProvider.values) {
-    
-    if (measurableDataEntry.date == curMeasurableDataEntry.date) {
-      continue;
-    }
-        
-    if(measurableDataEntry.date == [curMeasurableDataEntry.date laterDate:measurableDataEntry.date]) {
-      break;
-    }
-    
-    index++;
-  }
-  return index;
 }
 
 @end

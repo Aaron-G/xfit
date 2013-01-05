@@ -15,14 +15,13 @@
 //Data Provider Properties
 @property (readonly) MeasurableIdentifier identifier;
 @property NSArray* values;
-@property (readonly) MeasurableValueTrend valueTrend;
 
 //Data Entry Provider Convinience Properties
 //These refer to the 1st entry on the values[]
 @property (readonly) NSNumber* value;
 @property (readonly) NSDate* date;
 @property (readonly) NSString* comment;
-@property NSNumber* sampleValue;
+@property (readonly) MeasurableValueTrend valueTrend;
 
 
 - (id)initWithMeasurableIdentifier:(MeasurableIdentifier) identifier;

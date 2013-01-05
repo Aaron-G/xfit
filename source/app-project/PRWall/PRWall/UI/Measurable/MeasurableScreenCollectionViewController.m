@@ -13,7 +13,6 @@
   
 }
 
-@property NSInteger currentViewControllerIndex;
 @property (readonly) MeasurableViewController* measurableViewController;
 
 @end
@@ -94,7 +93,7 @@ const NSInteger MEASURABLE_INFO_SCREEN_INDEX = 1;
 {
 
   UICollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"MeasurableViewControllerCollectionViewCell_StoryBoard" forIndexPath:indexPath];
-
+  
   //Clean up the cell
   for (UIView* view in [cell subviews]) {
     [view removeFromSuperview];
@@ -107,7 +106,7 @@ const NSInteger MEASURABLE_INFO_SCREEN_INDEX = 1;
   } else if(indexPath.item == MEASURABLE_INFO_SCREEN_INDEX) {
     view = self.infoViewController.view;
   }
-  
+
   if(view) {
     [cell addSubview: view];
   }
@@ -209,9 +208,8 @@ const NSInteger MEASURABLE_INFO_SCREEN_INDEX = 1;
       [toolBarItems addObject:self.measurableViewController.barButtonItemCopyMeasurable];
       [toolBarItems addObject:self.measurableViewController.barButtonItemSpacerTwo];
     }
-    if(self.measurable.metadataProvider.editable) {
-      [toolBarItems addObject:self.measurableViewController.barButtonItemEditInfo];
-    }
+    
+    [toolBarItems addObject:self.measurableViewController.barButtonItemEditInfo];
     
     _infoToolbarItems = toolBarItems;
     

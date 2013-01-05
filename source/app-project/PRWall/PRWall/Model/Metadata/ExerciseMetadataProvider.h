@@ -6,15 +6,11 @@
 //
 //
 
-#import "MeasurableMetadataProvider.h"
+#import "ActivityMetadataProvider.h"
+#import "ExerciseKind.h"
 
-@interface ExerciseMetadataProvider : MeasurableMetadataProvider
+@interface ExerciseMetadataProvider : ActivityMetadataProvider
 
-//Workout, WOD, Exercise
-@property BOOL favorite;
-@property NSArray* tags;
-
-//Workout, Exercise
-@property BOOL prwall;
+@property ExerciseKind* kind;
 
 @end

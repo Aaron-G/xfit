@@ -30,13 +30,21 @@
   return self;
 }
 
-
 - (MeasurableDataProvider*) createDataProviderWithIdentifier:(MeasurableIdentifier) identifier {
   return [[MeasurableDataProvider alloc] initWithMeasurableIdentifier: identifier];
 }
 
 - (MeasurableMetadataProvider*) createMetadataProviderWithIdentifier:(MeasurableIdentifier) identifier {
   return [[MeasurableMetadataProvider alloc] initWithMeasurableIdentifier:identifier];
+}
+
+- (id<Measurable>)copy {
+  return [super copy];
+}
+
++ (void) assignUserPriviligesToMeasurable:(id<Measurable>) measurable {  
+  measurable.metadataProvider.source = MeasurableSourceUser;
+  measurable.metadataProvider.copyable = YES;
 }
 
 @end

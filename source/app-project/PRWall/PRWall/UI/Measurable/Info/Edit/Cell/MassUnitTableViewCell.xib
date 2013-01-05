@@ -43,9 +43,8 @@
 							<object class="IBUISegmentedControl" id="304741358">
 								<reference key="NSNextResponder" ref="937122562"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{80, 0}, {160, 44}}</string>
+								<string key="NSFrame">{{88, 0}, {145, 44}}</string>
 								<reference key="NSSuperview" ref="937122562"/>
-								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<string key="NSHuggingPriority">{250, 250}</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -82,7 +81,6 @@
 						</array>
 						<string key="NSFrameSize">{320, 43}</string>
 						<reference key="NSSuperview" ref="582377804"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="304741358"/>
 						<string key="NSReuseIdentifierKey">_NS:18</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="820867022">
@@ -98,7 +96,6 @@
 				</array>
 				<string key="NSFrameSize">{320, 44}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="937122562"/>
 				<string key="NSReuseIdentifierKey">_NS:16</string>
 				<reference key="IBUIBackgroundColor" ref="820867022"/>
@@ -185,7 +182,7 @@
 						<int key="objectID">4</int>
 						<reference key="object" ref="304741358"/>
 						<array class="NSMutableArray" key="children">
-							<object class="IBNSLayoutConstraint" id="352401317">
+							<object class="IBNSLayoutConstraint" id="540498337">
 								<reference key="firstItem" ref="304741358"/>
 								<int key="firstAttribute">7</int>
 								<int key="relation">0</int>
@@ -193,7 +190,7 @@
 								<int key="secondAttribute">0</int>
 								<float key="multiplier">1</float>
 								<object class="IBLayoutConstant" key="constant">
-									<double key="value">160</double>
+									<double key="value">145</double>
 								</object>
 								<float key="priority">1000</float>
 								<reference key="containingView" ref="304741358"/>
@@ -206,17 +203,17 @@
 						<string key="objectName">Mass Unit Segmented Control</string>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">15</int>
-						<reference key="object" ref="352401317"/>
-						<reference key="parent" ref="304741358"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">25</int>
 						<reference key="object" ref="148972476"/>
 						<reference key="parent" ref="582377804"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">29</int>
+						<int key="objectID">31</int>
+						<reference key="object" ref="540498337"/>
+						<reference key="parent" ref="304741358"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">32</int>
 						<reference key="object" ref="781152638"/>
 						<reference key="parent" ref="582377804"/>
 					</object>
@@ -226,18 +223,18 @@
 				<string key="-1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="15.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="25.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="29.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="3.CustomClassName">MassUnitTableViewCell</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<array class="NSMutableArray" key="3.IBViewMetadataConstraints">
 					<reference ref="148972476"/>
 					<reference ref="781152638"/>
 				</array>
+				<string key="31.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="32.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<array class="NSMutableArray" key="4.IBViewMetadataConstraints">
-					<reference ref="352401317"/>
+					<reference ref="540498337"/>
 				</array>
 				<boolean value="NO" key="4.IBViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
 				<integer value="1" key="4.IUISegmentedControlInspectorSelectedSegmentMetadataKey"/>
@@ -246,39 +243,9 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">29</int>
+			<int key="maxID">32</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">MassUnitTableViewCell</string>
-					<string key="superclassName">UITableViewCell</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">massUnitSegmentedControl</string>
-						<string key="NS.object.0">UISegmentedControl</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">massUnitSegmentedControl</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">massUnitSegmentedControl</string>
-							<string key="candidateClassName">UISegmentedControl</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/MassUnitTableViewCell.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSLayoutConstraint</string>
-					<string key="superclassName">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/NSLayoutConstraint.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>

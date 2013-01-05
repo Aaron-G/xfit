@@ -12,7 +12,6 @@
 #import "MeasurableDataEntryEditDateTableViewCell.h"
 #import "MeasurableDataEntryEditCommentTableViewCell.h"
 #import "MeasurableDataEntryEditMediaTableViewCell.h"
-#import "MeasurableDataEntryAddMediaTableViewCell.h"
 #import "UIHelper.h"
 #import "MeasurableHelper.h"
 #import "AppViewControllerSegue.h"
@@ -20,8 +19,11 @@
 #import "MediaHelper.h"
 #import "AppConstants.h"
 #import "FootInchFormatter.h"
+#import "AddMediaTableViewCell.h"
+#import "EditMediaTableViewCell.h"
+#import "MediaPickerSupport.h"
 
-@interface MeasurableDataEntryViewController ()
+@interface MeasurableDataEntryViewController () <MediaPickerSupportDelegate>
 
 typedef enum {
   MeasurableDataEntryViewControllerModeEdit,
@@ -34,23 +36,15 @@ typedef enum {
 @property MeasurableDataEntry* measurableDataEntry;
 @property MeasurableDataEntryViewControllerMode mode;
 @property id<MeasurableDataEntryDelegate> delegate;
-@property UIImagePickerController *imagePickerController;
-@property UIImagePickerController *videoPickerController;
 
-@property BOOL canPickImage;
-@property BOOL canPickVideo;
+@property MediaPickerSupport* mediaPickerSupport;
 
 @property UIView* currentlyEditingView;
-
-@property NSMutableDictionary* videoThumbnailGenerators;
 
 - (IBAction)doneEditingMeasurableDataEntry;
 - (IBAction)cancelEditingMeasurableDataEntry;
 - (IBAction)doneEditingField;
 - (IBAction)doneEditingDate;
-
-- (IBAction) startPickingVideo;
-- (IBAction) startPickingImage;
 
 @end
 
@@ -59,14 +53,16 @@ typedef enum {
 static NSInteger VALUE_SECTION = 0;
 static NSInteger DATE_SECTION = 1;
 static NSInteger COMMENT_SECTION = 2;
-static NSInteger IMAGES_SECTION = 3;
-static NSInteger VIDEOS_SECTION = 4;
 
 static NSInteger VALUE_TEXTFIELD_TAG = 0;
 static NSInteger DATE_TEXTFIELD_TAG = 1;
 
 @synthesize measurableDataEntry = _measurableDataEntry;
 @synthesize measurable = _measurable;
+
+@synthesize imagesSection = _imagesSection;
+@synthesize videosSection = _videosSection;
+@synthesize viewController = _viewController;
 
 ///////////////////////////////////////////////////////////////////////////////////////
 //Standard View Controller
@@ -76,7 +72,9 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
 
   self = [super initWithCoder:aDecoder];
   if(self) {    
-    self.videoThumbnailGenerators = [NSMutableDictionary dictionary];
+    self.imagesSection = 3;
+    self.videosSection = 4;
+    self.viewController = self;
   }
   
   return self;
@@ -103,27 +101,17 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
   self.dateDatePicker.maximumDate = [NSDate date];
   
   /////////////////////////////////////////////////////////////////
-  //Image Picker
-  self.imagePickerController = [[UIImagePickerController alloc] init];
-  self.imagePickerController.delegate = self;
-  self.imagePickerController.allowsEditing = YES;
-  self.imagePickerController.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
-  self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-  
-  //Disable image picking if not available
-  self.canPickImage = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary];
+  //Media Picker
+  self.mediaPickerSupport = [[MediaPickerSupport alloc] init];
+  self.mediaPickerSupport.delegate = self;
 
-  /////////////////////////////////////////////////////////////////
-  //Video Picker
-  self.videoPickerController = [[UIImagePickerController alloc] init];
-  self.videoPickerController.delegate = self;
-  self.videoPickerController.allowsEditing = YES;
-  self.videoPickerController.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeMovie, nil];
-  self.videoPickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-  
-  //Disable video picking if not available
-  self.canPickVideo = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary];
-  
+  [self.tableView registerNib: [UINib nibWithNibName:@"AddMediaTableViewCell" bundle:nil] forCellReuseIdentifier:@"AddMediaTableViewCell"];
+  [self.tableView registerNib: [UINib nibWithNibName:@"EditMediaTableViewCell" bundle:nil] forCellReuseIdentifier:@"EditMediaTableViewCell"];
+
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+  return [UIHelper supportedInterfaceOrientations];
 }
 
 - (void)setTitle:(NSString *)title {
@@ -158,11 +146,11 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-  if(section < IMAGES_SECTION) {
+  if(section < self.imagesSection) {
     return 1;
-  } else if (section == IMAGES_SECTION) {
+  } else if (section == self.imagesSection) {
     return self.measurableDataEntry.images.count + 1;
-  } else if (section == VIDEOS_SECTION) {
+  } else if (section == self.videosSection) {
     return self.measurableDataEntry.videos.count + 1;
   }
   return 0;
@@ -181,7 +169,7 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
     } else {
       cell.valueTextField.text = nil;
     }
-    cell.valueTextField.placeholder = [self.measurable.metadataProvider.unit.valueFormatter formatValue: self.measurable.dataProvider.sampleValue];
+    cell.valueTextField.placeholder = [self.measurable.metadataProvider.unit.valueFormatter formatValue: self.measurable.metadataProvider.valueSample];
     
     return cell;
     
@@ -200,32 +188,33 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
     
     return cell;
     
-  } else if(indexPath.section == IMAGES_SECTION) {
+  } else if(indexPath.section == self.imagesSection) {
     
     if(indexPath.item == 0) {
-      
-      MeasurableDataEntryAddMediaTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MeasurableDataEntryAddMediaTableViewCell"];
-      cell.addMediaLabel.text = NSLocalizedString(@"measurable-data-entry-add-picture-label", @"Add Picture");
+
+      AddMediaTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"AddMediaTableViewCell"];
+      cell.addMediaLabel.text = NSLocalizedString(@"add-picture-label", @"Add Picture");
       return cell;
       
     } else {
       
-      MeasurableDataEntryEditMediaTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MeasurableDataEntryEditMediaTableViewCell"];
+      EditMediaTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"EditMediaTableViewCell"];
       NSString* imagePath = [self.measurableDataEntry.images objectAtIndex:(indexPath.item - 1)];
       cell.mediaImageView.image = [UIImage imageWithContentsOfFile:imagePath];
       return cell;
+      
     }
-  } else if(indexPath.section == VIDEOS_SECTION) {
+  } else if(indexPath.section == self.videosSection) {
     
     if(indexPath.item == 0) {
       
-      MeasurableDataEntryAddMediaTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MeasurableDataEntryAddMediaTableViewCell"];
-      cell.addMediaLabel.text = NSLocalizedString(@"measurable-data-entry-add-video-label", @"Add Video");
+      AddMediaTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"AddMediaTableViewCell"];
+      cell.addMediaLabel.text = NSLocalizedString(@"add-video-label", @"Add Video");
       return cell;
       
     } else {
       
-      MeasurableDataEntryEditMediaTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MeasurableDataEntryEditMediaTableViewCell"];
+      EditMediaTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"EditMediaTableViewCell"];
       NSString* videoThumbnailPath = [MediaHelper thumbnailForVideo:[self.measurableDataEntry.videos objectAtIndex:(indexPath.item - 1)] returnDefaultIfNotAvailable:YES];
       cell.mediaImageView.image = [UIImage imageWithContentsOfFile:videoThumbnailPath];
       
@@ -245,10 +234,10 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
     return NSLocalizedString(@"measurable-data-entry-date-section-title", @"When");
   } else if (section == COMMENT_SECTION) {
     return NSLocalizedString(@"measurable-data-entry-comment-section-title", @"Note");
-  } else if (section == IMAGES_SECTION) {
-    return NSLocalizedString(@"measurable-data-entry-images-section-title", @"Pictures");
-  } else if (section == VIDEOS_SECTION) {
-    return NSLocalizedString(@"measurable-data-entry-videos-section-title", @"Videos");
+  } else if (section == self.imagesSection) {
+    return NSLocalizedString(@"images-label", @"Pictures");
+  } else if (section == self.videosSection) {
+    return NSLocalizedString(@"videos-label", @"Videos");
   }
   
   return [super tableView:tableView titleForHeaderInSection:section];
@@ -260,15 +249,15 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
     return MeasurableDataEntryEditValueTableViewCellHeight;
   } else if (indexPath.section == COMMENT_SECTION && indexPath.item == 0) {
     return MeasurableDataEntryEditCommentTableViewCellHeight;
-  } else if ((indexPath.section == IMAGES_SECTION || indexPath.section == VIDEOS_SECTION) && indexPath.item > 0) {
-    return MeasurableDataEntryEditMediaTableViewCellHeight;
+  } else if ((indexPath.section == self.imagesSection || indexPath.section == self.videosSection) && indexPath.item > 0) {
+    return EditMediaTableViewCellHeight;
   } else {
    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
   }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-  if (indexPath.section >= IMAGES_SECTION) {
+  if (indexPath.section >= self.imagesSection) {
     return YES;
   } else {
     return NO;
@@ -277,7 +266,7 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
   
-  if (indexPath.section >= IMAGES_SECTION) {
+  if (indexPath.section >= self.imagesSection) {
     if (indexPath.item == 0) {
       return UITableViewCellEditingStyleInsert;
     } else {
@@ -288,7 +277,7 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-  if (indexPath.section >= IMAGES_SECTION) {
+  if (indexPath.section >= self.imagesSection) {
     if (indexPath.item > 0) {
       return YES;
     }
@@ -299,18 +288,18 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
   
   if(editingStyle == UITableViewCellEditingStyleInsert) {
-    [self startPickingMediaAtIndexPath:indexPath];
+    [self.mediaPickerSupport startPickingMediaAtIndexPath:indexPath];
   } else if(UITableViewCellEditingStyleDelete == editingStyle) {
 
-    if(indexPath.section == IMAGES_SECTION || indexPath.section == VIDEOS_SECTION) {
+    if(indexPath.section == self.imagesSection || indexPath.section == self.videosSection) {
 
       NSMutableArray* updatedArray = nil;
       
-      if(indexPath.section == IMAGES_SECTION) {
+      if(indexPath.section == self.imagesSection) {
         updatedArray = [NSMutableArray arrayWithArray:self.measurableDataEntry.images];
         self.measurableDataEntry.images = updatedArray;
         
-      } else if(indexPath.section == VIDEOS_SECTION) {
+      } else if(indexPath.section == self.videosSection) {
         updatedArray = [NSMutableArray arrayWithArray:self.measurableDataEntry.videos];
         self.measurableDataEntry.videos = updatedArray;
       }
@@ -325,11 +314,11 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  [self startPickingMediaAtIndexPath:indexPath];
+  [self.mediaPickerSupport startPickingMediaAtIndexPath:indexPath];
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-  if(toIndexPath.section == IMAGES_SECTION || toIndexPath.section == VIDEOS_SECTION) {
+  if(toIndexPath.section == self.imagesSection || toIndexPath.section == self.videosSection) {
 
     if(toIndexPath.item == fromIndexPath.item) {
       return;
@@ -337,11 +326,11 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
 
     NSMutableArray* updatedArray = nil;
     
-    if(toIndexPath.section == IMAGES_SECTION) {
+    if(toIndexPath.section == self.imagesSection) {
       updatedArray = [NSMutableArray arrayWithArray:self.measurableDataEntry.images];
       self.measurableDataEntry.images = updatedArray;
       
-    } else if(toIndexPath.section == VIDEOS_SECTION) {
+    } else if(toIndexPath.section == self.videosSection) {
       updatedArray = [NSMutableArray arrayWithArray:self.measurableDataEntry.videos];
       self.measurableDataEntry.videos = updatedArray;
     }
@@ -556,7 +545,7 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
   
   if(textField.tag == DATE_TEXTFIELD_TAG) {
     textField.inputView = self.dateDatePicker;
-    self.dateDatePicker.date = self.measurableDataEntry.date; //cleo
+    self.dateDatePicker.date = self.measurableDataEntry.date;
   }
   
   return YES;
@@ -580,6 +569,10 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
 //VALUE FIELD EDITING
 ///////////////////////////////////////////////////////////////////
 
+- (Unit *)unit {
+  return self.measurable.metadataProvider.unit;
+}
+
 -(void)valueSelectionChangedInMeasurableValuePickerView:(MeasurableValuePickerView*) measurableValuePickerView {
 
   //Only allow to be done with we have a value
@@ -592,152 +585,23 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
   ((UITextField*)self.currentlyEditingView).text = [self.measurable.metadataProvider.unit.valueFormatter formatValue: self.measurableDataEntry.value];
 }
 
+
 ///////////////////////////////////////////////////////////////////
 //MEDIA PICKING
 ///////////////////////////////////////////////////////////////////
-- (void)startPickingMediaAtIndexPath:(NSIndexPath *)indexPath {
-  
-  if(indexPath.section == IMAGES_SECTION && indexPath.item == 0) {
-    
-    if(self.canPickImage) {
-      [self startPickingImage];
-    } else {
-      [UIHelper showMessage:NSLocalizedString(@"no-image-support-message", @"Your device does not support images.")
-                  withTitle:NSLocalizedString(@"measurable-data-entry-cannot-add-picture-title", "Cannot Add Picture")];
-    }
-  } else if(indexPath.section == VIDEOS_SECTION && indexPath.item == 0) {
-    if(self.canPickVideo) {
-      [self startPickingVideo];
-    } else {
-      [UIHelper showMessage:NSLocalizedString(@"no-video-support-message", @"Your device does not support videos.")
-                  withTitle:NSLocalizedString(@"measurable-data-entry-cannot-add-video-title", "Cannot Add Video")];
-    }
-  }
+- (NSArray *)videos {
+  return self.measurableDataEntry.videos;
 }
 
-- (void) addImage:(UIImage*) image orVideo:(NSURL*) video inSection:(NSInteger) section {
-  
-  //1- Check if there is enough space
-  NSString* errorMessageTitleKey = nil;
-  
-  if(image && ![MediaHelper enoughSpaceForImage:image]) {
-    errorMessageTitleKey = @"measurable-data-entry-cannot-add-picture-title";
-  }
-
-  if(video && ![MediaHelper enoughSpaceForVideo:video]) {
-    errorMessageTitleKey = @"measurable-data-entry-cannot-add-video-title";
-  }
-  
-  if(errorMessageTitleKey) {
-    [UIHelper showMessage:NSLocalizedString(@"no-space-in-device-message", @"Your device does not have enough space.")
-                withTitle:NSLocalizedString(errorMessageTitleKey, "")];
-    return;
-  }
-
-  NSArray* mediaArray = nil;
-  NSURL* mediaURL = nil;
-  
-  MediaHelperPurpose mediaHelperPurpose = [MeasurableHelper mediaHelperPurposeForMeasurable:self.measurable];
-  
-  if(image) {
-    
-    mediaURL = [MediaHelper saveImage:image forPurpose:mediaHelperPurpose];
-    if(mediaURL) {
-      mediaArray = self.measurableDataEntry.images;
-    } else {
-      errorMessageTitleKey = @"measurable-data-entry-cannot-add-picture-title";
-    }
-  } else if(video) {
-    mediaURL = [MediaHelper saveVideo:video forPurpose:mediaHelperPurpose];
-    
-    if(mediaURL) {
-      mediaArray = self.measurableDataEntry.videos;
-      
-      //Start loading the thumbnail
-      //This seems to be the only way this works
-      dispatch_async(dispatch_get_main_queue(), ^{
-        VideoThumbnailGenerator* thumbnailGenerator = [[VideoThumbnailGenerator alloc] init];
-        thumbnailGenerator.delegate = self;
-        [thumbnailGenerator generateThumbnailForVideo:mediaURL.path];
-        [self.videoThumbnailGenerators setObject:thumbnailGenerator forKey:mediaURL.path];
-      });
-      
-    } else {
-      errorMessageTitleKey = @"measurable-data-entry-cannot-add-video-title";
-    }
-  }
-  
-  if(errorMessageTitleKey) {
-    [UIHelper showMessage:NSLocalizedString(@"unexpected-problem-message", "There was an unexpected problem. If the problem persists, please contact us.")
-                withTitle:NSLocalizedString(errorMessageTitleKey, "")];
-    return;
-  }
-  
-  //Find current number of images or videos
-  NSInteger numberOfMedia = [self tableView:self.tableView numberOfRowsInSection:section];
-  
-  //Update the data model
-  NSMutableArray* updateArray = [NSMutableArray arrayWithArray:mediaArray];
-  
-  [updateArray addObject:mediaURL.path];
-  
-  //Update the appropriate data structure
-  if(image) {
-    self.measurableDataEntry.images = updateArray;
-  } else if (video) {
-    self.measurableDataEntry.videos = updateArray;
-  }
-  
-  //Trigger UI update
-  //
-  //Update the insert index path array
-  NSArray* indexPathsToInsert = [NSArray arrayWithObjects: [NSIndexPath indexPathForRow: numberOfMedia inSection:section], nil];
-  
-  //Actually perform the change
-  [self.tableView beginUpdates];
-  [self.tableView insertRowsAtIndexPaths:indexPathsToInsert withRowAnimation:UITableViewRowAnimationFade];
-  [self.tableView endUpdates];
+- (void)setVideos:(NSArray *)videos {
+  self.measurableDataEntry.videos = videos;
 }
 
-///////////////////////////////////////////////////////////////////
-//IMAGE PICKING
-///////////////////////////////////////////////////////////////////
-- (IBAction) startPickingImage {
-  [self presentViewController:self.imagePickerController animated:YES completion:nil];
+- (NSArray *)images {
+  return self.measurableDataEntry.images;
+}
+- (void)setImages:(NSArray *)images {
+  self.measurableDataEntry.images = images;
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-  
-  if(picker == self.imagePickerController) {
-    [self addImage:[info valueForKey:UIImagePickerControllerEditedImage] orVideo:nil inSection:IMAGES_SECTION];
-  } else if(picker == self.videoPickerController) {
-    [self addImage:nil orVideo:[info valueForKey:UIImagePickerControllerMediaURL] inSection:VIDEOS_SECTION];
-  }
-  
-  [self dismissViewControllerAnimated:NO completion:nil];
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-  [self dismissViewControllerAnimated:NO completion:nil];
-}
-
-///////////////////////////////////////////////////////////////////
-//VIDEO PICKING
-///////////////////////////////////////////////////////////////////
-- (IBAction) startPickingVideo {
-  [self presentViewController:self.videoPickerController animated:YES completion:nil];
-}
-
-- (void)didGenerateThumbnailForVideo:(NSString *)video {
-  
-  NSInteger rowForVideo = [self.measurableDataEntry.videos indexOfObject:video];
-    
-  [self.videoThumbnailGenerators removeObjectForKey:video];
-  
-  [self.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:[NSIndexPath indexPathForItem:(rowForVideo + 1) inSection:VIDEOS_SECTION]] withRowAnimation: NO];
-}
-
-- (void)didNotGenerateThumbnailForVideo:(NSString*) video {
-    
-}
 @end

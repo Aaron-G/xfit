@@ -18,6 +18,7 @@ typedef enum {
 @interface MeasurableType : NSObject
 
 @property NSString* displayName;
+@property NSString* displayNamePlural;
 @property MeasurableTypeIdentifier identifier;
 
 + (MeasurableType*) measurableTypeWithMeasurableTypeIdentifier: (MeasurableTypeIdentifier) identifier;

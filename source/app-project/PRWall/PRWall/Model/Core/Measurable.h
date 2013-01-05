@@ -22,10 +22,10 @@ typedef enum {
 } MeasurableValueTrend;
 
 typedef enum {
-  MeasurableValueTrendBetterDirectionNone,
-  MeasurableValueTrendBetterDirectionUp,
-  MeasurableValueTrendBetterDirectionDown
-} MeasurableValueTrendBetterDirection;
+  MeasurableValueGoalNone,
+  MeasurableValueGoalMore,
+  MeasurableValueGoalLess
+} MeasurableValueGoal;
 
 typedef enum {
   MeasurableValueTypeNumber,
@@ -40,8 +40,8 @@ typedef enum {
   MeasurableSourceFeed
 } MeasurableSource;
 
-
 typedef NSString* MeasurableIdentifier;
+typedef NSString* MeasurableMoreInfoIdentifier;
 
 //////////////////////////////////////////////////////
 
@@ -57,4 +57,8 @@ typedef NSString* MeasurableIdentifier;
 
 @property MeasurableDataProvider* dataProvider;
 @property MeasurableMetadataProvider* metadataProvider;
+
+- (id<Measurable>)copy;
++ new;
+
 @end

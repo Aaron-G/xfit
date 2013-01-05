@@ -12,7 +12,7 @@
 @interface ModelFactory : NSObject
 
 + (UserProfile*) createDefaultUserProfile;
-+ (NSDictionary*) createDefaultBodyMetrics;
-+ (NSDictionary*) createDefaultExercises;
++ (NSMutableDictionary*) createDefaultBodyMetrics;
++ (NSMutableDictionary*) createDefaultExercises;
 
 @end

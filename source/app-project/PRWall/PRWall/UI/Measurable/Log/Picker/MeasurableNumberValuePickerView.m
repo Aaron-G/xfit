@@ -21,14 +21,14 @@
 @synthesize valueUnitTitle = _valueUnitTitle;
 
 - (NSNumber *)value {
-  return [self.measurableValuePickerViewDelegate.measurable.metadataProvider.unit.unitSystemConverter convertToSystemValue:
+  return [self.measurableValuePickerViewDelegate.unit.unitSystemConverter convertToSystemValue:
           [NSNumber numberWithInt:self.numberValue]];
 }
 
 - (void)setValue:(NSNumber *)value {
   
   //Update local variables
-  self.numberValue = [[self.measurableValuePickerViewDelegate.measurable.metadataProvider.unit.unitSystemConverter convertFromSystemValue:value] intValue];
+  self.numberValue = [[self.measurableValuePickerViewDelegate.unit.unitSystemConverter convertFromSystemValue:value] intValue];
   
   //Update the display based on the new value
   [self selectRow:self.numberValue inComponent:0 animated:NO];
@@ -36,12 +36,12 @@
 
 - (NSString*)valueUnitTitle {
   
-  id<Measurable> measurable = self.measurableValuePickerViewDelegate.measurable;
+  Unit* unit = self.measurableValuePickerViewDelegate.unit;
   
-  if(!_valueUnitTitle && measurable) {
+  if(!_valueUnitTitle && unit) {
     
-    if([measurable.metadataProvider.unit.valueFormatter isKindOfClass: [DefaultUnitValueFormatter class]]) {
-      _valueUnitTitle = ((DefaultUnitValueFormatter*)measurable.metadataProvider.unit.valueFormatter).suffixString;
+    if([unit.valueFormatter isKindOfClass: [DefaultUnitValueFormatter class]]) {
+      _valueUnitTitle = ((DefaultUnitValueFormatter*)unit.valueFormatter).suffixString;
     }
   }
   

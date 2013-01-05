@@ -13,8 +13,9 @@
 #import "MeasurableLayoutDelegate.h"
 #import "MeasurableChartViewController.h"
 
-@interface MeasurableViewController () {  
-}
+@interface MeasurableViewController ()
+
+@property BOOL measurableInfoEdited;
 
 - (IBAction)displayMeasurableInfo;
 - (IBAction)displayMeasurableLog;
@@ -49,6 +50,8 @@
   //Do this after the previous call so that the location for the components to be
   //positioned is available to the Log and Info View Constrollers
   self.measurableScreenCollectionViewController.measurable = self.measurable;
+  
+  self.measurableInfoEdited = NO;
 }
 
 - (void)viewDidLoad {
@@ -63,8 +66,9 @@
   //Localize button labels
   self.barButtonItemLog.title = NSLocalizedString(@"log-label", @"Log");
   self.barButtonItemClearLog.title = NSLocalizedString(@"clear-label", @"Clear");
-  self.barButtonItemChartLog.image = [UIImage imageNamed: @"chart-bar-icon.png"];
-
+  self.barButtonItemChartLog.image = [UIImage imageNamed: @"chart-bar-icon"];
+  self.barButtonItemCopyMeasurable.image = [UIImage imageNamed: @"copy-icon"];
+  
   //Add the log button
   [self displayStandardButtons];
 }
@@ -114,10 +118,15 @@
 
 
 - (IBAction)copyMeasurableAction:(id)sender {
+  
+  MeasurableInfoEditViewController* measurableInfoEditViewController
+    = [MeasurableHelper measurableInfoEditViewControllerForMeasurableTypeIdentifier:MeasurableTypeIdentifierExercise];
+  measurableInfoEditViewController.delegate = self;
+  
+  [measurableInfoEditViewController createMeasurableInfoFromMeasurable:self.measurable];
 }
 
 - (IBAction)logMeasurableAction:(id)sender {
-  
   MeasurableDataEntryViewController* measurableDataEntryViewController = [MeasurableHelper measurableDataEntryViewController];
   [measurableDataEntryViewController createMeasurableDataEntryInMeasurable:self.measurable withDelegate:self];
 }
@@ -156,24 +165,38 @@
   [self doneEditMeasurableAction:self.measurableScreenCollectionViewController.logViewController toolbarItems:self.measurableScreenCollectionViewController.logToolbarItems switchButton:self.buttonSwitchToInfo];
 }
 
-- (void)doneEditMeasurableAction: (UIViewController*) viewController toolbarItems: (NSArray*) toolbarItems switchButton:(UIButton*) switchButton {
+- (void)doneEditMeasurableAction: (MeasurableLayoutViewController*) viewController toolbarItems: (NSArray*) toolbarItems switchButton:(UIButton*) switchButton {
   
   self.measurableScreenCollectionViewController.collectionView.scrollEnabled = YES;
   [self displayStandardButtons];
   [self.toolbar setItems:toolbarItems animated:YES];
-  
+
   //CXB NOTE
   //Commented out now because not sure we want to have this
   //switchButton.hidden = NO;
 
-  [viewController setEditing:NO animated:YES];
-
   //Track it locally
   self.editing = NO;
+  
+  //Update UI
+  [self forceLayout];
+
+  [viewController setEditing:NO animated:YES];
+  
+  //Re-layout both so that things look updated 
+  if(self.measurableInfoEdited) {
+    [self fireDidEditMeasurableInfoForMeasurable:self.measurable];
+    
+    self.measurableInfoEdited = NO;
+  } else {
+    [self.measurableScreenCollectionViewController.logViewController forceLayout];
+    [self.measurableScreenCollectionViewController.infoViewController forceLayout];
+  }
 }
+
 //////////////////////////////////////////////////////////////////
 //EDIT MEASURABLE
-- (void)editMeasurableInfoAction:(id)sender {
+- (void)editMeasurableInfoAction:(id)sender {  
   [self editMeasurableAction:self.measurableScreenCollectionViewController.infoViewController doneButton: self.barButtonItemDoneInfo switchButton:self.buttonSwitchToLog];
 }
 
@@ -189,7 +212,7 @@
   [self.navigationItem setLeftBarButtonItem: self.barButtonItemClearLog animated:YES];
 }
 
-- (void)editMeasurableAction:(UIViewController*) viewController doneButton:(UIBarButtonItem*) doneButton switchButton:(UIButton*) switchButton {
+- (void)editMeasurableAction:(MeasurableLayoutViewController*) viewController doneButton:(UIBarButtonItem*) doneButton switchButton:(UIButton*) switchButton {
 
   //Needed for Info screen where there is no left button
   self.navigationItem.hidesBackButton = YES;
@@ -205,11 +228,27 @@
   //CXB NOTE
   //Commented out now because not sure we want to have this
   //switchButton.hidden = YES;
-  
-  [viewController setEditing:YES animated:YES];
-  
+
   //Track it locally
   self.editing = YES;
+  
+  //Update UI
+  [self forceLayout];
+
+  [viewController setEditing:YES animated:YES];
+  
+  [viewController forceLayout];
+}
+
+- (void) changeToolbarVisibility: (BOOL) visible {
+
+  [UIView animateWithDuration: 0.3
+                        delay: 0
+                      options: 0
+                   animations:^{
+                     self.toolbar.alpha = (visible) ? 1 : 0;
+                   }
+                   completion: nil];
 }
 
 - (void)displayStandardButtons {
@@ -230,22 +269,39 @@
   [self.measurableScreenCollectionViewController.logViewController logMeasurableDataEntry:measurableDataEntry];
 
   //Update the MeasurableViewControllerDelegate
-  [self.delegate didChangeMeasurable:self.measurable];
+  [self.delegate didChangeMeasurable:measurable];
 }
 
 -(void)didCancelCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable {
 }
 
-- (void)didEditMeasurableInfoForMeasurable:(id<Measurable>)measurable {
+- (void)didFinishEditingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable:(id<Measurable>)measurable {
+}
 
+- (void)didEditMeasurableInfoForMeasurable:(id<Measurable>)measurable {
+  
+  //Mark the measurable as edited s othat we can fire this even only 1 time
+  self.measurableInfoEdited = YES;
+}
+
+- (void) fireDidEditMeasurableInfoForMeasurable:(id<Measurable>)measurable {
+  
   //Update the info VC
   [self.measurableScreenCollectionViewController.infoViewController reloadView];
-
+  
   //Update the log VC
   [self.measurableScreenCollectionViewController.logViewController reloadView];
   
   //Update the MeasurableViewControllerDelegate
-  [self.delegate didChangeMeasurable:self.measurable];
+  [self.delegate didChangeMeasurable:measurable];
+}
+
+- (void)didDeleteMeasurableInfoForMeasurable:(id<Measurable>) measurable {
+  [self.delegate didDeleteMeasurable:measurable];
+}
+
+- (void)didCreateMeasurableInfoForMeasurable:(id<Measurable>)measurable {    
+  [self.delegate didCreateMeasurable:measurable];
 }
 
 @end

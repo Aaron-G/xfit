@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "MeasurableDataEntry.h"
-#import "MeasurableDataEntryMediaViewDelegate.h"
 
 @interface MeasurableDataEntryAdditionalInfoTableViewCell : UITableViewCell
 

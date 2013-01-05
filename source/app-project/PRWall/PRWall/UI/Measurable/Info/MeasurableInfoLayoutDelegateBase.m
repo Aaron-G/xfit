@@ -10,11 +10,13 @@
 #import "Measurable.h"
 #import "MeasurableInfoViewController.h"
 #import "UIHelper.h"
+#import "ActivityMetadataProvider.h"
+#import "MediaCollectionViewCell.h"
 
 @implementation MeasurableInfoLayoutDelegateBase
 
 //Vertical spacing between UI component
-static CGFloat VERTICAL_LAYOUT_PADDING = 0;
+static CGFloat VERTICAL_LAYOUT_PADDING = 5;
 
 - (void) layoutViewInViewController:(UIViewController*) viewController withMeasurable: (id<Measurable>) measurable withLayoutPosition:(CGPoint) startPosition {
   
@@ -36,7 +38,10 @@ static CGFloat VERTICAL_LAYOUT_PADDING = 0;
 - (void)updateContentWithMeasurable:(id<Measurable>)measurable inMeasurableInfoViewController:(MeasurableInfoViewController *)measurableInfoViewController {
   
   //Description View
-  measurableInfoViewController.descriptionTextView.text = measurable.metadataProvider.description;  
+  measurableInfoViewController.descriptionTextView.text = measurable.metadataProvider.description;
+  
+  //Media View
+  [measurableInfoViewController.mediaView reloadData];
 }
 
 - (void) updateLayoutWithMeasurable: (id<Measurable>) measurable inMeasurableInfoViewController:(MeasurableInfoViewController*) measurableInfoViewController startAtPosition:(CGPoint) startPosition {
@@ -51,13 +56,35 @@ static CGFloat VERTICAL_LAYOUT_PADDING = 0;
                        view:measurableInfoViewController.dividerButton
         withVerticalSpacing:VERTICAL_LAYOUT_PADDING];
 
-  //Description View
-  [UIHelper moveToYLocation:layoutYCoordinate
-            reshapeWithSize:CGSizeMake(measurableInfoViewController.descriptionTextView.frame.size.width, measurableInfoViewController.descriptionTextView.contentSize.height)
-                     orHide:(measurable.metadataProvider.description == nil)
-                       view:measurableInfoViewController.descriptionTextView
-        withVerticalSpacing:VERTICAL_LAYOUT_PADDING];
+  
+  //Media View
+  layoutYCoordinate = [UIHelper moveToYLocation:layoutYCoordinate
+                                reshapeWithSize:CGSizeMake(MediaCollectionViewCellHeight, MediaCollectionViewCellHeight)
+                                         orHide:(measurable.metadataProvider.images.count == 0 && measurable.metadataProvider.videos.count == 0)
+                                           view:measurableInfoViewController.mediaView
+                            withVerticalSpacing:VERTICAL_LAYOUT_PADDING];
 
+  //Description View
+  layoutYCoordinate = [UIHelper moveToYLocation:layoutYCoordinate
+                                reshapeWithSize:CGSizeMake(measurableInfoViewController.descriptionTextView.frame.size.width, measurableInfoViewController.descriptionTextView.contentSize.height)
+                                         orHide:(measurable.metadataProvider.description == nil)
+                                           view:measurableInfoViewController.descriptionTextView
+                            withVerticalSpacing:0];
+
+  //Favorite Icon
+  BOOL hide = YES;
+  
+  if([measurable.metadataProvider.class isSubclassOfClass:ActivityMetadataProvider.class]) {
+    if(((ActivityMetadataProvider*)(measurable.metadataProvider)).favorite) {
+      hide = NO;
+    }
+  }
+  
+  [UIHelper moveToYLocation:layoutYCoordinate
+            reshapeWithSize:CGSizeMake(measurableInfoViewController.favoriteButton.frame.size.width, measurableInfoViewController.favoriteButton.frame.size.height)
+                     orHide:hide
+                       view:measurableInfoViewController.favoriteButton
+        withVerticalSpacing:VERTICAL_LAYOUT_PADDING];
 }
 
 @end

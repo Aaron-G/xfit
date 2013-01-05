@@ -43,7 +43,7 @@ static NSInteger PICKER_WIDTH = 100;
     NSInteger horizontalOffset = 35;
     
     for (int i = 0; i < labels.count; i++) {
-      [super labelForPickerWithText: [labels objectAtIndex:i]  andFrame:CGRectMake( (PICKER_WIDTH * i) + horizontalOffset + (i * 2), 94, (PICKER_WIDTH - horizontalOffset), 30)];
+      [super labelForPickerWithText: [labels objectAtIndex:i] andFrame:CGRectMake( (PICKER_WIDTH * i) + horizontalOffset + (i * 2), 94, (PICKER_WIDTH - horizontalOffset), 30)];
     }
     
     self.labelsInitialized = YES;
@@ -51,13 +51,13 @@ static NSInteger PICKER_WIDTH = 100;
 }
 
 - (NSNumber *)value {  
-  return [self.measurableValuePickerViewDelegate.measurable.metadataProvider.unit.unitSystemConverter convertToSystemValue:
+  return [self.measurableValuePickerViewDelegate.unit.unitSystemConverter convertToSystemValue:
           [NSNumber numberWithInt:self.secondsValue + self.minutesValue * 60 + self.hoursValue * 3600]];
 }
 
 - (void)setValue:(NSNumber *)value {
   
-  NSNumber* localValue = [self.measurableValuePickerViewDelegate.measurable.metadataProvider.unit.unitSystemConverter convertFromSystemValue:value];
+  NSNumber* localValue = [self.measurableValuePickerViewDelegate.unit.unitSystemConverter convertFromSystemValue:value];
 
   //Makes it easy to figure out the time components
   self.timeDuration.value = localValue.intValue;

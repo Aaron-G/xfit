@@ -12,5 +12,7 @@
 @protocol MeasurableInfoEditViewControllerDelegate <NSObject>
 
 - (void) didEditMeasurableInfoForMeasurable:(id<Measurable>) measurable;
+- (void) didCreateMeasurableInfoForMeasurable:(id<Measurable>) measurable;
+- (void) didDeleteMeasurableInfoForMeasurable:(id<Measurable>) measurable;
 
 @end

@@ -15,26 +15,32 @@
 @interface MeasurableMetadataProvider : NSObject
 
 @property MeasurableIdentifier identifier;
+
 @property NSString* name;
 @property NSString* description;
-@property NSString* metadataShort;
-@property NSString* metadataFull;
 
-@property MeasurableType* type;
-
-@property BOOL editable;
 @property BOOL copyable;
 
-@property Unit* unit;
-@property MeasurableValueTrendBetterDirection valueTrendBetterDirection;
+@property MeasurableValueGoal valueGoal;
 @property MeasurableValueType valueType;
+@property NSNumber* valueSample;
+
+@property MeasurableType* type;
 
 @property NSArray* images;
 @property NSArray* videos;
 
 @property MeasurableSource source;
 
+@property Unit* unit;
+@property NSDictionary* moreInfo;
+
+//Computed properties
+@property NSString* metadataShort;
+@property NSString* metadataFull;
+
 - (id)initWithMeasurableIdentifier:(MeasurableIdentifier) identifier;
 
+- (void) copyToMeasurableMetadataProvider:(MeasurableMetadataProvider*) metadataProvider;
 
 @end

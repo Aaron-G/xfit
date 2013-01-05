@@ -12,7 +12,7 @@
 
 - (void)setValue:(NSNumber *)value {
 
-  NSNumber* localValue = [self.measurableValuePickerViewDelegate.measurable.metadataProvider.unit.unitSystemConverter convertFromSystemValue:value];
+  NSNumber* localValue = [self.measurableValuePickerViewDelegate.unit.unitSystemConverter convertFromSystemValue:value];
 
   //Update local variables
   self.numberValue = localValue.intValue;

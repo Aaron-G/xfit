@@ -13,16 +13,17 @@ typedef NSString* MeasurableDataEntryIdentifier;
 
 @interface MeasurableDataEntry : NSObject
 
-//Data Provider Properties
 @property MeasurableDataEntryIdentifier identifier;
-@property NSNumber* value;
-@property MeasurableValueTrend valueTrend;
 
+@property NSNumber* value;
 @property NSDate* date;
 @property NSString* comment;
 
 @property NSArray* images;
 @property NSArray* videos;
 
+//Computed properties
+@property MeasurableValueTrend valueTrend;
 @property (readonly) BOOL hasAdditionalInfo;
+
 @end

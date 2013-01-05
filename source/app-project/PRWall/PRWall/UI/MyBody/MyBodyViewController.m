@@ -262,7 +262,7 @@
   [self.appScreenShareDelegate share];
 }
 
-- (void) updateMeasurable:(MeasurableIdentifier) identifier {
+- (void)updateMeasurable:(MeasurableIdentifier) identifier {
   
   NSIndexPath* indexPath = [self indexPathForBodyMetricIdentifier:identifier];
   
@@ -278,7 +278,14 @@
   if(indexPath) {
     [self.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:indexPath] withRowAnimation: NO];
   }
-  
+}
+
+- (void)didDeleteMeasurable:(id<Measurable>)measurable {
+  //Body Metric are not deletable - so never fired
+}
+
+- (void)didCreateMeasurable:(id<Measurable>)measurable {
+  //Body Metric are not creatable - so never fired
 }
 
 - (void) clearCurrentSelectionInABit {

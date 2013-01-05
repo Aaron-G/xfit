@@ -17,11 +17,15 @@
 
 @interface MeasurableScreenCollectionViewController : UICollectionViewController
 
+extern const NSInteger MEASURABLE_LOG_SCREEN_INDEX;
+extern const NSInteger MEASURABLE_INFO_SCREEN_INDEX;
+
 @property id<Measurable> measurable;
 @property MeasurableInfoViewController* infoViewController;
 @property MeasurableLogViewController* logViewController;
 @property (readonly) NSArray* logToolbarItems;
 @property (readonly) NSArray* infoToolbarItems;
+@property NSInteger currentViewControllerIndex;
 
 - (void)displayMeasurableInfo;
 - (void)displayMeasurableLog;
