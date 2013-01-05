@@ -1,24 +1,106 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11E53" minimumToolsVersion="Xcode 4.1" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="BaseEntity" isAbstract="YES" syncable="YES">
-        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="11G63" minimumToolsVersion="Xcode 4.1" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="BodyMetricMetadata" parentEntity="MeasurableMetadata" syncable="YES"/>
+    <entity name="ExerciseMetadata" parentEntity="MeasurableActivityMetadata" syncable="YES"/>
+    <entity name="Measurable" syncable="YES">
+        <relationship name="data" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="MeasurableData" inverseName="measurable" inverseEntity="MeasurableData" syncable="YES"/>
+        <relationship name="metadata" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="MeasurableMetadata" inverseName="measurable" inverseEntity="MeasurableMetadata" syncable="YES"/>
+        <relationship name="userProfile" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UserProfile" inverseName="workouts" inverseEntity="UserProfile" syncable="YES"/>
+    </entity>
+    <entity name="MeasurableActivityMetadata" parentEntity="MeasurableMetadata" syncable="YES">
+        <attribute name="favorite" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="prWall" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="measurableActivityMetadata" inverseEntity="Tag" syncable="YES"/>
+    </entity>
+    <entity name="MeasurableCategory" syncable="YES">
+        <attribute name="identifier" attributeType="Integer 16" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="namePlural" attributeType="String" syncable="YES"/>
+        <relationship name="measurableMetadata" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="MeasurableMetadata" inverseName="category" inverseEntity="MeasurableMetadata" syncable="YES"/>
+        <relationship name="measurableType" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="MeasurableType" inverseName="measurableCategory" inverseEntity="MeasurableType" syncable="YES"/>
     </entity>
-    <entity name="Move" parentEntity="WorkoutPart" syncable="YES">
-        <relationship name="wod" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WOD" inverseName="moves" inverseEntity="WOD" syncable="YES"/>
+    <entity name="MeasurableData" syncable="YES">
+        <relationship name="measurable" minCount="1" maxCount="1" deletionRule="Deny" destinationEntity="Measurable" inverseName="data" inverseEntity="Measurable" syncable="YES"/>
+        <relationship name="values" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MeasurableDataValue" inverseName="measurableData" inverseEntity="MeasurableDataValue" syncable="YES"/>
     </entity>
-    <entity name="WOD" parentEntity="WorkoutContainer" syncable="YES">
-        <relationship name="moves" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Move" inverseName="wod" inverseEntity="Move" syncable="YES"/>
+    <entity name="MeasurableDataEntryMedia" syncable="YES">
+        <attribute name="index" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="path" attributeType="String" syncable="YES"/>
+        <relationship name="measurableDataValue" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="MeasurableDataValue" inverseName="videos" inverseEntity="MeasurableDataValue" syncable="YES"/>
     </entity>
-    <entity name="Workout" parentEntity="WorkoutContainer" syncable="YES"/>
-    <entity name="WorkoutContainer" isAbstract="YES" parentEntity="BaseEntity" syncable="YES"/>
-    <entity name="WorkoutPart" isAbstract="YES" parentEntity="BaseEntity" syncable="YES"/>
+    <entity name="MeasurableDataValue" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" attributeType="Date" syncable="YES"/>
+        <attribute name="value" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="MeasurableDataEntryMedia" inverseName="measurableDataValue" inverseEntity="MeasurableDataEntryMedia" syncable="YES"/>
+        <relationship name="measurableData" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="MeasurableData" inverseName="values" inverseEntity="MeasurableData" syncable="YES"/>
+        <relationship name="videos" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="MeasurableDataEntryMedia" inverseName="measurableDataValue" inverseEntity="MeasurableDataEntryMedia" syncable="YES"/>
+    </entity>
+    <entity name="MeasurableMetadata" isAbstract="YES" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="copyable" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="source" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="valueGoal" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="valueSample" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="valueType" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="category" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="MeasurableCategory" inverseName="measurableMetadata" inverseEntity="MeasurableCategory" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MeasurableMetadataMedia" inverseName="measurableMetadata" inverseEntity="MeasurableMetadataMedia" syncable="YES"/>
+        <relationship name="measurable" toMany="YES" minCount="1" deletionRule="Deny" destinationEntity="Measurable" inverseName="metadata" inverseEntity="Measurable" syncable="YES"/>
+        <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MeasurableType" inverseName="measurableMetadata" inverseEntity="MeasurableType" syncable="YES"/>
+        <relationship name="unit" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Unit" inverseName="measurableMetadata" inverseEntity="Unit" syncable="YES"/>
+        <relationship name="videos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MeasurableMetadataMedia" inverseName="measurableMetadata" inverseEntity="MeasurableMetadataMedia" syncable="YES"/>
+    </entity>
+    <entity name="MeasurableMetadataMedia" syncable="YES">
+        <attribute name="index" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="path" attributeType="String" syncable="YES"/>
+        <relationship name="measurableMetadata" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="MeasurableMetadata" inverseName="videos" inverseEntity="MeasurableMetadata" syncable="YES"/>
+    </entity>
+    <entity name="MeasurableType" syncable="YES">
+        <attribute name="comment" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="measurableCategory" minCount="1" maxCount="1" deletionRule="Deny" destinationEntity="MeasurableCategory" inverseName="measurableType" inverseEntity="MeasurableCategory" syncable="YES"/>
+        <relationship name="measurableMetadata" optional="YES" minCount="1" maxCount="1" deletionRule="Deny" destinationEntity="MeasurableMetadata" inverseName="type" inverseEntity="MeasurableMetadata" syncable="YES"/>
+    </entity>
+    <entity name="Tag" syncable="YES">
+        <attribute name="value" attributeType="String" syncable="YES"/>
+        <relationship name="measurableActivityMetadata" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="MeasurableActivityMetadata" inverseName="tags" inverseEntity="MeasurableActivityMetadata" syncable="YES"/>
+    </entity>
+    <entity name="Unit" syncable="YES">
+        <attribute name="identifier" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 16" syncable="YES"/>
+        <relationship name="measurableMetadata" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="MeasurableMetadata" inverseName="unit" inverseEntity="MeasurableMetadata" syncable="YES"/>
+    </entity>
+    <entity name="UserProfile" syncable="YES">
+        <attribute name="box" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateOfBirth" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="master" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="sex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="bodyMetrics" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Measurable" inverseName="userProfile" inverseEntity="Measurable" syncable="YES"/>
+        <relationship name="exercises" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Measurable" inverseName="userProfile" inverseEntity="Measurable" syncable="YES"/>
+        <relationship name="workouts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Measurable" inverseName="userProfile" inverseEntity="Measurable" syncable="YES"/>
+    </entity>
+    <entity name="WorkoutMetadata" parentEntity="MeasurableActivityMetadata" syncable="YES">
+        <attribute name="team" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="BaseEntity" positionX="160" positionY="-3846" width="128" height="75"/>
-        <element name="Move" positionX="387" positionY="-3561" width="128" height="60"/>
-        <element name="WOD" positionX="-92" positionY="-3564" width="128" height="60"/>
-        <element name="Workout" positionX="162" positionY="-3582" width="128" height="45"/>
-        <element name="WorkoutContainer" positionX="7" positionY="-3717" width="128" height="45"/>
-        <element name="WorkoutPart" positionX="322" positionY="-3699" width="128" height="45"/>
+        <element name="BodyMetricMetadata" positionX="261" positionY="-4140" width="128" height="45"/>
+        <element name="ExerciseMetadata" positionX="-47" positionY="-3996" width="128" height="45"/>
+        <element name="Measurable" positionX="475" positionY="-4599" width="128" height="90"/>
+        <element name="MeasurableActivityMetadata" positionX="36" positionY="-4140" width="180" height="90"/>
+        <element name="MeasurableCategory" positionX="423" positionY="-4374" width="128" height="120"/>
+        <element name="MeasurableData" positionX="666" positionY="-4494" width="128" height="75"/>
+        <element name="MeasurableDataEntryMedia" positionX="826" positionY="-4248" width="182" height="90"/>
+        <element name="MeasurableDataValue" positionX="862" positionY="-4455" width="128" height="135"/>
+        <element name="MeasurableMetadata" positionX="180" positionY="-4410" width="128" height="240"/>
+        <element name="MeasurableMetadataMedia" positionX="-189" positionY="-4383" width="171" height="90"/>
+        <element name="MeasurableType" positionX="585" positionY="-4374" width="128" height="120"/>
+        <element name="Tag" positionX="-189" positionY="-4248" width="155" height="75"/>
+        <element name="Unit" positionX="504" positionY="-4230" width="128" height="90"/>
+        <element name="UserProfile" positionX="-2" positionY="-4608" width="128" height="180"/>
+        <element name="WorkoutMetadata" positionX="151" positionY="-3993" width="128" height="60"/>
     </elements>
 </model>
