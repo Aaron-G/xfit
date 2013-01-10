@@ -32,9 +32,6 @@
 //Starts the app
 - (void)startApp;
 
-//Displays the app menu - if needed
-- (void) displayAppMenuIfNeeded;
-
 //Returns the shared instance of the running app.
 + (App*)sharedInstance;
 

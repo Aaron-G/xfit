@@ -17,8 +17,8 @@
 
 @property NSInteger applicationRunCount;
 
-//Determines of the app menu has been displayed during this run of the app
-@property BOOL appMenuDisplayedAtStartup;
+////Determines of the app menu has been displayed during this run of the app
+//@property BOOL appMenuDisplayedAtStartup;
 
 @end
 
@@ -45,7 +45,7 @@ static App *sharedInstance = nil;
 - (id)init {
   self = [super init];
   if(self) {
-    self.appMenuDisplayedAtStartup = NO;
+//    self.appMenuDisplayedAtStartup = NO;
     _started = NO;
   }
   return self;
@@ -82,35 +82,10 @@ static App *sharedInstance = nil;
   //Ensure the device is firing these events
   [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
 
+  //Update application run count
+  self.applicationRunCount = self.applicationRunCount + 1;
+
   _started = YES;
-}
-
-//Show and Hide the Application menu after a short moment - only the first
-//few times the user has run the app
-- (void) displayAppMenuIfNeeded {
-
-  //IMPL NOTE
-  //Ideally this should be part of the startApp, but due to timing during the application
-  //boot sequence, we have to call this separately from the AppViewController.viewWillAppear
-
-  if(!self.appMenuDisplayedAtStartup) {
-    
-    //Read application run count
-    NSInteger appRunCount = [self applicationRunCount];
-    
-    //appRunCount starts at zero
-    if(appRunCount < NumberOfRunsToShowHelp) {
-      
-      [[self appViewController] showOrHideMenuWithDelay:1.5 withAutoHideDelay:2];
-      
-      //Update control flag
-      self.appMenuDisplayedAtStartup = YES;
-      
-      //Save application run count - only for the same of keeping track on this
-      //So no need to keep track of it later
-      self.applicationRunCount = ++appRunCount;
-    }
-  }
 }
 
 //Initializes the application data model
@@ -128,8 +103,6 @@ static App *sharedInstance = nil;
   _userProfile.exercises = exercises;
   
   //Workouts
-  
-  //WODs
   
 }
 

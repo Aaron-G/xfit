@@ -127,8 +127,6 @@ typedef enum {
     //Hide the menu
     self.containerView.transform = CGAffineTransformMakeTranslation(0, -self.menuView.bounds.size.height);
     
-    //Display the app menu if needed
-    [[App sharedInstance] displayAppMenuIfNeeded];
   });
 }
 
