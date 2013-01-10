@@ -15,9 +15,7 @@
 @interface MenuViewController () {
 }
 
-@property NSString *homeImageName;
 @property NSString *prwallImageName;
-@property NSString *wodImageName;
 @property NSString *workoutImageName;
 @property NSString *exerciseImageName;
 @property NSString *mybodyImageName;
@@ -32,9 +30,7 @@
   self = [super initWithCoder:aDecoder];
   if(self) {
     
-    self.homeImageName = @"home-screen-app-menu.png";
     self.prwallImageName = @"prwall-screen-app-menu.png";
-    self.wodImageName = @"wod-screen-app-menu.png";
     self.workoutImageName = @"workout-screen-app-menu.png";
     self.exerciseImageName = @"exercise-screen-app-menu.png";
     self.mybodyImageName = @"mybody-screen-app-menu.png";
@@ -53,8 +49,9 @@
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section;
 {
   if(section == 0) {
-    //7 App Menu options
-    return 7;
+    //5 App Menu options
+    //PR Wall, Workouts, Exercises, My Body, Info
+    return 5;
   } else {
     return 0;
   }
@@ -68,16 +65,10 @@
   SEL action = nil;
   
   AppScreenIdentifier screenIdentifier = [AppScreen appScreenForScreenIndex:indexPath.item];
-  
-  if(screenIdentifier == AppScreenIdentifierHome) {
-    imageName = self.homeImageName;
-    action = @selector(displayHome);
-  } else if(screenIdentifier == AppScreenIdentifierPRWall) {
+    
+  if(screenIdentifier == AppScreenIdentifierPRWall) {
     imageName = self.prwallImageName;
     action = @selector(displayPRWall);
-  } else if(screenIdentifier == AppScreenIdentifierWOD) {
-    imageName = self.wodImageName;
-    action = @selector(displayWOD);
   } else if(screenIdentifier == AppScreenIdentifierWorkout) {
     imageName = self.workoutImageName;
     action = @selector(displayWorkout);
@@ -123,20 +114,12 @@
   [self displayAppScreen: AppScreenIdentifierWorkout];
 }
 
-- (void) displayWOD {
-  [self displayAppScreen: AppScreenIdentifierWOD];
-}
-
 - (void) displayExercise {
   [self displayAppScreen: AppScreenIdentifierExercise];
 }
 
 - (void) displayInfo {
   [self displayAppScreen: AppScreenIdentifierInfo];
-}
-
-- (void) displayHome {
-  [self displayAppScreen: AppScreenIdentifierHome];
 }
 
 @end

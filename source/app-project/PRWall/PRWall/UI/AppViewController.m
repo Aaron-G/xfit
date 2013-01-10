@@ -211,16 +211,8 @@ typedef enum {
   [self displayScreen:AppScreenIdentifierWorkout];
 }
 
-- (void) displayWODScreen {
-  [self displayScreen:AppScreenIdentifierWOD];
-}
-
 - (void) displayExerciseScreen {
   [self displayScreen:AppScreenIdentifierExercise];
-}
-
-- (void) displayHomeScreen {
-  [self displayScreen:AppScreenIdentifierHome];
 }
 
 -(IBAction) showOrHideMenuAction:(id)sender {
@@ -329,12 +321,8 @@ typedef enum {
     
     NSString* viewControllerId = nil;
     
-    if(AppScreenIdentifierHome == screenIdentifier) {
-      viewControllerId = @"HomeViewController";
-    } else if(AppScreenIdentifierPRWall == screenIdentifier) {
+    if(AppScreenIdentifierPRWall == screenIdentifier) {
       viewControllerId = @"PRWallViewController";
-    } else if(AppScreenIdentifierWOD == screenIdentifier) {
-      viewControllerId = @"WODViewController";
     } else if(AppScreenIdentifierWorkout == screenIdentifier) {
       viewControllerId = @"WorkoutViewController";
     } else if(AppScreenIdentifierExercise == screenIdentifier) {

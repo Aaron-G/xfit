@@ -16,34 +16,26 @@
 @implementation AppScreen
 
 + (AppScreenIdentifier) appScreenForScreenIndex: (NSInteger) screenIndex {
-
+  
   if(screenIndex == 0) {
-    return AppScreenIdentifierHome;
-  } else if(screenIndex == 1) {
     return AppScreenIdentifierPRWall;
-  } else if(screenIndex == 2) {
-    return AppScreenIdentifierWOD;
-  } else if(screenIndex == 3) {
+  } else if(screenIndex == 1) {
     return AppScreenIdentifierWorkout;
-  } else if(screenIndex == 4) {
+  } else if(screenIndex == 2) {
     return AppScreenIdentifierExercise;
-  } else if(screenIndex == 5) {
+  } else if(screenIndex == 3) {
     return AppScreenIdentifierMyBody;
-  } else if(screenIndex == 6) {
+  } else if(screenIndex == 4) {
     return AppScreenIdentifierInfo;
   }
   
-  return AppScreenIdentifierHome;
+  return AppScreenIdentifierPRWall;
 }
 
 + (NSString*) screenNameForAppScreen: (AppScreenIdentifier) appScreen {
   
-  if(appScreen == AppScreenIdentifierHome) {
-    return @"Home";
-  } else if(appScreen == AppScreenIdentifierPRWall) {
+  if(appScreen == AppScreenIdentifierPRWall) {
     return @"PRWall";
-  } else if(appScreen == AppScreenIdentifierWOD) {
-    return @"WOD";
   } else if(appScreen == AppScreenIdentifierWorkout) {
     return @"Workout";
   } else if(appScreen == AppScreenIdentifierExercise) {

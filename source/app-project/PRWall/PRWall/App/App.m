@@ -69,7 +69,7 @@ static App *sharedInstance = nil;
   //NSInteger appRunCount = [self applicationRunCount];
   
   //For now hard code the start screen at the the home screen
-  [[self appViewController] displayScreenForStartUp:AppScreenIdentifierHome];
+  [[self appViewController] displayScreenForStartUp:AppScreenIdentifierPRWall];
   
   //CXB_TODO - uncomment this once stable
   //If first time - initialize model

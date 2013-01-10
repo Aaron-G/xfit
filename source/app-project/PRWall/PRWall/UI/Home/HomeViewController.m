@@ -66,7 +66,7 @@
 }
 
 - (IBAction) displayWOD {
-  [self.appViewController displayWODScreen];
+//  [self.appViewController displayWODScreen];
 }
 
 - (IBAction) displayExercise {

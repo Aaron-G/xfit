@@ -32,9 +32,9 @@
   self = [super initWithCoder:aDecoder];
   
   if(self) {
+    self.appScreenSwitchDelegate = [[PRWallScreenSwitchDelegate alloc]initWithViewController:self];
     self.appScreenShareDelegate = [[PRWallScreenShareDelegate alloc]init];
     self.appViewController = [UIHelper appViewController];
-    self.appScreenSwitchDelegate = [[PRWallScreenSwitchDelegate alloc]initWithViewController:self];
   }
   
   return self;
@@ -45,6 +45,9 @@
 
   [self.appScreenSwitchDelegate initialize];
   
+  //For some reason the viewWillAppear is not called at application
+  //startup time so we need to explicitly make this call
+  [self.appScreenSwitchDelegate updateBars];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

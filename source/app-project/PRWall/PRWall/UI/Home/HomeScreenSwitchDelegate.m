@@ -10,10 +10,10 @@
 
 @implementation HomeScreenSwitchDelegate
 
-- (AppScreenIdentifier) appScreen
-{
-  return AppScreenIdentifierHome;
-}
+//- (AppScreenIdentifier) appScreen
+//{
+//  return AppScreenIdentifierHome;
+//}
 
 - (void) initNavigationItems
 {

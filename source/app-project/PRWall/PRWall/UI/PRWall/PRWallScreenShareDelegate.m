@@ -7,6 +7,7 @@
 //
 
 #import "PRWallScreenShareDelegate.h"
+#import "App.h"
 
 @implementation PRWallScreenShareDelegate
 
@@ -18,7 +19,7 @@
 }
 
 - (void) share {
-  [super showActionSheetWithTitlePart:NSLocalizedString(@"share-prwall", @"PR Wall")];
+  [super showActionSheetWithTitlePart:[[App sharedInstance] appName]];
 }
 
 #pragma MFMaileComposeViewControllerDelegate Helper methods
@@ -36,7 +37,7 @@
 //CXB REVIEW_AND_IMPL
 - (NSData *)emailAttachmentData {
   
-  UIImage *myImage = [UIImage imageNamed:@"prwall.png"];
+  UIImage *myImage = [UIImage imageNamed:@"prwall"];
   return UIImagePNGRepresentation(myImage);
 }
 

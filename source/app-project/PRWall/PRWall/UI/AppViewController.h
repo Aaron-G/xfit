@@ -26,9 +26,7 @@
 - (void) displayScreen:(AppScreenIdentifier) screen;
 - (void) displayScreenForStartUp:(AppScreenIdentifier) screen;
 
-- (void) displayHomeScreen;
 - (void) displayPRWallScreen;
-- (void) displayWODScreen;
 - (void) displayWorkoutScreen;
 - (void) displayExerciseScreen;
 - (void) displayMyBodyScreen;

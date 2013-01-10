@@ -11,12 +11,10 @@
 
 typedef enum {
   AppScreenIdentifierInfo,
-  AppScreenIdentifierHome,
   AppScreenIdentifierExercise,
   AppScreenIdentifierMyBody,
   AppScreenIdentifierPRWall,
   AppScreenIdentifierWorkout,
-  AppScreenIdentifierWOD
 } AppScreenIdentifier;
 
 @interface AppScreen : NSObject
