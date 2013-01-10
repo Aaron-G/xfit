@@ -18,7 +18,12 @@
     self.numberOfTapsRequired = 1;
     self.numberOfTouchesRequired = 1;
     self.delegate = self;
-    self.cancelsTouchesInView = NO;
+    
+    //We disable the touches on the view when the menu
+    //is visible because the x and y of the touch gets
+    //improperly translated. So it can happen the user
+    //taps in row 1 but the event is processed by row 2
+    self.cancelsTouchesInView = YES;
   }
   return self;
 }
