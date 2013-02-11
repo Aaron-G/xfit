@@ -8,6 +8,7 @@
 
 #import "BodyMetricInfoEditViewController.h"
 #import "MeasurableHelper.h"
+#import "ModelHelper.h"
 
 @interface BodyMetricInfoEditViewController ()
 
@@ -23,11 +24,11 @@
 
   [self.tableView registerNib: [UINib nibWithNibName:@"MeasurableValueGoalTableViewCell" bundle:nil] forCellReuseIdentifier:@"MeasurableValueGoalTableViewCell"];
   [self.tableView registerNib: [UINib nibWithNibName:@"MassUnitTableViewCell" bundle:nil] forCellReuseIdentifier:@"MassUnitTableViewCell"];
-  [self.tableView registerNib: [UINib nibWithNibName:@"LengthUnitTableViewCell" bundle:nil] forCellReuseIdentifier:@"LengthUnitTableViewCell"];
+  [self.tableView registerNib: [UINib nibWithNibName:@"LengthUnitTableViewCell" bundle:nil] forCellReuseIdentifier:@"LengthUnitTableViewCell"];  
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-  if(self.measurable.metadataProvider.unit.type == UnitTypeLength || self.measurable.metadataProvider.unit.type == UnitTypeMass) {
+  if(self.measurable.metadata.unit.type == UnitTypeLength || self.measurable.metadata.unit.type == UnitTypeMass) {
     return 2;
   } else {
     return 1;
@@ -64,25 +65,25 @@
     
     //Update
     ((MeasurableValueGoalTableViewCell*)cell).measurableValueGoalSegmentedControl.selectedSegmentIndex =
-    [MeasurableHelper segmentedControlIndexForMeasurableValueGoal:self.measurable.metadataProvider.valueGoal];
+    [MeasurableHelper segmentedControlIndexForMeasurableValueGoal:self.measurable.metadata.valueGoal];
     
   } else if (indexPath.section == 1) {
     
-    if(self.measurable.metadataProvider.unit.type == UnitTypeLength) {
+    if(self.measurable.metadata.unit.type == UnitTypeLength) {
       
       //Create and assign
       cell = [self createLengthUnitCell];
       
       //Update
-      ((LengthUnitTableViewCell*)cell).lengthUnitSegmentedControl.selectedSegmentIndex = [MeasurableHelper segmentedControlIndexForLengthUnit:self.measurable.metadataProvider.unit];
+      ((LengthUnitTableViewCell*)cell).lengthUnitSegmentedControl.selectedSegmentIndex = [MeasurableHelper segmentedControlIndexForLengthUnit:self.measurable.metadata.unit];
       
-    } else if(self.measurable.metadataProvider.unit.type == UnitTypeMass) {
+    } else if(self.measurable.metadata.unit.type == UnitTypeMass) {
       
       //Create and assign
       cell = [self createMassUnitCell];
       
       //Update
-      ((MassUnitTableViewCell*)cell).massUnitSegmentedControl.selectedSegmentIndex = [MeasurableHelper segmentedControlIndexForMassUnit:self.measurable.metadataProvider.unit];
+      ((MassUnitTableViewCell*)cell).massUnitSegmentedControl.selectedSegmentIndex = [MeasurableHelper segmentedControlIndexForMassUnit:self.measurable.metadata.unit];
     }
   }
   
@@ -150,13 +151,9 @@
   dispatch_async(dispatch_get_main_queue(), ^{
     
     //1- Update the goal
-    self.measurable.metadataProvider.valueGoal = [MeasurableHelper measurableValueGoalForSegmentedControlIndex:((UISegmentedControl*)sender).selectedSegmentIndex];
+    self.measurable.metadata.valueGoal = [MeasurableHelper measurableValueGoalForSegmentedControlIndex:((UISegmentedControl*)sender).selectedSegmentIndex];
     
-    /////////////////////////////////////////////////////////////////
-    //CXB_TEMP_HACK - This force the recomputation of trends
-    //This will be replaced with the model update API
-    self.measurable.dataProvider.values = self.measurable.dataProvider.values;
-    /////////////////////////////////////////////////////////////////
+    [self saveChangesWithMessage: [NSString stringWithFormat:@"BodyMetricInfoEditViewController - could not save model changes - trying to change value goal of a body metric metadata"]];
     
     //2- Let the edit delegate know that things changed
     [self.delegate didEditMeasurableInfoForMeasurable:self.measurable];
@@ -168,13 +165,9 @@
   dispatch_async(dispatch_get_main_queue(), ^{
     
     //1- Update the unit itself
-    self.measurable.metadataProvider.unit = [Unit unitForUnitIdentifier:unitIdentifier];
+    self.measurable.metadata.unit = [Unit unitForUnitIdentifier:unitIdentifier];
     
-    /////////////////////////////////////////////////////////////////
-    //CXB_TEMP_HACK - This force the recomputation of trends
-    //This will be replaced with the model update API
-    self.measurable.dataProvider.values = self.measurable.dataProvider.values;
-    /////////////////////////////////////////////////////////////////
+    [self saveChangesWithMessage: [NSString stringWithFormat:@"BodyMetricInfoEditViewController - could not save model changes - trying to change value unit of a body metric metadata"]];
     
     //2- Let the edit delegate know that things changed
     [self.delegate didEditMeasurableInfoForMeasurable:self.measurable];

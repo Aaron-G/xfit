@@ -2,28 +2,33 @@
 //  BodyMetric.h
 //  PR Wall
 //
-//  Created by Cleo Barretto on 9/8/12.
+//  Created by Cleo Barretto on 1/31/13.
 //
 //
 
-#import <Foundation/Foundation.h>
-#import "MeasurableImpl.h"
+#import "Measurable.h"
 
-@interface BodyMetric : MeasurableImpl
+@class Measurable;
 
-extern MeasurableIdentifier BodyMetricIdentifierHeight;
-extern MeasurableIdentifier BodyMetricIdentifierWeight;
-extern MeasurableIdentifier BodyMetricIdentifierChest;
-extern MeasurableIdentifier BodyMetricIdentifierBiceptsLeft;
-extern MeasurableIdentifier BodyMetricIdentifierBiceptsRight;
-extern MeasurableIdentifier BodyMetricIdentifierWaist;
-extern MeasurableIdentifier BodyMetricIdentifierHip;
-extern MeasurableIdentifier BodyMetricIdentifierThighLeft;
-extern MeasurableIdentifier BodyMetricIdentifierThighRight;
-extern MeasurableIdentifier BodyMetricIdentifierCalfLeft;
-extern MeasurableIdentifier BodyMetricIdentifierCalfRight;
-extern MeasurableIdentifier BodyMetricIdentifierBodyMassIndex;
-extern MeasurableIdentifier BodyMetricIdentifierBodyFat;
-extern MeasurableIdentifier BodyMetricIdentifierInvalid;
+typedef NSString* BodyMetricIdentifier;
+
+extern BodyMetricIdentifier BodyMetricIdentifierHeight;
+extern BodyMetricIdentifier BodyMetricIdentifierWeight;
+extern BodyMetricIdentifier BodyMetricIdentifierChest;
+extern BodyMetricIdentifier BodyMetricIdentifierBicepsLeft;
+extern BodyMetricIdentifier BodyMetricIdentifierBicepsRight;
+extern BodyMetricIdentifier BodyMetricIdentifierWaist;
+extern BodyMetricIdentifier BodyMetricIdentifierHip;
+extern BodyMetricIdentifier BodyMetricIdentifierThighLeft;
+extern BodyMetricIdentifier BodyMetricIdentifierThighRight;
+extern BodyMetricIdentifier BodyMetricIdentifierCalfLeft;
+extern BodyMetricIdentifier BodyMetricIdentifierCalfRight;
+extern BodyMetricIdentifier BodyMetricIdentifierBodyMassIndex;
+extern BodyMetricIdentifier BodyMetricIdentifierBodyFat;
+extern BodyMetricIdentifier BodyMetricIdentifierInvalid;
+
+@interface BodyMetric : Measurable
+
++ (BodyMetricIdentifier) bodyMetricIdentifierForMeasurable: (Measurable*) measurable;
 
 @end

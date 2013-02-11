@@ -10,6 +10,6 @@
 
 @protocol MeasurablePickerDelegate <NSObject>
 
-- (void) didPickMeasurable:(id<Measurable>) measurable;
+- (void) didPickMeasurable:(Measurable*) measurable;
 
 @end

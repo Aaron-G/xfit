@@ -10,16 +10,16 @@
 #import "App.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "AppViewControllerSegue.h"
-#import "ExerciseMoreInfo.h"
+#import "ExerciseUnitValueDescriptor.h"
 
 @implementation UIHelper
 
 static NSDateFormatter* _appDateFormat;
 
-+ (void) adjustImage: (UIButton*) buttonWithImage forMeasurable: (id <Measurable>) measurable {
++ (void) adjustImage: (UIButton*) buttonWithImage forMeasurable: (Measurable*) measurable {
   [UIHelper adjustImage: buttonWithImage
-withMeasurableValueTrend: measurable.dataProvider.valueTrend
-withMeasurableValueGoal: measurable.metadataProvider.valueGoal];
+withMeasurableValueTrend: measurable.data.valueTrend
+withMeasurableValueGoal: measurable.metadata.valueGoal];
 }
 
 + (void) adjustImage: (UIButton*) buttonWithImage withMeasurableValueTrend: (MeasurableValueTrend) measurableValueTrend withMeasurableValueGoal: (MeasurableValueGoal) valueGoal {
@@ -196,17 +196,16 @@ withMeasurableValueGoal: measurable.metadataProvider.valueGoal];
   } 
 }
 
-+ (NSString*) stringForExerciseMoreInfos:(NSDictionary*) moreInfos withSeparator:(NSString*) separator {
-
-  NSArray* moreInfoKeys = moreInfos.keyEnumerator.allObjects;
-  NSMutableArray* moreInfoStrings = [NSMutableArray arrayWithCapacity:moreInfoKeys.count];
++ (NSString*) stringForExerciseUnitValueDescriptors:(NSArray*) descriptors withSeparator:(NSString*) separator {
   
-  for (id moreInfoKey in moreInfoKeys) {
-    ExerciseMoreInfo* moreInfo = [moreInfos objectForKey:moreInfoKey];
-    [moreInfoStrings addObject: [moreInfo.unit.valueFormatter formatValue:moreInfo.value]];
+  NSMutableArray* descriptorsStrings = [NSMutableArray arrayWithCapacity:descriptors.count];
+  
+  for (ExerciseUnitValueDescriptor* descriptor in descriptors) {
+    [descriptorsStrings addObject: [descriptor.unit.valueFormatter formatValue:descriptor.value]];
   }
   
-  return [moreInfoStrings componentsJoinedByString:separator];
+  return [descriptorsStrings componentsJoinedByString:separator];
 }
+
 
 @end

@@ -16,6 +16,7 @@
 #import "AppConstants.h"
 #import "MeasurableDataEntryTableViewCell.h"
 #import "AppViewControllerSegue.h"
+#import "ModelHelper.h"
 
 @interface MeasurableLogViewController ()
 
@@ -23,7 +24,7 @@
 
 //A local copy of it is needed so that we can do inline row insertions
 //to display Additional Info of Measurable.
-@property NSMutableArray* measurableTableLogData;
+@property NSMutableArray* measurableDataEntriesLocal;
 
 //Index of the MeasurableDateEntry that has its Additional Info displayed
 @property NSInteger indexOfMeasurableDataEntryInAdditionalInfo;
@@ -102,7 +103,7 @@
 
 - (void) reloadView {
   
-  self.measurableTableLogData = [NSMutableArray arrayWithArray: self.measurable.dataProvider.values];
+  self.measurableDataEntriesLocal = [NSMutableArray arrayWithArray: self.measurable.data.values];
   
   self.indexOfMeasurableDataEntryInAdditionalInfo = -1;
   self.indexOfAdditionalInfoRow = -1;
@@ -119,16 +120,16 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return self.measurableTableLogData.count;
+  return self.measurableDataEntriesLocal.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   
   MeasurableDataEntry* dataEntry = nil;
 
-  if(indexPath.item < self.measurableTableLogData.count) {
+  if(indexPath.item < self.measurableDataEntriesLocal.count) {
     
-    dataEntry = [self.measurableTableLogData objectAtIndex:indexPath.item];
+    dataEntry = [self.measurableDataEntriesLocal objectAtIndex:indexPath.item];
     
     //This is the additional info row
     if(indexPath.item == self.indexOfAdditionalInfoRow) {
@@ -143,7 +144,6 @@
     else {      
       return [MeasurableHelper tableViewCellForMeasurableDataEntry: dataEntry ofMeasurable: self.measurable inTableView: tableView];
     }
-    
   }
   
   //Should never reach this 
@@ -153,7 +153,7 @@
 - (MeasurableDataEntryAdditionalInfoTableViewCell *)tableView:(UITableView *)tableView additionalInfoCellForRowAtIndexPath:(NSIndexPath *)indexPath {
   
   //Get the target MeasurableDataEntry
-  MeasurableDataEntry* dataEntry = [self.measurableTableLogData objectAtIndex:indexPath.item];
+  MeasurableDataEntry* dataEntry = [self.measurableDataEntriesLocal objectAtIndex:indexPath.item];
   
   //Create a new cell for it
   MeasurableDataEntryAdditionalInfoTableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"MeasurableDataEntryAdditionalInfoTableViewCell"];
@@ -167,7 +167,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-  if(indexPath.item < self.measurableTableLogData.count) {
+  if(indexPath.item < self.measurableDataEntriesLocal.count) {
     
     if(indexPath.item == self.indexOfAdditionalInfoRow) {
       return [self tableView:tableView additionalInfoCellForRowAtIndexPath:indexPath].minimumHeight;
@@ -199,28 +199,38 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
   
   if(UITableViewCellEditingStyleDelete ==  editingStyle) {
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-    //THIS NEEDS TO BE UPDATED TO USE THE PROPER API
     
-    //1- Update local data array
-    [self.measurableTableLogData removeObjectAtIndex:indexPath.item];
-    
-    //2- Update Measurable with updated data array
-    [self updateMeasurableDataProviderWithLocalMeasurableLogData];
-    
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    //3- Delete the removed row
-    [self.tableView deleteRowsAtIndexPaths: [NSArray arrayWithObject: indexPath] withRowAnimation: YES];
-    
-    //4- Update the adjacent most recent row (ensures the trend value is properly updated)
-    //Do not need to update if this is the most recent value or if there are no more items in data array
-    if(indexPath.item > 0 && self.measurableTableLogData.count > 0) {
-      [self.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:[NSIndexPath indexPathForItem:indexPath.item - 1 inSection:indexPath.section]] withRowAnimation: NO];
+    //1- Ensure that there are no pending model changes
+    if([ModelHelper hasUnsavedModelChanges]) {
+      NSLog(@"MeasurableLogViewController - model changes pending - trying to delete a measurable data entry");
+      return;
     }
+
+    //2- Remove the MeasurableDataEntry
+    [self.measurable.data removeValue:[self.measurable.data.values objectAtIndex:indexPath.item]];
+    
+    //3- Delete from persistence
+    //Save it
+    if(![ModelHelper saveModelChanges]) {
+      NSLog(@"MeasurableInfoEditViewController - could not save model changes - trying to delete a measurable data entry");
+    }
+
+    //4- Update local data array
+    [self.measurableDataEntriesLocal removeObjectAtIndex:indexPath.item];
+    
+    //5- Delete the removed row
+    [self.tableView deleteRowsAtIndexPaths: [NSArray arrayWithObject: indexPath] withRowAnimation: YES];
+
+    //6- Update the adjacent most recent row (ensures the trend value is properly updated)
+    //Do not need to update if this is the most recent value or if there are no more items in data array
+    dispatch_async(dispatch_get_main_queue(), ^{
+      if(indexPath.item > 0 && self.measurableDataEntriesLocal.count > 0) {
+        [self.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:[NSIndexPath indexPathForItem:indexPath.item - 1 inSection:indexPath.section]] withRowAnimation: NO];
+      }
+    });
     
     //If there are no more data on the table, simply revert back to non-editing mode
-    if(self.measurableTableLogData.count == 0) {
+    if(self.measurableDataEntriesLocal.count == 0) {
       [[UIHelper measurableViewController] doneEditMeasurableLogAction:nil];
     }
 
@@ -244,24 +254,24 @@
   
   MeasurableDataEntryViewController* measurableDataEntryViewController = [MeasurableHelper measurableDataEntryViewController];
   
-  [measurableDataEntryViewController editMeasurableDataEntry:[self.measurableTableLogData
+  [measurableDataEntryViewController editMeasurableDataEntry:[self.measurableDataEntriesLocal
                                                               objectAtIndex:indexPath.item]
                                                 inMeasurable:self.measurable withDelegate:self];
 }
 
-- (void)didFinishEditingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable:(id<Measurable>)measurable {
+- (void)didFinishEditingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable:(Measurable*)measurable {
   
-  NSInteger currentIndex = [self.measurable.dataProvider.values indexOfObject:measurableDataEntry];  
-  NSInteger newIndex = [MeasurableHelper indexForMeasurableDataEntry:measurableDataEntry inMeasurable:measurable];
+  //Local index
+  NSInteger currentIndex = [self.measurableDataEntriesLocal indexOfObject:measurableDataEntry];
+
+  //From source of truth
+  NSInteger newIndex = [self.measurable.data.values indexOfObject:measurableDataEntry];
 
   if(newIndex != currentIndex) {
     
     //Update local data array
-    [self.measurableTableLogData removeObjectAtIndex:currentIndex];
-    [self.measurableTableLogData insertObject:measurableDataEntry atIndex:newIndex];
-    
-    //Update Measurable with updated data array
-    [self updateMeasurableDataProviderWithLocalMeasurableLogData];
+    [self.measurableDataEntriesLocal removeObjectAtIndex:currentIndex];
+    [self.measurableDataEntriesLocal insertObject:measurableDataEntry atIndex:newIndex];
     
     //Reload the data
     [self.tableView reloadData];
@@ -280,9 +290,6 @@
       [indexesToUpdateArray addObject:[NSIndexPath indexPathForItem:(newIndex) inSection:0]];      
     }
 
-    //Update Measurable with updated data array
-    [self updateMeasurableDataProviderWithLocalMeasurableLogData];
-    
     [self.tableView beginUpdates];
     [self.tableView reloadRowsAtIndexPaths: indexesToUpdateArray withRowAnimation: NO];
     [self.tableView endUpdates];
@@ -292,10 +299,10 @@
   [self notifyMeasurableViewControllerDelegate];
 }
 
-- (void)didCancelCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable:(id<Measurable>)measurable {
+- (void)didCancelCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable:(Measurable*)measurable {
 }
 
-- (void)didFinishCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable:(id<Measurable>)measurable {
+- (void)didFinishCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable:(Measurable*)measurable {
 }
 
 - (void) showOrHideMeasurableDataEntryAdditionalInfoAtIndexPath:(NSIndexPath *)indexPath {
@@ -317,7 +324,7 @@
     if(self.indexOfMeasurableDataEntryInAdditionalInfo != -1) {
             
       //Update the data structure
-      [self.measurableTableLogData removeObjectAtIndex:self.indexOfAdditionalInfoRow];
+      [self.measurableDataEntriesLocal removeObjectAtIndex:self.indexOfAdditionalInfoRow];
       
       
       //Update the remove index path array
@@ -338,7 +345,7 @@
       }
     }
     
-    MeasurableDataEntry* measurableDataEntry = [self.measurableTableLogData objectAtIndex:objectIndex];
+    MeasurableDataEntry* measurableDataEntry = [self.measurableDataEntriesLocal objectAtIndex:objectIndex];
     
     //If the new selected row has additional info let's get it ready to display the new info row
     if(measurableDataEntry.hasAdditionalInfo) {
@@ -348,7 +355,7 @@
       self.indexOfAdditionalInfoRow = self.indexOfMeasurableDataEntryInAdditionalInfo + 1;
 
       //Update the data structure
-      [self.measurableTableLogData insertObject:measurableDataEntry atIndex: self.indexOfAdditionalInfoRow];
+      [self.measurableDataEntriesLocal insertObject:measurableDataEntry atIndex: self.indexOfAdditionalInfoRow];
       
 
       //Update the insert index path array
@@ -373,7 +380,7 @@
     //Just hide the additional info row
     
     //Update the data structure
-    [self.measurableTableLogData removeObjectAtIndex:self.indexOfAdditionalInfoRow];
+    [self.measurableDataEntriesLocal removeObjectAtIndex:self.indexOfAdditionalInfoRow];
     
     
     //Update the remove index path array
@@ -415,7 +422,7 @@
   if(self.indexOfAdditionalInfoRow > 0) {
     
     //Update the data structure
-    [self.measurableTableLogData removeObjectAtIndex:self.indexOfAdditionalInfoRow];
+    [self.measurableDataEntriesLocal removeObjectAtIndex:self.indexOfAdditionalInfoRow];
     
     //Update the remove index path array
     NSArray *indexPathsToRemove = [NSArray arrayWithObjects:
@@ -449,6 +456,11 @@
 
 - (void) clearLog {
   
+  if([ModelHelper hasUnsavedModelChanges]) {
+    NSLog(@"MeasurableLogViewController - model changes pending - trying to delete all measurable data entries");
+    return;
+  }
+
   UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"measurable-clear-log-title", @"Clear Log?")
                                                       message:NSLocalizedString(@"measurable-clear-log-message", @"This will delete all the entries in your log permanently")
                                                      delegate:self
@@ -460,10 +472,20 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 
   if(buttonIndex == 1) {
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-    //THIS NEEDS TO BE UPDATED TO USE THE PROPER API
-    self.measurableTableLogData = [NSMutableArray array];
-    [self updateMeasurableDataProviderWithLocalMeasurableLogData];
+
+    //Remove the objects from the data model
+    for (MeasurableDataEntry* dataEntry in self.measurableDataEntriesLocal) {
+      [self.measurable.data removeValue:dataEntry];
+    }
+
+    //Save it
+    if(![ModelHelper saveModelChanges]) {
+      NSLog(@"MeasurableLogViewController - could not save model changes - trying to delete all measurable data entries");
+    }
+
+    //Reset local values
+    self.measurableDataEntriesLocal = [NSMutableArray array];
+    
     [self.tableView reloadData];
     
     [self notifyMeasurableViewControllerDelegate];
@@ -476,10 +498,6 @@
   }
 }
 
--(void) updateMeasurableDataProviderWithLocalMeasurableLogData {
-  self.measurable.dataProvider.values = self.measurableTableLogData;
-}
-
 - (void) notifyMeasurableViewControllerDelegate {
   dispatch_async(dispatch_get_main_queue(), ^{
     [[UIHelper measurableViewController].delegate didChangeMeasurable:self.measurable];
@@ -489,7 +507,7 @@
 - (void) logMeasurableDataEntry:(MeasurableDataEntry*)measurableDataEntry {
   
   //Find the correct index based on the date
-  NSInteger indexToInsert = [MeasurableHelper indexForMeasurableDataEntry:measurableDataEntry inMeasurable:self.measurable];
+  NSInteger indexToInsert = [self.measurable.data.values indexOfObject:measurableDataEntry];
   
   NSIndexPath* indexPathToInsert = [NSIndexPath indexPathForRow: indexToInsert inSection:0];
   
@@ -500,26 +518,19 @@
       [self showOrHideMeasurableDataEntryAdditionalInfoAtIndexPath:[NSIndexPath indexPathForRow: self.indexOfMeasurableDataEntryInAdditionalInfo inSection:0]];
     }
     
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-    //THIS NEEDS TO BE UPDATED TO USE THE PROPER API
-    
     //1- Update local data array
-    [self.measurableTableLogData insertObject:measurableDataEntry atIndex:indexPathToInsert.item];
+    [self.measurableDataEntriesLocal insertObject:measurableDataEntry atIndex:indexPathToInsert.item];
     
-    //2- Update Measurable with updated data array
-    [self updateMeasurableDataProviderWithLocalMeasurableLogData];
-    
-    //3- Ensure the Measurable representation is notified of change
+    //2- Ensure the Measurable representation is notified of change
     [self notifyMeasurableViewControllerDelegate];
-    /////////////////////////////////////////////////////////////////////////////////////////////////
     
-    //4- Delete the removed row
+    //3- Added the added row
     NSArray* indexPathsToInsert = [NSArray arrayWithObjects: indexPathToInsert, nil];
     [self.tableView insertRowsAtIndexPaths: indexPathsToInsert withRowAnimation: UITableViewRowAnimationNone];
 
-    //5- Update the adjacent most recent row (ensures the trend value is properly updated)
+    //4- Update the adjacent most recent row (ensures the trend value is properly updated)
     //Do not need to update if this is the most recent value or if there are no more items in data array
-    if(indexPathToInsert.item > 0 && self.measurableTableLogData.count > 0) {
+    if(indexPathToInsert.item > 0 && self.measurableDataEntriesLocal.count > 0) {
       [self.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:[NSIndexPath indexPathForItem:indexPathToInsert.item - 1 inSection:indexPathToInsert.section]] withRowAnimation: NO];
     }
     

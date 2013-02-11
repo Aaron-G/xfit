@@ -76,14 +76,14 @@ static NSInteger GRAPH_PADDING = 10;
   [super viewWillAppear:animated];
 }
 
-- (void) displayChartForMeasurable:(id<Measurable>) measurable {
+- (void) displayChartForMeasurable:(Measurable*) measurable {
 
   self.measurable = measurable;
   
   [UIHelper showViewController:self asModal:YES withTransitionTitle:@"To Measurable Chart"];
 }
 
-- (UIImage*) createChartImageForMeasurable:(id<Measurable>) measurable {
+- (UIImage*) createChartImageForMeasurable:(Measurable*) measurable {
   
   self.measurable = measurable;
   
@@ -165,7 +165,7 @@ static NSInteger GRAPH_PADDING = 10;
 ///////////////////////////////////////////////////////////
 
 - (NSUInteger)numberOfRecordsForPlot:(CPTPlot* )plot {
-  return self.measurable.dataProvider.values.count;
+  return self.measurable.data.values.count;
 }
 
 - (NSNumber* )numberForPlot:(CPTPlot* )plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)idx {
@@ -181,8 +181,8 @@ static NSInteger GRAPH_PADDING = 10;
   
   //Looking for Y value
   else {
-    MeasurableDataEntry* dataEntry = [self.measurable.dataProvider.values objectAtIndex:(self.measurable.dataProvider.values.count - idx) - 1];
-    number = [self.measurable.metadataProvider.unit.unitSystemConverter convertFromSystemValue:dataEntry.value];
+    MeasurableDataEntry* dataEntry = [self.measurable.data.values objectAtIndex:(self.measurable.data.values.count - idx) - 1];
+    number = [self.measurable.metadata.unit.unitSystemConverter convertFromSystemValue:dataEntry.value];
   }
   
   return number;
@@ -190,9 +190,9 @@ static NSInteger GRAPH_PADDING = 10;
 
 - (CPTLayer* )dataLabelForPlot:(CPTPlot* )plot recordIndex:(NSUInteger)idx {
   
-  MeasurableDataEntry* dataEntry = [self.measurable.dataProvider.values objectAtIndex:(self.measurable.dataProvider.values.count - idx) - 1];
+  MeasurableDataEntry* dataEntry = [self.measurable.data.values objectAtIndex:(self.measurable.data.values.count - idx) - 1];
   
-  CPTTextLayer* dataPointText = [[CPTTextLayer alloc] initWithText:[self.measurable.metadataProvider.unit.valueFormatter formatValue:dataEntry.value]
+  CPTTextLayer* dataPointText = [[CPTTextLayer alloc] initWithText:[self.measurable.metadata.unit.valueFormatter formatValue:dataEntry.value]
                                                         style:self.graphDataPointTextStyle];
   return dataPointText;
 }
@@ -284,7 +284,7 @@ static NSInteger GRAPH_PADDING = 10;
 - (void) updateMeasurableDetailsInGraph:(CPTGraph*) graph {
   
   //Title
-  graph.title = self.measurable.metadataProvider.name;
+  graph.title = self.measurable.metadata.name;
   
   //Axes
   CPTXYAxisSet* xyAxisSet = (id)graph.axisSet;
@@ -292,10 +292,10 @@ static NSInteger GRAPH_PADDING = 10;
   //X Axis
   CPTXYAxis* xAxis = xyAxisSet.xAxis;
   
-  NSArray* values = self.measurable.dataProvider.values;
+  NSArray* values = self.measurable.data.values;
   NSInteger dataCount = values.count;
   
-  id<UnitSystemConverter> unitSystemConverter = self.measurable.metadataProvider.unit.unitSystemConverter;
+  id<UnitSystemConverter> unitSystemConverter = self.measurable.metadata.unit.unitSystemConverter;
   
   //1- Figure out the data range
   NSNumber* dataMin = nil;
@@ -355,7 +355,7 @@ static NSInteger GRAPH_PADDING = 10;
 
 -(void)createLabelsForXAxis:(CPTAxis*) xAxis {
 
-  NSArray* values = self.measurable.dataProvider.values;
+  NSArray* values = self.measurable.data.values;
   NSInteger dataCount = values.count;
   CGFloat labelOffset = xAxis.labelOffset + xAxis.majorTickLength / 2.0;
 

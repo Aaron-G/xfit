@@ -11,6 +11,6 @@
 
 @protocol MeasurableProvider <NSObject>
 
-@property id<Measurable> measurable;
+@property Measurable* measurable;
 
 @end

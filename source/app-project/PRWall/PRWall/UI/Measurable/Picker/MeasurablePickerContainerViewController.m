@@ -16,7 +16,7 @@
 
 @property id<MeasurablePickerDelegate> delegate;
 @property NSArray* measurables;
-@property MeasurableType* measurableType;
+@property MeasurableCategory* measurableCategory;
 
 @end
 
@@ -35,9 +35,9 @@
   return _measurablePickerCollectionViewController;
 }
 
-- (void) pickMeasurableOfType:(MeasurableType*) measurableType fromMeasurables:(NSArray*) measurables withTitle:(NSString*) title withDelegate:(id<MeasurablePickerDelegate>) delegate {
+- (void) pickMeasurableOfCategory:(MeasurableCategory*) measurableCategory fromMeasurables:(NSArray*) measurables withTitle:(NSString*) title withDelegate:(id<MeasurablePickerDelegate>) delegate {
   
-  self.measurableType = measurableType;
+  self.measurableCategory = measurableCategory;
   self.title = title;
   self.measurables = measurables;
   self.delegate = delegate;
@@ -53,7 +53,7 @@
   self.measurablePickerCollectionViewController.pickerPageControl = self.pageControl;
   
   //Delegate the call
-  [self.measurablePickerCollectionViewController pickMeasurableOfType:self.measurableType fromMeasurables:self.measurables withDelegate:self.delegate];  
+  [self.measurablePickerCollectionViewController pickMeasurableOfType:self.measurableCategory fromMeasurables:self.measurables withDelegate:self.delegate];  
 }
 
 - (NSUInteger)supportedInterfaceOrientations {

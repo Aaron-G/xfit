@@ -59,7 +59,7 @@ static NSInteger MEDIA_TABLE_CELL_HEIGHT = 75;
 
 - (void) updateMinimumHeight {
 
-  BOOL hasImagesOrVideos = (self.measurableDataEntry.images != nil || self.measurableDataEntry.videos != nil);
+  BOOL hasImagesOrVideos = (self.measurableDataEntry.images.count > 0 || self.measurableDataEntry.videos.count > 0);
   BOOL hasComments = (self.measurableDataEntry.comment != nil);
   
   NSInteger newMinimumHeight = 0;
@@ -94,7 +94,7 @@ static NSInteger MEDIA_TABLE_CELL_HEIGHT = 75;
   //Images and Videos Collection View
   layoutYCoordinate = [UIHelper moveToYLocation:layoutYCoordinate
                                 reshapeWithSize:CGSizeMake(self.mediaCollectionView.frame.size.width, MEDIA_TABLE_CELL_HEIGHT)
-                                         orHide:(self.measurableDataEntry.images == nil && self.measurableDataEntry.videos == nil)
+                                         orHide:(self.measurableDataEntry.images.count == 0 && self.measurableDataEntry.videos.count == 0)
                                            view:self.mediaCollectionView
                             withVerticalSpacing:VERTICAL_LAYOUT_PADDING];
   

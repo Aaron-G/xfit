@@ -11,6 +11,8 @@
 "delete-label" = "Delete";
 "male-label" = "Male";
 "female-label" = "Female";
+"more-label" = "More";
+"dismiss-label" = "Dismiss";
 "app-review-url" = "tms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=APP_ID&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software";
 "app-date-format" = "MM/dd/yyyy";
 "no-space-in-device-message" = "Your device does not have enough space.";
@@ -232,6 +234,7 @@
 "measurable-edit-log-title-format" = "Edit Log";
 
 "measurable-name-copy-format" = "%@ Copy";
+"measurable-name-new-format" = "New %@";
 
 //////////////////////////////
 //Measurable Data Entry
@@ -267,11 +270,7 @@
 //////////////////////////////
 //Measurable Edit
 "measurable-edit-name-placeholder-format" = "%@ name";
-
-//////////////////////////////
-//Exercise Edit
-"exercise-edit-kind-label" = "What kind";
-"exercise-edit-more-info-label" = "More Info";
+"measurable-edit-type-label" = "What kind";
 
 //////////////////////////////
 //Unit Edit
@@ -297,7 +296,7 @@
 //////////////////////////////
 //Measurable Delete
 "measurable-delete-label-format" = "Delete %@";
-"measurable-delete-message-format" = "This %@ and all its log data will be permanently deleted. Are you sure you want to delete it?";
+"measurable-delete-message-format" = "This %@ and all its info and data will be permanently deleted. Are you sure you want to delete it?";
 
 //////////////////////////////
 //Measurable Picker Screen

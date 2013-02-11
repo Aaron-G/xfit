@@ -9,10 +9,7 @@
 #import "MediaCollectionViewDelegate.h"
 #import "MediaCollectionViewCell.h"
 #import "MediaHelper.h"
-
-@interface MediaCollectionViewDelegate ()
-
-@end
+#import "Media.h"
 
 @implementation MediaCollectionViewDelegate
 
@@ -49,20 +46,20 @@
 
 - (void)updateMeasurableDataEntryMediaCollectionViewCell:(MediaCollectionViewCell *)cell withPictureContentFromIndexPath:(NSIndexPath *)indexPath {
   
-  NSString* imagePath = [self.mediaProvider.images objectAtIndex:indexPath.item];
-  
-  [self updateMeasurableDataEntryMediaCollectionViewCell:cell withImagePath:imagePath withMediaPath: imagePath withAction:@selector(displayPicture)];
+  Media* image = (Media*)[self.mediaProvider.images objectAtIndex:indexPath.item];
+  [self updateMeasurableDataEntryMediaCollectionViewCell:cell withImagePath:image.path withMediaPath:image.path withAction:@selector(displayPicture)];
 }
 
 - (void)updateMeasurableDataEntryMediaCollectionViewCell:(MediaCollectionViewCell *)cell withVideoContentFromIndexPath:(NSIndexPath *)indexPath {
-  
-  NSString* videoThumbnailPath = [MediaHelper thumbnailForVideo:[self.mediaProvider.videos objectAtIndex:indexPath.item] returnDefaultIfNotAvailable:YES];
+
+  Media* video = (Media*)[self.mediaProvider.videos objectAtIndex:indexPath.item];
+  NSString* videoThumbnailPath = [MediaHelper thumbnailForVideo:video.path returnDefaultIfNotAvailable:YES];
   
   [self updateMeasurableDataEntryMediaCollectionViewCell:cell withImagePath:videoThumbnailPath withMediaPath: [self.mediaProvider.videos objectAtIndex:indexPath.item] withAction:@selector(displayVideo)];
 }
 
 - (void)updateMeasurableDataEntryMediaCollectionViewCell:(MediaCollectionViewCell *)cell withImagePath:(NSString*) imagePath withMediaPath:(NSString *)mediaPath withAction:(SEL) action {
-  
+
   [cell.mediaButton setImage:[UIImage imageWithContentsOfFile:imagePath] forState:UIControlStateNormal];
 }
 

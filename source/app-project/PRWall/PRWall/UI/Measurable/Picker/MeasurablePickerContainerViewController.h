@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Measurable.h"
 #import "MeasurablePickerDelegate.h"
-#import "MeasurableType.h"
+#import "MeasurableCategory.h"
 
 @interface MeasurablePickerContainerViewController : UIViewController
 
 @property IBOutlet UIPageControl* pageControl;
 
-- (void) pickMeasurableOfType:(MeasurableType*) measurableType fromMeasurables:(NSArray*) measurables withTitle:(NSString*) title withDelegate:(id<MeasurablePickerDelegate>) delegate;
+- (void) pickMeasurableOfCategory:(MeasurableCategory*) measurableCategory fromMeasurables:(NSArray*) measurables withTitle:(NSString*) title withDelegate:(id<MeasurablePickerDelegate>) delegate;
 
 @end

@@ -10,6 +10,7 @@
 #import "AppConstants.h"
 #import "ModelFactory.h"
 #import "UIHelper.h"
+#import "ModelHelper.h"
 
 @interface App () {
   
@@ -71,13 +72,11 @@ static App *sharedInstance = nil;
   //For now hard code the start screen at the the home screen
   [[self appViewController] displayScreenForStartUp:AppScreenIdentifierPRWall];
   
-  //CXB_TODO - uncomment this once stable
-  //If first time - initialize model
-  //if(appRunCount == 0) {
-    [self initDataModel];
-  
-    [self initDirectoryStructure];
-  //}
+  //Initialize the file structure - needed to initialize the model
+  [self initDirectoryStructure];
+
+  //Initiialize the data model
+  [self initDataModel];
 
   //Ensure the device is firing these events
   [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
@@ -91,26 +90,20 @@ static App *sharedInstance = nil;
 //Initializes the application data model
 - (void) initDataModel {
   
-  //User Profile
-  _userProfile = [ModelFactory createDefaultUserProfile];
-
-  //Body Metrics
-  NSMutableDictionary* metrics = [ModelFactory createDefaultBodyMetrics];
-  _userProfile.metrics = metrics;
-  
-  //Exercises
-  NSMutableDictionary* exercises = [ModelFactory createDefaultExercises];
-  _userProfile.exercises = exercises;
-  
-  //Workouts
-  
+  //Get reference to user profile. This also inits the default app data - if needed
+  _userProfile = [ModelHelper userProfile];
 }
 
 - (void) initDirectoryStructure {
   
   NSFileManager * fileManager = [NSFileManager defaultManager];
-  NSArray* directoryPaths = [NSArray arrayWithObjects: UserImagesDirectory, UserImagesContentDirectory, UserImagesUserDirectory, UserVideosDirectory, UserVideosContentDirectory, nil];
   
+  //Already created file structure
+  if([fileManager fileExistsAtPath:[NSString stringWithFormat:@"%@%@", NSHomeDirectory(), UserImagesDirectory]]) {
+    return;
+  }
+  
+  NSArray* directoryPaths = [NSArray arrayWithObjects: UserImagesDirectory, UserImagesContentDirectory, UserImagesUserDirectory, UserVideosDirectory, UserVideosContentDirectory, nil];
   NSError *error = nil;
   
   for (NSString* directoryPath in directoryPaths) {

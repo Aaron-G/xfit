@@ -7,23 +7,56 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 #import "Measurable.h"
+#import "MeasurableData.h"
+#import "MeasurableDataEntryImage.h"
+#import "MeasurableDataEntryVideo.h"
 
-typedef NSString* MeasurableDataEntryIdentifier;
+@class MeasurableData;
+@class MeasurableDataEntryImage;
+@class MeasurableDataEntryVideo;
 
-@interface MeasurableDataEntry : NSObject
+@interface MeasurableDataEntry : NSManagedObject
 
-@property MeasurableDataEntryIdentifier identifier;
+/////////////////////////////////////////////////////////
+//Core Data Properties
+/////////////////////////////////////////////////////////
+//Attributes
+@property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) NSString * comment;
 
-@property NSNumber* value;
-@property NSDate* date;
-@property NSString* comment;
+//Relationships
+@property (nonatomic, retain) MeasurableData * measurableData;
 
-@property NSArray* images;
-@property NSArray* videos;
+/////////////////////////////////////////////////////////
+//Wrapped Properties
+/////////////////////////////////////////////////////////
+@property NSNumber * value;
+@property (nonatomic, retain) NSDecimalNumber * valueImpl;
 
-//Computed properties
+@property (readonly) NSArray * images;
+@property (nonatomic, retain) NSSet * imagesImpl;
+
+@property (readonly) NSArray * videos;
+@property (nonatomic, retain) NSSet * videosImpl;
+
+/////////////////////////////////////////////////////////
+//Computed Properties
+/////////////////////////////////////////////////////////
 @property MeasurableValueTrend valueTrend;
-@property (readonly) BOOL hasAdditionalInfo;
+
+/////////////////////////////////////////////////////////
+//API
+/////////////////////////////////////////////////////////
+- (BOOL) hasAdditionalInfo;
+
+- (void) addVideo:(MeasurableDataEntryVideo*) video;
+- (void) addImage:(MeasurableDataEntryImage*) image;
+- (void) imageIndexUpdated;
+
+- (void) removeVideo:(MeasurableDataEntryVideo*) video;
+- (void) removeImage:(MeasurableDataEntryImage*) image;
+- (void) videoIndexUpdated;
 
 @end

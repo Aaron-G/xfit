@@ -13,8 +13,8 @@
 
 @protocol MeasurableViewControllerDelegate <NSObject>
 
-- (void) didChangeMeasurable:(id<Measurable>)measurable;
-- (void) didDeleteMeasurable:(id<Measurable>)measurable;
-- (void) didCreateMeasurable:(id<Measurable>)measurable;
+- (void) didChangeMeasurable:(Measurable*)measurable;
+- (void) didDeleteMeasurable:(Measurable*)measurable;
+- (void) didCreateMeasurable:(Measurable*)measurable;
 
 @end

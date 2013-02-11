@@ -20,7 +20,7 @@
 extern const NSInteger MEASURABLE_LOG_SCREEN_INDEX;
 extern const NSInteger MEASURABLE_INFO_SCREEN_INDEX;
 
-@property id<Measurable> measurable;
+@property Measurable* measurable;
 @property MeasurableInfoViewController* infoViewController;
 @property MeasurableLogViewController* logViewController;
 @property (readonly) NSArray* logToolbarItems;

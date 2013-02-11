@@ -1,0 +1,1028 @@
+//
+//  ModelFactory.m
+//  PR Wall
+//
+//  Created by Cleo Barretto on 9/8/12.
+//
+//
+
+#import "ModelFactory.h"
+#import "AppConstants.h"
+#import "BodyMetric.h"
+#import "Exercise.h"
+#import "ModelHelper.h"
+#import "PersistenceStore.h"
+#import "MeasurableDataEntryImage.h"
+#import "MeasurableDataEntryVideo.h"
+#import "MeasurableMetadataImage.h"
+#import "MeasurableMetadataVideo.h"
+#import "Tag.h"
+#import "MeasurableCategory.h"
+#import "MeasurableType.h"
+#import "BodyMetric.h"
+#import "MediaHelper.h"
+#import "MeasurableHelper.h"
+
+@interface ModelFactory () {
+}
+
+@end
+
+@implementation ModelFactory
+
+static NSInteger ONE_WEEK = 7*24*60*60;
+
+//////////////////////////////////////////////////////////////////////////
+//USER PROFILE
+//////////////////////////////////////////////////////////////////////////
+
++ (UserProfile*) createAppDefaultUserProfile {
+  
+  PersistenceStore* persistenceStore = [PersistenceStore sharedInstance];
+  
+  UserProfile* userProfile = [persistenceStore newUserProfile];
+
+  userProfile.name = @"John Smith";
+  userProfile.sex = UserProfileSexMale;
+  userProfile.box = @"CrossFit Box";
+  userProfile.image = [NSString stringWithFormat:@"%@/%@", [NSBundle mainBundle].resourcePath, UserProfileDefaultImageName];
+  userProfile.primary = YES;
+  
+  NSDateComponents *comps = [[NSDateComponents alloc] init];
+  [comps setDay:1];
+  [comps setMonth:1];
+  [comps setYear:1990];
+  userProfile.dateOfBirth = [[NSCalendar currentCalendar] dateFromComponents:comps];
+  
+  return userProfile;
+}
+
+//////////////////////////////////////////////////////////////////////////
+//UNITS
+//////////////////////////////////////////////////////////////////////////
+
++ (BOOL) createAppUnits {
+  
+  PersistenceStore* persistenceStore = [PersistenceStore sharedInstance];
+  
+  NSArray* unitIdentifiers = [NSArray arrayWithObjects:
+                              UnitIdentifierKilometer,
+                              UnitIdentifierMeter,
+                              UnitIdentifierMile,
+                              UnitIdentifierYard,
+                              UnitIdentifierFoot,
+                              UnitIdentifierInch,
+                              UnitIdentifierKilogram,
+                              UnitIdentifierPound,
+                              UnitIdentifierPood,
+                              UnitIdentifierSecond,
+                              UnitIdentifierNone,
+                              UnitIdentifierPercent,
+                              nil];
+  
+  NSArray* unitTypes = [NSArray arrayWithObjects:
+                        [NSNumber numberWithInt: UnitTypeLength],
+                        [NSNumber numberWithInt: UnitTypeLength],
+                        [NSNumber numberWithInt: UnitTypeLength],
+                        [NSNumber numberWithInt: UnitTypeLength],
+                        [NSNumber numberWithInt: UnitTypeLength],
+                        [NSNumber numberWithInt: UnitTypeLength],
+                        
+                        [NSNumber numberWithInt: UnitTypeMass],
+                        [NSNumber numberWithInt: UnitTypeMass],
+                        [NSNumber numberWithInt: UnitTypeMass],
+                        
+                        [NSNumber numberWithInt: UnitTypeTime],
+                        
+                        [NSNumber numberWithInt: UnitTypeGeneral],
+                        [NSNumber numberWithInt: UnitTypeGeneral],
+                        nil];
+  
+  
+  for (int i = 0; i < unitIdentifiers.count; i++) {
+  
+    UnitIdentifier identifier = [unitIdentifiers objectAtIndex:i];
+
+    Unit* unit = [persistenceStore newUnit];
+    unit.identifier = identifier;
+    unit.type = [((NSNumber*)[unitTypes objectAtIndex:i]) intValue];
+  }
+
+  return [persistenceStore save];
+}
+
+//////////////////////////////////////////////////////////////////////////
+//MEASURABLE CATEGORIES
+//////////////////////////////////////////////////////////////////////////
++ (BOOL) createAppMeasurableCategories {
+  
+  PersistenceStore* persistenceStore = [PersistenceStore sharedInstance];
+
+  ////////////////////////////////////
+  //Category - Body Metric
+  MeasurableCategory* measurableCategory = [ModelHelper newMeasurableCategory];
+  measurableCategory.identifier = MeasurableCategoryIdentifierBodyMetric;
+  measurableCategory.name = NSLocalizedString(@"body-metric-display-name", @"Body Metric");
+  measurableCategory.namePlural = NSLocalizedString(@"body-metric-display-name-plural", @"Body Metrics");
+
+  //Types for this category
+  NSArray* measurableTypeIdentifiers = [NSArray arrayWithObjects:
+                                        BodyMetricTypeIdentifierBody,
+                                        BodyMetricTypeIdentifierLowerBody,
+                                        BodyMetricTypeIdentifierTorso,
+                                        BodyMetricTypeIdentifierUpperBody,
+                                        nil];
+  
+  NSArray* measurableTypeNames = [NSArray arrayWithObjects:
+                                  @"Body",
+                                  @"Lower",
+                                  @"Torso",
+                                  @"Upper",
+                                  nil];
+  NSArray* measurableTypeInfo = [NSArray arrayWithObjects:
+                                  @"General body metrics",
+                                  @"Lower body metrics",
+                                  @"Torso and mid body metrics",
+                                  @"Upper body metrics",
+                                  nil];
+  
+  for (NSInteger i = 0; i < measurableTypeIdentifiers.count; i++) {
+    
+    MeasurableType* measurableType = [ModelHelper newMeasurableType];
+    measurableType.identifier = [measurableTypeIdentifiers objectAtIndex: i];
+    measurableType.name = [measurableTypeNames objectAtIndex:i];
+    measurableType.info = [measurableTypeInfo objectAtIndex:i];
+    measurableType.measurableCategory = measurableCategory;    
+  }
+
+  ////////////////////////////////////
+  //Category - Exercise
+  measurableCategory = [ModelHelper newMeasurableCategory];
+  measurableCategory.identifier = MeasurableCategoryIdentifierExercise;
+  measurableCategory.name = NSLocalizedString(@"exercise-display-name", @"Exercise");
+  measurableCategory.namePlural = NSLocalizedString(@"exercise-display-name-plural", @"Exercises");
+
+  //Types for this category
+  measurableTypeIdentifiers = [NSArray arrayWithObjects:
+                               ExerciseTypeIdentifierBall,
+                               ExerciseTypeIdentifierBar,
+                               ExerciseTypeIdentifierBody,
+                               ExerciseTypeIdentifierBox,
+                               ExerciseTypeIdentifierChain,
+                               ExerciseTypeIdentifierCore,
+                               ExerciseTypeIdentifierGHD,
+                               ExerciseTypeIdentifierKettleBell,
+                               ExerciseTypeIdentifierLadder,
+                               ExerciseTypeIdentifierLift,
+                               ExerciseTypeIdentifierMotion,
+                               ExerciseTypeIdentifierRing,
+                               ExerciseTypeIdentifierRope,
+                               ExerciseTypeIdentifierRow,
+                               ExerciseTypeIdentifierSled,
+                               ExerciseTypeIdentifierSquat,
+                               ExerciseTypeIdentifierStretch,
+                               ExerciseTypeIdentifierTire,
+                               nil];
+
+  measurableTypeNames = [NSArray arrayWithObjects:
+                         @"Ball",
+                         @"Bar",
+                         @"Body",
+                         @"Box",
+                         @"Chain",
+                         @"Core",
+                         @"GHD",
+                         @"Kettle Bell",
+                         @"Ladder",
+                         @"Lift",
+                         @"Motion",
+                         @"Ring",
+                         @"Rope",
+                         @"Row",
+                         @"Sled",
+                         @"Squat",
+                         @"Stretch",
+                         @"Tire",
+                         nil];
+  
+  measurableTypeInfo = [NSArray arrayWithObjects:
+                                     @"Wall ball, ball slam",
+                                     @"Pull up, chin up",
+                                     @"Push up, burpee",
+                                     @"Box jump, dip",
+                                     @"Battle Chain",
+                                     @"Bicycle crunch, ISO abs",
+                                     @"Back extension, sit up",
+                                     @"Kettle bell swing, man makers",
+                                     @"Ladder push up, ladder sprints",
+                                     @"Clean, thurster, jerk",
+                                     @"Run, liners, lunge",
+                                     @"Ring dip, muscle up",
+                                     @"Double under, rope climb",
+                                     @"Row, row sprints",
+                                     @"Sled pull",
+                                     @"Front squat, back squat",
+                                     @"Foam roll, rest",
+                                     @"Tire flip, tire hammer",
+                                     nil];
+  
+  for (NSInteger i = 0; i < measurableTypeIdentifiers.count; i++) {
+    
+    MeasurableType* measurableType = [ModelHelper newMeasurableType];
+    measurableType.identifier = [measurableTypeIdentifiers objectAtIndex: i];
+    measurableType.name = [measurableTypeNames objectAtIndex:i];
+    measurableType.info = [measurableTypeInfo objectAtIndex:i];
+    measurableType.measurableCategory = measurableCategory;
+  }
+
+  ////////////////////////////////////
+  //Category - Workout
+  measurableCategory = [ModelHelper newMeasurableCategory];
+  measurableCategory.identifier = MeasurableCategoryIdentifierWorkout;
+  measurableCategory.name = NSLocalizedString(@"workout-display-name", @"Workout");
+  measurableCategory.namePlural = NSLocalizedString(@"workout-display-name-plural", @"Workouts");
+
+  return [persistenceStore save];
+}
+
+//////////////////////////////////////////////////////////////////////////
+//MEASURABLE
+//////////////////////////////////////////////////////////////////////////
+
++ (BOOL) populateMeasurable:(Measurable*)measurable withValues:(NSArray*) values withValueComments:(NSArray*) valuesComments withValueImages:(NSArray*) valuesImages withValueVideos:(NSArray*) valuesVideos {
+  
+  //CXB TODO IMPL VIDEOS
+  
+  id<UnitSystemConverter> unitSystemConverter = measurable.metadata.unit.unitSystemConverter;
+  MeasurableData* measurableData = measurable.data;
+  MediaHelperPurpose mediaHelperPurpose = [MeasurableHelper mediaHelperPurposeForMeasurable:measurable];
+  
+  for (int i = 0; i < values.count; i++) {
+    
+    //Create data entry
+    MeasurableDataEntry* dataEntry = [ModelHelper newMeasurableDataEntry];
+    dataEntry.date = [NSDate dateWithTimeInterval: (i * -ONE_WEEK) sinceDate:[NSDate date]];
+    dataEntry.value = [unitSystemConverter convertToSystemValue: [values objectAtIndex:i]];
+    dataEntry.comment = [valuesComments objectAtIndex:i];
+    
+    //Add images
+    NSArray* imageNames = [valuesImages objectAtIndex:i];
+    
+    for (NSInteger i=0; i < imageNames.count; i++) {
+      
+      //Create media object
+      MeasurableDataEntryImage* dataEntryImage = [ModelHelper newMeasurableDataEntryImage];
+      
+      dataEntryImage.index = [NSNumber numberWithInt: i];
+      
+      NSURL* imageURL = [MediaHelper saveImage:[UIImage imageNamed:imageNames[i]] forPurpose:mediaHelperPurpose];
+      dataEntryImage.path = imageURL.path;
+      
+      [dataEntry addImage:dataEntryImage];
+    }
+    
+    [measurableData addValue: dataEntry];
+  }
+
+  //Need to save to get the permanent object identifier
+  if(![[PersistenceStore sharedInstance] save]) {
+    return NO;
+  }
+  
+  return YES;
+}
+
++ (void) populateMetadataForMeasurable:(Measurable*)measurable
+                              withName:(NSString*) name
+                        withDefinition:(NSString*) definition
+                              withTags:(NSArray*) tagsText
+                            withImages:(NSArray*) imagesName
+                            withVideos:(NSArray*) videosName
+          withMeasurableTypeIdentifier:(MeasurableTypeIdentifier) measurableTypeIdentifier
+                    withUnitIdentifier:(UnitIdentifier) unitIdentifier
+               withMeasurableValueType:(MeasurableValueType) measurableValueType
+               withMeasurableValueGoal:(MeasurableValueGoal) measurableValueGoal
+                       withValueSample:(float) valueSample
+                          withCopyable:(BOOL) copyable
+{
+  //CXB TODO IMPL VIDEOS
+  MeasurableMetadata* measurableMetadata = measurable.metadata;
+  
+  //Source
+  measurableMetadata.source = MeasurableSourceApp;
+  
+  //Type
+  measurableMetadata.type = [MeasurableType measurableTypeWithMeasurableTypeIdentifier: measurableTypeIdentifier];
+  
+  //Unit
+  measurableMetadata.unit = [Unit unitForUnitIdentifier:unitIdentifier];
+  
+  //Value type
+  measurableMetadata.valueType = measurableValueType;
+  
+  //Value goal
+  measurableMetadata.valueGoal = measurableValueGoal;
+  
+  //Value sample
+  id<UnitSystemConverter> unitSystemConverter = measurable.metadata.unit.unitSystemConverter;
+  measurableMetadata.valueSample = [unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: valueSample]];
+  
+  //Copyable
+  measurableMetadata.copyable = copyable;
+  
+  //Name
+  measurableMetadata.name = name;
+  
+  //Comment
+  measurableMetadata.definition = definition;
+  
+  //Tags
+  for (NSString* tagText in tagsText) {
+    [measurableMetadata addTag:[ModelHelper tagForText:tagText]];
+  }
+  
+  MediaHelperPurpose mediaHelperPurpose = [MeasurableHelper mediaHelperPurposeForMeasurable:measurable];
+
+  //Images
+  for (NSInteger i=0; i < imagesName.count; i++) {
+    
+    //Create media object
+    MeasurableMetadataImage* measurableImage = [ModelHelper newMeasurableMetadataImage];
+    measurableImage.index = [NSNumber numberWithInt: i];
+    
+    NSURL* imageURL = [MediaHelper saveImage:[UIImage imageNamed:imagesName[i]] forPurpose:mediaHelperPurpose];
+    measurableImage.path = imageURL.path;
+    
+    [measurableMetadata addImage:measurableImage];
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+//BODY METRICS
+//////////////////////////////////////////////////////////////////////////
+
++ (BOOL) createAppBodyMetricsForUserProfile: (UserProfile*) userProfile {
+  
+  //Weight
+  BodyMetric* bodyMetric = [ModelHelper newBodyMetric];
+  [userProfile addBodyMetric:bodyMetric];
+  
+  if(![self createMetadataForWeight:bodyMetric] || ![self createDataForWeight:bodyMetric]) {
+    return NO;
+  }
+
+  //Height
+  bodyMetric = [ModelHelper newBodyMetric];
+  [userProfile addBodyMetric:bodyMetric];
+  
+  if(![self createMetadataForHeight:bodyMetric] || ![self createDataForHeight:bodyMetric]) {
+    return NO;
+  }
+
+  return YES;
+}
+
++ (BOOL) createMetadataForHeight:(Measurable*)measurable {  
+  return [ModelFactory populateMetadataForBodyMetric:measurable
+                                            withName:NSLocalizedString(@"height-metric-label", @"Height")
+                                      withDefinition:NSLocalizedString(@"height-metric-description", @"")
+                                            withTags:nil
+                                          withImages:[NSArray arrayWithObjects:@"prwall-screen-button", @"workout-screen-button", nil]
+                                          withVideos:nil
+                        withMeasurableTypeIdentifier:BodyMetricTypeIdentifierBody
+                                  withUnitIdentifier:UnitIdentifierFoot
+                             withMeasurableValueType:MeasurableValueTypeNumberWithDecimal
+                             withMeasurableValueGoal:MeasurableValueGoalMore
+                                     withValueSample:6.0
+                                        withCopyable:NO
+                            withBodyMetricIdentifier:BodyMetricIdentifierHeight];
+}
+
++ (BOOL) createDataForHeight:(Measurable*)measurable {
+
+  NSArray* values = [NSArray arrayWithObjects:
+                     [NSNumber numberWithFloat:6.0],
+                     [NSNumber numberWithFloat:5.5],
+                     nil];
+  NSArray* valuesComments = [NSArray arrayWithObjects:
+                       @"Comment 1",
+                       @"Comment 2",
+                       nil];
+  
+  NSArray* valuesImages = [NSArray arrayWithObjects:
+                         [NSArray arrayWithObjects:@"prwall-screen-button", nil],
+                         [NSArray arrayWithObjects:@"prwall-screen-button", @"workout-screen-button", nil],
+                         nil];
+
+  return [ModelFactory populateMeasurable:measurable withValues: values withValueComments: valuesComments withValueImages: valuesImages withValueVideos:nil];
+}
+
++ (BOOL) createMetadataForWeight:(Measurable*)measurable {
+  return [ModelFactory populateMetadataForBodyMetric:measurable
+                                            withName:NSLocalizedString(@"weight-metric-label", @"Weight")
+                                      withDefinition:NSLocalizedString(@"weight-metric-description", @"")
+                                            withTags:nil
+                                          withImages:[NSArray arrayWithObjects:@"prwall-screen-button", @"workout-screen-button", nil]
+                                          withVideos:nil
+                        withMeasurableTypeIdentifier:BodyMetricTypeIdentifierBody
+                                  withUnitIdentifier:UnitIdentifierPound
+                             withMeasurableValueType:MeasurableValueTypeNumberWithDecimal
+                             withMeasurableValueGoal:MeasurableValueGoalLess
+                                     withValueSample:173
+                                        withCopyable:NO
+                            withBodyMetricIdentifier:BodyMetricIdentifierWeight];
+}
+
++ (BOOL) createDataForWeight:(Measurable*)measurable {
+  
+  NSArray* values = [NSArray arrayWithObjects:
+                     [NSNumber numberWithFloat: 175.5],
+                     [NSNumber numberWithFloat: 170],
+                     nil];
+  
+  NSArray* valuesComments = [NSArray arrayWithObjects:
+                             @"Comment 1",
+                             @"Comment 2",
+                             nil];
+  
+  NSArray* valuesImages = [NSArray arrayWithObjects:
+                           [NSArray arrayWithObjects:@"prwall-screen-button", nil],
+                           [NSArray arrayWithObjects:@"prwall-screen-button", @"workout-screen-button", nil],
+                           nil];
+  
+  return [ModelFactory populateMeasurable:measurable withValues: values withValueComments: valuesComments withValueImages: valuesImages withValueVideos:nil];
+}
+
++ (BOOL) populateMetadataForBodyMetric:(Measurable*)measurable
+                              withName:(NSString*) name
+                        withDefinition:(NSString*) definition
+                              withTags:(NSArray*) tagsText
+                            withImages:(NSArray*) imagesName
+                            withVideos:(NSArray*) videosName
+          withMeasurableTypeIdentifier:(MeasurableTypeIdentifier) measurableTypeIdentifier
+                    withUnitIdentifier:(UnitIdentifier) unitIdentifier
+               withMeasurableValueType:(MeasurableValueType) measurableValueType
+               withMeasurableValueGoal:(MeasurableValueGoal) measurableValueGoal
+                       withValueSample:(float) valueSample
+                          withCopyable:(BOOL) copyable
+              withBodyMetricIdentifier: (BodyMetricIdentifier) bodyMetricIdentifier
+{
+
+  [ModelFactory populateMetadataForMeasurable:measurable
+                                     withName:name
+                               withDefinition:definition
+                                     withTags:tagsText
+                                   withImages:imagesName
+                                   withVideos:videosName
+                 withMeasurableTypeIdentifier:measurableTypeIdentifier
+                           withUnitIdentifier:unitIdentifier
+                      withMeasurableValueType:measurableValueType
+                      withMeasurableValueGoal:measurableValueGoal
+                              withValueSample:valueSample
+                                 withCopyable:copyable];
+
+  //Need to save to get the permanent object identifier
+  if(![[PersistenceStore sharedInstance] save]) {
+    return NO;
+  }
+  
+  //Save reference
+  [ModelHelper storeBodyMetricIdentifier:bodyMetricIdentifier forBodyMetric:measurable];
+  
+  return YES;
+}
+  
+//+ (NSMutableDictionary*) createApptBodyMetrics {
+//  
+//  NSMutableDictionary* metrics =  [NSMutableDictionary dictionary];
+//  
+//  //Height
+//  BodyMetric * metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierHeight];
+//  NSArray* values = [NSArray arrayWithObjects:
+//                     [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 6]],
+//                     [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 6.5]],
+//                     [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 5]],
+//                     nil];
+//  metric.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadata.identifier withValues:values];
+//  [metrics setValue:metric forKey:metric.metadata.identifier];
+//  metric.metadata.valueSample = [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 6]];
+//  
+//  //Weight
+//  metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierWeight];
+//  values = [NSArray arrayWithObjects:
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 175.5]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 170]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 173]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 177]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 177]],
+//            nil];
+//  metric.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadata.identifier withValues:values];
+//  [metrics setValue:metric forKey:metric.metadata.identifier];
+//  metric.metadata.valueSample = [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 173]];
+//  
+//  //Body Mass Index
+//  metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierBodyMassIndex];
+//  values = [NSArray arrayWithObjects:
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 22.3]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 22.5]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 23.5]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 23.5]],
+//            nil];
+//  metric.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadata.identifier withValues:values];
+//  [metrics setValue:metric forKey:metric.metadata.identifier];
+//  metric.metadata.valueSample = [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 22.3]];
+//  
+//  //Body Fat
+//  metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierBodyFat];
+//  values = [NSArray arrayWithObjects:
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 23.01]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 24.01]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 23.35]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 25.4]],
+//            nil];
+//  metric.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadata.identifier withValues:values];
+//  [metrics setValue:metric forKey:metric.metadata.identifier];
+//  metric.metadata.valueSample = [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 25]];
+//  
+//  //Chest
+//  metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierChest];
+//  values = [NSArray arrayWithObjects:
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 37.2]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 36.5]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 37]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 38]],
+//            nil];
+//  metric.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadata.identifier withValues:values];
+//  [metrics setValue:metric forKey:metric.metadata.identifier];
+//  metric.metadata.valueSample = [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 35]];
+//  
+//  //Biceps Right
+//  metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierBicepsRight];
+//  values = [NSArray arrayWithObjects:
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 12.8]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 12.8]],
+//            nil];
+//  metric.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadata.identifier withValues:values];
+//  [metrics setValue:metric forKey:metric.metadata.identifier];
+//  metric.metadata.valueSample = [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 12]];
+//  
+//  //Biceps Left
+//  metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierBicepsLeft];
+//  values = [NSArray arrayWithObjects:
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 12.5]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 12.5]],
+//            nil];
+//  metric.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadata.identifier withValues:values];
+//  [metrics setValue:metric forKey:metric.metadata.identifier];
+//  metric.metadata.valueSample = [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 12]];
+//  
+//  //Waist
+//  metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierWaist];
+//  values = [NSArray arrayWithObjects:
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 35.6]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 35.7]],
+//            nil];
+//  metric.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadata.identifier withValues:values];
+//  [metrics setValue:metric forKey:metric.metadata.identifier];
+//  metric.metadata.valueSample = [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 35]];
+//  
+//  //Hip
+//  metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierHip];
+//  values = [NSArray arrayWithObjects:
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 39.9]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 37.7]],
+//            nil];
+//  metric.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadata.identifier withValues:values];
+//  [metrics setValue:metric forKey:metric.metadata.identifier];
+//  metric.metadata.valueSample = [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 40]];
+//  
+//  //Thigh Right
+//  metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierThighRight];
+//  values = [NSArray arrayWithObjects:
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 24.5]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 23]],
+//            nil];
+//  metric.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadata.identifier withValues:values];
+//  [metrics setValue:metric forKey:metric.metadata.identifier];
+//  metric.metadata.valueSample = [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 25]];
+//  
+//  //Thigh Left
+//  metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierThighLeft];
+//  values = [NSArray arrayWithObjects:
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 24.1]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 24.1]],
+//            nil];
+//  metric.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadata.identifier withValues:values];
+//  [metrics setValue:metric forKey:metric.metadata.identifier];
+//  metric.metadata.valueSample = [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 25]];
+//  
+//  //Calf Right
+//  metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierCalfRight];
+//  values = [NSArray arrayWithObjects:
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 11.7]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 12.1]],
+//            nil];
+//  metric.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadata.identifier withValues:values];
+//  [metrics setValue:metric forKey:metric.metadata.identifier];
+//  metric.metadata.valueSample = [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 12]];
+//  
+//  //Calf Left
+//  metric = [[BodyMetric alloc]initWithIdentifier: BodyMetricIdentifierCalfLeft];
+//  values = [NSArray arrayWithObjects:
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 11.3]],
+//            [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 11.1]],
+//            nil];
+//  metric.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: metric.metadata.identifier withValues:values];
+//  [metrics setValue:metric forKey:metric.metadata.identifier];
+//  metric.metadata.valueSample = [metric.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 12]];
+//  
+//  return metrics;
+//}
+
+//////////////////////////////////////////////////////////////////////////
+//EXERCISES
+//////////////////////////////////////////////////////////////////////////
++ (BOOL) createAppExercisesForUserProfile: (UserProfile*) userProfile {
+  
+  //Run 200m
+  Exercise* exercise = [ModelHelper newExercise];
+  [userProfile addExercise:exercise];
+  
+  [self createMetadataForExercise1:exercise];
+  [self createDataForExercise1:exercise];
+
+  //Row 2000m
+  exercise = [ModelHelper newExercise];
+  [userProfile addExercise:exercise];
+  
+  [self createMetadataForExercise2:exercise];
+  [self createDataForExercise2:exercise];
+
+  //Deadlift - Max
+  exercise = [ModelHelper newExercise];
+  [userProfile addExercise:exercise];
+  
+  [self createMetadataForExercise3:exercise];
+  [self createDataForExercise3:exercise];
+
+  //Burpee - AMRAP
+  exercise = [ModelHelper newExercise];
+  [userProfile addExercise:exercise];
+  
+  [self createMetadataForExercise4:exercise];
+  [self createDataForExercise4:exercise];
+
+  //Save
+  if(![[PersistenceStore sharedInstance] save]) {
+    return NO;
+  }
+  
+  return YES;
+}
+
++ (void) createMetadataForExercise1:(Measurable*)measurable {
+  
+  ExerciseUnitValueDescriptor* unitValueDescriptor = [ModelHelper newExerciseUnitValueDescriptor];
+  unitValueDescriptor.unit = [Unit unitForUnitIdentifier:UnitIdentifierMeter];
+  unitValueDescriptor.value = [NSNumber numberWithInt:200];
+
+  [ModelFactory populateMetadataForExercise:measurable
+                                   withName:@"Run"
+                             withDefinition:@"Move at a speed faster than a walk, never having both or all the feet on the ground at the same time."
+                                   withTags:nil
+                                 withImages:[NSArray arrayWithObjects:@"prwall-screen-button", @"workout-screen-button", nil]
+                                 withVideos:nil
+           withMeasurableCategoryIdentifier:MeasurableCategoryIdentifierExercise
+               withMeasurableTypeIdentifier:ExerciseTypeIdentifierMotion
+                         withUnitIdentifier:UnitIdentifierSecond
+                    withMeasurableValueType:MeasurableValueTypeTime
+                    withMeasurableValueGoal:MeasurableValueGoalLess
+                            withValueSample:50
+                               withCopyable:YES
+                               withFavorite:YES
+                                 withPRWall:NO
+                   withUnitValueDescriptors:[NSArray arrayWithObjects:unitValueDescriptor, nil]];
+}
+
++ (BOOL) createDataForExercise1:(Measurable*)measurable {
+  
+  NSArray* values = [NSArray arrayWithObjects:
+                     [NSNumber numberWithFloat: 25],
+                     [NSNumber numberWithFloat: 29],
+                     nil];
+  
+  NSArray* valuesComments = [NSArray arrayWithObjects:
+                             @"Comment 1",
+                             @"Comment 2",
+                             nil];
+  
+  NSArray* valuesImages = [NSArray arrayWithObjects:
+                           [NSArray arrayWithObjects:@"prwall-screen-button", nil],
+                           [NSArray arrayWithObjects:@"prwall-screen-button", @"workout-screen-button", nil],
+                           nil];
+  
+  return [ModelFactory populateMeasurable:measurable withValues: values withValueComments: valuesComments withValueImages: valuesImages withValueVideos:nil];
+}
+
++ (void) createMetadataForExercise2:(Measurable*)measurable {
+  
+  ExerciseUnitValueDescriptor* unitValueDescriptor = [ModelHelper newExerciseUnitValueDescriptor];
+  unitValueDescriptor.unit = [Unit unitForUnitIdentifier:UnitIdentifierMeter];
+  unitValueDescriptor.value = [NSNumber numberWithInt:500];
+  
+  [ModelFactory populateMetadataForExercise:measurable
+                                   withName:@"Row"
+                             withDefinition:@"Rowing is an exercise whose purpose is to strengthen the muscles that draw the rower's arms toward the body."
+                                   withTags:nil
+                                 withImages:[NSArray arrayWithObjects:@"prwall-screen-button", @"workout-screen-button", nil]
+                                 withVideos:nil
+           withMeasurableCategoryIdentifier:MeasurableCategoryIdentifierExercise
+               withMeasurableTypeIdentifier:ExerciseTypeIdentifierRow
+                         withUnitIdentifier:UnitIdentifierSecond
+                    withMeasurableValueType:MeasurableValueTypeTime
+                    withMeasurableValueGoal:MeasurableValueGoalLess
+                            withValueSample:480
+                               withCopyable:YES
+                               withFavorite:NO
+                                 withPRWall:NO
+                   withUnitValueDescriptors:[NSArray arrayWithObjects:unitValueDescriptor, nil]];
+}
+
++ (BOOL) createDataForExercise2:(Measurable*)measurable {
+  
+  NSArray* values = [NSArray arrayWithObjects:
+                     [NSNumber numberWithFloat: 500],
+                     [NSNumber numberWithFloat: 450],
+                     nil];
+  
+  NSArray* valuesComments = [NSArray arrayWithObjects:
+                             @"Comment 1",
+                             @"Comment 2",
+                             nil];
+  
+  NSArray* valuesImages = [NSArray arrayWithObjects:
+                           [NSArray arrayWithObjects:@"prwall-screen-button", nil],
+                           [NSArray arrayWithObjects:@"prwall-screen-button", @"workout-screen-button", nil],
+                           nil];
+  
+  return [ModelFactory populateMeasurable:measurable withValues: values withValueComments: valuesComments withValueImages: valuesImages withValueVideos:nil];
+}
+
++ (void) createMetadataForExercise3:(Measurable*)measurable {
+  
+  [ModelFactory populateMetadataForExercise:measurable
+                                   withName:@"Deadlift"
+                             withDefinition:@"The deadlift is an exercise where a loaded barbell is lifted off the ground bent over position."
+                                   withTags:[NSArray arrayWithObject:@"Max"]
+                                 withImages:[NSArray arrayWithObjects:@"prwall-screen-button", @"workout-screen-button", nil]
+                                 withVideos:nil
+           withMeasurableCategoryIdentifier:MeasurableCategoryIdentifierExercise
+               withMeasurableTypeIdentifier:ExerciseTypeIdentifierLift
+                         withUnitIdentifier:UnitIdentifierPound
+                    withMeasurableValueType:MeasurableValueTypeNumberWithDecimal
+                    withMeasurableValueGoal:MeasurableValueGoalMore
+                            withValueSample:250
+                               withCopyable:YES
+                               withFavorite:NO
+                                 withPRWall:YES
+                   withUnitValueDescriptors:nil];
+}
+
++ (BOOL) createDataForExercise3:(Measurable*)measurable {
+  
+  NSArray* values = [NSArray arrayWithObjects:
+                     [NSNumber numberWithFloat: 300],
+                     [NSNumber numberWithFloat: 295],
+                     [NSNumber numberWithFloat: 275],
+                     nil];
+  
+  NSArray* valuesComments = [NSArray arrayWithObjects:
+                             @"Comment 1",
+                             @"Comment 2",
+                             @"Comment 3",
+                             nil];
+  
+  NSArray* valuesImages = [NSArray arrayWithObjects:
+                           [NSArray arrayWithObjects:@"prwall-screen-button", nil],
+                           [NSArray arrayWithObjects:@"prwall-screen-button", @"workout-screen-button", nil],
+                           [NSArray array],
+                           nil];
+  
+  return [ModelFactory populateMeasurable:measurable withValues: values withValueComments: valuesComments withValueImages: valuesImages withValueVideos:nil];
+}
+
++ (void) createMetadataForExercise4:(Measurable*)measurable {
+  
+  ExerciseUnitValueDescriptor* unitValueDescriptor = [ModelHelper newExerciseUnitValueDescriptor];
+  unitValueDescriptor.unit = [Unit unitForUnitIdentifier:UnitIdentifierSecond];
+  unitValueDescriptor.value = [NSNumber numberWithInt:60];
+
+  [ModelFactory populateMetadataForExercise:measurable
+                                   withName:@"Burpee"
+                             withDefinition:@"Start standing, bend down, plant your hands, kick back into a plank position, do a push-up and jump up again."
+                                   withTags:[NSArray arrayWithObject:@"AMRAP"]
+                                 withImages:[NSArray arrayWithObjects:@"prwall-screen-button", @"workout-screen-button", nil]
+                                 withVideos:nil
+           withMeasurableCategoryIdentifier:MeasurableCategoryIdentifierExercise
+               withMeasurableTypeIdentifier:ExerciseTypeIdentifierBody
+                         withUnitIdentifier:UnitIdentifierNone
+                    withMeasurableValueType:MeasurableValueTypeNumber
+                    withMeasurableValueGoal:MeasurableValueGoalMore
+                            withValueSample:20
+                               withCopyable:YES
+                               withFavorite:NO
+                                 withPRWall:YES
+                   withUnitValueDescriptors:[NSArray arrayWithObjects:unitValueDescriptor, nil]];
+}
+
++ (BOOL) createDataForExercise4:(Measurable*)measurable {
+  
+  NSArray* values = nil;
+  
+  NSArray* valuesComments = nil;
+  
+  NSArray* valuesImages = nil;
+  
+  return [ModelFactory populateMeasurable:measurable withValues: values withValueComments: valuesComments withValueImages: valuesImages withValueVideos:nil];
+}
+
++ (void) populateMetadataForActivity:(Measurable*)measurable
+                              withName:(NSString*) name
+                        withDefinition:(NSString*) definition
+                              withTags:(NSArray*) tagsText
+                            withImages:(NSArray*) imagesName
+                            withVideos:(NSArray*) videosName
+          withMeasurableTypeIdentifier:(MeasurableTypeIdentifier) measurableTypeIdentifier
+                    withUnitIdentifier:(UnitIdentifier) unitIdentifier
+               withMeasurableValueType:(MeasurableValueType) measurableValueType
+               withMeasurableValueGoal:(MeasurableValueGoal) measurableValueGoal
+                       withValueSample:(float) valueSample
+                          withCopyable:(BOOL) copyable
+                        withFavorite:(BOOL) favorite
+                          withPRWall:(BOOL) prWall
+{
+
+  [ModelFactory populateMetadataForMeasurable:measurable
+                                     withName:name
+                               withDefinition:definition
+                                     withTags:tagsText
+                                   withImages:imagesName
+                                   withVideos:videosName
+                 withMeasurableTypeIdentifier:measurableTypeIdentifier
+                           withUnitIdentifier:unitIdentifier
+                      withMeasurableValueType:measurableValueType
+                      withMeasurableValueGoal:measurableValueGoal
+                              withValueSample:valueSample
+                                 withCopyable:copyable];
+  
+  ActivityMetadata* activityMetadata = (ActivityMetadata*)measurable.metadata;
+  activityMetadata.prWall = prWall;
+  activityMetadata.favorite = favorite;
+}
+
+
++ (void) populateMetadataForExercise:(Measurable*)measurable
+                            withName:(NSString*) name
+                      withDefinition:(NSString*) definition
+                            withTags:(NSArray*) tagsText
+                          withImages:(NSArray*) imagesName
+                          withVideos:(NSArray*) videosName
+    withMeasurableCategoryIdentifier:(MeasurableCategoryIdentifier) measurableCategoryIdentifier
+        withMeasurableTypeIdentifier:(MeasurableTypeIdentifier) measurableTypeIdentifier
+                  withUnitIdentifier:(UnitIdentifier) unitIdentifier
+             withMeasurableValueType:(MeasurableValueType) measurableValueType
+             withMeasurableValueGoal:(MeasurableValueGoal) measurableValueGoal
+                     withValueSample:(float) valueSample
+                        withCopyable:(BOOL) copyable
+                        withFavorite:(BOOL) favorite
+                          withPRWall:(BOOL) prWall
+            withUnitValueDescriptors:(NSArray*) unitValueDescriptors
+{
+  
+  [ModelFactory populateMetadataForActivity:measurable
+                                     withName:name
+                               withDefinition:definition
+                                     withTags:tagsText
+                                   withImages:imagesName
+                                   withVideos:videosName
+                 withMeasurableTypeIdentifier:measurableTypeIdentifier
+                           withUnitIdentifier:unitIdentifier
+                      withMeasurableValueType:measurableValueType
+                      withMeasurableValueGoal:measurableValueGoal
+                              withValueSample:valueSample
+                                 withCopyable:copyable
+                               withFavorite:favorite
+                                 withPRWall:prWall];
+  
+  ExerciseMetadata* exerciseMetadata = (ExerciseMetadata*)measurable.metadata;
+  
+  for (ExerciseUnitValueDescriptor* unitValueDescriptor in unitValueDescriptors) {
+    
+    //Convert here because the unit is not setup when this method is first called
+    unitValueDescriptor.value = [unitValueDescriptor.unit.unitSystemConverter convertToSystemValue:unitValueDescriptor.value];
+    [exerciseMetadata addUnitValueDescriptor:unitValueDescriptor];
+  }
+}
+
+//  NSMutableDictionary* exercises =  [NSMutableDictionary dictionary];
+  
+//  //Run 200 meters
+//  Exercise* exercise = [[Exercise alloc]initWithIdentifier: @"run-200"];
+//  NSArray* values = [NSArray arrayWithObjects:
+//                     [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 25]],
+//                     [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 29]],
+//                     nil];
+//  exercise.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: exercise.metadata.identifier withValues:values];
+//  [exercises setValue:exercise forKey:exercise.metadata.identifier];
+//  exercise.metadata.valueSample = [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 50]];
+//
+//  //Deadlift - Max
+//  exercise = [[Exercise alloc]initWithIdentifier: @"deadlift-max"];
+//  values = [NSArray arrayWithObjects:
+//            [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 350]],
+//            [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 300]],
+//            nil];
+//  exercise.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: exercise.metadata.identifier withValues:values];
+//  [exercises setValue:exercise forKey:exercise.metadata.identifier];
+//  exercise.metadata.valueSample = [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 250]];
+//
+//  //Thurster - Heavy
+//  exercise = [[Exercise alloc]initWithIdentifier: @"thruster-heavy"];
+//  values = [NSArray arrayWithObjects:
+//            [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 185]],
+//            [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 170]],
+//            nil];
+//  exercise.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: exercise.metadata.identifier withValues:values];
+//  [exercises setValue:exercise forKey:exercise.metadata.identifier];
+//  exercise.metadata.valueSample = [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 115]];
+//
+//  //Kipping Pull Up - Unbroken
+//  exercise = [[Exercise alloc]initWithIdentifier: @"pullup-unbroken"];
+//  values = [NSArray arrayWithObjects:
+//            [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 45]],
+//            [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 65]],
+//            nil];
+//  exercise.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: exercise.metadata.identifier withValues:values];
+//  [exercises setValue:exercise forKey:exercise.metadata.identifier];
+//  exercise.metadata.valueSample = [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 35]];
+//
+//  //Double Under - Unbroken
+//  exercise = [[Exercise alloc]initWithIdentifier: @"double-under-unbroken"];
+//  values = [NSArray arrayWithObjects:
+//            [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 99]],
+//            [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 83]],
+//            nil];
+//  exercise.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: exercise.metadata.identifier withValues:values];
+//  [exercises setValue:exercise forKey:exercise.metadata.identifier];
+//  exercise.metadata.valueSample = [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat:20]];
+//
+//  //Row 2000 meters
+//  exercise = [[Exercise alloc]initWithIdentifier: @"row-2000"];
+//  values = [NSArray arrayWithObjects:
+//            [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 480]],
+//            [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 480]],
+//            nil];
+//  exercise.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: exercise.metadata.identifier withValues:values];
+//  [exercises setValue:exercise forKey:exercise.metadata.identifier];
+//  exercise.metadata.valueSample = [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat:500]];
+//
+//  //Burpee - AMRAP - 1 minute
+//  exercise = [[Exercise alloc]initWithIdentifier: @"burpee-amrap"];
+//  values = [NSArray arrayWithObjects:
+//            [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 85]],
+//            [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat: 102]],
+//            nil];
+//  exercise.data.values = [ModelFactory sampleMeasurableDataEntryForMeasurableId: exercise.metadata.identifier withValues:values];
+//  [exercises setValue:exercise forKey:exercise.metadata.identifier];
+//  exercise.metadata.valueSample = [exercise.metadata.unit.unitSystemConverter convertToSystemValue:[NSNumber numberWithFloat:80]];
+
+//  return exercises;
+
+//////////////////////////////////////////////////////////////////////////
+//SHARED
+//////////////////////////////////////////////////////////////////////////
+//+ (NSArray*) sampleMeasurableDataEntryForMeasurableId: (NSString*) measurableId withValues: (NSArray*) values {
+//
+//  NSMutableArray* dataEntries = [NSMutableArray arrayWithCapacity:values.count];
+//  
+//  NSInteger count = 0;
+//  
+//  for (NSNumber* value in values) {
+//    
+//    MeasurableDataEntry* dataEntry = [[MeasurableDataEntry alloc] init];
+//    dataEntry.value = value;
+//    dataEntry.date = [NSDate dateWithTimeInterval:((-count-3)*7*24*60*60) sinceDate:[NSDate date]];
+//    
+//    if(count == 1) {
+//      dataEntry.comment = @"This was a sweet workout! But I would like a shorter break in between sets";
+//    }
+//  
+//    [dataEntries addObject:dataEntry];
+//    count++;
+//  }
+//
+//  return dataEntries;
+//}
+
+
+@end

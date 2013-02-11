@@ -10,7 +10,7 @@
 #import "Measurable.h"
 #import "MeasurableInfoViewController.h"
 #import "UIHelper.h"
-#import "ActivityMetadataProvider.h"
+#import "ActivityMetadata.h"
 #import "MediaCollectionViewCell.h"
 
 @implementation MeasurableInfoLayoutDelegateBase
@@ -18,7 +18,7 @@
 //Vertical spacing between UI component
 static CGFloat VERTICAL_LAYOUT_PADDING = 5;
 
-- (void) layoutViewInViewController:(UIViewController*) viewController withMeasurable: (id<Measurable>) measurable withLayoutPosition:(CGPoint) startPosition {
+- (void) layoutViewInViewController:(UIViewController*) viewController withMeasurable: (Measurable*) measurable withLayoutPosition:(CGPoint) startPosition {
   
   if([[viewController class] isSubclassOfClass: [MeasurableInfoViewController class]]) {
 
@@ -35,16 +35,16 @@ static CGFloat VERTICAL_LAYOUT_PADDING = 5;
   }
 }
 
-- (void)updateContentWithMeasurable:(id<Measurable>)measurable inMeasurableInfoViewController:(MeasurableInfoViewController *)measurableInfoViewController {
+- (void)updateContentWithMeasurable:(Measurable*)measurable inMeasurableInfoViewController:(MeasurableInfoViewController *)measurableInfoViewController {
   
   //Description View
-  measurableInfoViewController.descriptionTextView.text = measurable.metadataProvider.description;
+  measurableInfoViewController.descriptionTextView.text = measurable.metadata.definition;
   
   //Media View
   [measurableInfoViewController.mediaView reloadData];
 }
 
-- (void) updateLayoutWithMeasurable: (id<Measurable>) measurable inMeasurableInfoViewController:(MeasurableInfoViewController*) measurableInfoViewController startAtPosition:(CGPoint) startPosition {
+- (void) updateLayoutWithMeasurable: (Measurable*) measurable inMeasurableInfoViewController:(MeasurableInfoViewController*) measurableInfoViewController startAtPosition:(CGPoint) startPosition {
 
   //Additional space to align properly with Log content
   CGFloat layoutYCoordinate = startPosition.y + 10;
@@ -60,22 +60,22 @@ static CGFloat VERTICAL_LAYOUT_PADDING = 5;
   //Media View
   layoutYCoordinate = [UIHelper moveToYLocation:layoutYCoordinate
                                 reshapeWithSize:CGSizeMake(MediaCollectionViewCellHeight, MediaCollectionViewCellHeight)
-                                         orHide:(measurable.metadataProvider.images.count == 0 && measurable.metadataProvider.videos.count == 0)
+                                         orHide:(measurable.metadata.images.count == 0 && measurable.metadata.videos.count == 0)
                                            view:measurableInfoViewController.mediaView
                             withVerticalSpacing:VERTICAL_LAYOUT_PADDING];
 
   //Description View
   layoutYCoordinate = [UIHelper moveToYLocation:layoutYCoordinate
                                 reshapeWithSize:CGSizeMake(measurableInfoViewController.descriptionTextView.frame.size.width, measurableInfoViewController.descriptionTextView.contentSize.height)
-                                         orHide:(measurable.metadataProvider.description == nil)
+                                         orHide:(measurable.metadata.definition == nil)
                                            view:measurableInfoViewController.descriptionTextView
                             withVerticalSpacing:0];
 
   //Favorite Icon
   BOOL hide = YES;
   
-  if([measurable.metadataProvider.class isSubclassOfClass:ActivityMetadataProvider.class]) {
-    if(((ActivityMetadataProvider*)(measurable.metadataProvider)).favorite) {
+  if([measurable.metadata.class isSubclassOfClass:ActivityMetadata.class]) {
+    if(((ActivityMetadata*)(measurable.metadata)).favorite) {
       hide = NO;
     }
   }

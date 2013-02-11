@@ -12,7 +12,7 @@
 
 @implementation MeasurableLayoutDelegate
 
-- (void) layoutViewInViewController:(UIViewController*) viewController withMeasurable: (id<Measurable>) measurable withLayoutPosition:(CGPoint) startPosition {
+- (void) layoutViewInViewController:(UIViewController*) viewController withMeasurable: (Measurable*) measurable withLayoutPosition:(CGPoint) startPosition {
   
   if([[viewController class] isSubclassOfClass: [MeasurableViewController class]]) {
     
@@ -38,12 +38,12 @@
         
         title = NSLocalizedString(titleFormat, @"Edit Info/Log");
       } else {
-        title = measurable.metadataProvider.type.displayName;
+        title = measurable.metadata.category.name;
       }
       measurableViewController.measurableTitleView.titleLabel.text = title;
       
       if(measurableViewController.editing &&
-         measurable.metadataProvider.type.identifier != MeasurableTypeIdentifierBodyMetric &&
+         (![measurable.metadata.category.identifier isEqualToString: MeasurableCategoryIdentifierBodyMetric]) &&
          measurableViewController.measurableScreenCollectionViewController.currentViewControllerIndex == MEASURABLE_INFO_SCREEN_INDEX) {
         measurableViewController.nameLabel.hidden = YES;
         measurableViewController.metadataTextView.hidden = YES;
@@ -52,20 +52,20 @@
         measurableViewController.nameLabel.hidden = NO;
         measurableViewController.metadataTextView.hidden = NO;
         
-        measurableViewController.nameLabel.text = measurable.metadataProvider.name;
-        measurableViewController.metadataTextView.text = measurable.metadataProvider.metadataFull;
+        measurableViewController.nameLabel.text = measurable.metadata.name;
+        measurableViewController.metadataTextView.text = measurable.metadata.metadataFull;
         
         //2- Update UI components layout
         newYLocation += measurableViewController.nameLabel.frame.size.height;
         
         //Reduce the space between the name and the metadata - too much white space
-        if(measurable.metadataProvider.metadataFull != nil) {
+        if(measurable.metadata.metadataFull != nil) {
           newYLocation-=8;
           
           //Adjust the height of the metadata text field as it can vary considerably
           newYLocation = [UIHelper moveToYLocation:newYLocation
                                    reshapeWithSize:CGSizeMake(measurableViewController.metadataTextView.frame.size.width, measurableViewController.metadataTextView.contentSize.height)
-                                            orHide:(measurable.metadataProvider.metadataFull == nil)
+                                            orHide:(measurable.metadata.metadataFull == nil)
                                               view:measurableViewController.metadataTextView
                           //Reduce the space between the metadata and the rest of
                           //the content - too much white space

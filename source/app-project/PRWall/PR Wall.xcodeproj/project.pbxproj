@@ -23,6 +23,9 @@
 		740F437F160D696B00380CF5 /* InchFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 740F437E160D696B00380CF5 /* InchFormatter.m */; };
 		740F4382160D6E1100380CF5 /* PercentFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 740F4381160D6E1100380CF5 /* PercentFormatter.m */; };
 		740F4385160D718B00380CF5 /* FootInchFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 740F4384160D718B00380CF5 /* FootInchFormatter.m */; };
+		7414C3F8169FB36D00B6BA27 /* PersistenceStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7414C3F7169FB36D00B6BA27 /* PersistenceStore.m */; };
+		7414C3FA169FB3DE00B6BA27 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7414C3F9169FB3DE00B6BA27 /* CoreData.framework */; };
+		7414C3FD169FB62000B6BA27 /* ModelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7414C3FC169FB62000B6BA27 /* ModelHelper.m */; };
 		741BBC5315B7C2E300660BE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741BBC5215B7C2E300660BE6 /* UIKit.framework */; };
 		741BBC5515B7C2E300660BE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741BBC5415B7C2E300660BE6 /* Foundation.framework */; };
 		741BBC5715B7C2E300660BE6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741BBC5615B7C2E300660BE6 /* CoreGraphics.framework */; };
@@ -46,14 +49,14 @@
 		742BD331166948940091D0B4 /* PoundConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 742BD330166948930091D0B4 /* PoundConverter.m */; };
 		742BD334166948DB0091D0B4 /* KilogramConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 742BD333166948DA0091D0B4 /* KilogramConverter.m */; };
 		74343FA91656E0EF00DB9D08 /* ImageDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74343FA81656E0EF00DB9D08 /* ImageDisplayViewController.m */; };
-		743725B816921AD000959F32 /* ExerciseMoreInfoEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743725B716921AD000959F32 /* ExerciseMoreInfoEditViewController.m */; };
-		743725BE169236FA00959F32 /* ExerciseMoreInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 743725BD169236FA00959F32 /* ExerciseMoreInfo.m */; };
+		743725B816921AD000959F32 /* ExerciseUnitValueDescriptorEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743725B716921AD000959F32 /* ExerciseUnitValueDescriptorEditViewController.m */; };
 		743F8D741618A987006871D0 /* MeasurableScreenCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743F8D731618A987006871D0 /* MeasurableScreenCollectionViewController.m */; };
 		743F8D771618AD57006871D0 /* MeasurableInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743F8D761618AD57006871D0 /* MeasurableInfoViewController.m */; };
 		743F8D7B1618AD81006871D0 /* MeasurableLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743F8D7A1618AD81006871D0 /* MeasurableLogViewController.m */; };
 		743F8D80161FCE26006871D0 /* MeasurableTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743F8D7F161FCE26006871D0 /* MeasurableTitleView.xib */; };
 		743F8D83161FD01C006871D0 /* MeasurableTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 743F8D82161FD01B006871D0 /* MeasurableTitleView.m */; };
 		743F8D86161FF40D006871D0 /* MeasurableType.m in Sources */ = {isa = PBXBuildFile; fileRef = 743F8D85161FF40D006871D0 /* MeasurableType.m */; };
+		7448EC6516C5ABE60004E16A /* ExerciseUnitValueDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7448EC6416C5ABE60004E16A /* ExerciseUnitValueDescriptor.m */; };
 		744A52181693E71F00DE49DA /* MeasurableMediaCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 744A52171693E71F00DE49DA /* MeasurableMediaCollectionView.m */; };
 		744A521B1693F25600DE49DA /* MediaCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 744A521A1693F25600DE49DA /* MediaCollectionViewCell.m */; };
 		744EFB0C15FB1C12000AECBA /* MyBodyUserProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 744EFB0B15FB1C12000AECBA /* MyBodyUserProfileTableViewCell.xib */; };
@@ -69,10 +72,10 @@
 		745062AB165D5ED100344D83 /* MeasurableDataEntryEditValueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 745062AA165D5ED000344D83 /* MeasurableDataEntryEditValueTableViewCell.m */; };
 		745192F9167B9D9E0098065F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 745192F8167B9D9E0098065F /* libCorePlot-CocoaTouch.a */; };
 		745192FB167B9E310098065F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 745192FA167B9E310098065F /* QuartzCore.framework */; };
-		7454960516042B3200308609 /* WorkoutMetadataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7454960416042B3200308609 /* WorkoutMetadataProvider.m */; };
+		7454960516042B3200308609 /* WorkoutMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 7454960416042B3200308609 /* WorkoutMetadata.m */; };
 		7454960916042B9800308609 /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7454960816042B9800308609 /* Workout.m */; };
-		7454960C16042C8600308609 /* MeasurableImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7454960B16042C8600308609 /* MeasurableImpl.m */; };
-		7454960F16044E1900308609 /* BodyMetricMetadataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7454960E16044E1900308609 /* BodyMetricMetadataProvider.m */; };
+		7454960C16042C8600308609 /* Measurable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7454960B16042C8600308609 /* Measurable.m */; };
+		7454960F16044E1900308609 /* BodyMetricMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 7454960E16044E1900308609 /* BodyMetricMetadata.m */; };
 		745B6B3E1694E8D900948FE4 /* MeasurablePickerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 745B6B3D1694E8D900948FE4 /* MeasurablePickerCollectionViewController.m */; };
 		745B6B411694E98600948FE4 /* MeasurablePickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 745B6B401694E98600948FE4 /* MeasurablePickerCollectionViewCell.m */; };
 		745B6B441694E9A400948FE4 /* MeasurablePickerCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 745B6B431694E9A300948FE4 /* MeasurablePickerCollectionView.m */; };
@@ -117,6 +120,11 @@
 		748F00511669295400B67DCB /* PoodFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 748F00501669295200B67DCB /* PoodFormatter.m */; };
 		748FFB7416692DC100E4DD5E /* TimeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 748FFB7316692DC100E4DD5E /* TimeFormatter.m */; };
 		748FFB7E166937FA00E4DD5E /* MeterConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 748FFB7D166937FA00E4DD5E /* MeterConverter.m */; };
+		7494F10816AB0490004E3007 /* PersistenceDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7494F10716AB0490004E3007 /* PersistenceDelegate.m */; };
+		7494F10C16AB2744004E3007 /* MeasurableCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7494F10B16AB2744004E3007 /* MeasurableCategory.m */; };
+		7494F11616B2E91E004E3007 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 7494F11516B2E91C004E3007 /* Tag.m */; };
+		7494F11916B311D8004E3007 /* MeasurableMetadataVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7494F11816B311D6004E3007 /* MeasurableMetadataVideo.m */; };
+		7494F11C16B33B96004E3007 /* MeasurableDataEntryVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7494F11B16B33B96004E3007 /* MeasurableDataEntryVideo.m */; };
 		7497A627167251240009FDAC /* log.png in Resources */ = {isa = PBXBuildFile; fileRef = 7497A625167251240009FDAC /* log.png */; };
 		7497A62B1672513E0009FDAC /* screen-full.png in Resources */ = {isa = PBXBuildFile; fileRef = 7497A6281672513E0009FDAC /* screen-full.png */; };
 		7497A62C1672513E0009FDAC /* screen-restore.png in Resources */ = {isa = PBXBuildFile; fileRef = 7497A6291672513E0009FDAC /* screen-restore.png */; };
@@ -126,16 +134,20 @@
 		749A8708162C596800EFB7C1 /* MeasurableInfoShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A8707162C596700EFB7C1 /* MeasurableInfoShareDelegate.m */; };
 		749A870D162CE72100EFB7C1 /* MeasurableShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A870C162CE72100EFB7C1 /* MeasurableShareDelegate.m */; };
 		749BA3BB15D5DA3700FB1094 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 749BA3BA15D5DA3700FB1094 /* MessageUI.framework */; };
+		749F848A16B76D8100159F1A /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 749F848916B76D8000159F1A /* Media.m */; };
+		749F848E16BA06A100159F1A /* MeasurableDataEntryImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 749F848D16BA06A100159F1A /* MeasurableDataEntryImage.m */; };
+		749F849116BA074B00159F1A /* MeasurableMetadataImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 749F849016BA074B00159F1A /* MeasurableMetadataImage.m */; };
 		74A17EDA1621F17B00FD37F5 /* MeasurableHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A17ED91621F17B00FD37F5 /* MeasurableHelper.m */; };
 		74A3982D160D4A04003AD87B /* PoundFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A3982C160D4A04003AD87B /* PoundFormatter.m */; };
+		74A8C6DC16BACF2600552B23 /* BodyMetric.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A8C6DB16BACF2600552B23 /* BodyMetric.m */; };
 		74AA7B551675AB9D007844C5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 74AA7B541675AB9D007844C5 /* Icon.png */; };
 		74AA7B571675ABA5007844C5 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74AA7B561675ABA5007844C5 /* Icon@2x.png */; };
 		74AF602016694BE7002C8848 /* DefaultUnitSystemConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AF601F16694BE7002C8848 /* DefaultUnitSystemConverter.m */; };
 		74B3165615DDD8B4003D5B09 /* MailAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B3165315DDD8B4003D5B09 /* MailAttachment.m */; };
 		74B3165715DDD8B4003D5B09 /* MailHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B3165515DDD8B4003D5B09 /* MailHelper.m */; };
-		74BBB655160421CE00149356 /* MeasurableDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BBB654160421CE00149356 /* MeasurableDataProvider.m */; };
-		74BBB6581604239100149356 /* MeasurableMetadataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BBB6571604239100149356 /* MeasurableMetadataProvider.m */; };
-		74BBB65B1604269300149356 /* ExerciseMetadataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BBB65A1604269300149356 /* ExerciseMetadataProvider.m */; };
+		74BBB655160421CE00149356 /* MeasurableData.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BBB654160421CE00149356 /* MeasurableData.m */; };
+		74BBB6581604239100149356 /* MeasurableMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BBB6571604239100149356 /* MeasurableMetadata.m */; };
+		74BBB65B1604269300149356 /* ExerciseMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BBB65A1604269300149356 /* ExerciseMetadata.m */; };
 		74BC085C165EF48900CDC8D0 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74BC085B165EF48900CDC8D0 /* MediaPlayer.framework */; };
 		74BC0860165F03CE00CDC8D0 /* VideoThumbnailGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BC085F165F03CE00CDC8D0 /* VideoThumbnailGenerator.m */; };
 		74BD18E0166025EF003FD255 /* default-video-thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 74BD18DF166025EF003FD255 /* default-video-thumbnail.png */; };
@@ -145,7 +157,6 @@
 		74BD18F21661846F003FD255 /* MeasurablePercentValuePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BD18F11661846F003FD255 /* MeasurablePercentValuePickerView.m */; };
 		74BD18F516618F91003FD255 /* MeasurableTimeValuePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BD18F416618F90003FD255 /* MeasurableTimeValuePickerView.m */; };
 		74BD18F816629BC7003FD255 /* MeasurableFootInchValuePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BD18F716629BC5003FD255 /* MeasurableFootInchValuePickerView.m */; };
-		74BD96DE15FBC9F2009F34A9 /* BodyMetric.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BD96DD15FBC9F2009F34A9 /* BodyMetric.m */; };
 		74BD96E515FC448D009F34A9 /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BD96E415FC448D009F34A9 /* Unit.m */; };
 		74BD96ED15FCF978009F34A9 /* UIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BD96EC15FCF978009F34A9 /* UIHelper.m */; };
 		74C0E65F16442F8C000F6282 /* home-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C0E65E16442F8C000F6282 /* home-background.png */; };
@@ -178,7 +189,7 @@
 		74CA4E8115D86FD600DA3F10 /* ExerciseScreenSwitchDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CA4E8015D86FD600DA3F10 /* ExerciseScreenSwitchDelegate.m */; };
 		74CA4E8415D8709600DA3F10 /* MyBodyScreenSwitchDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CA4E8315D8709600DA3F10 /* MyBodyScreenSwitchDelegate.m */; };
 		74D24AD01696029900A2DB94 /* MeasurablePickerContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D24ACF1696029900A2DB94 /* MeasurablePickerContainerViewController.m */; };
-		74D24AD41697362200A2DB94 /* ActivityMetadataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D24AD31697362200A2DB94 /* ActivityMetadataProvider.m */; };
+		74D24AD41697362200A2DB94 /* ActivityMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D24AD31697362200A2DB94 /* ActivityMetadata.m */; };
 		74D2527515D56D5A00845160 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D2527415D56D5A00845160 /* AppConstants.m */; };
 		74D407F61688D42200A2A1A8 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D407F51688D42200A2A1A8 /* Exercise.m */; };
 		74D407FE168A227900A2A1A8 /* exercise-screen-app-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D40800168A227900A2A1A8 /* exercise-screen-app-menu.png */; };
@@ -201,6 +212,7 @@
 		74E2422C16231C25004C76A4 /* MeasurableDataEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E2422B16231C25004C76A4 /* MeasurableDataEntryTableViewCell.m */; };
 		74E9D5F015BB74AF00B005B3 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E9D5EF15BB74AF00B005B3 /* MenuViewController.m */; };
 		74ECC0FF1688525500715D7B /* PRWallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74ECC0FC1688525500715D7B /* PRWallTests.m */; };
+		74ED242D16C6B92A00BF176D /* BaseUnitValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 74ED242C16C6B92A00BF176D /* BaseUnitValueFormatter.m */; };
 		74EF1E7315D1C58600F96131 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74EF1E7115D1C58600F96131 /* Localizable.strings */; };
 		74EF1E7C15D1E6C400F96131 /* PRWallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EF1E7A15D1E6C400F96131 /* PRWallViewController.m */; };
 		74EF1E8015D2BE8000F96131 /* PRWallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EF1E7F15D2BE8000F96131 /* PRWallView.m */; };
@@ -217,9 +229,8 @@
 		74F33B68168C03E300E31410 /* EditMediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F33B67168C03E200E31410 /* EditMediaTableViewCell.m */; };
 		74F33B6A168C040300E31410 /* EditMediaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74F33B69168C040200E31410 /* EditMediaTableViewCell.xib */; };
 		74F33B6C168C042300E31410 /* AddMediaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74F33B6B168C042300E31410 /* AddMediaTableViewCell.xib */; };
-		74F33B71168D137F00E31410 /* ExerciseKind.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F33B70168D137E00E31410 /* ExerciseKind.m */; };
-		74F33B74168D24BD00E31410 /* ExerciseKindEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F33B73168D24BD00E31410 /* ExerciseKindEditViewController.m */; };
-		74F33B77168D575D00E31410 /* ActivityTagsEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F33B76168D575D00E31410 /* ActivityTagsEditViewController.m */; };
+		74F33B74168D24BD00E31410 /* MeasurableTypeEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F33B73168D24BD00E31410 /* MeasurableTypeEditViewController.m */; };
+		74F33B77168D575D00E31410 /* MeasurableTagsEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F33B76168D575D00E31410 /* MeasurableTagsEditViewController.m */; };
 		74F33B7D168E416000E31410 /* MeasurableValueGoalEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F33B7C168E415B00E31410 /* MeasurableValueGoalEditViewController.m */; };
 		74F33B7F168E5FE800E31410 /* MeasurableValueGoalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F33B7E168E5FE400E31410 /* MeasurableValueGoalTableViewCell.m */; };
 		74F6AD0B16949E5F00F0EE31 /* MediaCollectionViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F6AD0A16949E5F00F0EE31 /* MediaCollectionViewDelegate.m */; };
@@ -240,7 +251,7 @@
 		74075B97167D56A4008EE24E /* MeasurableScreenCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableScreenCollectionViewController.h; path = UI/Measurable/MeasurableScreenCollectionViewController.h; sourceTree = "<group>"; };
 		7408403F15D1810500A64D5B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = UI/Home/HomeViewController.h; sourceTree = "<group>"; };
 		7408404015D1810500A64D5B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = HomeViewController.m; path = UI/Home/HomeViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		7408404E15D1885B00A64D5B /* AppScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppScreen.h; path = UI/AppScreen.h; sourceTree = "<group>"; };
+		7408404E15D1885B00A64D5B /* AppScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppScreen.h; sourceTree = "<group>"; };
 		7408404F15D1B31E00A64D5B /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = App.h; path = App/App.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		7408405015D1B31E00A64D5B /* App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = App.m; path = App/App.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		740970351618032800D2D9B8 /* MeasurableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = MeasurableViewController.h; path = UI/Measurable/MeasurableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -255,13 +266,18 @@
 		740C366316442B3E00152169 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/prwall-screen-button.png"; sourceTree = "<group>"; };
 		740C366616442B4200152169 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/wod-screen-button.png"; sourceTree = "<group>"; };
 		740C366916442B4600152169 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/workout-screen-button.png"; sourceTree = "<group>"; };
-		740F437B160D68E100380CF5 /* UnitValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnitValueFormatter.h; path = UI/Helper/Formatter/Unit/UnitValueFormatter.h; sourceTree = "<group>"; };
-		740F437D160D696B00380CF5 /* InchFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InchFormatter.h; path = UI/Helper/Formatter/Unit/InchFormatter.h; sourceTree = "<group>"; };
-		740F437E160D696B00380CF5 /* InchFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InchFormatter.m; path = UI/Helper/Formatter/Unit/InchFormatter.m; sourceTree = "<group>"; };
-		740F4380160D6E1100380CF5 /* PercentFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PercentFormatter.h; path = UI/Helper/Formatter/Unit/PercentFormatter.h; sourceTree = "<group>"; };
-		740F4381160D6E1100380CF5 /* PercentFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PercentFormatter.m; path = UI/Helper/Formatter/Unit/PercentFormatter.m; sourceTree = "<group>"; };
-		740F4383160D718B00380CF5 /* FootInchFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FootInchFormatter.h; path = UI/Helper/Formatter/Unit/FootInchFormatter.h; sourceTree = "<group>"; };
-		740F4384160D718B00380CF5 /* FootInchFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FootInchFormatter.m; path = UI/Helper/Formatter/Unit/FootInchFormatter.m; sourceTree = "<group>"; };
+		740F437B160D68E100380CF5 /* UnitValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnitValueFormatter.h; path = UI/Unit/Formatter/UnitValueFormatter.h; sourceTree = "<group>"; };
+		740F437D160D696B00380CF5 /* InchFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InchFormatter.h; path = UI/Unit/Formatter/InchFormatter.h; sourceTree = "<group>"; };
+		740F437E160D696B00380CF5 /* InchFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InchFormatter.m; path = UI/Unit/Formatter/InchFormatter.m; sourceTree = "<group>"; };
+		740F4380160D6E1100380CF5 /* PercentFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PercentFormatter.h; path = UI/Unit/Formatter/PercentFormatter.h; sourceTree = "<group>"; };
+		740F4381160D6E1100380CF5 /* PercentFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PercentFormatter.m; path = UI/Unit/Formatter/PercentFormatter.m; sourceTree = "<group>"; };
+		740F4383160D718B00380CF5 /* FootInchFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FootInchFormatter.h; path = UI/Unit/Formatter/FootInchFormatter.h; sourceTree = "<group>"; };
+		740F4384160D718B00380CF5 /* FootInchFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FootInchFormatter.m; path = UI/Unit/Formatter/FootInchFormatter.m; sourceTree = "<group>"; };
+		7414C3F6169FB36D00B6BA27 /* PersistenceStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersistenceStore.h; path = Model/Persistence/PersistenceStore.h; sourceTree = "<group>"; };
+		7414C3F7169FB36D00B6BA27 /* PersistenceStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersistenceStore.m; path = Model/Persistence/PersistenceStore.m; sourceTree = "<group>"; };
+		7414C3F9169FB3DE00B6BA27 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7414C3FB169FB62000B6BA27 /* ModelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelHelper.h; path = Model/Helper/ModelHelper.h; sourceTree = "<group>"; };
+		7414C3FC169FB62000B6BA27 /* ModelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelHelper.m; path = Model/Helper/ModelHelper.m; sourceTree = "<group>"; };
 		741BBC4E15B7C2E300660BE6 /* PR Wall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PR Wall.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		741BBC5215B7C2E300660BE6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		741BBC5415B7C2E300660BE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -278,8 +294,8 @@
 		741BBC7815B7C2E300660BE6 /* PR WallTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PR WallTests-Info.plist"; sourceTree = "<group>"; };
 		741BBC7A15B7C2E300660BE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		741BBC8915B7C67E00660BE6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		74220BA91610B00500E58D1C /* FootFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FootFormatter.h; path = UI/Helper/Formatter/Unit/FootFormatter.h; sourceTree = "<group>"; };
-		74220BAA1610B00500E58D1C /* FootFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FootFormatter.m; path = UI/Helper/Formatter/Unit/FootFormatter.m; sourceTree = "<group>"; };
+		74220BA91610B00500E58D1C /* FootFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FootFormatter.h; path = UI/Unit/Formatter/FootFormatter.h; sourceTree = "<group>"; };
+		74220BAA1610B00500E58D1C /* FootFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FootFormatter.m; path = UI/Unit/Formatter/FootFormatter.m; sourceTree = "<group>"; };
 		74220BAD1613427D00E58D1C /* MeasurableDataEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableDataEntry.h; path = Model/Data/MeasurableDataEntry.h; sourceTree = "<group>"; };
 		74220BAE1613427D00E58D1C /* MeasurableDataEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableDataEntry.m; path = Model/Data/MeasurableDataEntry.m; sourceTree = "<group>"; };
 		742BD31816693FD40091D0B4 /* UnitSystemConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnitSystemConverter.h; path = App/Unit/Converter/UnitSystemConverter.h; sourceTree = "<group>"; };
@@ -297,12 +313,10 @@
 		742BD330166948930091D0B4 /* PoundConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PoundConverter.m; path = App/Unit/Converter/PoundConverter.m; sourceTree = "<group>"; };
 		742BD332166948DA0091D0B4 /* KilogramConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KilogramConverter.h; path = App/Unit/Converter/KilogramConverter.h; sourceTree = "<group>"; };
 		742BD333166948DA0091D0B4 /* KilogramConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KilogramConverter.m; path = App/Unit/Converter/KilogramConverter.m; sourceTree = "<group>"; };
-		74343FA71656E0EF00DB9D08 /* ImageDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageDisplayViewController.h; path = UI/Helper/ImageDisplayViewController.h; sourceTree = "<group>"; };
-		74343FA81656E0EF00DB9D08 /* ImageDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageDisplayViewController.m; path = UI/Helper/ImageDisplayViewController.m; sourceTree = "<group>"; };
-		743725B616921AD000959F32 /* ExerciseMoreInfoEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExerciseMoreInfoEditViewController.h; path = UI/Exercise/ExerciseMoreInfoEditViewController.h; sourceTree = "<group>"; };
-		743725B716921AD000959F32 /* ExerciseMoreInfoEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExerciseMoreInfoEditViewController.m; path = UI/Exercise/ExerciseMoreInfoEditViewController.m; sourceTree = "<group>"; };
-		743725BA169220ED00959F32 /* ExerciseMoreInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExerciseMoreInfo.h; path = Model/Core/ExerciseMoreInfo.h; sourceTree = "<group>"; };
-		743725BD169236FA00959F32 /* ExerciseMoreInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExerciseMoreInfo.m; path = Model/Core/ExerciseMoreInfo.m; sourceTree = "<group>"; };
+		74343FA71656E0EF00DB9D08 /* ImageDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageDisplayViewController.h; path = UI/Media/ImageDisplayViewController.h; sourceTree = "<group>"; };
+		74343FA81656E0EF00DB9D08 /* ImageDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageDisplayViewController.m; path = UI/Media/ImageDisplayViewController.m; sourceTree = "<group>"; };
+		743725B616921AD000959F32 /* ExerciseUnitValueDescriptorEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExerciseUnitValueDescriptorEditViewController.h; path = UI/Exercise/ExerciseUnitValueDescriptorEditViewController.h; sourceTree = "<group>"; };
+		743725B716921AD000959F32 /* ExerciseUnitValueDescriptorEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExerciseUnitValueDescriptorEditViewController.m; path = UI/Exercise/ExerciseUnitValueDescriptorEditViewController.m; sourceTree = "<group>"; };
 		743F8D731618A987006871D0 /* MeasurableScreenCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MeasurableScreenCollectionViewController.m; path = UI/Measurable/MeasurableScreenCollectionViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		743F8D751618AD57006871D0 /* MeasurableInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableInfoViewController.h; path = UI/Measurable/Info/MeasurableInfoViewController.h; sourceTree = "<group>"; };
 		743F8D761618AD57006871D0 /* MeasurableInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MeasurableInfoViewController.m; path = UI/Measurable/Info/MeasurableInfoViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -311,8 +325,10 @@
 		743F8D7F161FCE26006871D0 /* MeasurableTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeasurableTitleView.xib; path = UI/Measurable/MeasurableTitleView.xib; sourceTree = "<group>"; };
 		743F8D81161FD01B006871D0 /* MeasurableTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableTitleView.h; path = UI/Measurable/MeasurableTitleView.h; sourceTree = "<group>"; };
 		743F8D82161FD01B006871D0 /* MeasurableTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableTitleView.m; path = UI/Measurable/MeasurableTitleView.m; sourceTree = "<group>"; };
-		743F8D84161FF40D006871D0 /* MeasurableType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableType.h; path = Model/Core/MeasurableType.h; sourceTree = "<group>"; };
-		743F8D85161FF40D006871D0 /* MeasurableType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableType.m; path = Model/Core/MeasurableType.m; sourceTree = "<group>"; };
+		743F8D84161FF40D006871D0 /* MeasurableType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableType.h; path = Model/Metadata/MeasurableType.h; sourceTree = "<group>"; };
+		743F8D85161FF40D006871D0 /* MeasurableType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableType.m; path = Model/Metadata/MeasurableType.m; sourceTree = "<group>"; };
+		7448EC6316C5ABE60004E16A /* ExerciseUnitValueDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExerciseUnitValueDescriptor.h; path = Model/Metadata/Exercise/ExerciseUnitValueDescriptor.h; sourceTree = "<group>"; };
+		7448EC6416C5ABE60004E16A /* ExerciseUnitValueDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExerciseUnitValueDescriptor.m; path = Model/Metadata/Exercise/ExerciseUnitValueDescriptor.m; sourceTree = "<group>"; };
 		744A52161693E71F00DE49DA /* MeasurableMediaCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableMediaCollectionView.h; path = UI/Measurable/Info/MeasurableMediaCollectionView.h; sourceTree = "<group>"; };
 		744A52171693E71F00DE49DA /* MeasurableMediaCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableMediaCollectionView.m; path = UI/Measurable/Info/MeasurableMediaCollectionView.m; sourceTree = "<group>"; };
 		744A52191693F25500DE49DA /* MediaCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaCollectionViewCell.h; path = UI/Measurable/Media/MediaCollectionViewCell.h; sourceTree = "<group>"; };
@@ -320,12 +336,12 @@
 		744EFB0B15FB1C12000AECBA /* MyBodyUserProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyBodyUserProfileTableViewCell.xib; path = UI/MyBody/MyBodyUserProfileTableViewCell.xib; sourceTree = "<group>"; };
 		744EFB0D15FB9166000AECBA /* MeasurableTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = MeasurableTableViewCell.h; path = UI/Measurable/MeasurableTableViewCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		744EFB0E15FB9166000AECBA /* MeasurableTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MeasurableTableViewCell.m; path = UI/Measurable/MeasurableTableViewCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		744EFB1815FBBA52000AECBA /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserProfile.h; path = Model/UserProfile.h; sourceTree = "<group>"; };
-		744EFB1915FBBA52000AECBA /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserProfile.m; path = Model/UserProfile.m; sourceTree = "<group>"; };
-		744EFB1B15FBBAA2000AECBA /* ModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelFactory.h; path = Model/ModelFactory.h; sourceTree = "<group>"; };
-		744EFB1C15FBBAA2000AECBA /* ModelFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ModelFactory.m; path = Model/ModelFactory.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		74506284165BE4B900344D83 /* AppNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppNavigationController.h; path = UI/AppNavigationController.h; sourceTree = "<group>"; };
-		74506285165BE4B900344D83 /* AppNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppNavigationController.m; path = UI/AppNavigationController.m; sourceTree = "<group>"; };
+		744EFB1815FBBA52000AECBA /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserProfile.h; path = Model/Core/UserProfile.h; sourceTree = "<group>"; };
+		744EFB1915FBBA52000AECBA /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserProfile.m; path = Model/Core/UserProfile.m; sourceTree = "<group>"; };
+		744EFB1B15FBBAA2000AECBA /* ModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelFactory.h; path = Model/Helper/ModelFactory.h; sourceTree = "<group>"; };
+		744EFB1C15FBBAA2000AECBA /* ModelFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ModelFactory.m; path = Model/Helper/ModelFactory.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		74506284165BE4B900344D83 /* AppNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppNavigationController.h; sourceTree = "<group>"; };
+		74506285165BE4B900344D83 /* AppNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppNavigationController.m; sourceTree = "<group>"; };
 		74506288165BFAB600344D83 /* menu-disclosure-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-disclosure-bar.png"; path = "PRWall/Resources/Images/App/Menu/menu-disclosure-bar.png"; sourceTree = SOURCE_ROOT; };
 		7450628F165C678B00344D83 /* MeasurableLogLayoutDelegateBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = MeasurableLogLayoutDelegateBase.h; path = UI/Measurable/Log/MeasurableLogLayoutDelegateBase.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		74506290165C678B00344D83 /* MeasurableLogLayoutDelegateBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MeasurableLogLayoutDelegateBase.m; path = UI/Measurable/Log/MeasurableLogLayoutDelegateBase.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -413,14 +429,12 @@
 		745192F7167B9D9E0098065F /* NSNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNumberExtensions.h; sourceTree = "<group>"; };
 		745192F8167B9D9E0098065F /* libCorePlot-CocoaTouch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libCorePlot-CocoaTouch.a"; path = "Libraries/CorePlot/libCorePlot-CocoaTouch.a"; sourceTree = "<group>"; };
 		745192FA167B9E310098065F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		7454960316042B3200308609 /* WorkoutMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutMetadataProvider.h; path = Model/Metadata/WorkoutMetadataProvider.h; sourceTree = "<group>"; };
-		7454960416042B3200308609 /* WorkoutMetadataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutMetadataProvider.m; path = Model/Metadata/WorkoutMetadataProvider.m; sourceTree = "<group>"; };
+		7454960416042B3200308609 /* WorkoutMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutMetadata.m; path = Model/Metadata/Workout/WorkoutMetadata.m; sourceTree = "<group>"; };
 		7454960716042B9800308609 /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Workout.h; path = Model/Core/Workout.h; sourceTree = "<group>"; };
 		7454960816042B9800308609 /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Workout.m; path = Model/Core/Workout.m; sourceTree = "<group>"; };
-		7454960A16042C8600308609 /* MeasurableImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableImpl.h; path = Model/Core/MeasurableImpl.h; sourceTree = "<group>"; };
-		7454960B16042C8600308609 /* MeasurableImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableImpl.m; path = Model/Core/MeasurableImpl.m; sourceTree = "<group>"; };
-		7454960D16044E1800308609 /* BodyMetricMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BodyMetricMetadataProvider.h; path = Model/Metadata/BodyMetricMetadataProvider.h; sourceTree = "<group>"; };
-		7454960E16044E1900308609 /* BodyMetricMetadataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BodyMetricMetadataProvider.m; path = Model/Metadata/BodyMetricMetadataProvider.m; sourceTree = "<group>"; };
+		7454960B16042C8600308609 /* Measurable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Measurable.m; path = Model/Core/Measurable.m; sourceTree = "<group>"; };
+		7454960D16044E1800308609 /* BodyMetricMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BodyMetricMetadata.h; path = Model/Metadata/BodyMetric/BodyMetricMetadata.h; sourceTree = "<group>"; };
+		7454960E16044E1900308609 /* BodyMetricMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BodyMetricMetadata.m; path = Model/Metadata/BodyMetric/BodyMetricMetadata.m; sourceTree = "<group>"; };
 		745B6B3C1694E8D900948FE4 /* MeasurablePickerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurablePickerCollectionViewController.h; path = UI/Measurable/Picker/MeasurablePickerCollectionViewController.h; sourceTree = "<group>"; };
 		745B6B3D1694E8D900948FE4 /* MeasurablePickerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurablePickerCollectionViewController.m; path = UI/Measurable/Picker/MeasurablePickerCollectionViewController.m; sourceTree = "<group>"; };
 		745B6B3F1694E98600948FE4 /* MeasurablePickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurablePickerCollectionViewCell.h; path = UI/Measurable/Picker/MeasurablePickerCollectionViewCell.h; sourceTree = "<group>"; };
@@ -455,43 +469,54 @@
 		745CD6BB166AEAF200D32890 /* MeasurableValueGoalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableValueGoalTableViewCell.h; path = UI/Measurable/Info/Edit/Cell/MeasurableValueGoalTableViewCell.h; sourceTree = "<group>"; };
 		745CD6C0166AEB2700D32890 /* LengthUnitTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LengthUnitTableViewCell.xib; path = UI/Measurable/Info/Edit/Cell/LengthUnitTableViewCell.xib; sourceTree = "<group>"; };
 		745CD6C5166AEBFD00D32890 /* MeasurableValueGoalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeasurableValueGoalTableViewCell.xib; path = UI/Measurable/Info/Edit/Cell/MeasurableValueGoalTableViewCell.xib; sourceTree = "<group>"; };
-		745E9C0415F58248006222BB /* AppViewGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppViewGestureRecognizer.h; path = UI/AppViewGestureRecognizer.h; sourceTree = "<group>"; };
-		745E9C0515F58249006222BB /* AppViewGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppViewGestureRecognizer.m; path = UI/AppViewGestureRecognizer.m; sourceTree = "<group>"; };
-		745F5183160D64E20066F600 /* DefaultUnitValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultUnitValueFormatter.h; path = UI/Helper/Formatter/Unit/DefaultUnitValueFormatter.h; sourceTree = "<group>"; };
-		745F5184160D64E20066F600 /* DefaultUnitValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultUnitValueFormatter.m; path = UI/Helper/Formatter/Unit/DefaultUnitValueFormatter.m; sourceTree = "<group>"; };
+		745E9C0415F58248006222BB /* AppViewGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppViewGestureRecognizer.h; sourceTree = "<group>"; };
+		745E9C0515F58249006222BB /* AppViewGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppViewGestureRecognizer.m; sourceTree = "<group>"; };
+		745F5183160D64E20066F600 /* DefaultUnitValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultUnitValueFormatter.h; path = UI/Unit/Formatter/DefaultUnitValueFormatter.h; sourceTree = "<group>"; };
+		745F5184160D64E20066F600 /* DefaultUnitValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultUnitValueFormatter.m; path = UI/Unit/Formatter/DefaultUnitValueFormatter.m; sourceTree = "<group>"; };
 		7460967815FABF8500DE158B /* MeasurableTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeasurableTableViewCell.xib; path = UI/Measurable/MeasurableTableViewCell.xib; sourceTree = "<group>"; };
 		7460967C15FACE2700DE158B /* MyBodyUserProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyBodyUserProfileTableViewCell.h; path = UI/MyBody/MyBodyUserProfileTableViewCell.h; sourceTree = "<group>"; };
 		7460967D15FACE2700DE158B /* MyBodyUserProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBodyUserProfileTableViewCell.m; path = UI/MyBody/MyBodyUserProfileTableViewCell.m; sourceTree = "<group>"; };
 		7461191415BC8DF900BEEAE2 /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuCell.h; path = UI/Menu/MenuCell.h; sourceTree = "<group>"; };
 		7461191515BC8DF900BEEAE2 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuCell.m; path = UI/Menu/MenuCell.m; sourceTree = "<group>"; };
-		7465B170163AF357008D0AA7 /* MediaHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaHelper.h; path = UI/Helper/Media/MediaHelper.h; sourceTree = "<group>"; };
-		7465B171163AF357008D0AA7 /* MediaHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MediaHelper.m; path = UI/Helper/Media/MediaHelper.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		7465B170163AF357008D0AA7 /* MediaHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaHelper.h; path = UI/Media/MediaHelper.h; sourceTree = "<group>"; };
+		7465B171163AF357008D0AA7 /* MediaHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MediaHelper.m; path = UI/Media/MediaHelper.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		7465B185163B0D2C008D0AA7 /* goal-towards-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "goal-towards-icon.png"; path = "PRWall/Resources/Images/App/Measurable/goal-towards-icon.png"; sourceTree = SOURCE_ROOT; };
 		7465B187163B0D2C008D0AA7 /* goal-against-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "goal-against-icon.png"; path = "PRWall/Resources/Images/App/Measurable/goal-against-icon.png"; sourceTree = SOURCE_ROOT; };
 		7465B1A8163B175C008D0AA7 /* default-user-profile-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-user-profile-image.png"; path = "PRWall/Resources/Images/Default/default-user-profile-image.png"; sourceTree = SOURCE_ROOT; };
 		7466E3F2167CE37800FD7B59 /* MeasurableScreenCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableScreenCollectionView.h; path = UI/Measurable/MeasurableScreenCollectionView.h; sourceTree = "<group>"; };
 		7466E3F3167CE37800FD7B59 /* MeasurableScreenCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableScreenCollectionView.m; path = UI/Measurable/MeasurableScreenCollectionView.m; sourceTree = "<group>"; };
-		747BC84315D80F4500AC2150 /* AppViewControllerSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppViewControllerSegue.h; path = UI/AppViewControllerSegue.h; sourceTree = "<group>"; };
-		747BC84415D80F4500AC2150 /* AppViewControllerSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppViewControllerSegue.m; path = UI/AppViewControllerSegue.m; sourceTree = "<group>"; };
-		747D62A915D47AB900360084 /* AppScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppScreen.m; path = UI/AppScreen.m; sourceTree = "<group>"; };
+		747BC84315D80F4500AC2150 /* AppViewControllerSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppViewControllerSegue.h; sourceTree = "<group>"; };
+		747BC84415D80F4500AC2150 /* AppViewControllerSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppViewControllerSegue.m; sourceTree = "<group>"; };
+		747D62A915D47AB900360084 /* AppScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppScreen.m; sourceTree = "<group>"; };
 		748C864A166EE94C0053740E /* MeasurableLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableLayoutViewController.h; path = UI/Measurable/MeasurableLayoutViewController.h; sourceTree = "<group>"; };
 		748C864B166EE94C0053740E /* MeasurableLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableLayoutViewController.m; path = UI/Measurable/MeasurableLayoutViewController.m; sourceTree = "<group>"; };
-		748F0040166926D700B67DCB /* MeterFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeterFormatter.h; path = UI/Helper/Formatter/Unit/MeterFormatter.h; sourceTree = "<group>"; };
-		748F0041166926D800B67DCB /* MeterFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeterFormatter.m; path = UI/Helper/Formatter/Unit/MeterFormatter.m; sourceTree = "<group>"; };
-		748F00431669277A00B67DCB /* KilometerFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KilometerFormatter.h; path = UI/Helper/Formatter/Unit/KilometerFormatter.h; sourceTree = "<group>"; };
-		748F00441669277C00B67DCB /* KilometerFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KilometerFormatter.m; path = UI/Helper/Formatter/Unit/KilometerFormatter.m; sourceTree = "<group>"; };
-		748F0046166927EB00B67DCB /* MileFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MileFormatter.h; path = UI/Helper/Formatter/Unit/MileFormatter.h; sourceTree = "<group>"; };
-		748F0047166927EC00B67DCB /* MileFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MileFormatter.m; path = UI/Helper/Formatter/Unit/MileFormatter.m; sourceTree = "<group>"; };
-		748F00491669287100B67DCB /* YardFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YardFormatter.h; path = UI/Helper/Formatter/Unit/YardFormatter.h; sourceTree = "<group>"; };
-		748F004A1669287300B67DCB /* YardFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YardFormatter.m; path = UI/Helper/Formatter/Unit/YardFormatter.m; sourceTree = "<group>"; };
-		748F004C166928F700B67DCB /* KilogramFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KilogramFormatter.h; path = UI/Helper/Formatter/Unit/KilogramFormatter.h; sourceTree = "<group>"; };
-		748F004D166928F800B67DCB /* KilogramFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KilogramFormatter.m; path = UI/Helper/Formatter/Unit/KilogramFormatter.m; sourceTree = "<group>"; };
-		748F004F1669295100B67DCB /* PoodFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PoodFormatter.h; path = UI/Helper/Formatter/Unit/PoodFormatter.h; sourceTree = "<group>"; };
-		748F00501669295200B67DCB /* PoodFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PoodFormatter.m; path = UI/Helper/Formatter/Unit/PoodFormatter.m; sourceTree = "<group>"; };
-		748FFB7216692DC100E4DD5E /* TimeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeFormatter.h; path = UI/Helper/Formatter/Unit/TimeFormatter.h; sourceTree = "<group>"; };
-		748FFB7316692DC100E4DD5E /* TimeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimeFormatter.m; path = UI/Helper/Formatter/Unit/TimeFormatter.m; sourceTree = "<group>"; };
+		748F0040166926D700B67DCB /* MeterFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeterFormatter.h; path = UI/Unit/Formatter/MeterFormatter.h; sourceTree = "<group>"; };
+		748F0041166926D800B67DCB /* MeterFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeterFormatter.m; path = UI/Unit/Formatter/MeterFormatter.m; sourceTree = "<group>"; };
+		748F00431669277A00B67DCB /* KilometerFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KilometerFormatter.h; path = UI/Unit/Formatter/KilometerFormatter.h; sourceTree = "<group>"; };
+		748F00441669277C00B67DCB /* KilometerFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KilometerFormatter.m; path = UI/Unit/Formatter/KilometerFormatter.m; sourceTree = "<group>"; };
+		748F0046166927EB00B67DCB /* MileFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MileFormatter.h; path = UI/Unit/Formatter/MileFormatter.h; sourceTree = "<group>"; };
+		748F0047166927EC00B67DCB /* MileFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MileFormatter.m; path = UI/Unit/Formatter/MileFormatter.m; sourceTree = "<group>"; };
+		748F00491669287100B67DCB /* YardFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YardFormatter.h; path = UI/Unit/Formatter/YardFormatter.h; sourceTree = "<group>"; };
+		748F004A1669287300B67DCB /* YardFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YardFormatter.m; path = UI/Unit/Formatter/YardFormatter.m; sourceTree = "<group>"; };
+		748F004C166928F700B67DCB /* KilogramFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KilogramFormatter.h; path = UI/Unit/Formatter/KilogramFormatter.h; sourceTree = "<group>"; };
+		748F004D166928F800B67DCB /* KilogramFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KilogramFormatter.m; path = UI/Unit/Formatter/KilogramFormatter.m; sourceTree = "<group>"; };
+		748F004F1669295100B67DCB /* PoodFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PoodFormatter.h; path = UI/Unit/Formatter/PoodFormatter.h; sourceTree = "<group>"; };
+		748F00501669295200B67DCB /* PoodFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PoodFormatter.m; path = UI/Unit/Formatter/PoodFormatter.m; sourceTree = "<group>"; };
+		748FFB7216692DC100E4DD5E /* TimeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeFormatter.h; path = UI/Unit/Formatter/TimeFormatter.h; sourceTree = "<group>"; };
+		748FFB7316692DC100E4DD5E /* TimeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimeFormatter.m; path = UI/Unit/Formatter/TimeFormatter.m; sourceTree = "<group>"; };
 		748FFB7C166937FA00E4DD5E /* MeterConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeterConverter.h; path = App/Unit/Converter/MeterConverter.h; sourceTree = "<group>"; };
 		748FFB7D166937FA00E4DD5E /* MeterConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeterConverter.m; path = App/Unit/Converter/MeterConverter.m; sourceTree = "<group>"; };
+		7494F10616AB0490004E3007 /* PersistenceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersistenceDelegate.h; path = Model/Persistence/PersistenceDelegate.h; sourceTree = "<group>"; };
+		7494F10716AB0490004E3007 /* PersistenceDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersistenceDelegate.m; path = Model/Persistence/PersistenceDelegate.m; sourceTree = "<group>"; };
+		7494F10A16AB2744004E3007 /* MeasurableCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableCategory.h; path = Model/Metadata/MeasurableCategory.h; sourceTree = "<group>"; };
+		7494F10B16AB2744004E3007 /* MeasurableCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableCategory.m; path = Model/Metadata/MeasurableCategory.m; sourceTree = "<group>"; };
+		7494F11416B2E91B004E3007 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tag.h; path = Model/Metadata/Tag.h; sourceTree = "<group>"; };
+		7494F11516B2E91C004E3007 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tag.m; path = Model/Metadata/Tag.m; sourceTree = "<group>"; };
+		7494F11716B311D4004E3007 /* MeasurableMetadataVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableMetadataVideo.h; path = Model/Metadata/MeasurableMetadataVideo.h; sourceTree = "<group>"; };
+		7494F11816B311D6004E3007 /* MeasurableMetadataVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableMetadataVideo.m; path = Model/Metadata/MeasurableMetadataVideo.m; sourceTree = "<group>"; };
+		7494F11A16B33B96004E3007 /* MeasurableDataEntryVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableDataEntryVideo.h; path = Model/Data/MeasurableDataEntryVideo.h; sourceTree = "<group>"; };
+		7494F11B16B33B96004E3007 /* MeasurableDataEntryVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableDataEntryVideo.m; path = Model/Data/MeasurableDataEntryVideo.m; sourceTree = "<group>"; };
+		7494F11D16B48273004E3007 /* WorkoutMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutMetadata.h; path = Model/Metadata/Workout/WorkoutMetadata.h; sourceTree = "<group>"; };
 		7497A625167251240009FDAC /* log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = log.png; path = PRWall/Resources/Images/App/Measurable/log.png; sourceTree = SOURCE_ROOT; };
 		7497A6281672513E0009FDAC /* screen-full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "screen-full.png"; path = "PRWall/Resources/Images/App/screen-full.png"; sourceTree = SOURCE_ROOT; };
 		7497A6291672513E0009FDAC /* screen-restore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "screen-restore.png"; path = "PRWall/Resources/Images/App/screen-restore.png"; sourceTree = SOURCE_ROOT; };
@@ -505,27 +530,35 @@
 		749A870C162CE72100EFB7C1 /* MeasurableShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableShareDelegate.m; path = UI/Measurable/MeasurableShareDelegate.m; sourceTree = "<group>"; };
 		749A870E162CE80900EFB7C1 /* MeasurableShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = MeasurableShareDelegate.h; path = UI/Measurable/MeasurableShareDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		749BA3BA15D5DA3700FB1094 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		749F848816B76D8000159F1A /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Media.h; path = Model/Core/Media.h; sourceTree = "<group>"; };
+		749F848916B76D8000159F1A /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Media.m; path = Model/Core/Media.m; sourceTree = "<group>"; };
+		749F848C16BA06A100159F1A /* MeasurableDataEntryImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableDataEntryImage.h; path = Model/Data/MeasurableDataEntryImage.h; sourceTree = "<group>"; };
+		749F848D16BA06A100159F1A /* MeasurableDataEntryImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableDataEntryImage.m; path = Model/Data/MeasurableDataEntryImage.m; sourceTree = "<group>"; };
+		749F848F16BA074B00159F1A /* MeasurableMetadataImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableMetadataImage.h; path = Model/Metadata/MeasurableMetadataImage.h; sourceTree = "<group>"; };
+		749F849016BA074B00159F1A /* MeasurableMetadataImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableMetadataImage.m; path = Model/Metadata/MeasurableMetadataImage.m; sourceTree = "<group>"; };
 		74A17ED81621F17B00FD37F5 /* MeasurableHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = MeasurableHelper.h; path = UI/Measurable/MeasurableHelper.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		74A17ED91621F17B00FD37F5 /* MeasurableHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MeasurableHelper.m; path = UI/Measurable/MeasurableHelper.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		74A3982B160D4A04003AD87B /* PoundFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PoundFormatter.h; path = UI/Helper/Formatter/Unit/PoundFormatter.h; sourceTree = "<group>"; };
-		74A3982C160D4A04003AD87B /* PoundFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PoundFormatter.m; path = UI/Helper/Formatter/Unit/PoundFormatter.m; sourceTree = "<group>"; };
+		74A3982B160D4A04003AD87B /* PoundFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PoundFormatter.h; path = UI/Unit/Formatter/PoundFormatter.h; sourceTree = "<group>"; };
+		74A3982C160D4A04003AD87B /* PoundFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PoundFormatter.m; path = UI/Unit/Formatter/PoundFormatter.m; sourceTree = "<group>"; };
+		74A8C6DA16BACF2600552B23 /* BodyMetric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BodyMetric.h; path = Model/Core/BodyMetric.h; sourceTree = "<group>"; };
+		74A8C6DB16BACF2600552B23 /* BodyMetric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BodyMetric.m; path = Model/Core/BodyMetric.m; sourceTree = "<group>"; };
 		74AA7B541675AB9D007844C5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = PRWall/Resources/Images/App/Icon.png; sourceTree = SOURCE_ROOT; };
 		74AA7B561675ABA5007844C5 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "PRWall/Resources/Images/App/Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		74AF601E16694BE7002C8848 /* DefaultUnitSystemConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultUnitSystemConverter.h; path = App/Unit/Converter/DefaultUnitSystemConverter.h; sourceTree = "<group>"; };
 		74AF601F16694BE7002C8848 /* DefaultUnitSystemConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultUnitSystemConverter.m; path = App/Unit/Converter/DefaultUnitSystemConverter.m; sourceTree = "<group>"; };
-		74B3165215DDD8B4003D5B09 /* MailAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MailAttachment.h; path = UI/Helper/Mail/MailAttachment.h; sourceTree = "<group>"; };
-		74B3165315DDD8B4003D5B09 /* MailAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MailAttachment.m; path = UI/Helper/Mail/MailAttachment.m; sourceTree = "<group>"; };
-		74B3165415DDD8B4003D5B09 /* MailHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MailHelper.h; path = UI/Helper/Mail/MailHelper.h; sourceTree = "<group>"; };
-		74B3165515DDD8B4003D5B09 /* MailHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MailHelper.m; path = UI/Helper/Mail/MailHelper.m; sourceTree = "<group>"; };
-		74BBB653160421CE00149356 /* MeasurableDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableDataProvider.h; path = Model/Data/MeasurableDataProvider.h; sourceTree = "<group>"; };
-		74BBB654160421CE00149356 /* MeasurableDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableDataProvider.m; path = Model/Data/MeasurableDataProvider.m; sourceTree = "<group>"; };
-		74BBB6561604239100149356 /* MeasurableMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableMetadataProvider.h; path = Model/Metadata/MeasurableMetadataProvider.h; sourceTree = "<group>"; };
-		74BBB6571604239100149356 /* MeasurableMetadataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableMetadataProvider.m; path = Model/Metadata/MeasurableMetadataProvider.m; sourceTree = "<group>"; };
-		74BBB6591604269200149356 /* ExerciseMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExerciseMetadataProvider.h; path = Model/Metadata/ExerciseMetadataProvider.h; sourceTree = "<group>"; };
-		74BBB65A1604269300149356 /* ExerciseMetadataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExerciseMetadataProvider.m; path = Model/Metadata/ExerciseMetadataProvider.m; sourceTree = "<group>"; };
+		74B3165215DDD8B4003D5B09 /* MailAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MailAttachment.h; path = UI/Mail/MailAttachment.h; sourceTree = "<group>"; };
+		74B3165315DDD8B4003D5B09 /* MailAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MailAttachment.m; path = UI/Mail/MailAttachment.m; sourceTree = "<group>"; };
+		74B3165415DDD8B4003D5B09 /* MailHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MailHelper.h; path = UI/Mail/MailHelper.h; sourceTree = "<group>"; };
+		74B3165515DDD8B4003D5B09 /* MailHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MailHelper.m; path = UI/Mail/MailHelper.m; sourceTree = "<group>"; };
+		74BBB653160421CE00149356 /* MeasurableData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableData.h; path = Model/Data/MeasurableData.h; sourceTree = "<group>"; };
+		74BBB654160421CE00149356 /* MeasurableData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableData.m; path = Model/Data/MeasurableData.m; sourceTree = "<group>"; };
+		74BBB6561604239100149356 /* MeasurableMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableMetadata.h; path = Model/Metadata/MeasurableMetadata.h; sourceTree = "<group>"; };
+		74BBB6571604239100149356 /* MeasurableMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableMetadata.m; path = Model/Metadata/MeasurableMetadata.m; sourceTree = "<group>"; };
+		74BBB6591604269200149356 /* ExerciseMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExerciseMetadata.h; path = Model/Metadata/Exercise/ExerciseMetadata.h; sourceTree = "<group>"; };
+		74BBB65A1604269300149356 /* ExerciseMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExerciseMetadata.m; path = Model/Metadata/Exercise/ExerciseMetadata.m; sourceTree = "<group>"; };
 		74BC085B165EF48900CDC8D0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		74BC085E165F03CE00CDC8D0 /* VideoThumbnailGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoThumbnailGenerator.h; path = UI/Helper/Media/VideoThumbnailGenerator.h; sourceTree = "<group>"; };
-		74BC085F165F03CE00CDC8D0 /* VideoThumbnailGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoThumbnailGenerator.m; path = UI/Helper/Media/VideoThumbnailGenerator.m; sourceTree = "<group>"; };
+		74BC085E165F03CE00CDC8D0 /* VideoThumbnailGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoThumbnailGenerator.h; path = UI/Media/VideoThumbnailGenerator.h; sourceTree = "<group>"; };
+		74BC085F165F03CE00CDC8D0 /* VideoThumbnailGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoThumbnailGenerator.m; path = UI/Media/VideoThumbnailGenerator.m; sourceTree = "<group>"; };
 		74BD18DF166025EF003FD255 /* default-video-thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-video-thumbnail.png"; path = "PRWall/Resources/Images/Default/default-video-thumbnail.png"; sourceTree = SOURCE_ROOT; };
 		74BD18E6166147F6003FD255 /* MeasurableValuePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableValuePickerView.h; path = UI/Measurable/Log/Picker/MeasurableValuePickerView.h; sourceTree = "<group>"; };
 		74BD18E7166147F7003FD255 /* MeasurableValuePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableValuePickerView.m; path = UI/Measurable/Log/Picker/MeasurableValuePickerView.m; sourceTree = "<group>"; };
@@ -539,10 +572,8 @@
 		74BD18F416618F90003FD255 /* MeasurableTimeValuePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableTimeValuePickerView.m; path = UI/Measurable/Log/Picker/MeasurableTimeValuePickerView.m; sourceTree = "<group>"; };
 		74BD18F616629BC4003FD255 /* MeasurableFootInchValuePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableFootInchValuePickerView.h; path = UI/Measurable/Log/Picker/MeasurableFootInchValuePickerView.h; sourceTree = "<group>"; };
 		74BD18F716629BC5003FD255 /* MeasurableFootInchValuePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableFootInchValuePickerView.m; path = UI/Measurable/Log/Picker/MeasurableFootInchValuePickerView.m; sourceTree = "<group>"; };
-		74BD96DC15FBC9F2009F34A9 /* BodyMetric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = BodyMetric.h; path = Model/Core/BodyMetric.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		74BD96DD15FBC9F2009F34A9 /* BodyMetric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BodyMetric.m; path = Model/Core/BodyMetric.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		74BD96E315FC448D009F34A9 /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Unit.h; path = Model/Unit.h; sourceTree = "<group>"; };
-		74BD96E415FC448D009F34A9 /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Unit.m; path = Model/Unit.m; sourceTree = "<group>"; };
+		74BD96E315FC448D009F34A9 /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Unit.h; path = Model/Core/Unit.h; sourceTree = "<group>"; };
+		74BD96E415FC448D009F34A9 /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Unit.m; path = Model/Core/Unit.m; sourceTree = "<group>"; };
 		74BD96EA15FCF6DA009F34A9 /* Measurable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = Measurable.h; path = Model/Core/Measurable.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		74BD96EB15FCF978009F34A9 /* UIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = UIHelper.h; path = UI/Helper/UIHelper.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		74BD96EC15FCF978009F34A9 /* UIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = UIHelper.m; path = UI/Helper/UIHelper.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -554,12 +585,12 @@
 		74C0E6861646D21E000F6282 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		74C0E690164EE6C0000F6282 /* MeasurableDataEntryAdditionalInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableDataEntryAdditionalInfoTableViewCell.h; path = UI/Measurable/Log/MeasurableDataEntryAdditionalInfoTableViewCell.h; sourceTree = "<group>"; };
 		74C0E691164EE6C1000F6282 /* MeasurableDataEntryAdditionalInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableDataEntryAdditionalInfoTableViewCell.m; path = UI/Measurable/Log/MeasurableDataEntryAdditionalInfoTableViewCell.m; sourceTree = "<group>"; };
-		74C2758E15D87ACF00BB1F1A /* AppScreenSwitchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppScreenSwitchDelegate.h; path = UI/AppScreenSwitchDelegate.h; sourceTree = "<group>"; };
-		74C2758F15D87ACF00BB1F1A /* AppScreenSwitchDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppScreenSwitchDelegate.m; path = UI/AppScreenSwitchDelegate.m; sourceTree = "<group>"; };
-		74C2759015D87ACF00BB1F1A /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppViewController.h; path = UI/AppViewController.h; sourceTree = "<group>"; };
-		74C2759115D87ACF00BB1F1A /* AppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AppViewController.m; path = UI/AppViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		74C2759415D87DA800BB1F1A /* ShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = ShareDelegate.h; path = UI/ShareDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		74C2759515D87DA900BB1F1A /* ShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ShareDelegate.m; path = UI/ShareDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		74C2758E15D87ACF00BB1F1A /* AppScreenSwitchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppScreenSwitchDelegate.h; sourceTree = "<group>"; };
+		74C2758F15D87ACF00BB1F1A /* AppScreenSwitchDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppScreenSwitchDelegate.m; sourceTree = "<group>"; };
+		74C2759015D87ACF00BB1F1A /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppViewController.h; sourceTree = "<group>"; };
+		74C2759115D87ACF00BB1F1A /* AppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		74C2759415D87DA800BB1F1A /* ShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ShareDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		74C2759515D87DA900BB1F1A /* ShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ShareDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		74C2759715D87FA000BB1F1A /* HomeScreenShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = HomeScreenShareDelegate.h; path = UI/Home/HomeScreenShareDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		74C2759815D87FA000BB1F1A /* HomeScreenShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeScreenShareDelegate.m; path = UI/Home/HomeScreenShareDelegate.m; sourceTree = "<group>"; };
 		74C2759A15D8826400BB1F1A /* PRWallScreenShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PRWallScreenShareDelegate.h; path = UI/PRWall/PRWallScreenShareDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -570,8 +601,8 @@
 		74C275A515DC7C9300BB1F1A /* InfoScreenShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoScreenShareDelegate.m; path = UI/Info/InfoScreenShareDelegate.m; sourceTree = "<group>"; };
 		74C2BE72168E6EC200A17AD8 /* MeasurableUnitEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableUnitEditViewController.h; path = UI/Measurable/Info/Edit/MeasurableUnitEditViewController.h; sourceTree = "<group>"; };
 		74C2BE73168E6EC200A17AD8 /* MeasurableUnitEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableUnitEditViewController.m; path = UI/Measurable/Info/Edit/MeasurableUnitEditViewController.m; sourceTree = "<group>"; };
-		74C2BE761690A30000A17AD8 /* MediaPickerSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaPickerSupport.h; path = UI/Helper/Media/MediaPickerSupport.h; sourceTree = "<group>"; };
-		74C2BE771690A30000A17AD8 /* MediaPickerSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaPickerSupport.m; path = UI/Helper/Media/MediaPickerSupport.m; sourceTree = "<group>"; };
+		74C2BE761690A30000A17AD8 /* MediaPickerSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaPickerSupport.h; path = UI/Media/MediaPickerSupport.h; sourceTree = "<group>"; };
+		74C2BE771690A30000A17AD8 /* MediaPickerSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaPickerSupport.m; path = UI/Media/MediaPickerSupport.m; sourceTree = "<group>"; };
 		74C42583165E079500F2BCEC /* MeasurableDataEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableDataEntryViewController.h; path = UI/Measurable/Log/MeasurableDataEntryViewController.h; sourceTree = "<group>"; };
 		74C42584165E079500F2BCEC /* MeasurableDataEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableDataEntryViewController.m; path = UI/Measurable/Log/MeasurableDataEntryViewController.m; sourceTree = "<group>"; };
 		74C42586165EE3A300F2BCEC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -599,8 +630,8 @@
 		74CA4E8315D8709600DA3F10 /* MyBodyScreenSwitchDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBodyScreenSwitchDelegate.m; path = UI/MyBody/MyBodyScreenSwitchDelegate.m; sourceTree = "<group>"; };
 		74D24ACE1696029900A2DB94 /* MeasurablePickerContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurablePickerContainerViewController.h; path = UI/Measurable/Picker/MeasurablePickerContainerViewController.h; sourceTree = "<group>"; };
 		74D24ACF1696029900A2DB94 /* MeasurablePickerContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurablePickerContainerViewController.m; path = UI/Measurable/Picker/MeasurablePickerContainerViewController.m; sourceTree = "<group>"; };
-		74D24AD21697362100A2DB94 /* ActivityMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityMetadataProvider.h; path = Model/Metadata/ActivityMetadataProvider.h; sourceTree = "<group>"; };
-		74D24AD31697362200A2DB94 /* ActivityMetadataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityMetadataProvider.m; path = Model/Metadata/ActivityMetadataProvider.m; sourceTree = "<group>"; };
+		74D24AD21697362100A2DB94 /* ActivityMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityMetadata.h; path = Model/Metadata/Activity/ActivityMetadata.h; sourceTree = "<group>"; };
+		74D24AD31697362200A2DB94 /* ActivityMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityMetadata.m; path = Model/Metadata/Activity/ActivityMetadata.m; sourceTree = "<group>"; };
 		74D2527015D56A2400845160 /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppConstants.h; path = App/AppConstants.h; sourceTree = "<group>"; };
 		74D2527415D56D5A00845160 /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppConstants.m; path = App/AppConstants.m; sourceTree = "<group>"; };
 		74D407F51688D42200A2A1A8 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Exercise.m; path = Model/Core/Exercise.m; sourceTree = "<group>"; };
@@ -625,7 +656,7 @@
 		74D96024166D1057006108FC /* MeasurableInfoLayoutDelegateBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableInfoLayoutDelegateBase.h; path = UI/Measurable/Info/MeasurableInfoLayoutDelegateBase.h; sourceTree = "<group>"; };
 		74DA9C751693A25600A10863 /* DeleteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeleteTableViewCell.h; path = UI/Measurable/Info/Edit/Cell/DeleteTableViewCell.h; sourceTree = "<group>"; };
 		74DA9C761693A25600A10863 /* DeleteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeleteTableViewCell.m; path = UI/Measurable/Info/Edit/Cell/DeleteTableViewCell.m; sourceTree = "<group>"; };
-		74DA9C781693A27200A10863 /* DeleteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeleteTableViewCell.xib; sourceTree = "<group>"; };
+		74DA9C781693A27200A10863 /* DeleteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DeleteTableViewCell.xib; path = UI/Measurable/Info/Edit/Cell/DeleteTableViewCell.xib; sourceTree = "<group>"; };
 		74DB8E43167588DB007D5757 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = PRWall/Resources/Images/App/Launch/Default.png; sourceTree = SOURCE_ROOT; };
 		74DB8E4916758AE8007D5757 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "PRWall/Resources/Images/App/Launch/Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
 		74DB8E4A16758AE8007D5757 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "PRWall/Resources/Images/App/Launch/Default@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -635,6 +666,8 @@
 		74E9D5EF15BB74AF00B005B3 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = MenuViewController.m; path = UI/Menu/MenuViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		74ECC0FB1688525500715D7B /* PRWallTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRWallTests.h; sourceTree = "<group>"; };
 		74ECC0FC1688525500715D7B /* PRWallTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRWallTests.m; sourceTree = "<group>"; };
+		74ED242B16C6B92900BF176D /* BaseUnitValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseUnitValueFormatter.h; path = UI/Unit/Formatter/BaseUnitValueFormatter.h; sourceTree = "<group>"; };
+		74ED242C16C6B92A00BF176D /* BaseUnitValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseUnitValueFormatter.m; path = UI/Unit/Formatter/BaseUnitValueFormatter.m; sourceTree = "<group>"; };
 		74EF1E7215D1C58600F96131 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; lineEnding = 0; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
 		74EF1E7915D1E6C400F96131 /* PRWallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRWallViewController.h; path = UI/PRWall/PRWallViewController.h; sourceTree = "<group>"; };
 		74EF1E7A15D1E6C400F96131 /* PRWallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PRWallViewController.m; path = UI/PRWall/PRWallViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -661,12 +694,10 @@
 		74F33B67168C03E200E31410 /* EditMediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditMediaTableViewCell.m; path = UI/Measurable/Info/Edit/Cell/EditMediaTableViewCell.m; sourceTree = "<group>"; };
 		74F33B69168C040200E31410 /* EditMediaTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditMediaTableViewCell.xib; path = UI/Measurable/Info/Edit/Cell/EditMediaTableViewCell.xib; sourceTree = "<group>"; };
 		74F33B6B168C042300E31410 /* AddMediaTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddMediaTableViewCell.xib; path = UI/Measurable/Info/Edit/Cell/AddMediaTableViewCell.xib; sourceTree = "<group>"; };
-		74F33B6F168D137E00E31410 /* ExerciseKind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExerciseKind.h; path = Model/Core/ExerciseKind.h; sourceTree = "<group>"; };
-		74F33B70168D137E00E31410 /* ExerciseKind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExerciseKind.m; path = Model/Core/ExerciseKind.m; sourceTree = "<group>"; };
-		74F33B72168D24BD00E31410 /* ExerciseKindEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExerciseKindEditViewController.h; path = UI/Exercise/ExerciseKindEditViewController.h; sourceTree = "<group>"; };
-		74F33B73168D24BD00E31410 /* ExerciseKindEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExerciseKindEditViewController.m; path = UI/Exercise/ExerciseKindEditViewController.m; sourceTree = "<group>"; };
-		74F33B75168D575D00E31410 /* ActivityTagsEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityTagsEditViewController.h; path = UI/Activity/ActivityTagsEditViewController.h; sourceTree = "<group>"; };
-		74F33B76168D575D00E31410 /* ActivityTagsEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityTagsEditViewController.m; path = UI/Activity/ActivityTagsEditViewController.m; sourceTree = "<group>"; };
+		74F33B72168D24BD00E31410 /* MeasurableTypeEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableTypeEditViewController.h; path = UI/Measurable/Info/Edit/MeasurableTypeEditViewController.h; sourceTree = "<group>"; };
+		74F33B73168D24BD00E31410 /* MeasurableTypeEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableTypeEditViewController.m; path = UI/Measurable/Info/Edit/MeasurableTypeEditViewController.m; sourceTree = "<group>"; };
+		74F33B75168D575D00E31410 /* MeasurableTagsEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableTagsEditViewController.h; path = UI/Measurable/Info/Edit/MeasurableTagsEditViewController.h; sourceTree = "<group>"; };
+		74F33B76168D575D00E31410 /* MeasurableTagsEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableTagsEditViewController.m; path = UI/Measurable/Info/Edit/MeasurableTagsEditViewController.m; sourceTree = "<group>"; };
 		74F33B7B168E415600E31410 /* MeasurableValueGoalEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeasurableValueGoalEditViewController.h; path = UI/Measurable/Info/Edit/MeasurableValueGoalEditViewController.h; sourceTree = "<group>"; };
 		74F33B7C168E415B00E31410 /* MeasurableValueGoalEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableValueGoalEditViewController.m; path = UI/Measurable/Info/Edit/MeasurableValueGoalEditViewController.m; sourceTree = "<group>"; };
 		74F33B7E168E5FE400E31410 /* MeasurableValueGoalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeasurableValueGoalTableViewCell.m; path = UI/Measurable/Info/Edit/Cell/MeasurableValueGoalTableViewCell.m; sourceTree = "<group>"; };
@@ -682,6 +713,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7414C3FA169FB3DE00B6BA27 /* CoreData.framework in Frameworks */,
 				745192FB167B9E310098065F /* QuartzCore.framework in Frameworks */,
 				74BC085C165EF48900CDC8D0 /* MediaPlayer.framework in Frameworks */,
 				74C42589165EED9D00F2BCEC /* CoreVideo.framework in Frameworks */,
@@ -728,6 +760,8 @@
 			children = (
 				7408404F15D1B31E00A64D5B /* App.h */,
 				7408405015D1B31E00A64D5B /* App.m */,
+				74D2527015D56A2400845160 /* AppConstants.h */,
+				74D2527415D56D5A00845160 /* AppConstants.m */,
 				741BBC6115B7C2E300660BE6 /* AppDelegate.h */,
 				741BBC6215B7C2E300660BE6 /* AppDelegate.m */,
 				748FFB761669322E00E4DD5E /* Unit */,
@@ -773,6 +807,17 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		7414C3F4169FB31E00B6BA27 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				7414C3F6169FB36D00B6BA27 /* PersistenceStore.h */,
+				7414C3F7169FB36D00B6BA27 /* PersistenceStore.m */,
+				7494F10616AB0490004E3007 /* PersistenceDelegate.h */,
+				7494F10716AB0490004E3007 /* PersistenceDelegate.m */,
+			);
+			name = Persistence;
+			sourceTree = "<group>";
+		};
 		741BBC4315B7C2E300660BE6 = {
 			isa = PBXGroup;
 			children = (
@@ -795,7 +840,7 @@
 		741BBC5115B7C2E300660BE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				745192AC167B9D820098065F /* CorePlot */,
+				7414C3F9169FB3DE00B6BA27 /* CoreData.framework */,
 				745192FA167B9E310098065F /* QuartzCore.framework */,
 				74BC085B165EF48900CDC8D0 /* MediaPlayer.framework */,
 				74C42588165EED9D00F2BCEC /* CoreVideo.framework */,
@@ -808,6 +853,7 @@
 				741BBC5415B7C2E300660BE6 /* Foundation.framework */,
 				741BBC5615B7C2E300660BE6 /* CoreGraphics.framework */,
 				741BBC7015B7C2E300660BE6 /* SenTestingKit.framework */,
+				745192AC167B9D820098065F /* CorePlot */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -859,16 +905,12 @@
 		741BBC8715B7C63A00660BE6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				74E29E3F16C8899B00B60D58 /* Helper */,
+				7414C3F4169FB31E00B6BA27 /* Persistence */,
 				74A39824160D42D7003AD87B /* Core */,
 				74A39827160D42E9003AD87B /* Data */,
 				74A39826160D42E0003AD87B /* Metadata */,
 				741BBC8815B7C67E00660BE6 /* Model.xcdatamodeld */,
-				744EFB1815FBBA52000AECBA /* UserProfile.h */,
-				744EFB1915FBBA52000AECBA /* UserProfile.m */,
-				74BD96E315FC448D009F34A9 /* Unit.h */,
-				74BD96E415FC448D009F34A9 /* Unit.m */,
-				744EFB1B15FBBAA2000AECBA /* ModelFactory.h */,
-				744EFB1C15FBBAA2000AECBA /* ModelFactory.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1040,6 +1082,10 @@
 		745CD6B2166AE99400D32890 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
+				74F33B75168D575D00E31410 /* MeasurableTagsEditViewController.h */,
+				74F33B76168D575D00E31410 /* MeasurableTagsEditViewController.m */,
+				74F33B72168D24BD00E31410 /* MeasurableTypeEditViewController.h */,
+				74F33B73168D24BD00E31410 /* MeasurableTypeEditViewController.m */,
 				745CD6AB166ADEB700D32890 /* MeasurableInfoEditViewController.h */,
 				745CD6AC166ADEB700D32890 /* MeasurableInfoEditViewController.m */,
 				745CD6A9166AB75100D32890 /* MeasurableInfoEditViewControllerDelegate.h */,
@@ -1061,6 +1107,8 @@
 				7465B171163AF357008D0AA7 /* MediaHelper.m */,
 				74C2BE761690A30000A17AD8 /* MediaPickerSupport.h */,
 				74C2BE771690A30000A17AD8 /* MediaPickerSupport.m */,
+				74343FA71656E0EF00DB9D08 /* ImageDisplayViewController.h */,
+				74343FA81656E0EF00DB9D08 /* ImageDisplayViewController.m */,
 				74BC085E165F03CE00CDC8D0 /* VideoThumbnailGenerator.h */,
 				74BC085F165F03CE00CDC8D0 /* VideoThumbnailGenerator.m */,
 			);
@@ -1126,7 +1174,8 @@
 		7482865515B8E35000C37154 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				74FB0B881697F87C0046ED41 /* Activity */,
+				74E29E3E16C885C600B60D58 /* App */,
+				74BD96E015FC43CD009F34A9 /* Mail */,
 				743F8D701618A916006871D0 /* Measurable */,
 				7482865615B8E36F00C37154 /* Menu */,
 				7408403E15D1805E00A64D5B /* Home */,
@@ -1135,24 +1184,10 @@
 				74EF1E8715D2D3D500F96131 /* Workout */,
 				74EF1E8D15D2D60B00F96131 /* Exercise */,
 				74EF1E9315D2D75A00F96131 /* MyBody */,
+				7465B16F163AF2CB008D0AA7 /* Media */,
 				74EF1E9915D2D91500F96131 /* Info */,
+				74A3982E160D5D01003AD87B /* Unit */,
 				74C275A015DBE80400BB1F1A /* Helper */,
-				74506284165BE4B900344D83 /* AppNavigationController.h */,
-				74506285165BE4B900344D83 /* AppNavigationController.m */,
-				74C2759015D87ACF00BB1F1A /* AppViewController.h */,
-				74C2759115D87ACF00BB1F1A /* AppViewController.m */,
-				74D2527015D56A2400845160 /* AppConstants.h */,
-				74D2527415D56D5A00845160 /* AppConstants.m */,
-				74C2758E15D87ACF00BB1F1A /* AppScreenSwitchDelegate.h */,
-				74C2758F15D87ACF00BB1F1A /* AppScreenSwitchDelegate.m */,
-				7408404E15D1885B00A64D5B /* AppScreen.h */,
-				747D62A915D47AB900360084 /* AppScreen.m */,
-				747BC84315D80F4500AC2150 /* AppViewControllerSegue.h */,
-				747BC84415D80F4500AC2150 /* AppViewControllerSegue.m */,
-				745E9C0415F58248006222BB /* AppViewGestureRecognizer.h */,
-				745E9C0515F58249006222BB /* AppViewGestureRecognizer.m */,
-				74C2759415D87DA800BB1F1A /* ShareDelegate.h */,
-				74C2759515D87DA900BB1F1A /* ShareDelegate.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -1223,20 +1258,19 @@
 			isa = PBXGroup;
 			children = (
 				74BD96EA15FCF6DA009F34A9 /* Measurable.h */,
-				7454960A16042C8600308609 /* MeasurableImpl.h */,
-				7454960B16042C8600308609 /* MeasurableImpl.m */,
-				743F8D84161FF40D006871D0 /* MeasurableType.h */,
-				743F8D85161FF40D006871D0 /* MeasurableType.m */,
+				7454960B16042C8600308609 /* Measurable.m */,
+				744EFB1815FBBA52000AECBA /* UserProfile.h */,
+				744EFB1915FBBA52000AECBA /* UserProfile.m */,
 				74D407FB168A1A8D00A2A1A8 /* Exercise.h */,
 				74D407F51688D42200A2A1A8 /* Exercise.m */,
-				74F33B6F168D137E00E31410 /* ExerciseKind.h */,
-				74F33B70168D137E00E31410 /* ExerciseKind.m */,
 				7454960716042B9800308609 /* Workout.h */,
 				7454960816042B9800308609 /* Workout.m */,
-				74BD96DC15FBC9F2009F34A9 /* BodyMetric.h */,
-				74BD96DD15FBC9F2009F34A9 /* BodyMetric.m */,
-				743725BA169220ED00959F32 /* ExerciseMoreInfo.h */,
-				743725BD169236FA00959F32 /* ExerciseMoreInfo.m */,
+				74A8C6DA16BACF2600552B23 /* BodyMetric.h */,
+				74A8C6DB16BACF2600552B23 /* BodyMetric.m */,
+				74BD96E315FC448D009F34A9 /* Unit.h */,
+				74BD96E415FC448D009F34A9 /* Unit.m */,
+				749F848816B76D8000159F1A /* Media.h */,
+				749F848916B76D8000159F1A /* Media.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -1244,16 +1278,22 @@
 		74A39826160D42E0003AD87B /* Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				74BBB6561604239100149356 /* MeasurableMetadataProvider.h */,
-				74BBB6571604239100149356 /* MeasurableMetadataProvider.m */,
-				7454960D16044E1800308609 /* BodyMetricMetadataProvider.h */,
-				7454960E16044E1900308609 /* BodyMetricMetadataProvider.m */,
-				74D24AD21697362100A2DB94 /* ActivityMetadataProvider.h */,
-				74D24AD31697362200A2DB94 /* ActivityMetadataProvider.m */,
-				74BBB6591604269200149356 /* ExerciseMetadataProvider.h */,
-				74BBB65A1604269300149356 /* ExerciseMetadataProvider.m */,
-				7454960316042B3200308609 /* WorkoutMetadataProvider.h */,
-				7454960416042B3200308609 /* WorkoutMetadataProvider.m */,
+				74E29E4316C88A3600B60D58 /* Activity */,
+				74E29E4216C88A0700B60D58 /* BodyMetric */,
+				74E29E4116C889EF00B60D58 /* Workout */,
+				74E29E4016C889CE00B60D58 /* Exercise */,
+				74BBB6561604239100149356 /* MeasurableMetadata.h */,
+				74BBB6571604239100149356 /* MeasurableMetadata.m */,
+				7494F11716B311D4004E3007 /* MeasurableMetadataVideo.h */,
+				7494F11816B311D6004E3007 /* MeasurableMetadataVideo.m */,
+				749F848F16BA074B00159F1A /* MeasurableMetadataImage.h */,
+				749F849016BA074B00159F1A /* MeasurableMetadataImage.m */,
+				743F8D84161FF40D006871D0 /* MeasurableType.h */,
+				743F8D85161FF40D006871D0 /* MeasurableType.m */,
+				7494F10A16AB2744004E3007 /* MeasurableCategory.h */,
+				7494F10B16AB2744004E3007 /* MeasurableCategory.m */,
+				7494F11416B2E91B004E3007 /* Tag.h */,
+				7494F11516B2E91C004E3007 /* Tag.m */,
 			);
 			name = Metadata;
 			sourceTree = "<group>";
@@ -1261,10 +1301,14 @@
 		74A39827160D42E9003AD87B /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				74BBB653160421CE00149356 /* MeasurableDataProvider.h */,
-				74BBB654160421CE00149356 /* MeasurableDataProvider.m */,
+				74BBB653160421CE00149356 /* MeasurableData.h */,
+				74BBB654160421CE00149356 /* MeasurableData.m */,
 				74220BAD1613427D00E58D1C /* MeasurableDataEntry.h */,
 				74220BAE1613427D00E58D1C /* MeasurableDataEntry.m */,
+				7494F11A16B33B96004E3007 /* MeasurableDataEntryVideo.h */,
+				7494F11B16B33B96004E3007 /* MeasurableDataEntryVideo.m */,
+				749F848C16BA06A100159F1A /* MeasurableDataEntryImage.h */,
+				749F848D16BA06A100159F1A /* MeasurableDataEntryImage.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -1272,33 +1316,7 @@
 		74A3982E160D5D01003AD87B /* Unit */ = {
 			isa = PBXGroup;
 			children = (
-				740F437B160D68E100380CF5 /* UnitValueFormatter.h */,
-				745F5183160D64E20066F600 /* DefaultUnitValueFormatter.h */,
-				745F5184160D64E20066F600 /* DefaultUnitValueFormatter.m */,
-				74A3982B160D4A04003AD87B /* PoundFormatter.h */,
-				74A3982C160D4A04003AD87B /* PoundFormatter.m */,
-				748F00431669277A00B67DCB /* KilometerFormatter.h */,
-				748F00441669277C00B67DCB /* KilometerFormatter.m */,
-				740F437D160D696B00380CF5 /* InchFormatter.h */,
-				740F437E160D696B00380CF5 /* InchFormatter.m */,
-				740F4380160D6E1100380CF5 /* PercentFormatter.h */,
-				740F4381160D6E1100380CF5 /* PercentFormatter.m */,
-				740F4383160D718B00380CF5 /* FootInchFormatter.h */,
-				740F4384160D718B00380CF5 /* FootInchFormatter.m */,
-				74220BA91610B00500E58D1C /* FootFormatter.h */,
-				74220BAA1610B00500E58D1C /* FootFormatter.m */,
-				748F0040166926D700B67DCB /* MeterFormatter.h */,
-				748F0041166926D800B67DCB /* MeterFormatter.m */,
-				748F0046166927EB00B67DCB /* MileFormatter.h */,
-				748F0047166927EC00B67DCB /* MileFormatter.m */,
-				748F00491669287100B67DCB /* YardFormatter.h */,
-				748F004A1669287300B67DCB /* YardFormatter.m */,
-				748F004C166928F700B67DCB /* KilogramFormatter.h */,
-				748F004D166928F800B67DCB /* KilogramFormatter.m */,
-				748F004F1669295100B67DCB /* PoodFormatter.h */,
-				748F00501669295200B67DCB /* PoodFormatter.m */,
-				748FFB7216692DC100E4DD5E /* TimeFormatter.h */,
-				748FFB7316692DC100E4DD5E /* TimeFormatter.m */,
+				74BD96E215FC43ED009F34A9 /* Formatter */,
 			);
 			name = Unit;
 			sourceTree = "<group>";
@@ -1362,7 +1380,35 @@
 		74BD96E215FC43ED009F34A9 /* Formatter */ = {
 			isa = PBXGroup;
 			children = (
-				74A3982E160D5D01003AD87B /* Unit */,
+				740F437B160D68E100380CF5 /* UnitValueFormatter.h */,
+				74ED242B16C6B92900BF176D /* BaseUnitValueFormatter.h */,
+				74ED242C16C6B92A00BF176D /* BaseUnitValueFormatter.m */,
+				745F5183160D64E20066F600 /* DefaultUnitValueFormatter.h */,
+				745F5184160D64E20066F600 /* DefaultUnitValueFormatter.m */,
+				74A3982B160D4A04003AD87B /* PoundFormatter.h */,
+				74A3982C160D4A04003AD87B /* PoundFormatter.m */,
+				748F00431669277A00B67DCB /* KilometerFormatter.h */,
+				748F00441669277C00B67DCB /* KilometerFormatter.m */,
+				740F437D160D696B00380CF5 /* InchFormatter.h */,
+				740F437E160D696B00380CF5 /* InchFormatter.m */,
+				740F4380160D6E1100380CF5 /* PercentFormatter.h */,
+				740F4381160D6E1100380CF5 /* PercentFormatter.m */,
+				740F4383160D718B00380CF5 /* FootInchFormatter.h */,
+				740F4384160D718B00380CF5 /* FootInchFormatter.m */,
+				74220BA91610B00500E58D1C /* FootFormatter.h */,
+				74220BAA1610B00500E58D1C /* FootFormatter.m */,
+				748F0040166926D700B67DCB /* MeterFormatter.h */,
+				748F0041166926D800B67DCB /* MeterFormatter.m */,
+				748F0046166927EB00B67DCB /* MileFormatter.h */,
+				748F0047166927EC00B67DCB /* MileFormatter.m */,
+				748F00491669287100B67DCB /* YardFormatter.h */,
+				748F004A1669287300B67DCB /* YardFormatter.m */,
+				748F004C166928F700B67DCB /* KilogramFormatter.h */,
+				748F004D166928F800B67DCB /* KilogramFormatter.m */,
+				748F004F1669295100B67DCB /* PoodFormatter.h */,
+				748F00501669295200B67DCB /* PoodFormatter.m */,
+				748FFB7216692DC100E4DD5E /* TimeFormatter.h */,
+				748FFB7316692DC100E4DD5E /* TimeFormatter.m */,
 			);
 			name = Formatter;
 			sourceTree = "<group>";
@@ -1394,13 +1440,8 @@
 		74C275A015DBE80400BB1F1A /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				74BD96E215FC43ED009F34A9 /* Formatter */,
-				74BD96E015FC43CD009F34A9 /* Mail */,
-				7465B16F163AF2CB008D0AA7 /* Media */,
 				74BD96EB15FCF978009F34A9 /* UIHelper.h */,
 				74BD96EC15FCF978009F34A9 /* UIHelper.m */,
-				74343FA71656E0EF00DB9D08 /* ImageDisplayViewController.h */,
-				74343FA81656E0EF00DB9D08 /* ImageDisplayViewController.m */,
 				74C5D845167BB10B00763652 /* NavigationBarAutoHideSupport.h */,
 				74C5D846167BB10B00763652 /* NavigationBarAutoHideSupport.m */,
 				745CD69F1669736C00D32890 /* TimeDuration.h */,
@@ -1428,6 +1469,77 @@
 				74DB8E43167588DB007D5757 /* Default.png */,
 			);
 			name = Launch;
+			sourceTree = "<group>";
+		};
+		74E29E3E16C885C600B60D58 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				74506284165BE4B900344D83 /* AppNavigationController.h */,
+				74506285165BE4B900344D83 /* AppNavigationController.m */,
+				74C2759015D87ACF00BB1F1A /* AppViewController.h */,
+				74C2759115D87ACF00BB1F1A /* AppViewController.m */,
+				74C2758E15D87ACF00BB1F1A /* AppScreenSwitchDelegate.h */,
+				74C2758F15D87ACF00BB1F1A /* AppScreenSwitchDelegate.m */,
+				7408404E15D1885B00A64D5B /* AppScreen.h */,
+				747D62A915D47AB900360084 /* AppScreen.m */,
+				747BC84315D80F4500AC2150 /* AppViewControllerSegue.h */,
+				747BC84415D80F4500AC2150 /* AppViewControllerSegue.m */,
+				745E9C0415F58248006222BB /* AppViewGestureRecognizer.h */,
+				745E9C0515F58249006222BB /* AppViewGestureRecognizer.m */,
+				74C2759415D87DA800BB1F1A /* ShareDelegate.h */,
+				74C2759515D87DA900BB1F1A /* ShareDelegate.m */,
+			);
+			name = App;
+			path = UI/App;
+			sourceTree = "<group>";
+		};
+		74E29E3F16C8899B00B60D58 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				744EFB1B15FBBAA2000AECBA /* ModelFactory.h */,
+				744EFB1C15FBBAA2000AECBA /* ModelFactory.m */,
+				7414C3FB169FB62000B6BA27 /* ModelHelper.h */,
+				7414C3FC169FB62000B6BA27 /* ModelHelper.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		74E29E4016C889CE00B60D58 /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				74BBB6591604269200149356 /* ExerciseMetadata.h */,
+				74BBB65A1604269300149356 /* ExerciseMetadata.m */,
+				7448EC6316C5ABE60004E16A /* ExerciseUnitValueDescriptor.h */,
+				7448EC6416C5ABE60004E16A /* ExerciseUnitValueDescriptor.m */,
+			);
+			name = Exercise;
+			sourceTree = "<group>";
+		};
+		74E29E4116C889EF00B60D58 /* Workout */ = {
+			isa = PBXGroup;
+			children = (
+				7494F11D16B48273004E3007 /* WorkoutMetadata.h */,
+				7454960416042B3200308609 /* WorkoutMetadata.m */,
+			);
+			name = Workout;
+			sourceTree = "<group>";
+		};
+		74E29E4216C88A0700B60D58 /* BodyMetric */ = {
+			isa = PBXGroup;
+			children = (
+				7454960D16044E1800308609 /* BodyMetricMetadata.h */,
+				7454960E16044E1900308609 /* BodyMetricMetadata.m */,
+			);
+			name = BodyMetric;
+			sourceTree = "<group>";
+		};
+		74E29E4316C88A3600B60D58 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				74D24AD21697362100A2DB94 /* ActivityMetadata.h */,
+				74D24AD31697362200A2DB94 /* ActivityMetadata.m */,
+			);
+			name = Activity;
 			sourceTree = "<group>";
 		};
 		74E9D5F215BB763900B005B3 /* Images */ = {
@@ -1488,10 +1600,8 @@
 				74CA4E8015D86FD600DA3F10 /* ExerciseScreenSwitchDelegate.m */,
 				74D40806168A537100A2A1A8 /* ExerciseInfoLayoutDelegate.h */,
 				74D40807168A537100A2A1A8 /* ExerciseInfoLayoutDelegate.m */,
-				74F33B72168D24BD00E31410 /* ExerciseKindEditViewController.h */,
-				74F33B73168D24BD00E31410 /* ExerciseKindEditViewController.m */,
-				743725B616921AD000959F32 /* ExerciseMoreInfoEditViewController.h */,
-				743725B716921AD000959F32 /* ExerciseMoreInfoEditViewController.m */,
+				743725B616921AD000959F32 /* ExerciseUnitValueDescriptorEditViewController.h */,
+				743725B716921AD000959F32 /* ExerciseUnitValueDescriptorEditViewController.m */,
 			);
 			name = Exercise;
 			sourceTree = "<group>";
@@ -1562,15 +1672,6 @@
 			name = Picker;
 			sourceTree = "<group>";
 		};
-		74FB0B881697F87C0046ED41 /* Activity */ = {
-			isa = PBXGroup;
-			children = (
-				74F33B75168D575D00E31410 /* ActivityTagsEditViewController.h */,
-				74F33B76168D575D00E31410 /* ActivityTagsEditViewController.m */,
-			);
-			name = Activity;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1616,7 +1717,7 @@
 		741BBC4515B7C2E300660BE6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = 741BBC4815B7C2E300660BE6 /* Build configuration list for PBXProject "PR Wall" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1767,16 +1868,15 @@
 				744EFB0F15FB9166000AECBA /* MeasurableTableViewCell.m in Sources */,
 				744EFB1A15FBBA52000AECBA /* UserProfile.m in Sources */,
 				744EFB1D15FBBAA2000AECBA /* ModelFactory.m in Sources */,
-				74BD96DE15FBC9F2009F34A9 /* BodyMetric.m in Sources */,
 				74BD96E515FC448D009F34A9 /* Unit.m in Sources */,
 				74BD96ED15FCF978009F34A9 /* UIHelper.m in Sources */,
-				74BBB655160421CE00149356 /* MeasurableDataProvider.m in Sources */,
-				74BBB6581604239100149356 /* MeasurableMetadataProvider.m in Sources */,
-				74BBB65B1604269300149356 /* ExerciseMetadataProvider.m in Sources */,
-				7454960516042B3200308609 /* WorkoutMetadataProvider.m in Sources */,
+				74BBB655160421CE00149356 /* MeasurableData.m in Sources */,
+				74BBB6581604239100149356 /* MeasurableMetadata.m in Sources */,
+				74BBB65B1604269300149356 /* ExerciseMetadata.m in Sources */,
+				7454960516042B3200308609 /* WorkoutMetadata.m in Sources */,
 				7454960916042B9800308609 /* Workout.m in Sources */,
-				7454960C16042C8600308609 /* MeasurableImpl.m in Sources */,
-				7454960F16044E1900308609 /* BodyMetricMetadataProvider.m in Sources */,
+				7454960C16042C8600308609 /* Measurable.m in Sources */,
+				7454960F16044E1900308609 /* BodyMetricMetadata.m in Sources */,
 				74A3982D160D4A04003AD87B /* PoundFormatter.m in Sources */,
 				745F5185160D64E20066F600 /* DefaultUnitValueFormatter.m in Sources */,
 				740F437F160D696B00380CF5 /* InchFormatter.m in Sources */,
@@ -1852,15 +1952,13 @@
 				74F33B55168BD62600E31410 /* OnOffTableViewCell.m in Sources */,
 				74F33B65168C03BE00E31410 /* AddMediaTableViewCell.m in Sources */,
 				74F33B68168C03E300E31410 /* EditMediaTableViewCell.m in Sources */,
-				74F33B71168D137F00E31410 /* ExerciseKind.m in Sources */,
-				74F33B74168D24BD00E31410 /* ExerciseKindEditViewController.m in Sources */,
-				74F33B77168D575D00E31410 /* ActivityTagsEditViewController.m in Sources */,
+				74F33B74168D24BD00E31410 /* MeasurableTypeEditViewController.m in Sources */,
+				74F33B77168D575D00E31410 /* MeasurableTagsEditViewController.m in Sources */,
 				74F33B7D168E416000E31410 /* MeasurableValueGoalEditViewController.m in Sources */,
 				74F33B7F168E5FE800E31410 /* MeasurableValueGoalTableViewCell.m in Sources */,
 				74C2BE74168E6EC200A17AD8 /* MeasurableUnitEditViewController.m in Sources */,
 				74C2BE781690A30100A17AD8 /* MediaPickerSupport.m in Sources */,
-				743725B816921AD000959F32 /* ExerciseMoreInfoEditViewController.m in Sources */,
-				743725BE169236FA00959F32 /* ExerciseMoreInfo.m in Sources */,
+				743725B816921AD000959F32 /* ExerciseUnitValueDescriptorEditViewController.m in Sources */,
 				74DA9C771693A25600A10863 /* DeleteTableViewCell.m in Sources */,
 				744A52181693E71F00DE49DA /* MeasurableMediaCollectionView.m in Sources */,
 				744A521B1693F25600DE49DA /* MediaCollectionViewCell.m in Sources */,
@@ -1871,7 +1969,20 @@
 				745B6B471694E9E500948FE4 /* MeasurablePickerTableViewController.m in Sources */,
 				745B6B4A1694EA1100948FE4 /* MeasurablePickerTableViewCell.m in Sources */,
 				74D24AD01696029900A2DB94 /* MeasurablePickerContainerViewController.m in Sources */,
-				74D24AD41697362200A2DB94 /* ActivityMetadataProvider.m in Sources */,
+				74D24AD41697362200A2DB94 /* ActivityMetadata.m in Sources */,
+				7414C3F8169FB36D00B6BA27 /* PersistenceStore.m in Sources */,
+				7414C3FD169FB62000B6BA27 /* ModelHelper.m in Sources */,
+				7494F10816AB0490004E3007 /* PersistenceDelegate.m in Sources */,
+				7494F10C16AB2744004E3007 /* MeasurableCategory.m in Sources */,
+				7494F11616B2E91E004E3007 /* Tag.m in Sources */,
+				7494F11916B311D8004E3007 /* MeasurableMetadataVideo.m in Sources */,
+				7494F11C16B33B96004E3007 /* MeasurableDataEntryVideo.m in Sources */,
+				749F848A16B76D8100159F1A /* Media.m in Sources */,
+				749F848E16BA06A100159F1A /* MeasurableDataEntryImage.m in Sources */,
+				749F849116BA074B00159F1A /* MeasurableMetadataImage.m in Sources */,
+				74A8C6DC16BACF2600552B23 /* BodyMetric.m in Sources */,
+				7448EC6516C5ABE60004E16A /* ExerciseUnitValueDescriptor.m in Sources */,
+				74ED242D16C6B92A00BF176D /* BaseUnitValueFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2046,6 +2157,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2071,6 +2186,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

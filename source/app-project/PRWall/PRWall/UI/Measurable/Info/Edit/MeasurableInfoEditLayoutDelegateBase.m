@@ -15,7 +15,7 @@ static CGFloat VERTICAL_LAYOUT_PADDING = 0;
 
 @implementation MeasurableInfoEditLayoutDelegateBase
 
-- (void) layoutViewInViewController:(UIViewController*) viewController withMeasurable: (id<Measurable>) measurable withLayoutPosition:(CGPoint) startPosition {
+- (void) layoutViewInViewController:(UIViewController*) viewController withMeasurable: (Measurable*) measurable withLayoutPosition:(CGPoint) startPosition {
   
   if([[viewController class] isSubclassOfClass: [MeasurableInfoEditViewController class]]) {
     

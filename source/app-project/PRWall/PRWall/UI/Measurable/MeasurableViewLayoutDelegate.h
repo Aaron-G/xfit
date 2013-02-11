@@ -11,6 +11,6 @@
 
 @protocol MeasurableViewLayoutDelegate <NSObject>
 
-- (void) layoutViewInViewController:(UIViewController*) viewController withMeasurable: (id<Measurable>) measurable withLayoutPosition:(CGPoint) layoutPosition;
+- (void) layoutViewInViewController:(UIViewController*) viewController withMeasurable: (Measurable*) measurable withLayoutPosition:(CGPoint) layoutPosition;
 
 @end

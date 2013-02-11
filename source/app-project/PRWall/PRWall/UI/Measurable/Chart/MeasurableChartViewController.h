@@ -13,7 +13,7 @@
 
 @interface MeasurableChartViewController : UIViewController <CPTPlotDataSource, MeasurableProvider>
 
-- (void) displayChartForMeasurable:(id<Measurable>) measurable;
-- (UIImage*) createChartImageForMeasurable:(id<Measurable>) measurable;
+- (void) displayChartForMeasurable:(Measurable*) measurable;
+- (UIImage*) createChartImageForMeasurable:(Measurable*) measurable;
 
 @end

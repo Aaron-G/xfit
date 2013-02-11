@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3yy-v8-Kfx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3yy-v8-Kfx">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--App Navigation Controller-->
@@ -2028,10 +2028,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="4069" y="3686"/>
         </scene>
-        <!--Exercise Kind Edit View Controller-->
+        <!--Measurable Type Edit View Controller-->
         <scene sceneID="K14-ja-9O0">
             <objects>
-                <viewController storyboardIdentifier="ExerciseKindEditViewController" id="9WK-3B-zgq" customClass="ExerciseKindEditViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MeasurableTypeEditViewController" id="9WK-3B-zgq" customClass="MeasurableTypeEditViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kCg-eG-NyE">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2280,10 +2280,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="3641" y="4965"/>
         </scene>
-        <!--Activity Tags Edit View Controller-->
+        <!--Measurable Tags Edit View Controller-->
         <scene sceneID="MEV-FG-DcG">
             <objects>
-                <viewController storyboardIdentifier="ActivityTagsEditViewController" id="QXx-xS-tgf" customClass="ActivityTagsEditViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MeasurableTagsEditViewController" id="QXx-xS-tgf" customClass="MeasurableTagsEditViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RBT-Nv-MZB">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2373,10 +2373,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="4491" y="4294"/>
         </scene>
-        <!--Exercise More Info Edit View Controller-->
+        <!--Exercise Unit Value Descriptor Edit View Controller-->
         <scene sceneID="Z2S-aj-9rB">
             <objects>
-                <tableViewController storyboardIdentifier="ExerciseMoreInfoEditViewController" id="GHz-gf-aO3" customClass="ExerciseMoreInfoEditViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ExerciseUnitValueDescriptorEditViewController" id="GHz-gf-aO3" customClass="ExerciseUnitValueDescriptorEditViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="3ex-o2-Npk">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2713,395 +2713,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="screen-restore.png" width="31" height="31"/>
         <image name="settings.png" width="30" height="30"/>
     </resources>
-    <classes>
-        <class className="ActivityTagsEditViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ActivityTagsEditViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="AppNavigationController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppNavigationController.h"/>
-        </class>
-        <class className="AppViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showOrHideMenuAction:"/>
-                <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="contentView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="menuDisclosureButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="menuView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="BodyMetricInfoEditViewController" superclassName="MeasurableInfoEditViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BodyMetricInfoEditViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changeLengthUnit:"/>
-                <relationship kind="action" name="changeMassUnit:"/>
-                <relationship kind="action" name="changeMeasurableValueGoal:"/>
-            </relationships>
-        </class>
-        <class className="CPTGraphHostingView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CPTGraphHostingView.h"/>
-        </class>
-        <class className="ExerciseInfoEditViewController" superclassName="MeasurableInfoEditViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseInfoEditViewController.h"/>
-        </class>
-        <class className="ExerciseKindEditViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseKindEditViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="ExerciseMoreInfoEditViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseMoreInfoEditViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changeSegmentedControlState:"/>
-                <relationship kind="action" name="changeSwitchState:"/>
-                <relationship kind="action" name="endEditingView"/>
-                <relationship kind="action" name="startEditingView:"/>
-                <relationship kind="outlet" name="editToolbar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="generalLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="generalSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="generalTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lengthLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lengthSegmentedControl" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="lengthSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="lengthTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="massLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="massSegmentedControl" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="massSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="massTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="timeTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="valueTypeFootInchPickerView" candidateClass="MeasurableFootInchValuePickerView"/>
-                <relationship kind="outlet" name="valueTypeNumberPickerView" candidateClass="MeasurableNumberValuePickerView"/>
-                <relationship kind="outlet" name="valueTypeNumberWithDecimalPickerView" candidateClass="MeasurableNumberWithDecimalValuePickerView"/>
-                <relationship kind="outlet" name="valueTypeTimePickerView" candidateClass="MeasurableTimeValuePickerView"/>
-            </relationships>
-        </class>
-        <class className="ExerciseViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changeSortCriterion:"/>
-                <relationship kind="outlet" name="sortSegmentedControl" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="HomeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="displayExercise"/>
-                <relationship kind="action" name="displayMyBody"/>
-                <relationship kind="action" name="displayPRWall"/>
-                <relationship kind="action" name="displayWOD"/>
-                <relationship kind="action" name="displayWorkout"/>
-                <relationship kind="outlet" name="exerciseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="myBodyButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="prWallButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="wodButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="workoutButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="ImageDisplayViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageDisplayViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="hide:"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
-            </relationships>
-        </class>
-        <class className="InfoViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="aboutLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="facebookLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="featureLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="feedbackLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="issueLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rateAppLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="twitterLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="versionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MeasurableChartViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableChartViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="hide:"/>
-                <relationship kind="action" name="share"/>
-                <relationship kind="outlet" name="graphView" candidateClass="CPTGraphHostingView"/>
-                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
-            </relationships>
-        </class>
-        <class className="MeasurableDataEntryAdditionalInfoTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableDataEntryAdditionalInfoTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="commentTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="mediaCollectionView" candidateClass="UICollectionView"/>
-            </relationships>
-        </class>
-        <class className="MeasurableDataEntryEditCommentTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableDataEntryEditCommentTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="commentTextView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="MeasurableDataEntryEditDateTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableDataEntryEditDateTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dateTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="MeasurableDataEntryEditValueTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableDataEntryEditValueTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="valueTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="MeasurableDataEntryTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableDataEntryTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="measurableAdditionalInfoImageButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="measurableDateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="measurableTrendImageButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="measurableValueLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MeasurableDataEntryViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableDataEntryViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelEditingMeasurableDataEntry"/>
-                <relationship kind="action" name="doneEditingDate"/>
-                <relationship kind="action" name="doneEditingField"/>
-                <relationship kind="action" name="doneEditingMeasurableDataEntry"/>
-                <relationship kind="outlet" name="cancelBarButtonItem" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="dateDatePicker" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="doneBarButtonItem" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="editToolbar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="valueTypeFootInchPickerView" candidateClass="MeasurableFootInchValuePickerView"/>
-                <relationship kind="outlet" name="valueTypeNumberPickerView" candidateClass="MeasurableNumberValuePickerView"/>
-                <relationship kind="outlet" name="valueTypeNumberWithDecimalPickerView" candidateClass="MeasurableNumberWithDecimalValuePickerView"/>
-                <relationship kind="outlet" name="valueTypePercentPickerView" candidateClass="MeasurablePercentValuePickerView"/>
-                <relationship kind="outlet" name="valueTypeTimePickerView" candidateClass="MeasurableTimeValuePickerView"/>
-            </relationships>
-        </class>
-        <class className="MeasurableFootInchValuePickerView" superclassName="MeasurableValuePickerView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableFootInchValuePickerView.h"/>
-        </class>
-        <class className="MeasurableInfoEditViewController" superclassName="MeasurableLayoutViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableInfoEditViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="doneEditingField"/>
-                <relationship kind="outlet" name="cancelBarButtonItem" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="doneBarButtonItem" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="editToolbar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="MeasurableInfoViewController" superclassName="MeasurableLayoutViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableInfoViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="dividerButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="favoriteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mediaView" candidateClass="UICollectionView"/>
-            </relationships>
-        </class>
-        <class className="MeasurableLayoutViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableLayoutViewController.h"/>
-        </class>
-        <class className="MeasurableLogViewController" superclassName="MeasurableLayoutViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableLogViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="messageTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="MeasurableMediaCollectionView" superclassName="UICollectionView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableMediaCollectionView.h"/>
-        </class>
-        <class className="MeasurableNumberValuePickerView" superclassName="MeasurableValuePickerView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableNumberValuePickerView.h"/>
-        </class>
-        <class className="MeasurableNumberWithDecimalValuePickerView" superclassName="MeasurableValuePickerView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableNumberWithDecimalValuePickerView.h"/>
-        </class>
-        <class className="MeasurablePercentValuePickerView" superclassName="MeasurableNumberWithDecimalValuePickerView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurablePercentValuePickerView.h"/>
-        </class>
-        <class className="MeasurablePickerCollectionView" superclassName="UICollectionView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurablePickerCollectionView.h"/>
-        </class>
-        <class className="MeasurablePickerCollectionViewCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurablePickerCollectionViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="image" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="message" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MeasurablePickerCollectionViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurablePickerCollectionViewController.h"/>
-        </class>
-        <class className="MeasurablePickerContainerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurablePickerContainerViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
-            </relationships>
-        </class>
-        <class className="MeasurablePickerTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurablePickerTableViewCell.h"/>
-        </class>
-        <class className="MeasurableScreenCollectionView" superclassName="UICollectionView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableScreenCollectionView.h"/>
-        </class>
-        <class className="MeasurableScreenCollectionViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableScreenCollectionViewController.h"/>
-        </class>
-        <class className="MeasurableTimeValuePickerView" superclassName="MeasurableValuePickerView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableTimeValuePickerView.h"/>
-        </class>
-        <class className="MeasurableUnitEditViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableUnitEditViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changeSegmentedControlState:"/>
-                <relationship kind="action" name="changeSwitchState:"/>
-                <relationship kind="outlet" name="generalLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="generalSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="lengthLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lengthSegmentedControl" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="lengthSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="massLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="massSegmentedControl" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="massSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeSwitch" candidateClass="UISwitch"/>
-            </relationships>
-        </class>
-        <class className="MeasurableValueGoalEditViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableValueGoalEditViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="MeasurableValuePickerView" superclassName="UIPickerView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableValuePickerView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="measurableValuePickerViewDelegate"/>
-            </relationships>
-        </class>
-        <class className="MeasurableViewController" superclassName="MeasurableLayoutViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MeasurableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="chartMeasurableAction:"/>
-                <relationship kind="action" name="clearEditMeasurableLogAction:"/>
-                <relationship kind="action" name="copyMeasurableAction:"/>
-                <relationship kind="action" name="displayMeasurableInfo"/>
-                <relationship kind="action" name="displayMeasurableLog"/>
-                <relationship kind="action" name="doneEditMeasurableInfoAction:"/>
-                <relationship kind="action" name="doneEditMeasurableLogAction:"/>
-                <relationship kind="action" name="editMeasurableInfoAction:"/>
-                <relationship kind="action" name="editMeasurableLogAction:"/>
-                <relationship kind="action" name="logMeasurableAction:"/>
-                <relationship kind="action" name="shareMeasurableInfoAction:"/>
-                <relationship kind="action" name="shareMeasurableLogAction:"/>
-                <relationship kind="outlet" name="barButtonItemChartLog" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemClearLog" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemCopyMeasurable" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemDoneInfo" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemDoneLog" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemEditInfo" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemEditLog" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemLog" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemShareInfo" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemShareLog" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemSpacerOne" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemSpacerTwo" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="buttonSwitchToInfo" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="buttonSwitchToLog" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="measurableDetailPageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="metadataTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-            </relationships>
-        </class>
-        <class className="MediaCollectionViewCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MediaCollectionViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mediaButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="MenuCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuCell.h"/>
-        </class>
-        <class className="MenuViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
-        </class>
-        <class className="MyBodyViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyBodyViewController.h"/>
-        </class>
-        <class className="PRWallViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PRWallViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="fullScreenAction"/>
-                <relationship kind="action" name="restoreScreenAction"/>
-                <relationship kind="action" name="shareAction"/>
-                <relationship kind="outlet" name="barButtonItemShare" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="screenFullButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="screenRestoreButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UserProfileViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserProfileViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changeDateOfBirth"/>
-                <relationship kind="action" name="changeSex"/>
-                <relationship kind="action" name="dismissInputView"/>
-                <relationship kind="action" name="startChangingImage"/>
-                <relationship kind="outlet" name="boxLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="boxTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="dateOfBirthDatePicker" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="dateOfBirthLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dateOfBirthTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="editToolbar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="imageButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="sexLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="sexSegmentedControl" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="WODViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WODViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logWODAction"/>
-                <relationship kind="action" name="newWODAction"/>
-                <relationship kind="action" name="showOptionsAction"/>
-                <relationship kind="outlet" name="barButtonItemLog" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemNew" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="barButtonItemSettings" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="WorkoutViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WorkoutViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

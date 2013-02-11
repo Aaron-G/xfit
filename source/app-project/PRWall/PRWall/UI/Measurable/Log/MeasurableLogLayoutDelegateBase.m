@@ -16,7 +16,7 @@
 //Vertical spacing between UI component
 static CGFloat VERTICAL_LAYOUT_PADDING = 0;
 
-- (void) layoutViewInViewController:(UIViewController*) viewController withMeasurable: (id<Measurable>) measurable withLayoutPosition:(CGPoint) startPosition {
+- (void) layoutViewInViewController:(UIViewController*) viewController withMeasurable: (Measurable*) measurable withLayoutPosition:(CGPoint) startPosition {
   
   if([[viewController class] isSubclassOfClass: [MeasurableLogViewController class]]) {
 
@@ -43,7 +43,7 @@ static CGFloat VERTICAL_LAYOUT_PADDING = 0;
             withVerticalSpacing:VERTICAL_LAYOUT_PADDING];
       
       //The message view is very prominent so let's make a nice animation when showing it
-      if(measurable.dataProvider.values.count == 0) {
+      if(measurable.data.values.count == 0) {
         
         [UIView animateWithDuration: 0.5
                               delay: 0

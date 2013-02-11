@@ -7,19 +7,18 @@
 //
 
 #import "ExerciseInfoEditViewController.h"
-#import "ExerciseKind.h"
-#import "ExerciseMetadataProvider.h"
+#import "ExerciseMetadata.h"
 #import "UIHelper.h"
 #import "MediaHelper.h"
 #import "MeasurableHelper.h"
-#import "ExerciseKindEditViewController.h"
+#import "MeasurableTypeEditViewController.h"
 #import "MeasurableValueGoalEditViewController.h"
 #import "MeasurableUnitEditViewController.h"
-#import "ExerciseMoreInfoEditViewController.h"
-#import "ExerciseMoreInfo.h"
+#import "ExerciseUnitValueDescriptorEditViewController.h"
 #import "Exercise.h"
+#import "ModelHelper.h"
 
-@interface ExerciseInfoEditViewController () <ExerciseKindEditViewControllerDelegate, MeasurableValueGoalEditViewControllerDelegate, MeasurableUnitEditViewControllerDelegate, ExerciseMoreInfoEditViewControllerDelegate>
+@interface ExerciseInfoEditViewController () <MeasurableTypeEditViewControllerDelegate, MeasurableValueGoalEditViewControllerDelegate, MeasurableUnitEditViewControllerDelegate, ExerciseUnitValueDescriptorEditViewControllerDelegate>
 
 @end
 
@@ -50,7 +49,7 @@
   
   NSInteger numberOfSections = 6;
   
-  if (self.measurable.metadataProvider.source == MeasurableSourceUser && self.mode == MeasurableInfoEditViewControllerModeEdit) {
+  if (self.measurable.metadata.source == MeasurableSourceUser && self.mode == MeasurableInfoEditViewControllerModeEdit) {
     numberOfSections++;
   }
   
@@ -64,9 +63,9 @@
   } else if(section == 1) {
     return 4;
   } else if(section == self.imagesSection) {
-    return 1 + self.measurable.metadataProvider.images.count;
+    return 1 + self.measurable.metadata.images.count;
   } else if(section == self.videosSection) {
-    return 1 + self.measurable.metadataProvider.videos.count;
+    return 1 + self.measurable.metadata.videos.count;
   } else if(section == 4) {
     return 2;
   } else if(section == 5) {
@@ -126,12 +125,21 @@
   return cell;
 }
 
+- (Measurable*)newMeasurableInstance {
+  Exercise* exercise = [ModelHelper newExercise];
+  //CXB REVISE - get a smarter default or leave it blank and enforce save requirements(type, name, )
+  exercise.metadata.type = [MeasurableType measurableTypeWithMeasurableTypeIdentifier: ExerciseTypeIdentifierBall];
+  exercise.metadata.source = MeasurableSourceUser;
+  
+  return exercise;
+}
+
 - (UITableViewCell*) createKindCell {
   
   TableViewCellSubtitle* cell = [self.tableView dequeueReusableCellWithIdentifier:@"TableViewCellSubtitle"];
   
-  cell.textLabel.text = NSLocalizedString(@"exercise-edit-kind-label", @"What kind");
-  cell.detailTextLabel.text = ((ExerciseMetadataProvider*)self.measurable.metadataProvider).kind.name;
+  cell.textLabel.text = NSLocalizedString(@"measurable-edit-type-label", @"What kind");
+  cell.detailTextLabel.text = self.measurable.metadata.type.name;
   
   return cell;
 }
@@ -143,11 +151,11 @@
   
   NSString* goalLabel = nil;
 
-  if(MeasurableValueGoalLess == self.measurable.metadataProvider.valueGoal) {
+  if(MeasurableValueGoalLess == self.measurable.metadata.valueGoal) {
     goalLabel = NSLocalizedString(@"goal-less-label", @"less");
-  } else if(MeasurableValueGoalMore == self.measurable.metadataProvider.valueGoal) {
+  } else if(MeasurableValueGoalMore == self.measurable.metadata.valueGoal) {
     goalLabel = NSLocalizedString(@"goal-more-label", @"more");
-  } else if(MeasurableValueGoalNone == self.measurable.metadataProvider.valueGoal) {
+  } else if(MeasurableValueGoalNone == self.measurable.metadata.valueGoal) {
     goalLabel = @"";
   }
   
@@ -159,19 +167,18 @@
 - (UITableViewCell*) createUnitCell {
   UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"TableViewCellSubtitle"];
   cell.textLabel.text = NSLocalizedString(@"unit-edit-title", @"How to track");
-  cell.detailTextLabel.text = [UIHelper generalNameForUnitType:self.measurable.metadataProvider.unit.type];
+  cell.detailTextLabel.text = [UIHelper generalNameForUnitType:self.measurable.metadata.unit.type];
   return cell;
 }
 
 - (UITableViewCell*) createMoreInfoCell {
   TableViewCellSubtitle*  cell = [self.tableView dequeueReusableCellWithIdentifier:@"TableViewCellSubtitle"];
-  cell.textLabel.text = NSLocalizedString(@"exercise-edit-more-info-label", @"More Info");
-  
-  cell.detailTextLabel.text = [UIHelper stringForExerciseMoreInfos:self.measurable.metadataProvider.moreInfo withSeparator: NSLocalizedString(@"value-separator", @", ")];
+  cell.textLabel.text = NSLocalizedString(@"more-label", @"More");
+  cell.detailTextLabel.text = [UIHelper stringForExerciseUnitValueDescriptors:((ExerciseMetadata*)self.measurable.metadata).unitValueDescriptors
+                                                                withSeparator: NSLocalizedString(@"value-separator", @", ")];
   
   return cell;
 }
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -182,51 +189,63 @@
       MeasurableUnitEditViewController* measurableUnitEditViewController =
       (MeasurableUnitEditViewController*)[UIHelper viewControllerWithViewStoryboardIdentifier: @"MeasurableUnitEditViewController"];
       measurableUnitEditViewController.delegate = self;
-      [measurableUnitEditViewController editUnit:self.measurable.metadataProvider.unit];
+      [measurableUnitEditViewController editUnit:self.measurable.metadata.unit];
     } else if(indexPath.item == 1) {
-      ExerciseKindEditViewController* exerciseKindEditViewController =
-        (ExerciseKindEditViewController*)[UIHelper viewControllerWithViewStoryboardIdentifier: @"ExerciseKindEditViewController"];
-      exerciseKindEditViewController.delegate = self;
-      [exerciseKindEditViewController editExerciseKind:((ExerciseMetadataProvider*)self.measurable.metadataProvider).kind];
+      MeasurableTypeEditViewController* measurableTypeEditViewController =
+        (MeasurableTypeEditViewController*)[UIHelper viewControllerWithViewStoryboardIdentifier: @"MeasurableTypeEditViewController"];
+      measurableTypeEditViewController.delegate = self;
+      [measurableTypeEditViewController editMeasurableType:self.measurable.metadata.type];
     } else if(indexPath.item == 2) {
       MeasurableValueGoalEditViewController* measurableValueGoalEditViewController =
       (MeasurableValueGoalEditViewController*)[UIHelper viewControllerWithViewStoryboardIdentifier: @"MeasurableValueGoalEditViewController"];
       measurableValueGoalEditViewController.delegate = self;
-      [measurableValueGoalEditViewController editMeasurableValueGoal:self.measurable.metadataProvider.valueGoal];
+      [measurableValueGoalEditViewController editMeasurableValueGoal:self.measurable.metadata.valueGoal];
     } else if(indexPath.item == 3) {
       [self editTags];
     }
   } else if(indexPath.section == 5) {
       if(indexPath.item == 0) {
-        ExerciseMoreInfoEditViewController* exerciseMoreInfoEditViewController =
-        (ExerciseMoreInfoEditViewController*)[UIHelper viewControllerWithViewStoryboardIdentifier: @"ExerciseMoreInfoEditViewController"];
-        exerciseMoreInfoEditViewController.delegate = self;
-        [exerciseMoreInfoEditViewController editExerciseMoreInfo:self.measurable.metadataProvider.moreInfo];
+        ExerciseUnitValueDescriptorEditViewController* exerciseUnitValueDescriptorEditViewController =
+        (ExerciseUnitValueDescriptorEditViewController*)[UIHelper viewControllerWithViewStoryboardIdentifier: @"ExerciseUnitValueDescriptorEditViewController"];
+        exerciseUnitValueDescriptorEditViewController.delegate = self;
+        [exerciseUnitValueDescriptorEditViewController editExerciseUnitValueDescriptors: ((ExerciseMetadata*)self.measurable.metadata).unitValueDescriptors];
       }
   } else if(indexPath.section == 6) {
     if(indexPath.item == 0) {
       [self deleteMeasurable];
     }
-  } else {
-    [self.mediaPickerSupport startPickingMediaAtIndexPath:indexPath];
+  }
+  else {
+    
+    //This means the user clicked on an Add row.
+    //So add the new media as the last entry of the repective media
+    NSArray* mediaArray = nil;
+    
+    if(indexPath.section == self.imagesSection) {
+      mediaArray = self.measurable.metadata.images;;
+    } else if (indexPath.section == self.videosSection) {
+      mediaArray = self.measurable.metadata.videos;
+    }
+    
+    if(!mediaArray) {
+      return;
+    }
+    
+    [self.mediaPickerSupport startPickingMediaAtIndexPath: [NSIndexPath indexPathForItem:mediaArray.count inSection:indexPath.section]];
   }
 }
 
-///////////////////////////////////////////////////////////////////
-//New Exercise
-///////////////////////////////////////////////////////////////////
-
-- (id<Measurable>)newMeasurableInstance {
-  return [Exercise new];
-}
-
-///////////////////////////////////////////////
-
 - (void)didChangeUnit:(Unit *)unit {
   
-  //Update the model
-  self.measurable.metadataProvider.unit = unit;
+  if([self.measurable.metadata.unit isEqual:unit]) {
+    return;
+  }
   
+  //Update the model
+  self.measurable.metadata.unit = unit;
+  
+  [self saveChangesWithMessage: [NSString stringWithFormat:@"MeasurableInfoEditViewController - could not save model changes - trying to change the unit of the %@ metadata", self.measurable.metadata.name]];
+
   //Update the UI
   [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForItem:0 inSection:1]]  withRowAnimation:NO];
 
@@ -234,11 +253,17 @@
   [self.delegate didEditMeasurableInfoForMeasurable:self.measurable];
 }
 
-- (void)didChangeExerciseKind:(ExerciseKind *)exerciseKind {
+- (void)didChangeMeasurableType:(MeasurableType *)measurableType{
   
+  if([self.measurable.metadata.type isEqual:measurableType]) {
+    return;
+  }
+
   //Update the model
-  ((ExerciseMetadataProvider*)self.measurable.metadataProvider).kind = exerciseKind;
-  
+  self.measurable.metadata.type = measurableType;
+
+  [self saveChangesWithMessage: [NSString stringWithFormat:@"MeasurableInfoEditViewController - could not save model changes - trying to change the type of the %@ metadata", self.measurable.metadata.name]];
+
   //Update the UI
   [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForItem:1 inSection:1]]  withRowAnimation:NO];
   
@@ -248,9 +273,15 @@
 
 - (void)didChangeMeasurableValueGoal:(MeasurableValueGoal)measurableValueGoal {
   
-  //Update the model
-  self.measurable.metadataProvider.valueGoal = measurableValueGoal;
+  if(self.measurable.metadata.valueGoal == measurableValueGoal) {
+    return;
+  }
   
+  //Update the model
+  self.measurable.metadata.valueGoal = measurableValueGoal;
+  
+  [self saveChangesWithMessage: [NSString stringWithFormat:@"MeasurableInfoEditViewController - could not save model changes - trying to change the value goal of the %@ metadata", self.measurable.metadata.name]];
+
   //Update the UI
   [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForItem:2 inSection:1]]  withRowAnimation:NO];
   
@@ -270,17 +301,33 @@
   [self.delegate didEditMeasurableInfoForMeasurable:self.measurable];
 }
 
-- (void)didChangeExerciseMoreInfo:(NSDictionary *)moreInfo {
+- (void)didChangeExerciseUnitValueDescriptors:(NSArray *)unitValueDescriptors {
   
-  //Update the model
-  self.measurable.metadataProvider.moreInfo = moreInfo;
+  ExerciseMetadata* exerciseMetadata = (ExerciseMetadata*)self.measurable.metadata;
   
+  NSArray* existingDescriptors = exerciseMetadata.unitValueDescriptors;
+  
+  //Remove the descriptors that have been removed by the user
+  for (ExerciseUnitValueDescriptor* existingDescriptor in existingDescriptors) {
+    if(![unitValueDescriptors containsObject:existingDescriptor]) {
+      [exerciseMetadata removeUnitValueDescriptor:existingDescriptor];
+    }
+  }
+  
+  //Add the descriptors that have been added by the user
+  for (ExerciseUnitValueDescriptor* newDescriptor in unitValueDescriptors) {
+    if(![existingDescriptors containsObject:newDescriptor]) {
+      [exerciseMetadata addUnitValueDescriptor:newDescriptor];
+    }
+  }
+  
+  [self saveChangesWithMessage: [NSString stringWithFormat:@"MeasurableInfoEditViewController - could not save model changes - trying to change the unit value descriptors of the %@ metadata", self.measurable.metadata.name]];
+
   //Update the UI
   [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForItem:0 inSection:5]]  withRowAnimation:NO];
   
   //Let the delegate know the measurable was edited
   [self.delegate didEditMeasurableInfoForMeasurable:self.measurable];
 }
-
 
 @end

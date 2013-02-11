@@ -19,6 +19,15 @@
 
 @synthesize measurable = _measurable;
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+  self = [super initWithCoder:aDecoder];
+  
+  if(self) {
+    self.layoutAsynchronous = YES;
+  }
+  return self;
+}
+
 - (void)forceLayout {
   self.needsLayout = YES;
   [self layoutView];
@@ -26,7 +35,15 @@
 
 - (void) layoutView {
   if(self.needsLayout) {
-    [self.layoutDelegate layoutViewInViewController:self withMeasurable: self.measurable withLayoutPosition:self.layoutPosition];
+
+    if(self.layoutAsynchronous) {
+      //This ensures that the layout is properly done the first time around
+      dispatch_async(dispatch_get_main_queue(), ^{
+        [self.layoutDelegate layoutViewInViewController:self withMeasurable: self.measurable withLayoutPosition:self.layoutPosition];
+      });
+    } else {
+      [self.layoutDelegate layoutViewInViewController:self withMeasurable: self.measurable withLayoutPosition:self.layoutPosition];
+    }
   }
 }
 
@@ -44,11 +61,11 @@
   [self forceLayout];
 }
 
-- (id<Measurable>) measurable {
+- (Measurable*) measurable {
   return _measurable;
 }
 
-- (void)setMeasurable:(id<Measurable>)measurable {
+- (void)setMeasurable:(Measurable*)measurable {
   _measurable = measurable;
   [self reloadView];
 }

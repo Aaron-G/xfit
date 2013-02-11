@@ -35,6 +35,7 @@
   if(self) {
     _layoutDelegate = [[MeasurableLayoutDelegate alloc] init];
     self.layoutPosition = CGPointMake(0, 0);
+    self.layoutAsynchronous = NO;
   }
   return self;
 }
@@ -44,7 +45,7 @@
   return _layoutDelegate;
 }
 
-- (void)setMeasurable:(id<Measurable>)measurable {
+- (void)setMeasurable:(Measurable*)measurable {
   super.measurable = measurable;
   
   //Do this after the previous call so that the location for the components to be
@@ -120,7 +121,7 @@
 - (IBAction)copyMeasurableAction:(id)sender {
   
   MeasurableInfoEditViewController* measurableInfoEditViewController
-    = [MeasurableHelper measurableInfoEditViewControllerForMeasurableTypeIdentifier:MeasurableTypeIdentifierExercise];
+    = [MeasurableHelper measurableInfoEditViewControllerForMeasurableCategoryIdentifier:MeasurableCategoryIdentifierExercise];
   measurableInfoEditViewController.delegate = self;
   
   [measurableInfoEditViewController createMeasurableInfoFromMeasurable:self.measurable];
@@ -203,7 +204,7 @@
 - (void)editMeasurableLogAction:(id)sender {
   [self editMeasurableAction:self.measurableScreenCollectionViewController.logViewController doneButton: self.barButtonItemDoneLog switchButton:self.buttonSwitchToInfo];
   
-  if(self.measurable.dataProvider.values.count > 0) {
+  if(self.measurable.data.values.count > 0) {
     self.barButtonItemClearLog.enabled = YES;
   } else {
     self.barButtonItemClearLog.enabled = NO;
@@ -265,26 +266,26 @@
   [self.measurableScreenCollectionViewController displayMeasurableLog];
 }
 
--(void)didFinishCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable {
+-(void)didFinishCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (Measurable*) measurable {
   [self.measurableScreenCollectionViewController.logViewController logMeasurableDataEntry:measurableDataEntry];
 
   //Update the MeasurableViewControllerDelegate
   [self.delegate didChangeMeasurable:measurable];
 }
 
--(void)didCancelCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable {
+-(void)didCancelCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (Measurable*) measurable {
 }
 
-- (void)didFinishEditingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable:(id<Measurable>)measurable {
+- (void)didFinishEditingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable:(Measurable*)measurable {
 }
 
-- (void)didEditMeasurableInfoForMeasurable:(id<Measurable>)measurable {
+- (void)didEditMeasurableInfoForMeasurable:(Measurable*)measurable {
   
-  //Mark the measurable as edited s othat we can fire this even only 1 time
+  //Mark the measurable as edited so that we can fire this even only 1 time
   self.measurableInfoEdited = YES;
 }
 
-- (void) fireDidEditMeasurableInfoForMeasurable:(id<Measurable>)measurable {
+- (void) fireDidEditMeasurableInfoForMeasurable:(Measurable*)measurable {
   
   //Update the info VC
   [self.measurableScreenCollectionViewController.infoViewController reloadView];
@@ -296,11 +297,11 @@
   [self.delegate didChangeMeasurable:measurable];
 }
 
-- (void)didDeleteMeasurableInfoForMeasurable:(id<Measurable>) measurable {
+- (void)didDeleteMeasurableInfoForMeasurable:(Measurable*) measurable {
   [self.delegate didDeleteMeasurable:measurable];
 }
 
-- (void)didCreateMeasurableInfoForMeasurable:(id<Measurable>)measurable {    
+- (void)didCreateMeasurableInfoForMeasurable:(Measurable*)measurable {    
   [self.delegate didCreateMeasurable:measurable];
 }
 

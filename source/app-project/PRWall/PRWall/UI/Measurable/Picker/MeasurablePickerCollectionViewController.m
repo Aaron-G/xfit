@@ -15,7 +15,7 @@
 
 @property id<MeasurablePickerDelegate> delegate;
 @property NSArray* measurables;
-@property MeasurableType* measurableType;
+@property MeasurableCategory* measurableCategory;
 
 @property (readonly) NSArray* pickerScreenPredicates;
 @property (readonly) NSArray* pickerScreenTitles;
@@ -47,21 +47,21 @@ static NSInteger SYSTEM_MEASURABLES_INDEX = 3;
   return self;
 }
 
-- (void)pickMeasurableOfType:(MeasurableType*) measurableType fromMeasurables:(NSArray *)measurables withDelegate:(id<MeasurablePickerDelegate>)delegate {
+- (void) pickMeasurableOfType:(MeasurableCategory*) measurableCategory fromMeasurables:(NSArray*) measurables withDelegate:(id<MeasurablePickerDelegate>) delegate {
   self.measurables = measurables;
   self.delegate = delegate;
-  self.measurableType = measurableType;
+  self.measurableCategory = measurableCategory;
 }
 
 - (NSArray*) pickerScreenPredicates {
 
   if(!_pickerScreenPredicates) {
     
-    NSPredicate* favoritePredicate = [NSPredicate predicateWithFormat:@"(metadataProvider.favorite == YES)"];
+    NSPredicate* favoritePredicate = [NSPredicate predicateWithFormat:@"(metadata.favorite == YES)"];
     NSDate* twoWeeksAgo = [NSDate dateWithTimeInterval:(-2*7*24*60*60) sinceDate:[NSDate date]];
-    NSPredicate* recentPredicate = [NSPredicate predicateWithFormat:@"(dataProvider.date >= %@)", twoWeeksAgo];
-    NSPredicate* userPredicate = [NSPredicate predicateWithFormat:@"(metadataProvider.source == %i)", MeasurableSourceUser];
-    NSPredicate* systemPredicate = [NSPredicate predicateWithFormat:@"(metadataProvider.source == %i)", MeasurableSourceApp];
+    NSPredicate* recentPredicate = [NSPredicate predicateWithFormat:@"(data.date >= %@)", twoWeeksAgo];
+    NSPredicate* userPredicate = [NSPredicate predicateWithFormat:@"(metadata.source == %i)", MeasurableSourceUser];
+    NSPredicate* systemPredicate = [NSPredicate predicateWithFormat:@"(metadata.source == %i)", MeasurableSourceApp];
     NSPredicate* allPredicate = [NSPredicate predicateWithFormat:@"(TRUEPREDICATE)"];
 
     _pickerScreenPredicates = [NSArray arrayWithObjects:favoritePredicate, recentPredicate, userPredicate, systemPredicate, allPredicate, nil];
@@ -76,9 +76,9 @@ static NSInteger SYSTEM_MEASURABLES_INDEX = 3;
     
     NSString* favoriteTitle = NSLocalizedString(@"favorite-label", @"Favorite");
     NSString* recentTitle = NSLocalizedString(@"recent-label", @"Recent");
-    NSString* userTitle = [NSString stringWithFormat:NSLocalizedString(@"measurable-picker-user-label-format", @"My %@"), self.measurableType.displayNamePlural];
-    NSString* systemTitle = self.measurableType.displayNamePlural;
-    NSString* allTitle = [NSString stringWithFormat:NSLocalizedString(@"measurable-picker-all-label-format", @"All %@"), self.measurableType.displayNamePlural];
+    NSString* userTitle = [NSString stringWithFormat:NSLocalizedString(@"measurable-picker-user-label-format", @"My %@"), self.measurableCategory.namePlural];
+    NSString* systemTitle = self.measurableCategory.namePlural;
+    NSString* allTitle = [NSString stringWithFormat:NSLocalizedString(@"measurable-picker-all-label-format", @"All %@"), self.measurableCategory.namePlural];
     
     _pickerScreenTitles = [NSArray arrayWithObjects:favoriteTitle, recentTitle, userTitle, systemTitle, allTitle, nil];
   }
@@ -106,9 +106,9 @@ static NSInteger SYSTEM_MEASURABLES_INDEX = 3;
   
   if(!_pickerScreenEmptyMessages) {
     
-    NSString* favoriteMessage = [NSString stringWithFormat:NSLocalizedString(@"measurable-picker-favorite-empty-message-format", @"There are no %@ marked as Favorite"), self.measurableType.displayNamePlural];
-    NSString* recentMessage = [NSString stringWithFormat:NSLocalizedString(@"measurable-picker-recent-empty-message-format", @"There are no %@ logged in the last 2 weeks"), self.measurableType.displayNamePlural];
-    NSString* userMessage = [NSString stringWithFormat:NSLocalizedString(@"measurable-picker-user-empty-message-format", @"There are no %@ created by you" ), self.measurableType.displayNamePlural];
+    NSString* favoriteMessage = [NSString stringWithFormat:NSLocalizedString(@"measurable-picker-favorite-empty-message-format", @"There are no %@ marked as Favorite"), self.measurableCategory.namePlural];
+    NSString* recentMessage = [NSString stringWithFormat:NSLocalizedString(@"measurable-picker-recent-empty-message-format", @"There are no %@ logged in the last 2 weeks"), self.measurableCategory.namePlural];
+    NSString* userMessage = [NSString stringWithFormat:NSLocalizedString(@"measurable-picker-user-empty-message-format", @"There are no %@ created by you" ), self.measurableCategory.namePlural];
     
     _pickerScreenEmptyMessages = [NSArray arrayWithObjects:favoriteMessage, recentMessage, userMessage, nil];
   }

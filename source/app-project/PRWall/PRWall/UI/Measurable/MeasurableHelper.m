@@ -19,6 +19,11 @@
 #import "BodyMetricInfoEditViewController.h"
 #import "MeasurableInfoEditLayoutDelegateBase.h"
 #import "App.h"
+#import "ModelHelper.h"
+#import "PersistenceStore.h"
+#import "BodyMetric.h"
+#import "Workout.h"
+#import "Exercise.h"
 
 @interface MeasurableHelper () {
 }
@@ -35,21 +40,21 @@ static MeasurableDataEntryViewController* _measurableDataEntryViewController;
 static MeasurableChartViewController* _measurableChartViewController;
 
 
-+ (UITableViewCell *)tableViewCellForMeasurable: (id <Measurable>) measurable inTableView: (UITableView *)tableView {
++ (UITableViewCell *)tableViewCellForMeasurable: (Measurable*) measurable inTableView: (UITableView *)tableView {
 
   MeasurableTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MeasurableTableViewCell"];
   
-  BOOL hasValue = (measurable.dataProvider.value != nil);
+  BOOL hasValue = (measurable.data.value != nil);
   
-  cell.measurableNameLabel.text = measurable.metadataProvider.name;
-  cell.measurableMetadataLabel.text = measurable.metadataProvider.metadataShort;
+  cell.measurableNameLabel.text = measurable.metadata.name;
+  cell.measurableMetadataLabel.text = measurable.metadata.metadataShort;
 
   [UIHelper adjustImage:cell.measurableTrendImageButton forMeasurable:measurable];
   
   if(hasValue) {
-    cell.measurableValueLabel.text = [measurable.metadataProvider.unit.valueFormatter formatValue:measurable.dataProvider.value];
+    cell.measurableValueLabel.text = [measurable.metadata.unit.valueFormatter formatValue:measurable.data.value];
 
-    NSString *dateString = [MeasurableHelper.measurableDateFormat stringFromDate:measurable.dataProvider.date];
+    NSString *dateString = [MeasurableHelper.measurableDateFormat stringFromDate:measurable.data.date];
     cell.measurableDateLabel.text = dateString;
   } else {
     cell.measurableValueLabel.text = nil;
@@ -59,11 +64,11 @@ static MeasurableChartViewController* _measurableChartViewController;
   return cell;
 }
 
-+ (UITableViewCell *)tableViewCellForMeasurableDataEntry: (MeasurableDataEntry*) measurableDataEntry ofMeasurable: (id <Measurable>) measurable inTableView: (UITableView *)tableView {
++ (UITableViewCell *)tableViewCellForMeasurableDataEntry: (MeasurableDataEntry*) measurableDataEntry ofMeasurable: (Measurable*) measurable inTableView: (UITableView *)tableView {
   
   MeasurableDataEntryTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MeasurableDataEntryTableViewCell"];
   cell.measurableDataEntry = measurableDataEntry;
-  cell.measurableValueLabel.text = [measurable.metadataProvider.unit.valueFormatter formatValue:measurableDataEntry.value];
+  cell.measurableValueLabel.text = [measurable.metadata.unit.valueFormatter formatValue:measurableDataEntry.value];
   
   NSString *dateString = [MeasurableHelper.measurableDateFormat stringFromDate:measurableDataEntry.date];
   cell.measurableDateLabel.text = dateString;
@@ -71,7 +76,7 @@ static MeasurableChartViewController* _measurableChartViewController;
   //Adjust the trend image to tailor to the metric specifics
   [UIHelper adjustImage:cell.measurableTrendImageButton
 withMeasurableValueTrend: measurableDataEntry.valueTrend
-withMeasurableValueGoal: measurable.metadataProvider.valueGoal];
+withMeasurableValueGoal: measurable.metadata.valueGoal];
 
   //Show or Hide the Info button/icon
   cell.measurableAdditionalInfoImageButton.hidden = (!measurableDataEntry.hasAdditionalInfo);
@@ -146,21 +151,21 @@ withMeasurableValueGoal: measurable.metadataProvider.valueGoal];
   return _measurableInfoViewLayoutDelegates;
 }
 
-+ (id<MeasurableViewLayoutDelegate>) measurableInfoViewLayoutDelegateForMeasurable: (id<Measurable>) measurable {
++ (id<MeasurableViewLayoutDelegate>) measurableInfoViewLayoutDelegateForMeasurable: (Measurable*) measurable {
   
-  MeasurableType* measurableType = measurable.metadataProvider.type;
+  MeasurableCategory* measurableCategory = measurable.metadata.category;
   
-  id<MeasurableViewLayoutDelegate> measurableInfoLayoutDelegate = [[MeasurableHelper measurableInfoLayoutDelegates] objectForKey: measurableType.displayName];
+  id<MeasurableViewLayoutDelegate> measurableInfoLayoutDelegate = [[MeasurableHelper measurableInfoLayoutDelegates] objectForKey: measurableCategory.name];
   
   if(!measurableInfoLayoutDelegate) {
     
-    if(measurableType.identifier == MeasurableTypeIdentifierBodyMetric) {
+    if([measurableCategory.identifier isEqualToString: MeasurableCategoryIdentifierBodyMetric]) {
       measurableInfoLayoutDelegate  = [[BodyMetricInfoLayoutDelegate alloc] init];
-    } else if(measurableType.identifier == MeasurableTypeIdentifierExercise) {
+    } else if([measurableCategory.identifier isEqualToString: MeasurableCategoryIdentifierExercise]) {
       measurableInfoLayoutDelegate  = [[ExerciseInfoLayoutDelegate alloc] init];
     }
     
-    [[MeasurableHelper measurableInfoLayoutDelegates] setObject:measurableInfoLayoutDelegate forKey: measurableType.displayName];
+    [[MeasurableHelper measurableInfoLayoutDelegates] setObject:measurableInfoLayoutDelegate forKey: measurableCategory.name];
   }
   
   return measurableInfoLayoutDelegate;  
@@ -174,7 +179,7 @@ withMeasurableValueGoal: measurable.metadataProvider.valueGoal];
   return _measurableInfoEditViewLayoutDelegate;
 }
 
-+ (id<MeasurableViewLayoutDelegate>) measurableInfoEditViewLayoutDelegateForMeasurable: (id<Measurable>) measurable {
++ (id<MeasurableViewLayoutDelegate>) measurableInfoEditViewLayoutDelegateForMeasurable: (Measurable*) measurable {
   //They all use the same logic - for now
   return [MeasurableHelper measurableInfoEditViewLayoutDelegate];
 }
@@ -186,7 +191,7 @@ withMeasurableValueGoal: measurable.metadataProvider.valueGoal];
   return _measurableLogViewLayoutDelegate;
 }
 
-+ (id<MeasurableViewLayoutDelegate>) measurableLogViewLayoutDelegateForMeasurable: (id<Measurable>) measurable {
++ (id<MeasurableViewLayoutDelegate>) measurableLogViewLayoutDelegateForMeasurable: (Measurable*) measurable {
   //They all use the same logic - for now
   return [MeasurableHelper measurableLogViewLayoutDelegate];
 }
@@ -198,55 +203,63 @@ withMeasurableValueGoal: measurable.metadataProvider.valueGoal];
   return _measurableDataEntryViewController;
 }
 
-+ (MeasurableDataEntry*) createMeasurableDataEntryForMeasurable:(id<Measurable>) measurable {
++ (MeasurableDataEntry*) createMeasurableDataEntryForMeasurable:(Measurable*) measurable {
+
+  MeasurableDataEntry* measurableDataEntry = [ModelHelper newMeasurableDataEntry];
   
-  MeasurableDataEntry* measurableDataEntry = [[MeasurableDataEntry alloc] init];
-  measurableDataEntry.value = measurable.dataProvider.value;
   measurableDataEntry.date = [NSDate date];
+  
+  //Default to the very latest value logged
+  NSNumber* defaultValue = measurable.data.value;
+  
+  //If not available use the sample value from the metadata object
+  if(!defaultValue) {
+    defaultValue = measurable.metadata.valueSample;
+  }
+  measurableDataEntry.value = defaultValue;
   
   return measurableDataEntry;
 }
 
-+ (MediaHelperPurpose) mediaHelperPurposeForMeasurable:(id<Measurable>)measurable {
++ (MediaHelperPurpose) mediaHelperPurposeForMeasurable:(Measurable*)measurable {
   
-  MeasurableTypeIdentifier typeIdentifier = measurable.metadataProvider.type.identifier;
+  MeasurableCategoryIdentifier categoryIdentifier = measurable.metadata.category.identifier;
   
-  if(MeasurableTypeIdentifierBodyMetric == typeIdentifier) {
+  if([categoryIdentifier isEqualToString: MeasurableCategoryIdentifierBodyMetric]) {
     return MediaHelperPurposeBodyMetric;
-  } else if(MeasurableTypeIdentifierExercise == typeIdentifier) {
+  } else if([categoryIdentifier isEqualToString: MeasurableCategoryIdentifierExercise]) {
     return MediaHelperPurposeExercise;
-  } else if(MeasurableTypeIdentifierWorkout == typeIdentifier) {
+  } else if([categoryIdentifier isEqualToString: MeasurableCategoryIdentifierWorkout]) {
     return MediaHelperPurposeWorkout;
-  } else if(MeasurableTypeIdentifierWOD == typeIdentifier) {
+  } else if([categoryIdentifier isEqualToString: MeasurableCategoryIdentifierWOD]) {
     return MediaHelperPurposeWOD;
   }
   return -1;
 }
 
++ (MeasurableInfoEditViewController*) measurableInfoEditViewControllerForMeasurable:(Measurable*)measurable {
 
-+ (MeasurableInfoEditViewController*) measurableInfoEditViewControllerForMeasurable:(id<Measurable>)measurable {
-
-  MeasurableTypeIdentifier typeIdentifier = measurable.metadataProvider.type.identifier;
+  MeasurableCategoryIdentifier categoryIdentifier = measurable.metadata.category.identifier;
   
   MeasurableInfoEditViewController* measurableInfoEditViewController =
-  [MeasurableHelper measurableInfoEditViewControllerForMeasurableTypeIdentifier:typeIdentifier];
+  [MeasurableHelper measurableInfoEditViewControllerForMeasurableCategoryIdentifier:categoryIdentifier];
   
   measurableInfoEditViewController.measurable = measurable;
 
   return measurableInfoEditViewController;
 }
 
-+ (MeasurableInfoEditViewController*) measurableInfoEditViewControllerForMeasurableTypeIdentifier:(MeasurableTypeIdentifier)typeIdentifier {
++ (MeasurableInfoEditViewController*) measurableInfoEditViewControllerForMeasurableCategoryIdentifier:(MeasurableCategoryIdentifier)categoryIdentifier {
   
   NSString* viewControllerName = nil;
   
-  if(MeasurableTypeIdentifierBodyMetric == typeIdentifier) {
+  if([categoryIdentifier isEqualToString: MeasurableCategoryIdentifierBodyMetric]) {
     viewControllerName = @"BodyMetricInfoEditViewController";
-  } else if(MeasurableTypeIdentifierExercise == typeIdentifier) {
+  } else if([categoryIdentifier isEqualToString: MeasurableCategoryIdentifierExercise]) {
     viewControllerName = @"ExerciseInfoEditViewController";
-  } else if(MeasurableTypeIdentifierWorkout == typeIdentifier) {
+  } else if([categoryIdentifier isEqualToString: MeasurableCategoryIdentifierWorkout]) {
     
-  } else if(MeasurableTypeIdentifierWOD == typeIdentifier) {
+  } else if([categoryIdentifier isEqualToString: MeasurableCategoryIdentifierWOD]) {
     
   }
   
@@ -271,17 +284,6 @@ withMeasurableValueGoal: measurable.metadataProvider.valueGoal];
   return (MeasurablePickerContainerViewController*)[UIHelper viewControllerWithViewStoryboardIdentifier:@"MeasurablePickerContainerViewController"];
 }
 
-+(NSInteger) indexOfMeasurableWithMeasurableIndetifier:(MeasurableIdentifier) identifier inMeasurableArray:(NSArray*) measurableArray {
-  
-  return [measurableArray indexOfObjectPassingTest: ^(id element, NSUInteger idx, BOOL * stop) {
-    
-    *stop = (((id<Measurable>)element).metadataProvider.identifier == identifier);
-    
-    return *stop;
-  }];
-  
-}
-
 + (NSInteger) segmentedControlIndexForMeasurableValueGoal:(MeasurableValueGoal) measurableValueGoal {
   
   NSInteger index = -1;
@@ -302,17 +304,17 @@ withMeasurableValueGoal: measurable.metadataProvider.valueGoal];
   
   NSInteger index = -1;
   
-  if(unit.identifier == UnitIdentifierMeter) {
+  if([unit.identifier isEqualToString: UnitIdentifierMeter]) {
     index = 0;
-  } else if(unit.identifier == UnitIdentifierKilometer) {
+  } else if([unit.identifier isEqualToString: UnitIdentifierKilometer]) {
     index = 1;
-  } else if(unit.identifier == UnitIdentifierInch) {
+  } else if([unit.identifier isEqualToString: UnitIdentifierInch]) {
     index = 2;
-  } else if(unit.identifier == UnitIdentifierFoot) {
+  } else if([unit.identifier isEqualToString: UnitIdentifierFoot]) {
     index = 3;
-  } else if(unit.identifier == UnitIdentifierYard) {
+  } else if([unit.identifier isEqualToString: UnitIdentifierYard]) {
     index = 4;
-  } else if(unit.identifier == UnitIdentifierMile) {
+  } else if([unit.identifier isEqualToString: UnitIdentifierMile]) {
     index = 5;
   }
   
@@ -322,7 +324,7 @@ withMeasurableValueGoal: measurable.metadataProvider.valueGoal];
 
 + (UnitIdentifier) lengthUnitForSegmentedControlIndex:(NSInteger) index {
   
-  UnitIdentifier unitIdentifier = -1;
+  UnitIdentifier unitIdentifier = nil;
   
   if(index == 0) {
     unitIdentifier = UnitIdentifierMeter;
@@ -338,7 +340,7 @@ withMeasurableValueGoal: measurable.metadataProvider.valueGoal];
     unitIdentifier = UnitIdentifierMile;
   }
   
-  assert(unitIdentifier != -1);
+  assert(unitIdentifier != nil);
   return unitIdentifier;
 }
 
@@ -346,11 +348,11 @@ withMeasurableValueGoal: measurable.metadataProvider.valueGoal];
   
   NSInteger index = -1;
   
-  if(unit.identifier == UnitIdentifierKilogram) {
+  if([unit.identifier isEqualToString: UnitIdentifierKilogram]) {
     index = 0;
-  } else if(unit.identifier == UnitIdentifierPound) {
+  } else if([unit.identifier isEqualToString: UnitIdentifierPound]) {
     index = 1;
-  } else if(unit.identifier == UnitIdentifierPood) {
+  } else if([unit.identifier isEqualToString: UnitIdentifierPood]) {
     index = 2;
   }
   
@@ -376,7 +378,7 @@ withMeasurableValueGoal: measurable.metadataProvider.valueGoal];
 
 + (UnitIdentifier) massUnitForSegmentedControlIndex:(NSInteger) index {
   
-  UnitIdentifier unitIdentifier = -1;
+  UnitIdentifier unitIdentifier = nil;
   
   if(index == 0) {
     unitIdentifier = UnitIdentifierKilogram;
@@ -386,41 +388,51 @@ withMeasurableValueGoal: measurable.metadataProvider.valueGoal];
     unitIdentifier = UnitIdentifierPood;
   }
   
-  assert(unitIdentifier != -1);
+  assert(unitIdentifier != nil);
   return unitIdentifier;
 }
 
-+ (void)updateDataStructureForNewMeasurable:(id<Measurable>)measurable {
++ (BOOL)updateDataStructureForNewMeasurable:(Measurable*)measurable {
 
   UserProfile* userProfile = [App sharedInstance].userProfile;
   
-  if(measurable.metadataProvider.type.identifier == MeasurableTypeIdentifierExercise) {
-    [userProfile.exercises setValue:measurable forKey:measurable.metadataProvider.identifier];
+  if([measurable.metadata.category.identifier isEqualToString: MeasurableCategoryIdentifierExercise]) {
+    measurable.userProfile = userProfile;
   }
-}
-
-+ (NSArray*) measurablesWithData:(NSArray*) measurables; {
-  return [measurables filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(dataProvider.value != NIL)"]];
-}
-
-+ (NSInteger) indexForMeasurableDataEntry:(MeasurableDataEntry*)measurableDataEntry inMeasurable:(id<Measurable>)measurable {
-
-  NSInteger index = 0;
   
-  for (MeasurableDataEntry* curMeasurableDataEntry in measurable.dataProvider.values) {
-    
-    if (measurableDataEntry.date == curMeasurableDataEntry.date) {
-      continue;
-    }
-    
-    if(measurableDataEntry.date == [curMeasurableDataEntry.date laterDate:measurableDataEntry.date]) {
-      break;
-    }
-    
-    index++;
-  }
-  return index;
+  return [[PersistenceStore sharedInstance] save];
 }
+
++ (NSArray*) measurablesWithData:(NSArray*) measurables {
+  
+  //Filter
+  return [measurables filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(data.value != NIL)"]];
+}
+
++ (NSArray*) measurablesArray:(NSSet*) measurables {
+  
+  //No sorting at this level
+  return [measurables sortedArrayUsingDescriptors:nil];
+}
+
+//+ (NSInteger) indexForMeasurableDataEntry:(MeasurableDataEntry*)measurableDataEntry inMeasurable:(Measurable*)measurable {
+//  
+//  NSInteger index = 0;
+//  
+//  for (MeasurableDataEntry* curMeasurableDataEntry in measurable.data.values) {
+//    
+//    if (measurableDataEntry.date == curMeasurableDataEntry.date) {
+//      continue;
+//    }
+//    
+//    if(measurableDataEntry.date == [curMeasurableDataEntry.date laterDate:measurableDataEntry.date]) {
+//      break;
+//    }
+//    
+//    index++;
+//  }
+//  return index;
+//}
 
 + (NSArray*) sortMeasurables:(NSArray*) measurables byMeasurableSortCriterion:(MeasurableSortCriterion) sortCriterion {
   
@@ -429,12 +441,12 @@ withMeasurableValueGoal: measurable.metadataProvider.valueGoal];
   if(MeasurableSortCriterionName == sortCriterion) {
     
     comparator = ^(id obj1, id obj2) {
-      return [((id<Measurable>)obj1).metadataProvider.name compare:((id<Measurable>)obj2).metadataProvider.name];
+      return [((Measurable*)obj1).metadata.name compare:((Measurable*)obj2).metadata.name];
     };
     
   } else if(MeasurableSortCriterionDate == sortCriterion) {
     comparator = ^(id obj1, id obj2) {
-      return [((id<Measurable>)obj2).dataProvider.date compare:((id<Measurable>)obj1).dataProvider.date];
+      return [((Measurable*)obj2).data.date compare:((Measurable*)obj1).data.date];
     };
   }
   
@@ -443,6 +455,41 @@ withMeasurableValueGoal: measurable.metadataProvider.valueGoal];
   } else {
     return measurables;
   }
+}
+
++ (NSArray*) arrayUnsorted:(NSSet*) set {
+  return [set sortedArrayUsingDescriptors: [NSArray array]];
+}
+
++ (NSArray*) arraySortedByIndex:(NSSet*) set {
+  NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"index" ascending:YES];
+  return [set sortedArrayUsingDescriptors: [NSArray arrayWithObject:sortDescriptor]];
+}
+
++ (NSArray*) arraySortedByText:(NSSet*) set ascending:(BOOL)ascending {
+  NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"text" ascending:ascending];
+  return [set sortedArrayUsingDescriptors: [NSArray arrayWithObject:sortDescriptor]];
+}
+
++ (NSArray*) arraySortedByDate:(NSSet*) set ascending:(BOOL)ascending {
+  NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:ascending];
+  return [set sortedArrayUsingDescriptors: [NSArray arrayWithObject:sortDescriptor]];
+}
+
++ (NSArray*) arraySortedByName:(NSSet*) set ascending:(BOOL)ascending {
+  NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:ascending];
+  return [set sortedArrayUsingDescriptors: [NSArray arrayWithObject:sortDescriptor]];
+}
+
++ (NSString *) tagsStringForMeasurableMetadata:(MeasurableMetadata*) measurableMetadata {
+  
+  NSMutableArray* tagsTextArray = [NSMutableArray arrayWithCapacity:measurableMetadata.tags.count];
+  
+  for (Tag* tag in measurableMetadata.tags) {
+    [tagsTextArray addObject:tag.text];
+  }
+  
+  return [tagsTextArray componentsJoinedByString:NSLocalizedString(@"value-separator", @", ")];;
 }
 
 @end

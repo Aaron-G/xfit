@@ -17,7 +17,7 @@
 
 + (void) adjustImage: (UIButton*) buttonWithImage withMeasurableValueTrend: (MeasurableValueTrend) measurableValueTrend withMeasurableValueGoal: (MeasurableValueGoal) valueGoal;
 
-+ (void) adjustImage: (UIButton*) buttonWithImage forMeasurable: (id <Measurable>) measurable;
++ (void) adjustImage: (UIButton*) buttonWithImage forMeasurable: (Measurable*) measurable;
 
 + (AppViewController*) appViewController;
 
@@ -51,6 +51,6 @@
 
 + (NSString*) generalNameForUnitType: (UnitType) type;
 
-+ (NSString*) stringForExerciseMoreInfos:(NSDictionary*) moreInfos withSeparator:(NSString*) separator;
-
++ (NSString*) stringForExerciseUnitValueDescriptors:(NSArray*) descriptors withSeparator:(NSString*) separator;
+  
 @end

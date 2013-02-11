@@ -11,7 +11,8 @@
 #import "MeasurableHelper.h"
 #import "DeleteTableViewCell.h"
 #import "App.h"
-#import "ActivityMetadataProvider.h"
+#import "ActivityMetadata.h"
+#import "ModelHelper.h"
 
 @interface MeasurableInfoEditViewController () <UIActionSheetDelegate>
 
@@ -35,6 +36,7 @@
 
   if(self) {
     self.mode = MeasurableInfoEditViewControllerModeEdit;
+    self.layoutAsynchronous = NO;
   }
   return self;
 }
@@ -70,15 +72,20 @@
 //CREATE MEASURABLE - START
 ///////////////////////////////////////////////////////////////////
 
-- (void)createMeasurableInfoFromMeasurable:(id<Measurable>) measurable {
-  [self createMeasurableInfoWithMeasurable:[measurable copy]];
+- (void)createMeasurableInfoFromMeasurable:(Measurable*) measurable {
+  
+  //Copy the measurable
+  Measurable* newMeasurable = [measurable copy];
+
+  //Proceed as usual
+  [self createMeasurableInfoWithMeasurable:newMeasurable];
 }
 
 - (void)createMeasurableInfo {
   [self createMeasurableInfoWithMeasurable:[self newMeasurableInstance]];
 }
 
-- (void)createMeasurableInfoWithMeasurable:(id<Measurable>) measurable {
+- (void)createMeasurableInfoWithMeasurable:(Measurable*) measurable {
 
   self.measurable = measurable;
   
@@ -94,26 +101,26 @@
   self.navigationItem.hidesBackButton = YES;
   
   self.mode = MeasurableInfoEditViewControllerModeCreate;
-
+  
   [UIHelper showViewController:self asModal:NO withTransitionTitle:@"To New Measurable"];
 }
 
-- (id<Measurable>)newMeasurableInstance {
+- (Measurable*)newMeasurableInstance {
   return nil;
 }
 
 - (NSString *)titleForNewScreen {
-  return [NSString stringWithFormat:NSLocalizedString(@"measurable-new-title-format", @""), self.measurable.metadataProvider.type.displayName];
+  return [NSString stringWithFormat:NSLocalizedString(@"measurable-new-title-format", @""), self.measurable.metadata.category.name];
 }
 
 - (NSString *)titleForCancelAlert {
-  return [NSString stringWithFormat:NSLocalizedString(@"measurable-new-cancel-alert-title-format", @""), self.measurable.metadataProvider.type.displayName];
+  return [NSString stringWithFormat:NSLocalizedString(@"measurable-new-cancel-alert-title-format", @""), self.measurable.metadata.category.name];
 }
 
 - (void)cancelCreateMeasurable {
   
   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[self titleForCancelAlert]
-                                                  message:[NSString stringWithFormat:NSLocalizedString(@"measurable-new-cancel-alert-message-format", @""), self.measurable.metadataProvider.type.displayName]
+                                                  message:[NSString stringWithFormat:NSLocalizedString(@"measurable-new-cancel-alert-message-format", @""), self.measurable.metadata.category.name]
                                                  delegate:self
                                         cancelButtonTitle:NSLocalizedString(@"no-label", @"No")
                                         otherButtonTitles:NSLocalizedString(@"yes-label", @"yes"), nil];
@@ -126,6 +133,10 @@
     
    if(buttonIndex == 1) {
      
+     //Revert all unsaved model changes
+     [ModelHelper cancelModelChanges];
+     
+     //Exit the screen
      [self exitMeasurableEditInfoScreen];
     }
   }
@@ -133,6 +144,10 @@
 
 - (void)doneCreateMeasurable {
 
+  //This is a must save
+  [self saveChangesWithMessage: [NSString stringWithFormat:@"MeasurableInfoEditViewController - could not save model changes - trying to create a new measurable %@", self.measurable.metadata.name]
+                      mustSave: YES];
+  
   [self.delegate didCreateMeasurableInfoForMeasurable:self.measurable];
 
   [self exitMeasurableEditInfoScreen];
@@ -144,12 +159,17 @@
 ///////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////
-//DELTE MEASURABLE - START
+//DELETE MEASURABLE - START
 ///////////////////////////////////////////////////////////////////
 - (void) deleteMeasurable {
   
+  if([ModelHelper hasUnsavedModelChanges]) {
+    NSLog(@"MeasurableInfoEditViewController - model changes pending - trying to delete a measurable");
+    return;
+  }
+  
   UIActionSheet* actionSheet =
-  [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"measurable-delete-message-format", @""), self.measurable.metadataProvider.type.displayName]
+  [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"measurable-delete-message-format", @""), self.measurable.metadata.category.name]
                               delegate:self
                      cancelButtonTitle:NSLocalizedString(@"cancel-label", @"Cancel")
                 destructiveButtonTitle:NSLocalizedString(@"delete-label", @"Delete")
@@ -164,9 +184,13 @@
   
   if (buttonIndex == 0) {
     
-    UserProfile* userProfile = [[App sharedInstance] userProfile];
-    [userProfile.exercises removeObjectForKey:self.measurable.metadataProvider.identifier];
+    //Delete from persistence
+    if(![ModelHelper deleteMeasurable:self.measurable andSave:YES]) {
+      //CXB HANDLE
+      NSLog(@"MeasurableInfoEditViewController - could not save model changes - trying to delete measurable");
+    }
     
+    //Notify listeners
     [self.delegate didDeleteMeasurableInfoForMeasurable:self.measurable];
     
     self.navigationItem.rightBarButtonItem = nil;
@@ -196,17 +220,17 @@
 
 - (UITableViewCell*) createNameCell {
   self.nameCell = [self.tableView dequeueReusableCellWithIdentifier:@"NameTableViewCell"];
-  self.nameCell.nameTextField.placeholder = [NSString stringWithFormat:NSLocalizedString(@"measurable-edit-name-placeholder-format", @"%@ name"), self.measurable.metadataProvider.type.displayName];
+  self.nameCell.nameTextField.placeholder = [NSString stringWithFormat:NSLocalizedString(@"measurable-edit-name-placeholder-format", @"%@ name"), self.measurable.metadata.category.name];
   
   self.nameCell.nameTextField.delegate = self;
-  self.nameCell.nameTextField.text = self.measurable.metadataProvider.name;
+  self.nameCell.nameTextField.text = self.measurable.metadata.name;
   return self.nameCell;
 }
 
 - (UITableViewCell*) createDescriptionCell {
   self.descriptionCell = [self.tableView dequeueReusableCellWithIdentifier:@"DescriptionTableViewCell"];
   self.descriptionCell.descriptionTextView.delegate = self;
-  self.descriptionCell.descriptionTextView.text = self.measurable.metadataProvider.description;
+  self.descriptionCell.descriptionTextView.text = self.measurable.metadata.definition;
 
   return self.descriptionCell;
 }
@@ -229,21 +253,22 @@
 
 - (UITableViewCell*) createEditMediaCellForImageAtIndex:(NSInteger) index {
     EditMediaTableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:@"EditMediaTableViewCell"];
-    NSString* imagePath = [self.measurable.metadataProvider.images objectAtIndex:(index - 1)];
-    cell.mediaImageView.image = [UIImage imageWithContentsOfFile:imagePath];
+    Media* image = [self.measurable.metadata.images objectAtIndex:(index - 1)];
+    cell.mediaImageView.image = [UIImage imageWithContentsOfFile:image.path];
     return cell;
 }
 
 - (UITableViewCell*) createEditMediaCellForVideoAtIndex:(NSInteger) index {
   EditMediaTableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:@"EditMediaTableViewCell"];
-  NSString* videoThumbnailPath = [MediaHelper thumbnailForVideo:[self.measurable.metadataProvider.videos objectAtIndex:(index - 1)] returnDefaultIfNotAvailable:YES];
+  Media* video = [self.measurable.metadata.videos objectAtIndex:(index - 1)];
+  NSString* videoThumbnailPath = [MediaHelper thumbnailForVideo:video.path returnDefaultIfNotAvailable:YES];
   cell.mediaImageView.image = [UIImage imageWithContentsOfFile:videoThumbnailPath];
   return cell;
 }
 
 - (UITableViewCell*) createFavoriteCell {
   
-  ActivityMetadataProvider* activityMetadataProvider = (ActivityMetadataProvider*)self.measurable.metadataProvider;
+  ActivityMetadata* activityMetadata = (ActivityMetadata*)self.measurable.metadata;
   
   self.favoriteCell = [self.tableView dequeueReusableCellWithIdentifier:@"OnOffTableViewCell"];
   self.favoriteCell.onOffLabel.text = NSLocalizedString(@"favorite-label", @"Favorite");
@@ -252,13 +277,13 @@
                                     action:@selector(changeFavorite)
                           forControlEvents:UIControlEventValueChanged];
   
-  self.favoriteCell.onOffSwitch.on = activityMetadataProvider.favorite;
+  self.favoriteCell.onOffSwitch.on = activityMetadata.favorite;
   return self.favoriteCell;
 }
 
 - (UITableViewCell*) createPRWallCell {
   
-  ActivityMetadataProvider* activityMetadataProvider = (ActivityMetadataProvider*)self.measurable.metadataProvider;
+  ActivityMetadata* activityMetadata = (ActivityMetadata*)self.measurable.metadata;
   
   self.prWallCell = [self.tableView dequeueReusableCellWithIdentifier:@"OnOffTableViewCell"];
   self.prWallCell.onOffLabel.text = NSLocalizedString(@"prwall-label", @"PR Wall");
@@ -267,24 +292,22 @@
                                   action:@selector(changePRWall)
                         forControlEvents:UIControlEventValueChanged];
   
-  self.prWallCell.onOffSwitch.on = activityMetadataProvider.prWall;
+  self.prWallCell.onOffSwitch.on = activityMetadata.prWall;
   return self.prWallCell;
 }
 
 - (UITableViewCell*) createTagsCell {
 
-  ActivityMetadataProvider* activityMetadataProvider = (ActivityMetadataProvider*)self.measurable.metadataProvider;
-  
   self.tagsCell = [self.tableView dequeueReusableCellWithIdentifier:@"TableViewCellSubtitle"];
   self.tagsCell.textLabel.text = NSLocalizedString(@"tags-label", @"Tags");
-  self.tagsCell.detailTextLabel.text = [activityMetadataProvider.tags componentsJoinedByString:NSLocalizedString(@"value-separator", @", ")];
+  self.tagsCell.detailTextLabel.text = [MeasurableHelper tagsStringForMeasurableMetadata:self.measurable.metadata];
   
   return self.tagsCell;
 }
 
 - (UITableViewCell*) createDeleteCell {
   DeleteTableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"DeleteTableViewCell"];
-  cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"measurable-delete-label-format", @""), self.measurable.metadataProvider.type.displayName];;
+  cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"measurable-delete-label-format", @""), self.measurable.metadata.category.name];;
   return cell;
 }
 
@@ -312,31 +335,49 @@
 
 - (void) changeFavorite {
 
-  ActivityMetadataProvider* activityMetadataProvider = (ActivityMetadataProvider*)self.measurable.metadataProvider;
+  ActivityMetadata* activityMetadata = (ActivityMetadata*)self.measurable.metadata;
   
-  activityMetadataProvider.favorite = self.favoriteCell.onOffSwitch.on;
+  activityMetadata.favorite = self.favoriteCell.onOffSwitch.on;
+
+  [self saveChangesWithMessage: [NSString stringWithFormat:@"MeasurableInfoEditViewController - could not save model changes - trying to change the favorite state of the %@ metadata", self.measurable.metadata.name]];
 }
 
 - (void) changePRWall {
   
-  ActivityMetadataProvider* activityMetadataProvider = (ActivityMetadataProvider*)self.measurable.metadataProvider;
+  ActivityMetadata* activityMetadata = (ActivityMetadata*)self.measurable.metadata;
+
+  activityMetadata.prWall = self.prWallCell.onOffSwitch.on;
   
-  activityMetadataProvider.prWall = self.prWallCell.onOffSwitch.on;
+  [self saveChangesWithMessage: [NSString stringWithFormat:@"MeasurableInfoEditViewController - could not save model changes - trying to change the prWall state of the %@ metadata", self.measurable.metadata.name]];
 }
 
 - (void) editTags {
  
-  ActivityMetadataProvider* activityMetadataProvider = (ActivityMetadataProvider*)self.measurable.metadataProvider;
-  
-  ActivityTagsEditViewController* tagsEditViewController =
-  (ActivityTagsEditViewController*)[UIHelper viewControllerWithViewStoryboardIdentifier: @"ActivityTagsEditViewController"];
+  MeasurableTagsEditViewController* tagsEditViewController =
+  (MeasurableTagsEditViewController*)[UIHelper viewControllerWithViewStoryboardIdentifier: @"MeasurableTagsEditViewController"];
   tagsEditViewController.delegate = self;
-  [tagsEditViewController editTags:activityMetadataProvider.tags];
+  [tagsEditViewController editTags:self.measurable.metadata.tags];
 }
 
 - (void)didChangeTags:(NSArray *)tags {
-  ActivityMetadataProvider* activityMetadataProvider = (ActivityMetadataProvider*)self.measurable.metadataProvider;
-  activityMetadataProvider.tags = tags;
+
+  NSArray* existingTags = self.measurable.metadata.tags;
+  
+  //Remove the tags that have been removed by the user
+  for (Tag* existingTag in existingTags) {
+    if(![tags containsObject:existingTag]) {
+      [self.measurable.metadata removeTag:existingTag];
+    }
+  }
+  
+  //Add the tags that have been added by the user
+  for (Tag* newTag in tags) {
+    if(![existingTags containsObject:newTag]) {
+      [self.measurable.metadata addTag:newTag];
+    }
+  }
+  
+  [self saveChangesWithMessage: [NSString stringWithFormat:@"MeasurableInfoEditViewController - could not save model changes - trying to change the tags of the %@ metadata", self.measurable.metadata.name]];
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -401,23 +442,28 @@
 
 - (void) endEditingView {
   
+  NSString* debugTargetField = nil;
+  
   //Reset input/accessory views
   if([self.currentlyEditingView.class isSubclassOfClass:[UITextField class]]) {
     UITextField* textField = (UITextField*)self.currentlyEditingView;
     
-    self.measurable.metadataProvider.name = ([UIHelper isEmptyString: textField.text] ? nil : textField.text);
+    self.measurable.metadata.name = ([UIHelper isEmptyString: textField.text] ? nil : textField.text);
     
     textField.inputAccessoryView = nil;
-    textField.inputView = nil;
+    textField.inputView = nil;    
     
+    debugTargetField = @"name";
     
   } else if([self.currentlyEditingView.class isSubclassOfClass:[UITextView class]]) {
     UITextView* textView = (UITextView*)self.currentlyEditingView;
     
-    self.measurable.metadataProvider.description = ([UIHelper isEmptyString: textView.text] ? nil : textView.text);
+    self.measurable.metadata.definition = ([UIHelper isEmptyString: textView.text] ? nil : textView.text);
     
     textView.inputAccessoryView = nil;
     textView.inputView = nil;
+    
+    debugTargetField = @"definition";
   }
   
   //Restore navigation buttons
@@ -432,6 +478,8 @@
   //2- Let the delegate know the measurable was edited
   [self.delegate didEditMeasurableInfoForMeasurable:self.measurable];
   
+  [self saveChangesWithMessage: [NSString stringWithFormat:@"MeasurableInfoEditViewController - could not save model changes - trying to change the %@ of the %@ metadata", debugTargetField, self.measurable.metadata.name]];
+  
   self.currentlyEditingView = nil;
 }
 
@@ -440,18 +488,33 @@
 ///////////////////////////////////////////////////////////////////
 
 - (NSArray *)videos {
-  return self.measurable.metadataProvider.videos;
-}
-
-- (void)setVideos:(NSArray *)videos {
-  self.measurable.metadataProvider.videos = videos;
+  return self.measurable.metadata.videos;
 }
 
 - (NSArray *)images {
-  return self.measurable.metadataProvider.images;
+  return self.measurable.metadata.images;
 }
-- (void)setImages:(NSArray *)images {
-  self.measurable.metadataProvider.images = images;
+
+- (void)pickedImage:(NSString*) path atIndexPath:(NSIndexPath *)indexPath {
+  
+  //Create image
+  MeasurableMetadataImage* metadataImage = [ModelHelper newMeasurableMetadataImage];
+  metadataImage.index = [NSNumber numberWithInt:indexPath.item];
+  metadataImage.path = path;
+  [self.measurable.metadata addImage:metadataImage];
+  
+  [self saveChangesWithMessage: [NSString stringWithFormat:@"MeasurableInfoEditViewController - could not save model changes - trying to add image to the %@ metadata", self.measurable.metadata.name]];
+}
+
+- (void)pickedVideo:(NSString*) path atIndexPath:(NSIndexPath *)indexPath {
+  
+  //Create video
+  MeasurableMetadataVideo* metadataVideo = [ModelHelper newMeasurableMetadataVideo];
+  metadataVideo.index = [NSNumber numberWithInt:indexPath.item];
+  metadataVideo.path = path;
+  [self.measurable.metadata addVideo:metadataVideo];
+
+  [self saveChangesWithMessage: [NSString stringWithFormat:@"MeasurableInfoEditViewController - could not save model changes - trying to add video to the %@ metadata", self.measurable.metadata.name]];
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
@@ -474,34 +537,16 @@
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-  if(toIndexPath.section == self.imagesSection || toIndexPath.section == self.videosSection) {
-    
-    if(toIndexPath.item == fromIndexPath.item) {
-      return;
-    }
-    
-    NSMutableArray* updatedArray = nil;
-    
-    if(toIndexPath.section == self.imagesSection) {
-      updatedArray = [NSMutableArray arrayWithArray:self.measurable.metadataProvider.images];
-      self.measurable.metadataProvider.images = updatedArray;
-      
-    } else if(toIndexPath.section == self.videosSection) {
-      updatedArray = [NSMutableArray arrayWithArray:self.measurable.metadataProvider.videos];
-      self.measurable.metadataProvider.videos = updatedArray;
-    }
-    
-    //Update data array
-    NSString* mediaPath = [updatedArray objectAtIndex:(fromIndexPath.item - 1)];
-    
-    [updatedArray removeObjectAtIndex:(fromIndexPath.item - 1)];
-    
-    if(fromIndexPath.item > toIndexPath.item) {
-      [updatedArray insertObject:mediaPath atIndex:(toIndexPath.item - 1)];
-    } else {
-      [updatedArray insertObject:mediaPath atIndex:(toIndexPath.item - 1 - 1)];
-    }
-  }
+
+  [MediaHelper moveMediaAtIndexPath:fromIndexPath
+                        toIndexPath:toIndexPath
+                           inVideos:self.measurable.metadata.videos
+                    inVideosSection:self.videosSection
+                         orInImages:self.measurable.metadata.images
+                    inImagesSection:self.imagesSection];
+
+  [self saveChangesWithMessage: [NSString stringWithFormat:@"MeasurableInfoEditViewController - could not save model changes - trying to rearrange video or image of the %@ metadata", self.measurable.metadata.name]];
+  
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -538,29 +583,34 @@
   if(editingStyle == UITableViewCellEditingStyleInsert) {
     [self.mediaPickerSupport startPickingMediaAtIndexPath:indexPath];
   } else if(UITableViewCellEditingStyleDelete == editingStyle) {
-    
-    if(indexPath.section == self.imagesSection || indexPath.section == self.videosSection) {
+
+    if(UITableViewCellEditingStyleDelete == editingStyle) {
       
-      NSMutableArray* updatedArray = nil;
-      
-      if(indexPath.section == self.imagesSection) {
-        updatedArray = [NSMutableArray arrayWithArray:self.measurable.metadataProvider.images];
-        self.measurable.metadataProvider.images = updatedArray;
+      if(indexPath.section == self.imagesSection || indexPath.section == self.videosSection) {
         
-      } else if(indexPath.section == self.videosSection) {
-        updatedArray = [NSMutableArray arrayWithArray:self.measurable.metadataProvider.videos];
-        self.measurable.metadataProvider.videos = updatedArray;
+        bool needsSave = NO;
+        NSString* debugTargetField = nil;
+        
+        if(indexPath.section == self.imagesSection) {
+          [self.measurable.metadata removeImage: [self.measurable.metadata.images objectAtIndex:indexPath.item - 1]];
+          needsSave = YES;
+          debugTargetField = @"image";
+        } else if(indexPath.section == self.videosSection) {
+          [self.measurable.metadata removeVideo: [self.measurable.metadata.videos objectAtIndex:indexPath.item - 1]];
+          needsSave = YES;
+          debugTargetField = @"video";
+        }
+
+        if(needsSave) {
+          [self saveChangesWithMessage: [NSString stringWithFormat:@"MeasurableInfoEditViewController - could not save model changes - trying to delete %@ of the %@ metadata", debugTargetField, self.measurable.metadata.name]];
+        }
+        
+        //Delete the removed row
+        [self.tableView deleteRowsAtIndexPaths: [NSArray arrayWithObject: indexPath] withRowAnimation: YES];
       }
-      
-      //Update data array
-      [updatedArray removeObjectAtIndex:(indexPath.item - 1)];
-      
-      //Delete the removed row
-      [self.tableView deleteRowsAtIndexPaths: [NSArray arrayWithObject: indexPath] withRowAnimation: YES];
     }
   }
 }
-
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
   
@@ -606,6 +656,32 @@
   }
   return cell;
 }
+
+- (void)saveChangesWithMessage:(NSString*) message {
+  [self saveChangesWithMessage:message mustSave:NO];
+}
+
+- (void)saveChangesWithMessage:(NSString*) message mustSave:(BOOL) mustSave {
+  
+  if(!mustSave) {
+    
+    //"auto saving" is only done in edit mode, not in create mode
+    if(self.mode == MeasurableInfoEditViewControllerModeCreate) {
+      return;
+    }
+  }
+  
+  if(![ModelHelper saveModelChanges]) {
+    
+    NSLog(@"%@", message);
+    //cxb migrate localize
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:@"There was error. Please restart the app. If the problem persists please contact us. Apologies for the inconvinience."
+                                                   delegate:nil
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:NSLocalizedString(@"dismiss-label", @"Dismiss"), nil];
+    [alert show];
+  }
+}
+
 @end
-
-

@@ -14,6 +14,6 @@
 
 @property UIPageControl* pickerPageControl;
 
-- (void) pickMeasurableOfType:(MeasurableType*) measurableType fromMeasurables:(NSArray*) measurables withDelegate:(id<MeasurablePickerDelegate>) delegate;
+- (void) pickMeasurableOfType:(MeasurableCategory*) measurableCategory fromMeasurables:(NSArray*) measurables withDelegate:(id<MeasurablePickerDelegate>) delegate;
 
 @end

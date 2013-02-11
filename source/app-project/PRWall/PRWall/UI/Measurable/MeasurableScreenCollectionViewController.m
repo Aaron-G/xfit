@@ -40,7 +40,7 @@ const NSInteger MEASURABLE_INFO_SCREEN_INDEX = 1;
   return [UIHelper measurableViewController];
 }
 
-- (void)setMeasurable:(id<Measurable>)measurable {
+- (void)setMeasurable:(Measurable*)measurable {
   
   _measurable = measurable;
   
@@ -58,7 +58,7 @@ const NSInteger MEASURABLE_INFO_SCREEN_INDEX = 1;
   [self scrollToViewControllerAtIndex:0 animated:NO];
 }
 
-- (id<Measurable>)measurable {
+- (Measurable*)measurable {
   return _measurable;
 }
 
@@ -187,7 +187,7 @@ const NSInteger MEASURABLE_INFO_SCREEN_INDEX = 1;
   }
   
   //Should only be enable when we have data
-  BOOL buttonsEnabled = (self.measurable.dataProvider.values.count > 0);
+  BOOL buttonsEnabled = (self.measurable.data.values.count > 0);
   self.measurableViewController.barButtonItemEditLog.enabled = buttonsEnabled;
   self.measurableViewController.barButtonItemChartLog.enabled = buttonsEnabled;
   self.measurableViewController.barButtonItemShareLog.enabled = buttonsEnabled;
@@ -204,7 +204,7 @@ const NSInteger MEASURABLE_INFO_SCREEN_INDEX = 1;
     [toolBarItems addObject:self.measurableViewController.barButtonItemShareInfo];
     [toolBarItems addObject:self.measurableViewController.barButtonItemSpacerOne];
     
-    if(self.measurable.metadataProvider.copyable) {
+    if(self.measurable.metadata.copyable) {
       [toolBarItems addObject:self.measurableViewController.barButtonItemCopyMeasurable];
       [toolBarItems addObject:self.measurableViewController.barButtonItemSpacerTwo];
     }

@@ -13,7 +13,7 @@
 @interface MeasurableInfoLayoutDelegateBase : NSObject <MeasurableViewLayoutDelegate>
 
 //Subclasses
-- (void) updateContentWithMeasurable: (id<Measurable>)measurable inMeasurableInfoViewController: (MeasurableInfoViewController *)measurableInfoViewController;
-- (void) updateLayoutWithMeasurable: (id<Measurable>) measurable inMeasurableInfoViewController:(MeasurableInfoViewController*) measurableInfoViewController startAtPosition:(CGPoint) startPosition;
+- (void) updateContentWithMeasurable: (Measurable*)measurable inMeasurableInfoViewController: (MeasurableInfoViewController *)measurableInfoViewController;
+- (void) updateLayoutWithMeasurable: (Measurable*) measurable inMeasurableInfoViewController:(MeasurableInfoViewController*) measurableInfoViewController startAtPosition:(CGPoint) startPosition;
 
 @end

@@ -22,6 +22,8 @@
 #import "AddMediaTableViewCell.h"
 #import "EditMediaTableViewCell.h"
 #import "MediaPickerSupport.h"
+#import "ModelHelper.h"
+#import "Media.h"
 
 @interface MeasurableDataEntryViewController () <MediaPickerSupportDelegate>
 
@@ -132,8 +134,7 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
     self.requiresViewUpdate = NO;
   }
   
-  [super viewWillAppear:animated];
-  
+  [super viewWillAppear:animated];  
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -165,11 +166,11 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
     MeasurableDataEntryEditValueTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MeasurableDataEntryEditValueTableViewCell"];
 
     if(hasValue) {
-      cell.valueTextField.text = [self.measurable.metadataProvider.unit.valueFormatter formatValue: self.measurableDataEntry.value];
+      cell.valueTextField.text = [self.measurable.metadata.unit.valueFormatter formatValue: self.measurableDataEntry.value];
     } else {
       cell.valueTextField.text = nil;
     }
-    cell.valueTextField.placeholder = [self.measurable.metadataProvider.unit.valueFormatter formatValue: self.measurable.metadataProvider.valueSample];
+    cell.valueTextField.placeholder = [self.measurable.metadata.unit.valueFormatter formatValue: self.measurable.metadata.valueSample];
     
     return cell;
     
@@ -199,8 +200,8 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
     } else {
       
       EditMediaTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"EditMediaTableViewCell"];
-      NSString* imagePath = [self.measurableDataEntry.images objectAtIndex:(indexPath.item - 1)];
-      cell.mediaImageView.image = [UIImage imageWithContentsOfFile:imagePath];
+      Media* media = [self.measurableDataEntry.images objectAtIndex:(indexPath.item - 1)];
+      cell.mediaImageView.image = [UIImage imageWithContentsOfFile:media.path];
       return cell;
       
     }
@@ -215,7 +216,8 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
     } else {
       
       EditMediaTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"EditMediaTableViewCell"];
-      NSString* videoThumbnailPath = [MediaHelper thumbnailForVideo:[self.measurableDataEntry.videos objectAtIndex:(indexPath.item - 1)] returnDefaultIfNotAvailable:YES];
+      Media* media = [self.measurableDataEntry.videos objectAtIndex:(indexPath.item - 1)];
+      NSString* videoThumbnailPath = [MediaHelper thumbnailForVideo: media.path returnDefaultIfNotAvailable:YES];
       cell.mediaImageView.image = [UIImage imageWithContentsOfFile:videoThumbnailPath];
       
       return cell;
@@ -287,26 +289,16 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
   
-  if(editingStyle == UITableViewCellEditingStyleInsert) {
-    [self.mediaPickerSupport startPickingMediaAtIndexPath:indexPath];
-  } else if(UITableViewCellEditingStyleDelete == editingStyle) {
+  if(UITableViewCellEditingStyleDelete == editingStyle) {
 
     if(indexPath.section == self.imagesSection || indexPath.section == self.videosSection) {
-
-      NSMutableArray* updatedArray = nil;
       
       if(indexPath.section == self.imagesSection) {
-        updatedArray = [NSMutableArray arrayWithArray:self.measurableDataEntry.images];
-        self.measurableDataEntry.images = updatedArray;
-        
+        [self.measurableDataEntry removeImage: [self.measurableDataEntry.images objectAtIndex:indexPath.item - 1]];        
       } else if(indexPath.section == self.videosSection) {
-        updatedArray = [NSMutableArray arrayWithArray:self.measurableDataEntry.videos];
-        self.measurableDataEntry.videos = updatedArray;
+        [self.measurableDataEntry removeVideo: [self.measurableDataEntry.videos objectAtIndex:indexPath.item - 1]];
       }
       
-      //Update data array
-      [updatedArray removeObjectAtIndex:(indexPath.item - 1)];
-
       //Delete the removed row
       [self.tableView deleteRowsAtIndexPaths: [NSArray arrayWithObject: indexPath] withRowAnimation: YES];
     }
@@ -314,39 +306,33 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  [self.mediaPickerSupport startPickingMediaAtIndexPath:indexPath];
+  
+  //This means the user clicked on an Add row.
+  //So add the new media as the last entry of the repective media
+  
+  NSArray* mediaArray = nil;
+  
+  if(indexPath.section == self.imagesSection) {
+    mediaArray = self.measurableDataEntry.images;;
+  } else if (indexPath.section == self.videosSection) {
+    mediaArray = self.measurableDataEntry.videos;
+  }
+  
+  if(!mediaArray) {
+    return;
+  }
+  
+  [self.mediaPickerSupport startPickingMediaAtIndexPath: [NSIndexPath indexPathForItem:mediaArray.count inSection:indexPath.section]];
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-  if(toIndexPath.section == self.imagesSection || toIndexPath.section == self.videosSection) {
-
-    if(toIndexPath.item == fromIndexPath.item) {
-      return;
-    }
-
-    NSMutableArray* updatedArray = nil;
-    
-    if(toIndexPath.section == self.imagesSection) {
-      updatedArray = [NSMutableArray arrayWithArray:self.measurableDataEntry.images];
-      self.measurableDataEntry.images = updatedArray;
-      
-    } else if(toIndexPath.section == self.videosSection) {
-      updatedArray = [NSMutableArray arrayWithArray:self.measurableDataEntry.videos];
-      self.measurableDataEntry.videos = updatedArray;
-    }
-        
-    //Update data array
-    NSString* mediaPath = [updatedArray objectAtIndex:(fromIndexPath.item - 1)];
-    
-    [updatedArray removeObjectAtIndex:(fromIndexPath.item - 1)];
-    
-    if(fromIndexPath.item > toIndexPath.item) {
-      [updatedArray insertObject:mediaPath atIndex:(toIndexPath.item - 1)];
-    } else {
-      [updatedArray insertObject:mediaPath atIndex:(toIndexPath.item - 1 - 1)];      
-    }    
-  }
-
+  
+  [MediaHelper moveMediaAtIndexPath:fromIndexPath
+                        toIndexPath:toIndexPath
+                           inVideos:self.measurableDataEntry.videos
+                    inVideosSection:self.videosSection
+                         orInImages:self.measurableDataEntry.images
+                    inImagesSection:self.imagesSection];
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
@@ -373,16 +359,25 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
 ///////////////////////////////////////////////////////////////////////////////////////
 
 
--(void)editMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable withDelegate:(id<MeasurableDataEntryDelegate>) delegate {  
+-(void)editMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (Measurable*) measurable withDelegate:(id<MeasurableDataEntryDelegate>) delegate {  
   [self prepareAndShowMeasurableDataEntry: measurableDataEntry inMeasurable: measurable withDelegate: delegate inMode: MeasurableDataEntryViewControllerModeEdit];
 }
 
--(void)createMeasurableDataEntryInMeasurable: (id<Measurable>) measurable withDelegate:(id<MeasurableDataEntryDelegate>) delegate {
-  MeasurableDataEntry* measurableDataEntry = [MeasurableHelper createMeasurableDataEntryForMeasurable:measurable];
-  [self prepareAndShowMeasurableDataEntry: measurableDataEntry inMeasurable: measurable withDelegate: delegate inMode: MeasurableDataEntryViewControllerModeCreate];
+-(void)createMeasurableDataEntryInMeasurable: (Measurable*) measurable withDelegate:(id<MeasurableDataEntryDelegate>) delegate {
+  [self prepareAndShowMeasurableDataEntry: nil inMeasurable: measurable withDelegate: delegate inMode: MeasurableDataEntryViewControllerModeCreate];
 }
 
-- (void) prepareAndShowMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable:(id<Measurable>) measurable withDelegate:(id<MeasurableDataEntryDelegate>) delegate inMode: (MeasurableDataEntryViewControllerMode) mode {
+- (void) prepareAndShowMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable:(Measurable*) measurable withDelegate:(id<MeasurableDataEntryDelegate>) delegate inMode: (MeasurableDataEntryViewControllerMode) mode {
+
+  if([ModelHelper hasUnsavedModelChanges]) {
+    NSLog(@"MeasurableDataEntryViewController - model changes pending - trying to edit/create a measurable data entry");
+    return;
+  }
+  
+  //Create one if this is a new entry
+  if(!measurableDataEntry) {
+    measurableDataEntry = [MeasurableHelper createMeasurableDataEntryForMeasurable:measurable];
+  }
   
   //Update Mode
   self.mode = mode;
@@ -406,7 +401,7 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
   }
   
   //Updade the title
-  self.title = [NSString stringWithFormat:titleFormat, self.measurable.metadataProvider.name];
+  self.title = [NSString stringWithFormat:titleFormat, self.measurable.metadata.name];
 
   //Only allow to complete if we have data
   self.doneBarButtonItem.enabled = (measurableDataEntry.value != nil);
@@ -415,7 +410,7 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
   [UIHelper showViewController:self asModal:NO withTransitionTitle:@"To Measurable Data Entry Edit"];
 }
 
--(void)setMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable {
+-(void)setMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (Measurable*) measurable {
   
   _measurableDataEntry = measurableDataEntry;
   _measurable = measurable;
@@ -425,8 +420,21 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
 - (IBAction)doneEditingMeasurableDataEntry {
   
   if(self.mode == MeasurableDataEntryViewControllerModeCreate) {
+    
+    //Add the data entry to the measurable data
+    [self.measurable.data addValue: self.measurableDataEntry];
+  
+    if(![ModelHelper saveModelChanges]) {
+      NSLog(@"MeasurableDataEntryViewController - could not save model changes - trying to add a measurable data entry");
+    }
+
     [self.delegate didFinishCreatingMeasurableDataEntry:self.measurableDataEntry inMeasurable:self.measurable];
   } else if(self.mode == MeasurableDataEntryViewControllerModeEdit) {
+    
+    if(![ModelHelper saveModelChanges]) {
+      NSLog(@"MeasurableDataEntryViewController - could not save model changes - trying to edit a measurable data entry");
+    }
+
     [self.delegate didFinishEditingMeasurableDataEntry:self.measurableDataEntry inMeasurable:self.measurable];
   }
   
@@ -436,6 +444,10 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
 - (IBAction)cancelEditingMeasurableDataEntry {
   
   if(self.mode == MeasurableDataEntryViewControllerModeCreate) {
+    
+    //Revert all unsaved model changes
+    [ModelHelper cancelModelChanges];
+
     [self.delegate didCancelCreatingMeasurableDataEntry:self.measurableDataEntry inMeasurable:self.measurable];
   }
   
@@ -465,7 +477,7 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
     
     if(view.tag == VALUE_TEXTFIELD_TAG) {
 
-      MeasurableValueType valueType = self.measurable.metadataProvider.valueType;
+      MeasurableValueType valueType = self.measurable.metadata.valueType;
       
       MeasurableValuePickerView* measurableValuePickerView = nil;
       
@@ -481,7 +493,7 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
       }
 
       //Special case
-      if(self.measurable.metadataProvider.unit.identifier == UnitIdentifierFoot) {
+      if([self.measurable.metadata.unit.identifier isEqualToString: UnitIdentifierFoot]) {
         measurableValuePickerView = self.valueTypeFootInchPickerView;
       }
 
@@ -570,7 +582,7 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
 ///////////////////////////////////////////////////////////////////
 
 - (Unit *)unit {
-  return self.measurable.metadataProvider.unit;
+  return self.measurable.metadata.unit;
 }
 
 -(void)valueSelectionChangedInMeasurableValuePickerView:(MeasurableValuePickerView*) measurableValuePickerView {
@@ -582,7 +594,7 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
   self.measurableDataEntry.value = measurableValuePickerView.value;
 
   //Update UI
-  ((UITextField*)self.currentlyEditingView).text = [self.measurable.metadataProvider.unit.valueFormatter formatValue: self.measurableDataEntry.value];
+  ((UITextField*)self.currentlyEditingView).text = [self.measurable.metadata.unit.valueFormatter formatValue: self.measurableDataEntry.value];
 }
 
 
@@ -593,15 +605,26 @@ static NSInteger DATE_TEXTFIELD_TAG = 1;
   return self.measurableDataEntry.videos;
 }
 
-- (void)setVideos:(NSArray *)videos {
-  self.measurableDataEntry.videos = videos;
-}
-
 - (NSArray *)images {
   return self.measurableDataEntry.images;
 }
-- (void)setImages:(NSArray *)images {
-  self.measurableDataEntry.images = images;
+
+- (void)pickedImage:(NSString*) path atIndexPath:(NSIndexPath *)indexPath {
+  
+  //Create image
+  MeasurableDataEntryImage* dataEntryImage = [ModelHelper newMeasurableDataEntryImage];
+  dataEntryImage.index = [NSNumber numberWithInt:indexPath.item];
+  dataEntryImage.path = path;
+  [self.measurableDataEntry addImage:dataEntryImage];
+}
+
+- (void)pickedVideo:(NSString*) path atIndexPath:(NSIndexPath *)indexPath {
+  
+  //Create video
+  MeasurableDataEntryVideo* dataEntryVideo = [ModelHelper newMeasurableDataEntryVideo];
+  dataEntryVideo.index = [NSNumber numberWithInt:indexPath.item];
+  dataEntryVideo.path = path;
+  [self.measurableDataEntry addVideo:dataEntryVideo];
 }
 
 @end

@@ -18,7 +18,7 @@
 #import "OnOffTableViewCell.h"
 #import "AddMediaTableViewCell.h"
 #import "EditMediaTableViewCell.h"
-#import "ActivityTagsEditViewController.h"
+#import "MeasurableTagsEditViewController.h"
 #import "MediaPickerSupport.h"
 
 typedef enum {
@@ -26,7 +26,7 @@ typedef enum {
   MeasurableInfoEditViewControllerModeEdit
 } MeasurableInfoEditViewControllerMode;
 
-@interface MeasurableInfoEditViewController : MeasurableLayoutViewController <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, UITextFieldDelegate, ActivityTagsEditViewControllerDelegate, MediaPickerSupportDelegate>
+@interface MeasurableInfoEditViewController : MeasurableLayoutViewController <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, UITextFieldDelegate, MeasurableTagsEditViewControllerDelegate, MediaPickerSupportDelegate>
 
 @property id<MeasurableInfoEditViewControllerDelegate> delegate;
 
@@ -50,7 +50,7 @@ typedef enum {
 @property IBOutlet UIBarButtonItem* cancelBarButtonItem;
 
 - (void)createMeasurableInfo;
-- (void)createMeasurableInfoFromMeasurable:(id<Measurable>) measurable;
+- (void)createMeasurableInfoFromMeasurable:(Measurable*) measurable;
 
 //Subclasses methods
 
@@ -64,11 +64,13 @@ typedef enum {
 - (UITableViewCell*) createCellForVideosSectionAtIndexPath:(NSIndexPath*) indexPath;
 - (UITableViewCell*) createDeleteCell;
 
-- (id<Measurable>) newMeasurableInstance;
+- (Measurable*) newMeasurableInstance;
 - (NSString*) titleForNewScreen;
 
 - (void) deleteMeasurable;
 - (void) installMediaPickerSupport;
+
+- (void)saveChangesWithMessage:(NSString*) message;
 
 - (void) editTags;
 

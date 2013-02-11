@@ -49,10 +49,10 @@
 
   MeasurablePickerTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MeasurablePickerTableViewCell" forIndexPath:indexPath];
   
-  id<Measurable> measurable = [self.measurables objectAtIndex:indexPath.item];
+  Measurable* measurable = [self.measurables objectAtIndex:indexPath.item];
   
-  cell.textLabel.text = measurable.metadataProvider.name;
-  cell.detailTextLabel.text = measurable.metadataProvider.metadataFull;
+  cell.textLabel.text = measurable.metadata.name;
+  cell.detailTextLabel.text = measurable.metadata.metadataFull;
   
   return cell;
 }

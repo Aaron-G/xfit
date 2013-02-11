@@ -14,6 +14,7 @@
 #import "UIHelper.h"
 #import "AppViewControllerSegue.h"
 #import "MeasurableInfoEditViewController.h"
+#import "ModelHelper.h"
 
 @interface MeasurableInfoViewController ()
 
@@ -61,6 +62,11 @@
   
   if(editing) {
     
+    if([ModelHelper hasUnsavedModelChanges]) {
+      NSLog(@"MeasurableInfoViewController - model changes pending - edit measurable metadata");
+      return;
+    }
+
     //Get hold of info edit view controller
     self.measurableInfoEditViewController = [MeasurableHelper measurableInfoEditViewControllerForMeasurable:self.measurable];
     
@@ -107,11 +113,11 @@
 }
 
 - (NSArray*)images {
-  return self.measurable.metadataProvider.images;
+  return self.measurable.metadata.images;
 }
 
 - (NSArray*)videos {
-  return self.measurable.metadataProvider.videos;
+  return self.measurable.metadata.videos;
 }
 
 @end

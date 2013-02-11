@@ -11,8 +11,8 @@
 //////////////////////////////////////////////////////
 //Need to be defined prior to imports below otherwise
 //compiler will complain about the dependency between
-//this interface and MeasurableDataProvider and
-//MeasurableMetadataProvider.
+//this interface and MeasurableData and
+//MeasurableMetadata.
 
 typedef enum {
   MeasurableValueTrendUp,
@@ -40,25 +40,34 @@ typedef enum {
   MeasurableSourceFeed
 } MeasurableSource;
 
-typedef NSString* MeasurableIdentifier;
-typedef NSString* MeasurableMoreInfoIdentifier;
-
 //////////////////////////////////////////////////////
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 #import "Unit.h"
-#import "MeasurableDataProvider.h"
-#import "MeasurableMetadataProvider.h"
+#import "MeasurableData.h"
+#import "MeasurableMetadata.h"
+#import "UserProfile.h"
 
-@class MeasurableDataProvider;
-@class MeasurableMetadataProvider;
+@class MeasurableData;
+@class MeasurableMetadata;
+@class UserProfile;
 
-@protocol Measurable <NSObject>
+@interface Measurable : NSManagedObject <NSCopying>
 
-@property MeasurableDataProvider* dataProvider;
-@property MeasurableMetadataProvider* metadataProvider;
+/////////////////////////////////////////////////////////
+//Core Data Properties
+/////////////////////////////////////////////////////////
 
-- (id<Measurable>)copy;
-+ new;
+//Relationships
+@property (nonatomic, retain) MeasurableData* data;
+@property (nonatomic, retain) MeasurableMetadata* metadata;
+@property (nonatomic, retain) UserProfile* userProfile;
+
+/////////////////////////////////////////////////////////
+//Subclass
+/////////////////////////////////////////////////////////
+
+- (Measurable*) newInstance;
 
 @end

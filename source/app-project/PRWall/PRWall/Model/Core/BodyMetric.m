@@ -2,32 +2,32 @@
 //  BodyMetric.m
 //  PR Wall
 //
-//  Created by Cleo Barretto on 9/8/12.
+//  Created by Cleo Barretto on 1/31/13.
 //
 //
 
 #import "BodyMetric.h"
-#import "BodyMetricMetadataProvider.h"
+#import "ModelHelper.h"
+
+BodyMetricIdentifier BodyMetricIdentifierHeight = @"BodyMetricIdentifierHeight";
+BodyMetricIdentifier BodyMetricIdentifierWeight = @"BodyMetricIdentifierWeight";
+BodyMetricIdentifier BodyMetricIdentifierChest = @"BodyMetricIdentifierChest";
+BodyMetricIdentifier BodyMetricIdentifierBicepsLeft = @"BodyMetricIdentifierBicepsLeft";
+BodyMetricIdentifier BodyMetricIdentifierBicepsRight = @"BodyMetricIdentifierBicepsRight";
+BodyMetricIdentifier BodyMetricIdentifierWaist = @"BodyMetricIdentifierWaist";
+BodyMetricIdentifier BodyMetricIdentifierHip = @"BodyMetricIdentifierHip";
+BodyMetricIdentifier BodyMetricIdentifierThighLeft = @"BodyMetricIdentifierThighLeft";
+BodyMetricIdentifier BodyMetricIdentifierThighRight = @"BodyMetricIdentifierThighRight";
+BodyMetricIdentifier BodyMetricIdentifierCalfLeft = @"BodyMetricIdentifierCalfLeft";
+BodyMetricIdentifier BodyMetricIdentifierCalfRight = @"BodyMetricIdentifierCalfRight";
+BodyMetricIdentifier BodyMetricIdentifierBodyMassIndex = @"BodyMetricIdentifierBodyMassIndex";
+BodyMetricIdentifier BodyMetricIdentifierBodyFat = @"BodyMetricIdentifierBodyFat";
+BodyMetricIdentifier BodyMetricIdentifierInvalid = @"BodyMetricIdentifierInvalid";
 
 @implementation BodyMetric
 
-MeasurableIdentifier BodyMetricIdentifierHeight = @"BodyMetricIdentifierHeight";
-MeasurableIdentifier BodyMetricIdentifierWeight = @"BodyMetricIdentifierWeight";
-MeasurableIdentifier BodyMetricIdentifierChest = @"BodyMetricIdentifierChest";
-MeasurableIdentifier BodyMetricIdentifierBiceptsLeft = @"BodyMetricIdentifierBiceptsLeft";
-MeasurableIdentifier BodyMetricIdentifierBiceptsRight = @"BodyMetricIdentifierBiceptsRight";
-MeasurableIdentifier BodyMetricIdentifierWaist = @"BodyMetricIdentifierWaist";
-MeasurableIdentifier BodyMetricIdentifierHip = @"BodyMetricIdentifierHip";
-MeasurableIdentifier BodyMetricIdentifierThighLeft = @"BodyMetricIdentifierThighLeft";
-MeasurableIdentifier BodyMetricIdentifierThighRight = @"BodyMetricIdentifierThighRight";
-MeasurableIdentifier BodyMetricIdentifierCalfLeft = @"BodyMetricIdentifierCalfLeft";
-MeasurableIdentifier BodyMetricIdentifierCalfRight = @"BodyMetricIdentifierCalfRight";
-MeasurableIdentifier BodyMetricIdentifierBodyMassIndex = @"BodyMetricIdentifierBodyMassIndex";
-MeasurableIdentifier BodyMetricIdentifierBodyFat = @"BodyMetricIdentifierBodyFat";
-MeasurableIdentifier BodyMetricIdentifierInvalid = @"BodyMetricIdentifierInvalid";
-
-- (MeasurableMetadataProvider*) createMetadataProviderWithIdentifier:(MeasurableIdentifier) identifier {
-  return [[BodyMetricMetadataProvider alloc] initWithMeasurableIdentifier:identifier];
++ (BodyMetricIdentifier) bodyMetricIdentifierForMeasurable: (Measurable*) measurable {
+  return [ModelHelper bodyMetricIdentifierForBodyMetric:measurable];
 }
 
 @end

@@ -22,29 +22,27 @@ typedef enum {
 
 @interface MeasurableHelper : NSObject
 
-+ (UITableViewCell *)tableViewCellForMeasurable: (id <Measurable>) measurable inTableView: (UITableView *)tableView;
++ (UITableViewCell *)tableViewCellForMeasurable: (Measurable*) measurable inTableView: (UITableView *)tableView;
 
-+ (UITableViewCell *)tableViewCellForMeasurableDataEntry: (MeasurableDataEntry*) measurableDataEntry ofMeasurable: (id <Measurable>) measurable inTableView: (UITableView *)tableView;
++ (UITableViewCell *)tableViewCellForMeasurableDataEntry: (MeasurableDataEntry*) measurableDataEntry ofMeasurable: (Measurable*) measurable inTableView: (UITableView *)tableView;
 
-+ (id<MeasurableViewLayoutDelegate>) measurableInfoViewLayoutDelegateForMeasurable: (id<Measurable>) measurable;
-+ (id<MeasurableViewLayoutDelegate>) measurableLogViewLayoutDelegateForMeasurable: (id<Measurable>) measurable;
++ (id<MeasurableViewLayoutDelegate>) measurableInfoViewLayoutDelegateForMeasurable: (Measurable*) measurable;
++ (id<MeasurableViewLayoutDelegate>) measurableLogViewLayoutDelegateForMeasurable: (Measurable*) measurable;
 
 + (MeasurableDataEntryViewController*) measurableDataEntryViewController;
 
 + (NSDateFormatter *)measurableDateFormat;
 
-+ (MeasurableDataEntry*) createMeasurableDataEntryForMeasurable:(id<Measurable>) measurable;
++ (MeasurableDataEntry*) createMeasurableDataEntryForMeasurable:(Measurable*) measurable;
 
-+ (MediaHelperPurpose) mediaHelperPurposeForMeasurable:(id<Measurable>)measurable;
++ (MediaHelperPurpose) mediaHelperPurposeForMeasurable:(Measurable*)measurable;
 
-+ (MeasurableInfoEditViewController*) measurableInfoEditViewControllerForMeasurable:(id<Measurable>)measurable;
-+ (MeasurableInfoEditViewController*) measurableInfoEditViewControllerForMeasurableTypeIdentifier:(MeasurableTypeIdentifier)typeIdentifier;
++ (MeasurableInfoEditViewController*) measurableInfoEditViewControllerForMeasurable:(Measurable*)measurable;
++ (MeasurableInfoEditViewController*) measurableInfoEditViewControllerForMeasurableCategoryIdentifier:(MeasurableCategoryIdentifier)categoryIdentifier;
 
-+ (id<MeasurableViewLayoutDelegate>) measurableInfoEditViewLayoutDelegateForMeasurable: (id<Measurable>) measurable;
++ (id<MeasurableViewLayoutDelegate>) measurableInfoEditViewLayoutDelegateForMeasurable: (Measurable*) measurable;
 
 + (MeasurableChartViewController*) measurableChartViewController;
-
-+ (NSInteger) indexOfMeasurableWithMeasurableIndetifier:(MeasurableIdentifier) identifier inMeasurableArray:(NSArray*) measurableArray;
 
 + (UITableViewCell*) tableViewCellForMeasurableValueGoalInTableView: (UITableView *)tableView;
 + (UITableViewCell*) tableViewCellForMassUnitInTableView: (UITableView *)tableView;
@@ -61,14 +59,26 @@ typedef enum {
 + (void) configureSegmentedControlForLengthUnit: (UISegmentedControl *)segmentedControl;
 + (void) configureSegmentedControlForMassUnit: (UISegmentedControl *)segmentedControl;
 
-+ (void) updateDataStructureForNewMeasurable:(id<Measurable>) measurable;
++ (BOOL)updateDataStructureForNewMeasurable:(Measurable*)measurable;
 
 + (NSArray*) measurablesWithData:(NSArray*) measurables;
 
 + (MeasurablePickerContainerViewController*) measurablePickerContainerViewController;
 
-+ (NSInteger) indexForMeasurableDataEntry:(MeasurableDataEntry*)measurableDataEntry inMeasurable:(id<Measurable>)measurable;
+//+ (NSInteger) indexForMeasurableDataEntry:(MeasurableDataEntry*)measurableDataEntry inMeasurable:(Measurable*)measurable;
 
 + (NSArray*) sortMeasurables:(NSArray*) measurables byMeasurableSortCriterion:(MeasurableSortCriterion) sortCriterion;
+
++ (NSArray*) arrayUnsorted:(NSSet*) set;
+
++ (NSArray*) arraySortedByIndex:(NSSet*) set;
+
++ (NSArray*) arraySortedByDate:(NSSet*) set ascending:(BOOL)ascending;
+
++ (NSArray*) arraySortedByText:(NSSet*) set ascending:(BOOL)ascending;
+
++ (NSArray*) arraySortedByName:(NSSet*) set ascending:(BOOL)ascending;
+
++ (NSString *) tagsStringForMeasurableMetadata:(MeasurableMetadata*) measurableMetadata;
 
 @end

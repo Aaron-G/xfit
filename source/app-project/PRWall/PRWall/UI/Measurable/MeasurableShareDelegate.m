@@ -21,11 +21,11 @@
 }
 
 - (void) share {
-  [self showActionSheetWithTitlePart:[NSString stringWithFormat:@"%@ %@", self.measurableProvider.measurable.metadataProvider.type.displayName, self.measurableDetailTitle]];
+  [self showActionSheetWithTitlePart:[NSString stringWithFormat:@"%@ %@", self.measurableProvider.measurable.metadata.category.name, self.measurableDetailTitle]];
 }
 
 - (void) shareFromToolBar:(UIToolbar*) toolbar {
-  [self showActionSheetWithTitlePart:[NSString stringWithFormat:@"%@ %@", self.measurableProvider.measurable.metadataProvider.type.displayName, self.measurableDetailTitle] fromToolBar:toolbar];
+  [self showActionSheetWithTitlePart:[NSString stringWithFormat:@"%@ %@", self.measurableProvider.measurable.metadata.category.name, self.measurableDetailTitle] fromToolBar:toolbar];
 }
 
 #pragma UIActionSheetDelegate Helper methods

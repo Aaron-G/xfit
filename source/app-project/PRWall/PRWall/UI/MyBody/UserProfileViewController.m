@@ -11,14 +11,27 @@
 #import "UserProfile.h"
 #import "UIHelper.h"
 #import "MediaHelper.h"
+#import "ModelHelper.h"
+#import "PersistenceDelegate.h"
 
 @interface UserProfileViewController ()
 
 @property UIImagePickerController *imagePickerController;
 
+@property (readonly) PersistenceDelegate* persistenceDelegate;
+
 @end
 
 @implementation UserProfileViewController
+
+@synthesize persistenceDelegate = _persistenceDelegate;
+
+- (PersistenceDelegate *)persistenceDelegate {
+  if(!_persistenceDelegate) {
+    _persistenceDelegate = [[PersistenceDelegate alloc] init];
+  }
+  return _persistenceDelegate;
+}
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -112,6 +125,8 @@
   [self hideAllControls];
   
   [super viewWillDisappear:animated];
+  
+  [self.persistenceDelegate save];
 }
 
 - (NSUInteger)supportedInterfaceOrientations {
@@ -139,6 +154,10 @@
   [self.nameTextField resignFirstResponder];
   [self.boxTextField resignFirstResponder];
   [self.dateOfBirthTextField resignFirstResponder];
+  
+  //Hide the back button
+  self.navigationItem.hidesBackButton = NO;
+
 }
 
 - (IBAction) dismissInputView {
@@ -146,7 +165,7 @@
   [self changeName];
   [self changeBox];
   
-  [self invalidateUserProfileSummaryRow];
+  [self.persistenceDelegate save];
   
   [self hideAllControls];
 }
@@ -155,36 +174,81 @@
   
   //Update data model
   UserProfile* userProfile = [App sharedInstance].userProfile;
-  userProfile.dateOfBirth = self.dateOfBirthDatePicker.date;
   
-  //Update UI
-  self.dateOfBirthTextField.text = [UIHelper.appDateFormat stringFromDate:userProfile.dateOfBirth];
-
-  [self invalidateUserProfileSummaryRow];
+  if(![self.dateOfBirthDatePicker.date isEqual:userProfile.dateOfBirth]) {
+    
+    userProfile.dateOfBirth = self.dateOfBirthDatePicker.date;
+    
+    self.dateOfBirthTextField.text = [UIHelper.appDateFormat stringFromDate:userProfile.dateOfBirth];
+    
+    [self userProfileChanged];
+  }
 }
 
 - (IBAction)changeSex {
   
   UserProfile* userProfile = [App sharedInstance].userProfile;
   
-  if (self.sexSegmentedControl.selectedSegmentIndex == 0) {
-    userProfile.sex = UserProfileSexMale;
-  } else if (self.sexSegmentedControl.selectedSegmentIndex == 1) {
-    userProfile.sex = UserProfileSexFemale;
+  if(self.sexSegmentedControl.selectedSegmentIndex != [self segmentedControlIndexForUserProfileSex:userProfile.sex]) {
+    
+    userProfile.sex = [self userProfileSexForSegmentedControlIndex:self.sexSegmentedControl.selectedSegmentIndex];
+  
+    [self userProfileChanged];
+  }
+}
+
+- (NSInteger) segmentedControlIndexForUserProfileSex:(UserProfileSex) userProfileSex {
+  
+  NSInteger index = -1;
+
+  if(userProfileSex == UserProfileSexMale) {
+    index = 0;
+  } else if(userProfileSex == UserProfileSexFemale) {
+    index = 1;
   }
   
-  [self invalidateUserProfileSummaryRow];
+  return index;
+}
+
+- (UserProfileSex) userProfileSexForSegmentedControlIndex:(NSInteger) index {
+
+  UserProfileSex userProfileSex = UserProfileSexNone;
+
+  if (self.sexSegmentedControl.selectedSegmentIndex == 0) {
+    userProfileSex = UserProfileSexMale;
+  } else if (self.sexSegmentedControl.selectedSegmentIndex == 1) {
+    userProfileSex = UserProfileSexFemale;
+  }
+  
+  return userProfileSex;
 }
 
 - (void)changeBox {
+  
   UserProfile* userProfile = [App sharedInstance].userProfile;
-  userProfile.box = self.boxTextField.text;
+
+  if(![self.boxTextField.text isEqualToString:userProfile.box]) {
+    userProfile.box = self.boxTextField.text;
+    [self userProfileChanged];
+  }
 }
 
-- (void)changeName {  
+- (void)changeName {
+  
   UserProfile* userProfile = [App sharedInstance].userProfile;
-  userProfile.name = self.nameTextField.text;
+  
+  if(![self.nameTextField.text isEqualToString:userProfile.name]) {
+    userProfile.name = self.nameTextField.text;
+    [self userProfileChanged];
+  }
+}
 
+- (void) userProfileChanged {
+
+  //Ensure model is saved
+  [self.persistenceDelegate dataChanged];
+  
+  //Ensure UI get updated
   [self invalidateUserProfileSummaryRow];
 }
 
@@ -194,11 +258,18 @@
     //Update the first row of the first section
     [self.myBodyViewController.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:[NSIndexPath indexPathForItem:0 inSection:0]] withRowAnimation: NO];
   });
-
 }
 
 - (IBAction) startChangingImage {  
   [self presentViewController:self.imagePickerController animated:YES completion:nil];
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+  
+  //Hide the back button
+  self.navigationItem.hidesBackButton = YES;
+  
+  return YES;
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -215,7 +286,8 @@
       userProfile.image = imageURL.path;
       
       [self.imageButton setImage:image forState:UIControlStateNormal];
-      [self invalidateUserProfileSummaryRow];
+      [self userProfileChanged];
+      
     } else {
       
       [UIHelper showMessage:NSLocalizedString(@"unexpected-problem-message", "There was an unexpected problem. If the problem persists, please contact us.")

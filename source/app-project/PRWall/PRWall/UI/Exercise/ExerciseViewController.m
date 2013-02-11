@@ -16,6 +16,7 @@
 #import "MeasurablePickerCollectionViewController.h"
 #import "MeasurablePickerContainerViewController.h"
 #import "MeasurablePickerDelegate.h"
+#import "ModelHelper.h"
 
 @interface ExerciseViewController () <MeasurableInfoEditViewControllerDelegate, MeasurablePickerDelegate, MeasurableDataEntryDelegate> {
 }
@@ -73,8 +74,7 @@
 }
 
 - (void) reloadView {
-  UserProfile* userProfile = [App sharedInstance].userProfile;
-  [self reloadViewWithExercises:[MeasurableHelper measurablesWithData:[userProfile.exercises allValues]]];
+  [self reloadViewWithExercises:[MeasurableHelper measurablesWithData:[App sharedInstance].userProfile.exercises]];
 }
 
 - (void) reloadViewWithExercises:(NSArray*) exercises {
@@ -116,7 +116,7 @@
 
 - (void)newExerciseAction {
   MeasurableInfoEditViewController* measurableInfoEditViewController
-    = [MeasurableHelper measurableInfoEditViewControllerForMeasurableTypeIdentifier:MeasurableTypeIdentifierExercise];
+    = [MeasurableHelper measurableInfoEditViewControllerForMeasurableCategoryIdentifier:MeasurableCategoryIdentifierExercise];
   measurableInfoEditViewController.delegate = self;
   
   [measurableInfoEditViewController createMeasurableInfo];
@@ -124,10 +124,10 @@
 
 - (void)logExerciseAction {
   
-  MeasurableType* measurableType = [MeasurableType measurableTypeWithMeasurableTypeIdentifier:MeasurableTypeIdentifierExercise];
+  MeasurableCategory* measurableCategory = [MeasurableCategory measurableCategoryWithMeasurableCategoryIdentifier:MeasurableCategoryIdentifierExercise];
   
   MeasurablePickerContainerViewController* measurablePickerContainerViewController = [MeasurableHelper measurablePickerContainerViewController];
-  [measurablePickerContainerViewController pickMeasurableOfType: measurableType fromMeasurables:[App sharedInstance].userProfile.exercises.allValues withTitle:[NSString stringWithFormat:NSLocalizedString(@"logger-screen-title-format", @"Log %@"), measurableType.displayName] withDelegate:self];
+  [measurablePickerContainerViewController pickMeasurableOfCategory: measurableCategory fromMeasurables:[ModelHelper userProfile].exercises withTitle:[NSString stringWithFormat:NSLocalizedString(@"logger-screen-title-format", @"Log %@"), measurableCategory.name] withDelegate:self];
 
 }
 
@@ -158,63 +158,70 @@
 
 
 #pragma mark - MeasurableInfoEditViewControllerDelegate
-- (void)didCreateMeasurableInfoForMeasurable:(id<Measurable>)measurable {
-  [self loadNewExercise:(Exercise*)measurable];
+- (void)didCreateMeasurableInfoForMeasurable:(Measurable*)measurable {
+  [self loadNewExercise:measurable];
 }
 
-- (void)didEditMeasurableInfoForMeasurable:(id<Measurable>)measurable {
+- (void)didEditMeasurableInfoForMeasurable:(Measurable*)measurable {
   //Not used
 }
 
-- (void) didDeleteMeasurableInfoForMeasurable:(id<Measurable>) measurable {
+- (void) didDeleteMeasurableInfoForMeasurable:(Measurable*) measurable {
   //Not used
 }
 
 #pragma mark - MeasurableViewControllerDelegate
 
-- (void)didChangeMeasurable:(id<Measurable>)measurable {
-  [self reloadViewWithExercises:self.exercises];
+- (void)didChangeMeasurable:(Measurable*)measurable {
+  
+  //Some aspect of the measurable was changed, but it still has data entries
+  if(measurable.data.values.count > 0) {
+    [self reloadViewWithExercises:self.exercises];
+  }
+  
+  //No more data entries - so reload the view
+  else {
+    [self reloadView];
+  }
 }
 
-- (void)didDeleteMeasurable:(id<Measurable>)measurable {
+- (void)didDeleteMeasurable:(Measurable*)measurable {
   [self reloadView];
 }
 
-- (void)didCreateMeasurable:(id<Measurable>)measurable {
+- (void)didCreateMeasurable:(Measurable*)measurable {
   [self loadNewExercise:(Exercise*)measurable];
 }
 
-- (void)loadNewExercise:(Exercise*)exercise {
+- (void)loadNewExercise:(Measurable*)exercise {
 
-  [MeasurableHelper updateDataStructureForNewMeasurable:exercise];
+  if(![MeasurableHelper updateDataStructureForNewMeasurable:exercise]) {
+    NSLog(@"COULD NOT SAVE NEW EXERCISE");
+    //CXB_HANDLE
+    return;
+  }
   
   [self reloadView];
 }
 
 #pragma mark - MeasurablePickerDelegate
 
-- (void)didPickMeasurable:(id<Measurable>)measurable {
+- (void)didPickMeasurable:(Measurable*)measurable {
   MeasurableDataEntryViewController* measurableDataEntryViewController = [MeasurableHelper measurableDataEntryViewController];
   [measurableDataEntryViewController createMeasurableDataEntryInMeasurable:measurable withDelegate:self];
 }
 
--(void)didFinishCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable {
-
-  NSInteger index = [MeasurableHelper indexForMeasurableDataEntry:measurableDataEntry inMeasurable:measurable];
-  
-  NSMutableArray* newDataArray = [NSMutableArray arrayWithArray:measurable.dataProvider.values];
-  
-  [newDataArray insertObject:measurableDataEntry atIndex:index];
-  
-  measurable.dataProvider.values = newDataArray;
+-(void)didFinishCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (Measurable*) measurable {
   
   [[UIHelper appViewController].navigationController popToRootViewControllerAnimated:YES];
   
   [self reloadView];
 }
--(void)didCancelCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable {
+
+-(void)didCancelCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (Measurable*) measurable {
 }
--(void)didFinishEditingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable {
+
+-(void)didFinishEditingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (Measurable*) measurable {
 }
 
 @end

@@ -15,22 +15,26 @@
 #import "MyBodyUserProfileTableViewCell.h"
 #import "MeasurableTableViewCell.h"
 #import "ModelFactory.h"
-#import "BodyMetric.h"
 #import "UIHelper.h"
 #import "AppViewControllerSegue.h"
 #import "MeasurableHelper.h"
 #import "UserProfileViewController.h"
 #import "AppConstants.h"
+#import "MeasurableHelper.h"
+#import "BodyMetric.h"
 
 @interface MyBodyViewController () {
 }
 
 @property AppViewController* appViewController;
 @property ShareDelegate* appScreenShareDelegate;
+@property (readonly) NSDictionary* bodyMetricsDictionary;
 
 @end
 
 @implementation MyBodyViewController
+
+@synthesize bodyMetricsDictionary = _bodyMetricsDictionary;
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
   self = [super initWithCoder:aDecoder];
@@ -57,7 +61,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
-  [self.appScreenSwitchDelegate updateBars];
+  [self.appScreenSwitchDelegate updateBars];  
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+  [super viewWillDisappear:animated];  
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -102,8 +110,8 @@
   NSString* metricIdentifier = [self metricIdentifierIndexPath:indexPath];
   if(metricIdentifier != BodyMetricIdentifierInvalid) {
     
-    BodyMetric* metric = [[App sharedInstance].userProfile.metrics valueForKey: metricIdentifier];
-    return [MeasurableHelper tableViewCellForMeasurable:metric inTableView:tableView];
+    Measurable* bodyMetric = [self.bodyMetricsDictionary valueForKey: metricIdentifier];
+    return [MeasurableHelper tableViewCellForMeasurable:bodyMetric inTableView:tableView];
   } else {
     return [super tableView: tableView cellForRowAtIndexPath:indexPath];
   }
@@ -150,9 +158,9 @@
     if(indexPath.item == 0) {
       return BodyMetricIdentifierChest;
     } else if(indexPath.item == 1) {
-      return BodyMetricIdentifierBiceptsRight;
+      return BodyMetricIdentifierBicepsRight;
     } else if(indexPath.item == 2) {
-      return BodyMetricIdentifierBiceptsLeft;
+      return BodyMetricIdentifierBicepsLeft;
     }
   } else if(indexPath.section == 4) {
     if(indexPath.item == 0) {
@@ -175,48 +183,50 @@
   return BodyMetricIdentifierInvalid;
 }
 
-- (NSIndexPath *) indexPathForBodyMetricIdentifier: (MeasurableIdentifier) identifier {
+- (NSIndexPath *) indexPathForBodyMetric: (Measurable*) measurable {
   
   NSInteger section = -1;
   NSInteger item = -1;
+
+  BodyMetricIdentifier identifier = [BodyMetric bodyMetricIdentifierForMeasurable:measurable];
   
-  if(BodyMetricIdentifierWeight == identifier) {
+  if([identifier isEqualToString: BodyMetricIdentifierWeight]) {
     section = 1;
     item = 0;
-  } else if(BodyMetricIdentifierHeight == identifier) {
+  } else if([identifier isEqualToString: BodyMetricIdentifierHeight]) {
     section = 1;
     item = 1;
-  } else if(BodyMetricIdentifierBodyMassIndex == identifier) {
+  } else if([identifier isEqualToString: BodyMetricIdentifierBodyMassIndex]) {
     section = 2;
     item = 0;
-  } else if(BodyMetricIdentifierBodyFat == identifier) {
+  } else if([identifier isEqualToString: BodyMetricIdentifierBodyFat]) {
     section = 2;
     item = 1;
-  } else if(BodyMetricIdentifierChest == identifier) {
+  } else if([identifier isEqualToString: BodyMetricIdentifierChest]) {
     section = 3;
     item = 0;
-  } else if(BodyMetricIdentifierBiceptsRight == identifier) {
+  } else if([identifier isEqualToString: BodyMetricIdentifierBicepsRight]) {
     section = 3;
     item = 1;
-  } else if(BodyMetricIdentifierBiceptsLeft == identifier) {
+  } else if([identifier isEqualToString: BodyMetricIdentifierBicepsLeft]) {
     section = 3;
     item = 2;
-  } else if(BodyMetricIdentifierWaist == identifier) {
+  } else if([identifier isEqualToString: BodyMetricIdentifierWaist]) {
     section = 4;
     item = 0;
-  } else if(BodyMetricIdentifierHip == identifier) {
+  } else if([identifier isEqualToString: BodyMetricIdentifierHip]) {
     section = 4;
     item = 1;
-  } else if(BodyMetricIdentifierThighRight == identifier) {
+  } else if([identifier isEqualToString: BodyMetricIdentifierThighRight]) {
     section = 5;
     item = 0;
-  } else if(BodyMetricIdentifierThighLeft == identifier) {
+  } else if([identifier isEqualToString: BodyMetricIdentifierThighLeft]) {
     section = 5;
     item = 1;
-  } else if(BodyMetricIdentifierCalfRight == identifier) {
+  } else if([identifier isEqualToString: BodyMetricIdentifierCalfRight]) {
     section = 5;
     item = 2;
-  } else if(BodyMetricIdentifierCalfLeft == identifier) {
+  } else if([identifier isEqualToString: BodyMetricIdentifierCalfLeft]) {
     section = 5;
     item = 3;
   }
@@ -243,10 +253,10 @@
     
     if(metricIdentifier != BodyMetricIdentifierInvalid) {
       
-      BodyMetric* metric = [[App sharedInstance].userProfile.metrics valueForKey: metricIdentifier];
+      Measurable* bodyMetric = [self.bodyMetricsDictionary valueForKey: metricIdentifier];
       
       MeasurableViewController* measurableViewController = [UIHelper measurableViewController];
-      measurableViewController.measurable = metric;
+      measurableViewController.measurable = bodyMetric;
       measurableViewController.delegate = self;
       
       [UIHelper showViewController:measurableViewController asModal:NO withTransitionTitle:@"My Body to Body Metric"];
@@ -262,34 +272,43 @@
   [self.appScreenShareDelegate share];
 }
 
-- (void)updateMeasurable:(MeasurableIdentifier) identifier {
+- (void)didChangeMeasurable:(Measurable*)measurable {
   
-  NSIndexPath* indexPath = [self indexPathForBodyMetricIdentifier:identifier];
-  
-  if(indexPath) {
-    [self.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:indexPath] withRowAnimation: NO];
-  }
-}
-
-- (void)didChangeMeasurable:(id<Measurable>)measurable {
-  
-  NSIndexPath* indexPath = [self indexPathForBodyMetricIdentifier:measurable.metadataProvider.identifier];
+  NSIndexPath* indexPath = [self indexPathForBodyMetric:measurable];
   
   if(indexPath) {
     [self.tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject:indexPath] withRowAnimation: NO];
   }
 }
 
-- (void)didDeleteMeasurable:(id<Measurable>)measurable {
+- (void)didDeleteMeasurable:(Measurable*)measurable {
   //Body Metric are not deletable - so never fired
 }
 
-- (void)didCreateMeasurable:(id<Measurable>)measurable {
+- (void)didCreateMeasurable:(Measurable*)measurable {
   //Body Metric are not creatable - so never fired
 }
 
 - (void) clearCurrentSelectionInABit {
   [UIHelper clearSelectionInTableView:self.tableView afterDelay:0.1];
+}
+
+- (NSDictionary *)bodyMetricsDictionary {
+  if(!_bodyMetricsDictionary) {
+    _bodyMetricsDictionary = [self dictionaryWithBodyMetrics:[App sharedInstance].userProfile.bodyMetrics];
+  }
+  return _bodyMetricsDictionary;
+}
+
+- (NSDictionary*) dictionaryWithBodyMetrics:(NSArray*) bodyMetrics {
+  
+  NSMutableDictionary* dictionary = [NSMutableDictionary dictionaryWithCapacity:bodyMetrics.count];
+  
+  for (Measurable* bodyMetric in bodyMetrics) {
+    [dictionary setObject:bodyMetric forKey:[BodyMetric bodyMetricIdentifierForMeasurable:bodyMetric]];
+  }
+
+  return dictionary;
 }
 
 @end

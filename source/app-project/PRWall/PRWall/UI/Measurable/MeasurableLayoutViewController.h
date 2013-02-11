@@ -21,6 +21,9 @@
 //The location where it should start displaying its content
 @property CGPoint layoutPosition;
 
+//Determines if the layout is to be done asynchronously
+@property BOOL layoutAsynchronous;
+
 //Updates the view layout if needed
 - (void) layoutView;
 

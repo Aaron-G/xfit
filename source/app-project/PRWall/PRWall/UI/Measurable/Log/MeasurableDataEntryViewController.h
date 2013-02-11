@@ -19,9 +19,9 @@
 //Define it before the class definition as it is reference below
 @protocol MeasurableDataEntryDelegate <NSObject>
 
--(void)didFinishCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable;
--(void)didCancelCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable;
--(void)didFinishEditingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable;
+-(void)didFinishCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (Measurable*) measurable;
+-(void)didCancelCreatingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (Measurable*) measurable;
+-(void)didFinishEditingMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (Measurable*) measurable;
 
 @end
 
@@ -43,11 +43,11 @@
 @property IBOutlet MeasurableTimeValuePickerView* valueTypeTimePickerView;
 @property IBOutlet MeasurableFootInchValuePickerView* valueTypeFootInchPickerView;
 
-@property id<Measurable> measurable;
+@property Measurable* measurable;
 
--(void)editMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (id<Measurable>) measurable withDelegate:(id<MeasurableDataEntryDelegate>) delegate;
+-(void)editMeasurableDataEntry:(MeasurableDataEntry *)measurableDataEntry inMeasurable: (Measurable*) measurable withDelegate:(id<MeasurableDataEntryDelegate>) delegate;
 
--(void)createMeasurableDataEntryInMeasurable: (id<Measurable>) measurable withDelegate:(id<MeasurableDataEntryDelegate>) delegate;
+-(void)createMeasurableDataEntryInMeasurable: (Measurable*) measurable withDelegate:(id<MeasurableDataEntryDelegate>) delegate;
 
 @end
 

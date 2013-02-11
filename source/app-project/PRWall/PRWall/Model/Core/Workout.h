@@ -6,9 +6,10 @@
 //
 //
 
-#import <UIKit/UIKit.h>
-#import "MeasurableImpl.h"
+#import "Measurable.h"
 
-@interface Workout : MeasurableImpl
+@class Measurable;
+
+@interface Workout : Measurable
 
 @end
