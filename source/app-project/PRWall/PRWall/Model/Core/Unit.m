@@ -107,7 +107,6 @@ UnitIdentifier UnitIdentifierSecond = @"UnitIdentifierSecond";
 /////////////////////////////////////////////////////////
 //Injected Properties
 /////////////////////////////////////////////////////////
-//@synthesize identifier;
 @synthesize valueFormatter;
 @synthesize unitSystemConverter;
 

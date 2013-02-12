@@ -12,9 +12,4 @@
 
 @interface Exercise : Measurable
 
-//extern const MeasurableMoreInfoIdentifier ExerciseMoreInfoTime;
-//extern const MeasurableMoreInfoIdentifier ExerciseMoreInfoMass;
-//extern const MeasurableMoreInfoIdentifier ExerciseMoreInfoLength;
-//extern const MeasurableMoreInfoIdentifier ExerciseMoreInfoGeneral;
-
 @end

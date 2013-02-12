@@ -415,25 +415,6 @@ withMeasurableValueGoal: measurable.metadata.valueGoal];
   return [measurables sortedArrayUsingDescriptors:nil];
 }
 
-//+ (NSInteger) indexForMeasurableDataEntry:(MeasurableDataEntry*)measurableDataEntry inMeasurable:(Measurable*)measurable {
-//  
-//  NSInteger index = 0;
-//  
-//  for (MeasurableDataEntry* curMeasurableDataEntry in measurable.data.values) {
-//    
-//    if (measurableDataEntry.date == curMeasurableDataEntry.date) {
-//      continue;
-//    }
-//    
-//    if(measurableDataEntry.date == [curMeasurableDataEntry.date laterDate:measurableDataEntry.date]) {
-//      break;
-//    }
-//    
-//    index++;
-//  }
-//  return index;
-//}
-
 + (NSArray*) sortMeasurables:(NSArray*) measurables byMeasurableSortCriterion:(MeasurableSortCriterion) sortCriterion {
   
   NSComparator comparator = nil;

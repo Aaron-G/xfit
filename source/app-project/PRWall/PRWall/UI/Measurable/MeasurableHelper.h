@@ -65,8 +65,6 @@ typedef enum {
 
 + (MeasurablePickerContainerViewController*) measurablePickerContainerViewController;
 
-//+ (NSInteger) indexForMeasurableDataEntry:(MeasurableDataEntry*)measurableDataEntry inMeasurable:(Measurable*)measurable;
-
 + (NSArray*) sortMeasurables:(NSArray*) measurables byMeasurableSortCriterion:(MeasurableSortCriterion) sortCriterion;
 
 + (NSArray*) arrayUnsorted:(NSSet*) set;
