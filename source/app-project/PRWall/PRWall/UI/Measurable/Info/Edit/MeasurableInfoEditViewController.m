@@ -674,9 +674,8 @@
   if(![ModelHelper saveModelChanges]) {
     
     NSLog(@"%@", message);
-    //cxb migrate localize
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                    message:@"There was error. Please restart the app. If the problem persists please contact us. Apologies for the inconvinience."
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error-label", @"Error")
+                                                    message:NSLocalizedString(@"unrecovable-error-message", @"")
                                                    delegate:nil
                                           cancelButtonTitle:nil
                                           otherButtonTitles:NSLocalizedString(@"dismiss-label", @"Dismiss"), nil];

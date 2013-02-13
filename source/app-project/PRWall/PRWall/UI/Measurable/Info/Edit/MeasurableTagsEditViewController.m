@@ -83,8 +83,7 @@
   } else {
     cell = [tableView dequeueReusableCellWithIdentifier:@"NewTagCell" forIndexPath:indexPath];
     UITextField* textField = (UITextField*)[cell viewWithTag:1];
-    //CXB migrate text
-    textField.placeholder = NSLocalizedString(@"activity-tags-edit-new-placeholder", @"new tag");
+    textField.placeholder = NSLocalizedString(@"measurable-tags-edit-new-placeholder", @"new tag");
     textField.delegate = self;
   }
   
@@ -115,9 +114,8 @@
 
     self.indexOfTagBeingDeleted = indexPath.item;
     
-    //CXB migrate text
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"activity-tags-edit-delete-title", @"Delete Tag")
-                                                    message:NSLocalizedString(@"activity-tags-edit-delete-message", @"")
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"measurable-tags-edit-delete-title", @"Delete Tag")
+                                                    message:NSLocalizedString(@"measurable-tags-edit-delete-message", @"")
                                                    delegate:self
                                           cancelButtonTitle:NSLocalizedString(@"cancel-label", @"Cancel")
                                           otherButtonTitles:NSLocalizedString(@"delete-label", @"Delete"), nil];
@@ -168,10 +166,8 @@
   
   if([self.tags containsObject:tagForText]) {
     //There is a tag with this text so do not allow to be created
-    
-    //CXB localize
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Cannot Create Tag"
-                                                    message:@"A tag with this text already exists"
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"measurable-tags-edit-create-error-title", @"")
+                                                    message:NSLocalizedString(@"measurable-tags-edit-tag-exists-message", @"")
                                                    delegate:nil
                                           cancelButtonTitle:nil
                                           otherButtonTitles:NSLocalizedString(@"ok-label", @"OK"), nil];

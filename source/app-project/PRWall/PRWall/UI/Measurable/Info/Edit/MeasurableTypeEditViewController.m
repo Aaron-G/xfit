@@ -64,7 +64,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   
-  //CXB migrate cell
   UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"KindCell" forIndexPath:indexPath];
   
   MeasurableType* measurableType = [self.measurableTypes objectAtIndex: indexPath.item];

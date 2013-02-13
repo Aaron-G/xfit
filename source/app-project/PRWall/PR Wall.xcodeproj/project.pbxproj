@@ -1496,10 +1496,10 @@
 		74E29E3F16C8899B00B60D58 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				744EFB1B15FBBAA2000AECBA /* ModelFactory.h */,
-				744EFB1C15FBBAA2000AECBA /* ModelFactory.m */,
 				7414C3FB169FB62000B6BA27 /* ModelHelper.h */,
 				7414C3FC169FB62000B6BA27 /* ModelHelper.m */,
+				744EFB1B15FBBAA2000AECBA /* ModelFactory.h */,
+				744EFB1C15FBBAA2000AECBA /* ModelFactory.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";

@@ -13,10 +13,12 @@
 "female-label" = "Female";
 "more-label" = "More";
 "dismiss-label" = "Dismiss";
+"error-label" = "Error";
 "app-review-url" = "tms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=APP_ID&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software";
 "app-date-format" = "MM/dd/yyyy";
 "no-space-in-device-message" = "Your device does not have enough space.";
 "unexpected-problem-message" = "There was an unexpected problem. If the problem persists, please contact us.";
+"unrecovable-error-message" = "There was error. Please restart the app. If the problem persists please contact us. Apologies for the inconvinience.";
 
 "minor-separator" = "・";
 "major-separator" = " - ";
@@ -245,7 +247,6 @@
 "measurable-data-entry-screen-edit-title-format" = "Edit Log Entry";
 
 
-
 //////////////////////////////
 //Goal Edit
 "goal-more-label" = "more";
@@ -281,11 +282,13 @@
 "unit-general-no-unit-title" = "How many";
 
 //////////////////////////////
-//Activity Tags Edit Screen
-"activity-tags-edit-new-placeholder" = "new tag";
+//Tags Edit Screen
+"measurable-tags-edit-new-placeholder" = "new tag";
+"measurable-tags-edit-delete-title" = "Delete Tag";
+"measurable-tags-edit-delete-message" = "This tag will be deleted permanently from all workouts and exercises that use it.";
+"measurable-tags-edit-create-error-title" = "Cannot Create Tag";
+"measurable-tags-edit-tag-exists-message" = "A tag with this text already exists";
 
-"activity-tags-edit-delete-title" = "Delete Tag";
-"activity-tags-edit-delete-message" = "This tag will be deleted permanently from all workouts and exercises that use it.";
 
 //////////////////////////////
 //Measurable Create
